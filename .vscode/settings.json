@@ -1,0 +1,8 @@
+{
+    "intelephense.environment.includePaths": [
+        "./vendor"
+    ],
+    "intelephense.files.associations": [
+        "*.php"
+    ]
+}
