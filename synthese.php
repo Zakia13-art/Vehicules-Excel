@@ -2,6 +2,7 @@
 /**
  * synthese.php — Rapport Par Société
  * Lit directement les fichiers Excel dans data/entreprises/
+ * ✨ BARRE DE RECHERCHE AVANCÉE avec filtres structurés
  */
 
 require_once 'config.php';
@@ -38,10 +39,8 @@ function readSheetSyn(string $filePath, string $sheetName): array {
 }
 function parseKmSyn(string $val): float { return (float) preg_replace('/[^0-9.]/', '', $val); }
 
-// ── Barème couleur alertes ────────────────────────────────
 function sAlertes(int $v): string { return $v <= 2 ? 'vert' : ($v <= 10 ? 'orange' : 'rouge'); }
 
-// ── Lecture ───────────────────────────────────────────────
 $error    = '';
 $synthese = null;
 $rows     = [];
@@ -77,6 +76,18 @@ if (!$fileEco || !$fileKilo) {
         $km      = parseKmSyn($row['Kilométrage'] ?? '0');
         $couleur = sAlertes($nbInfr);
         
+        $alerts_vert = 0;
+        $alerts_orange = 0;
+        $alerts_rouge = 0;
+        
+        if ($couleur === 'vert') {
+            $alerts_vert = $nbInfr;
+        } elseif ($couleur === 'orange') {
+            $alerts_orange = $nbInfr;
+        } else {
+            $alerts_rouge = $nbInfr;
+        }
+        
         $rows[] = [
             'vehicule'    => $reg,
             'note'        => $note,
@@ -86,17 +97,18 @@ if (!$fileEco || !$fileKilo) {
             'km_raw'      => $row['Kilométrage'] ?? '—',
             'duree'       => $row['Durée'] ?? '—',
             'infraction'  => implode(' / ', array_unique($info['infractions'])),
+            'alerts_vert' => $alerts_vert,
+            'alerts_orange' => $alerts_orange,
+            'alerts_rouge' => $alerts_rouge,
         ];
     }
 
-    // ── Totaux synthèse ───────────────────────────────────
     $nbV       = count($rows);
     $totalNote = array_sum(array_column($rows, 'note'));
     $totalInfr = array_sum(array_column($rows, 'alertes'));
     $totalKm   = array_sum(array_column($rows, 'km'));
     $moy100    = $totalKm > 0 ? round(($totalInfr / $totalKm) * 100, 2) : 0;
 
-    // ── Comptage par couleur ──────────────────────────────
     $countRouge   = 0;
     $countOrange  = 0;
     $countVert    = 0;
@@ -126,18 +138,12 @@ if (!$fileEco || !$fileKilo) {
     ];
 }
 
-function dotSyn(string $status): string {
-    $c = ['vert' => '#22c55e', 'orange' => '#f97316', 'rouge' => '#ef4444'][$status] ?? '#94a3b8';
-    return '<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' . $c . ';vertical-align:middle;margin-right:4px;"></span>';
-}
-
-// ✨ Cercles colorés avec nombres
 function coloredValue(string $color, int $value): string {
     $colors = ['rouge' => '#ef4444', 'orange' => '#f97316', 'vert' => '#22c55e'];
     $c = $colors[$color] ?? '#94a3b8';
-    return '<span style="display:inline-flex;align-items:center;gap:5px;vertical-align:middle;">'
-         . '<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:' . $c . ';flex-shrink:0;"></span>'
-         . '<span style="font-weight:700;color:#1e293b;font-size:13px;">' . $value . '</span>'
+    return '<span style="display:inline-flex;align-items:center;gap:6px;">'
+         . '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:' . $c . ';flex-shrink:0;"></span>'
+         . '<span>' . $value . '</span>'
          . '</span>';
 }
 ?>
@@ -176,12 +182,13 @@ function coloredValue(string $color, int $value): string {
         .card { max-width: 1200px; margin: 0 auto 28px; background: #fff; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.07), 0 8px 32px rgba(0,0,0,.06); overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; }
         thead tr { background: #f8fafc; border-bottom: 2px solid #e2e8f0; }
-        thead th { padding: 12px 16px; text-align: left; font-size: 0.72rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
-        thead th.subheader { font-size: 0.65rem; padding: 6px 16px; border-top: 1px solid #cbd5e1; }
+        thead tr:first-child th { padding: 12px 14px; text-align: left; font-size: 0.72rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        thead tr:last-child th { padding: 6px 14px; font-size: 0.65rem; border-top: 1px solid #e2e8f0; text-align: center; }
         tbody tr { border-bottom: 1px solid #f1f5f9; transition: background .15s; }
         tbody tr:last-child { border-bottom: none; }
         tbody tr:hover { background: #f8fafc; }
-        tbody td { padding: 12px 16px; font-size: 0.85rem; color: #334155; vertical-align: middle; }
+        tbody tr.hidden { display: none; }
+        tbody td { padding: 12px 14px; font-size: 0.85rem; color: #334155; vertical-align: middle; }
         tbody td:first-child { font-weight: 600; color: #0f172a; }
 
         .synthese-row td { background: #f0f4f8; font-weight: 700 !important; font-size: 1rem !important; color: #0f172a !important; border-top: 2px solid #e2e8f0; }
@@ -196,18 +203,16 @@ function coloredValue(string $color, int $value): string {
         .error-box { max-width: 1200px; margin: 0 auto; background: #fef2f2; border-left: 4px solid #ef4444; border-radius: 8px; padding: 16px 20px; color: #dc2626; }
         .meta { max-width: 1200px; margin: 0 auto; font-size: 0.78rem; color: #94a3b8; }
 
-        /* Groupe sous-colonnes Couleur */
-        .color-group { display: flex; gap: 8px; }
-        .color-value { text-align: center; padding: 4px 8px; font-weight: 600; color: #334155; }
-        
-        /* Styles pour les colonnes Couleur du tableau synthèse */
-        tbody tr.synthese-row td:nth-child(7),
-        tbody tr.synthese-row td:nth-child(8),
-        tbody tr.synthese-row td:nth-child(9) {
-            text-align: center;
-            padding: 12px 20px;
-            font-weight: 600;
-        }
+        /* Search Bar Avancée */
+        .search-container { max-width: 1200px; margin: 0 auto 24px; }
+        .search-box { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.05); border: 1px solid #e2e8f0; }
+        .search-select { padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; background: #fff; }
+        .search-select:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+        .btn-validate { padding: 10px 20px; background: #17a2b8; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; }
+        .btn-validate:hover { background: #138496; }
+        .btn-reset { padding: 10px 20px; background: #e2e8f0; color: #0f172a; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; }
+        .btn-reset:hover { background: #cbd5e1; }
+        .search-stats { font-size: 0.85rem; color: #64748b; }
     </style>
 </head>
 <body>
@@ -220,6 +225,60 @@ function coloredValue(string $color, int $value): string {
 <div class="actions">
     <a href="tableau.php" class="btn">← Retour Flotte Transport</a>
     <a href="BOUTCHERAFIN.php" class="btn">📋 Voir le détail BOUTCHERAFIN</a>
+    <a href="index.php" class="btn">📊 Accéder au Dashboard</a>
+</div>
+
+<!-- Barre de Recherche Avancée ✨ NOUVEAU -->
+<div class="search-container">
+    <div class="search-box">
+        <form id="filterForm" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 16px;">
+            
+            <div style="display: flex; flex-direction: column;">
+                <label style="font-size: 0.75rem; font-weight: 600; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Transporteur</label>
+                <select id="transporteur" class="search-select">
+                    <option value="">BOUTCHERAFIN</option>
+                    <option value="tous">Tous</option>
+                </select>
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label style="font-size: 0.75rem; font-weight: 600; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Chauffeur</label>
+                <select id="chauffeur" class="search-select">
+                    <option value="">Tous</option>
+                    <option value="non">Non</option>
+                    <option value="flot">Flot</option>
+                </select>
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label style="font-size: 0.75rem; font-weight: 600; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Véhicule</label>
+                <select id="vehicule" class="search-select">
+                    <option value="">Tous</option>
+                    <option value="13429">13429/A/25</option>
+                    <option value="21093">21093/A/17</option>
+                    <option value="MAN">MAN 23930/A/25</option>
+                </select>
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label style="font-size: 0.75rem; font-weight: 600; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Du</label>
+                <input type="date" id="dateFrom" class="search-select">
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label style="font-size: 0.75rem; font-weight: 600; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Au</label>
+                <input type="date" id="dateTo" class="search-select">
+            </div>
+        </form>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+            <button class="btn-validate" onclick="applyFilters()">Valider</button>
+            <button class="btn-reset" onclick="resetAllFilters()">Réinitialiser</button>
+            <div id="searchStats" class="search-stats" style="margin-left: auto; display: none;">
+                Résultats: <span id="resultCount">0</span> véhicule(s)
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php if ($error): ?>
@@ -268,9 +327,13 @@ function coloredValue(string $color, int $value): string {
                 <th>Total Infractions</th>
                 <th>Total Kilométrage</th>
                 <th>Moy. Infr. /100 km</th>
-                <th style="text-align:center;">Couleur<br>Rouge</th>
-                <th style="text-align:center;">Orange</th>
-                <th style="text-align:center;">Vert</th>
+                <th colspan="3" style="text-align:center;">Couleur</th>
+            </tr>
+            <tr>
+                <th colspan="6"></th>
+                <th>● Rouge</th>
+                <th>● Orange</th>
+                <th>● Vert</th>
             </tr>
         </thead>
         <tbody>
@@ -291,6 +354,17 @@ function coloredValue(string $color, int $value): string {
 
 <!-- Tableau détail -->
 <div class="section-title">Détail par véhicule</div>
+<div style="max-width: 1200px; margin: 0 auto 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <div></div>
+    <div style="font-size: 0.9rem; color: #64748b;">
+        Lignes par page: 
+        <select id="pageSize" style="padding: 6px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-family: 'DM Sans', sans-serif;">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+        </select>
+    </div>
+</div>
 <div class="card">
     <table>
         <thead>
@@ -300,17 +374,32 @@ function coloredValue(string $color, int $value): string {
                 <th>Alertes CRIT</th>
                 <th>Durée</th>
                 <th>Kilométrage</th>
+                <th colspan="3" style="text-align:center;">Couleur</th>
                 <th>Infractions</th>
             </tr>
+            <tr>
+                <th colspan="5"></th>
+                <th colspan="3" style="border-top: 1px solid #cbd5e1; padding: 6px 14px;">
+                    <div style="display: flex; justify-content: space-around; font-size: 0.65rem;">
+                        <span style="color: #ef4444;">● Rouge</span>
+                        <span style="color: #f97316;">● Orange</span>
+                        <span style="color: #22c55e;">● Vert</span>
+                    </div>
+                </th>
+                <th colspan="1" style="border-top: 1px solid #cbd5e1;"></th>
+            </tr>
         </thead>
-        <tbody>
+        <tbody id="tableBody">
             <?php foreach ($rows as $i => $v): ?>
-            <tr style="background:<?= $i % 2 === 0 ? '#fff' : '#f8fafc' ?>;">
+            <tr style="background:<?= $i % 2 === 0 ? '#fff' : '#f8fafc' ?>" class="data-row" data-vehicule="<?= strtolower(htmlspecialchars($v['vehicule'])) ?>" data-note="<?= $v['note'] ?>" data-alertes="<?= $v['alertes'] ?>" data-km="<?= $v['km'] ?>">
                 <td><?= htmlspecialchars($v['vehicule']) ?></td>
                 <td><?= $v['note'] ?></td>
                 <td><?= $v['alertes'] ?></td>
                 <td><?= htmlspecialchars($v['duree']) ?></td>
                 <td><?= htmlspecialchars($v['km_raw']) ?></td>
+                <td style="text-align:center;"><?= coloredValue('rouge', $v['alerts_rouge']) ?></td>
+                <td style="text-align:center;"><?= coloredValue('orange', $v['alerts_orange']) ?></td>
+                <td style="text-align:center;"><?= coloredValue('vert', $v['alerts_vert']) ?></td>
                 <td style="font-size:0.8rem;color:#475569;"><?= htmlspecialchars($v['infraction']) ?></td>
             </tr>
             <?php endforeach; ?>
@@ -321,6 +410,57 @@ function coloredValue(string $color, int $value): string {
 <?php endif; ?>
 
 <p class="meta"><?= $synthese ? $synthese['nb'] . ' véhicule(s)' : '' ?> — Dernière mise à jour : <?= date('d/m/Y H:i') ?></p>
+
+<script>
+    // Appliquer les filtres
+    function applyFilters() {
+        const transporteur = document.getElementById('transporteur').value;
+        const chauffeur = document.getElementById('chauffeur').value;
+        const vehicule = document.getElementById('vehicule').value;
+        const dateFrom = document.getElementById('dateFrom').value;
+        const dateTo = document.getElementById('dateTo').value;
+        
+        const rows = document.querySelectorAll('.data-row');
+        let count = 0;
+
+        rows.forEach(row => {
+            const vehiculeText = row.dataset.vehicule.toLowerCase();
+            let match = true;
+
+            // Filtrer par véhicule si sélectionné
+            if (vehicule && !vehiculeText.includes(vehicule.toLowerCase())) {
+                match = false;
+            }
+
+            if (match) {
+                row.classList.remove('hidden');
+                count++;
+            } else {
+                row.classList.add('hidden');
+            }
+        });
+
+        // Afficher les stats
+        const statsDiv = document.getElementById('searchStats');
+        if (transporteur || chauffeur || vehicule || dateFrom || dateTo) {
+            statsDiv.style.display = 'block';
+            document.getElementById('resultCount').textContent = count;
+        } else {
+            statsDiv.style.display = 'none';
+        }
+    }
+
+    // Réinitialiser tous les filtres
+    function resetAllFilters() {
+        document.getElementById('transporteur').value = '';
+        document.getElementById('chauffeur').value = '';
+        document.getElementById('vehicule').value = '';
+        document.getElementById('dateFrom').value = '';
+        document.getElementById('dateTo').value = '';
+        document.querySelectorAll('.data-row').forEach(row => row.classList.remove('hidden'));
+        document.getElementById('searchStats').style.display = 'none';
+    }
+</script>
 
 </body>
 </html>
