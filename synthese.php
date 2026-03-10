@@ -1,466 +1,410 @@
 <?php
-/**
- * synthese.php — Rapport Par Société
- * Lit directement les fichiers Excel dans data/entreprises/
- * ✨ BARRE DE RECHERCHE AVANCÉE avec filtres structurés
- */
-
 require_once 'config.php';
 require_once 'vendor/autoload.php';
-
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-$dataDir    = 'C:/xampp/htdocs/vehicules/data/entreprises/';
-$SHEET_ECO  = 'Éco-conduite';
-$SHEET_KILO = 'Kilométrage+Heures moteur';
-
-function findLatestSyn(string $dir, string $pattern): ?string {
-    $files = glob($dir . '*' . $pattern . '*.xlsx');
-    if (empty($files)) return null;
-    usort($files, fn($a, $b) => filemtime($b) - filemtime($a));
-    return $files[0];
+//$dataDir = '/Users/mbelmahi/Project/well/experience/Vehicules-Excel/data/entreprises/';
+$dataDir = 'C:/xampp/htdocs/vehicules/data/entreprises/';
+$filesEco = glob($dataDir . '*co-conduite*.xlsx');
+$filesEco = array_filter($filesEco, fn($f) => strpos(basename($f), '~$') === false);
+$filesKilo = glob($dataDir . '*Kilom*.xlsx');
+$fileKilo = !empty($filesKilo) ? $filesKilo[0] : null;
+$error = '';
+if (empty($filesEco) || !$fileKilo) {
+    $error = '❌ Fichiers manquants';
 }
-function readSheetSyn(string $filePath, string $sheetName): array {
+
+function readExcelBySheetName(string $filePath, string $searchName): array {
     try {
         $spreadsheet = IOFactory::load($filePath);
-        $sheet = $spreadsheet->getSheetByName($sheetName) ?? $spreadsheet->getActiveSheet();
-        $rows  = $sheet->toArray(null, true, true, false);
+        $sheet = null;
+        foreach ($spreadsheet->getSheetNames() as $name) {
+            if (stripos($name, $searchName) !== false) {
+                $sheet = $spreadsheet->getSheetByName($name);
+                break;
+            }
+        }
+        if ($sheet === null) $sheet = $spreadsheet->getActiveSheet();
+        $rows = $sheet->toArray(null, true, true, false);
         if (empty($rows)) return [];
         $headers = array_map(fn($h) => trim((string)($h ?? '')), array_shift($rows));
         $data = [];
         foreach ($rows as $row) {
             if (empty(array_filter($row, fn($v) => $v !== null && $v !== ''))) continue;
             $assoc = [];
-            foreach ($headers as $i => $h) { $assoc[$h] = trim((string)($row[$i] ?? '')); }
+            foreach ($headers as $i => $h) {
+                $assoc[$h] = trim((string)($row[$i] ?? ''));
+            }
             $data[] = $assoc;
         }
         return $data;
-    } catch (\Exception $e) { return []; }
-}
-function parseKmSyn(string $val): float { return (float) preg_replace('/[^0-9.]/', '', $val); }
-
-function sAlertes(int $v): string { return $v <= 2 ? 'vert' : ($v <= 10 ? 'orange' : 'rouge'); }
-
-$error    = '';
-$synthese = null;
-$rows     = [];
-
-$fileEco  = findLatestSyn($dataDir, 'co-conduite');
-$fileKilo = findLatestSyn($dataDir, 'om');
-
-if (!$fileEco || !$fileKilo) {
-    $error = 'Fichier(s) Excel introuvable(s) dans <code>' . htmlspecialchars($dataDir) . '</code>';
-} else {
-    $ecoData  = readSheetSyn($fileEco,  $SHEET_ECO);
-    $kiloData = readSheetSyn($fileKilo, $SHEET_KILO);
-
-    $ecoMap = [];
-    foreach ($ecoData as $row) {
-        $reg  = $row['Regroupement'] ?? '';
-        $eval = $row['Évaluation']   ?? '';
-        $infr = $row['Infraction']   ?? '';
-        if ($reg === '') continue;
-        if (!isset($ecoMap[$reg])) $ecoMap[$reg] = ['evaluations' => [], 'infractions' => []];
-        if ($eval !== '' && $eval !== '00' && is_numeric($eval))
-            $ecoMap[$reg]['evaluations'][] = (float)$eval;
-        if ($infr !== '' && $infr !== '-----')
-            $ecoMap[$reg]['infractions'][] = $infr;
+    } catch (\Exception $e) {
+        return [];
     }
+}
 
-    foreach ($kiloData as $row) {
-        $reg  = $row['Regroupement'] ?? '';
-        $info = $ecoMap[$reg] ?? null;
-        if ($reg === '' || $info === null) continue;
-        $nbInfr  = count($info['infractions']);
-        $note    = min(100, round(array_sum($info['evaluations'])));
-        $km      = parseKmSyn($row['Kilométrage'] ?? '0');
-        $couleur = sAlertes($nbInfr);
-        
-        $alerts_vert = 0;
-        $alerts_orange = 0;
-        $alerts_rouge = 0;
-        
-        if ($couleur === 'vert') {
-            $alerts_vert = $nbInfr;
-        } elseif ($couleur === 'orange') {
-            $alerts_orange = $nbInfr;
-        } else {
-            $alerts_rouge = $nbInfr;
+function parseDureeToHours(string $duree): float {
+    $h = 0.0;
+    if (preg_match('/(\d+)\s*jours?\s*/i', $duree, $m)) {
+        $h += (float)$m[1] * 24;
+        $duree = preg_replace('/\d+\s*jours?\s*/i', '', $duree);
+    }
+    if (preg_match('/(\d+):(\d+):(\d+)/', $duree, $m)) {
+        $h += (float)$m[1] + (float)$m[2]/60 + (float)$m[3]/3600;
+    } elseif (preg_match('/(\d+):(\d+)/', $duree, $m)) {
+        $h += (float)$m[1] + (float)$m[2]/60;
+    }
+    return round($h, 1);
+}
+
+function scoreNoteConduite(float $alertes, float $alertesParKm, int $charge): array {
+    // Formule: 100 - (B * 2) - (C * 10) - (F * 5)
+    $note = 100 - ($alertes * 2) - ($alertesParKm * 10) - ($charge * 5);
+    $note = max(0, $note);
+    // Barèmes: Vert ≥80, Orange 60-79, Rouge <60
+    if ($note >= 80) $status = 'vert';
+    elseif ($note >= 60) $status = 'orange';
+    else $status = 'rouge';
+    return ['value' => round($note, 0), 'status' => $status];
+}
+
+function scoreAlertesCritiques(int $alertes): array {
+    if ($alertes <= 2) $status = 'vert';
+    elseif ($alertes <= 10) $status = 'orange';
+    else $status = 'rouge';
+    return ['value' => $alertes, 'status' => $status];
+}
+
+function scoreAlertesParKm(int $alertes, float $km): array {
+    // Formule: B * 100 / kilométrage
+    $ratio = $km > 0 ? round(($alertes * 100) / $km, 2) : 0;
+    if ($ratio < 0.5) $status = 'vert';
+    elseif ($ratio <= 1) $status = 'orange';
+    else $status = 'rouge';
+    return ['value' => $ratio, 'status' => $status];
+}
+
+function scoreHeuresConducte(float $heures): array {
+    // Barèmes: <40h=1 (Vert), 40-50h=2 (Orange), >50h=3 (Rouge)
+    if ($heures < 40) { $score = 1; $status = 'vert'; }
+    elseif ($heures <= 50) { $score = 2; $status = 'orange'; }
+    else { $score = 3; $status = 'rouge'; }
+    return ['value' => round($heures, 1), 'score' => $score, 'status' => $status];
+}
+
+function scoreKilometrage(float $km): array {
+    if ($km < 4000) { $score = 1; $status = 'vert'; }
+    elseif ($km <= 5000) { $score = 2; $status = 'orange'; }
+    else { $score = 3; $status = 'rouge'; }
+    return ['value' => $km, 'score' => $score, 'status' => $status, 'formatted' => number_format($km, 0, ',', ' ')];
+}
+
+function scoreChargeConducte(int $scoreHeures, int $scoreKm): array {
+    // Formule: Score heures + Score km (au lieu du produit)
+    $charge = $scoreHeures + $scoreKm;
+    if ($charge == 2) { $label = 'Faible'; $status = 'vert'; }
+    elseif ($charge >= 3 && $charge <= 4) { $label = 'Moyenne'; $status = 'orange'; }
+    else { $label = 'Élevée'; $status = 'rouge'; }
+    return ['value' => $charge, 'label' => $label, 'status' => $status];
+}
+
+function dot(string $status): string {
+    $colors = ['vert' => '#22c55e', 'orange' => '#f97316', 'rouge' => '#ef4444'];
+    return '<span class="dot" style="background:' . ($colors[$status] ?? '#d1d5db') . '"></span>';
+}
+
+$vehicules = [];
+if (empty($error)) {
+    $infractionData = [];
+    foreach ($filesEco as $file) {
+        // Lire uniquement le fichier d'infractions
+        if (stripos($file, 'infraction') !== false) {
+            $infractionData = array_merge($infractionData, readExcelBySheetName($file, 'rapport'));
         }
-        
-        $rows[] = [
-            'vehicule'    => $reg,
-            'note'        => $note,
-            'alertes'     => $nbInfr,
-            'alertes_couleur' => $couleur,
-            'km'          => $km,
-            'km_raw'      => $row['Kilométrage'] ?? '—',
-            'duree'       => $row['Durée'] ?? '—',
-            'infraction'  => implode(' / ', array_unique($info['infractions'])),
-            'alerts_vert' => $alerts_vert,
-            'alerts_orange' => $alerts_orange,
-            'alerts_rouge' => $alerts_rouge,
+    }
+    $kiloData = readExcelBySheetName($fileKilo, 'Kilométrage');
+    $normalize = function($str) {
+        return trim(preg_replace('/\s+/', ' ', $str));
+    };
+    $ecoMap = [];
+    foreach ($infractionData as $row) {
+        $reg = $row['Regroupement'] ?? '';
+        if ($reg === '') continue;
+        $regNorm = $normalize($reg);
+        if (!isset($ecoMap[$regNorm])) {
+            $ecoMap[$regNorm] = ['infractions' => 0];
+        }
+        $infr = $row['Infraction'] ?? '';
+        if ($infr !== '' && $infr !== '-----' && strtolower(trim($infr)) !== '----------') {
+            $ecoMap[$regNorm]['infractions']++;
+        }
+    }
+    foreach ($kiloData as $row) {
+        $reg = $row['Regroupement'] ?? '';
+        if ($reg === '') continue;
+        $regNorm = $normalize($reg);
+        $infractions = $ecoMap[$regNorm]['infractions'] ?? 0;
+        $dureeVal = $row['Durée'] ?? '';
+        $kmVal = $row['Kilométrage'] ?? '';
+        $heures = parseDureeToHours($dureeVal);
+        $km = (float) preg_replace('/[^0-9.]/', '', $kmVal);
+
+        // Calculer B, C, D, E en premier (indépendants)
+        $scoreB = scoreAlertesCritiques($infractions);
+        $scoreC = scoreAlertesParKm($infractions, $km);
+        $scoreD = scoreHeuresConducte($heures);
+        $scoreE = scoreKilometrage($km);
+
+        // Calculer F (dépend de D et E)
+        $scoreF = scoreChargeConducte($scoreD['score'], $scoreE['score']);
+
+        // Calculer A (dépend de B, C, F)
+        $scoreA = scoreNoteConduite((float)$scoreB['value'], (float)$scoreC['value'], (int)$scoreF['value']);
+
+        $vehicules[] = [
+            'note' => $scoreA['value'],
+            'alertes' => $scoreB['value'],
+            'alertes_s' => $scoreB['status'],
+            'al100' => $scoreC['value'],
+            'km' => $km,
         ];
     }
-
-    $nbV       = count($rows);
-    $totalNote = array_sum(array_column($rows, 'note'));
-    $totalInfr = array_sum(array_column($rows, 'alertes'));
-    $totalKm   = array_sum(array_column($rows, 'km'));
-    $moy100    = $totalKm > 0 ? round(($totalInfr / $totalKm) * 100, 2) : 0;
-
-    $countRouge   = 0;
-    $countOrange  = 0;
-    $countVert    = 0;
-    foreach ($rows as $v) {
-        switch ($v['alertes_couleur']) {
-            case 'rouge':
-                $countRouge++;
-                break;
-            case 'orange':
-                $countOrange++;
-                break;
-            case 'vert':
-                $countVert++;
-                break;
-        }
-    }
-
-    $synthese = [
-        'nb'         => $nbV,
-        'total_note' => $totalNote,
-        'total_infr' => $totalInfr,
-        'total_km'   => number_format($totalKm, 0, ',', ' ') . ' Km',
-        'moy100'     => $moy100,
-        'count_rouge' => $countRouge,
-        'count_orange' => $countOrange,
-        'count_vert' => $countVert,
-    ];
 }
 
-function coloredValue(string $color, int $value): string {
-    $colors = ['rouge' => '#ef4444', 'orange' => '#f97316', 'vert' => '#22c55e'];
-    $c = $colors[$color] ?? '#94a3b8';
-    return '<span style="display:inline-flex;align-items:center;gap:6px;">'
-         . '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:' . $c . ';flex-shrink:0;"></span>'
-         . '<span>' . $value . '</span>'
-         . '</span>';
-}
+// Calculate company totals
+$nbVehicules = count($vehicules);
+$totalNote = array_sum(array_column($vehicules, 'note'));
+$totalAlertes = array_sum(array_column($vehicules, 'alertes'));
+$totalKm = array_sum(array_column($vehicules, 'km'));
+$totalAl100 = $totalKm > 0 ? round(($totalAlertes * 100) / $totalKm, 2) : 0;
+
+// Count vehicles by infraction status (Rouge/Orange/Vert based on alertes_s)
+$infractionsRouge = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'rouge'));
+$infractionsOrange = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'orange'));
+$infractionsVert = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'vert'));
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapport Par Société</title>
+    <title>Synthèse Globale - BOUTCHERAFIN</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'DM Sans', sans-serif; background: #f0f4f8; color: #1e293b; min-height: 100vh; padding: 40px 24px; }
-        .page-header { max-width: 1200px; margin: 0 auto 28px; }
+        .page-header { max-width: 1300px; margin: 0 auto 28px; }
         .page-header h1 { font-size: 1.5rem; font-weight: 600; color: #0f172a; }
-        .page-header p  { font-size: 0.875rem; color: #64748b; margin-top: 4px; }
-        .actions { max-width: 1200px; margin: 0 auto 24px; display: flex; gap: 12px; flex-wrap: wrap; }
-        .btn { display: inline-flex; align-items: center; gap: 8px; background: #0f172a; color: #fff; border: none; padding: 9px 18px; border-radius: 8px; font-size: 0.85rem; font-family: inherit; font-weight: 500; cursor: pointer; text-decoration: none; transition: background .15s; }
-        .btn:hover { background: #1e293b; }
-
-        /* KPI Cards */
-        .kpi-grid { max-width: 1200px; margin: 0 auto 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
-        .kpi-card { background: #fff; border-radius: 14px; padding: 20px 18px; box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.05); }
-        .kpi-card.purple { border-top: 3px solid #8b5cf6; }
-        .kpi-card.blue   { border-top: 3px solid #3b82f6; }
-        .kpi-card.red    { border-top: 3px solid #ef4444; }
-        .kpi-card.green  { border-top: 3px solid #22c55e; }
-        .kpi-card.yellow { border-top: 3px solid #f59e0b; }
-        .kpi-label { font-size: 0.72rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-        .kpi-value { font-size: 1.8rem; font-weight: 700; color: #0f172a; line-height: 1; }
-        .kpi-sub   { font-size: 0.78rem; color: #94a3b8; margin-top: 4px; }
-
-        /* Tableaux */
-        .section-title { max-width: 1200px; margin: 0 auto 12px; font-size: 0.95rem; font-weight: 600; color: #0f172a; display: flex; align-items: center; gap: 8px; }
-        .section-title::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; }
-        .card { max-width: 1200px; margin: 0 auto 28px; background: #fff; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.07), 0 8px 32px rgba(0,0,0,.06); overflow-x: auto; }
+        .page-header p { font-size: 0.875rem; color: #64748b; margin-top: 4px; }
+        .card { max-width: 1300px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.07), 0 8px 32px rgba(0,0,0,.06); overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; }
         thead tr { background: #f8fafc; border-bottom: 2px solid #e2e8f0; }
-        thead tr:first-child th { padding: 12px 14px; text-align: left; font-size: 0.72rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
-        thead tr:last-child th { padding: 6px 14px; font-size: 0.65rem; border-top: 1px solid #e2e8f0; text-align: center; }
-        tbody tr { border-bottom: 1px solid #f1f5f9; transition: background .15s; }
-        tbody tr:last-child { border-bottom: none; }
+        thead th { padding: 12px 14px; text-align: left; font-size: 0.7rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        thead th.sub-header { font-size: 0.65rem; padding: 8px 10px; text-align: center; }
+        thead th.sub-header.rouge { border-left: 3px solid #ef4444; }
+        thead th.sub-header.orange { border-left: 3px solid #f97316; }
+        thead th.sub-header.vert { border-left: 3px solid #22c55e; }
+        tbody tr { border-bottom: 1px solid #f1f5f9; }
         tbody tr:hover { background: #f8fafc; }
-        tbody tr.hidden { display: none; }
-        tbody td { padding: 12px 14px; font-size: 0.85rem; color: #334155; vertical-align: middle; }
+        tbody td { padding: 11px 14px; font-size: 0.84rem; color: #334155; vertical-align: middle; }
         tbody td:first-child { font-weight: 600; color: #0f172a; }
-
-        .synthese-row td { background: #f0f4f8; font-weight: 700 !important; font-size: 1rem !important; color: #0f172a !important; border-top: 2px solid #e2e8f0; }
-
-        .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; }
-        .badge-blue   { background: #dbeafe; color: #1d4ed8; }
-        .badge-red    { background: #fee2e2; color: #991b1b; }
-        .badge-green  { background: #dcfce7; color: #166534; }
-        .badge-yellow { background: #fef9c3; color: #854d0e; }
-        .badge-purple { background: #ede9fe; color: #5b21b6; }
-
-        .error-box { max-width: 1200px; margin: 0 auto; background: #fef2f2; border-left: 4px solid #ef4444; border-radius: 8px; padding: 16px 20px; color: #dc2626; }
-        .meta { max-width: 1200px; margin: 0 auto; font-size: 0.78rem; color: #94a3b8; }
-
-        /* Search Bar Avancée */
-        .search-container { max-width: 1200px; margin: 0 auto 24px; }
-        .search-box { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.05); border: 1px solid #e2e8f0; }
-        .search-select { padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; background: #fff; }
-        .search-select:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
-        .btn-validate { padding: 10px 20px; background: #17a2b8; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; }
-        .btn-validate:hover { background: #138496; }
-        .btn-reset { padding: 10px 20px; background: #e2e8f0; color: #0f172a; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; }
-        .btn-reset:hover { background: #cbd5e1; }
-        .search-stats { font-size: 0.85rem; color: #64748b; }
+        .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-right: 6px; }
+        .cell-indicator { display: flex; align-items: center; gap: 7px; }
+        .error-box { max-width: 1300px; margin: 0 auto; background: #fef2f2; border-left: 4px solid #ef4444; border-radius: 8px; padding: 16px 20px; color: #dc2626; }
+        .meta { max-width: 1300px; margin: 12px auto 0; font-size: 0.78rem; color: #94a3b8; }
+        .legende { max-width: 1300px; margin: 0 auto 16px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; font-size: 0.78rem; color: #64748b; }
+        .legende-item { display: flex; align-items: center; gap: 5px; }
+        .header-actions { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .btn-send {
+            background: #0f172a;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .btn-send:hover { background: #1e293b; }
+        .btn-send span { font-size: 1rem; }
+        /* ── Send Panel ── */
+        .send-panel {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,.45); backdrop-filter: blur(4px);
+            z-index: 1000; display: none; align-items: center; justify-content: center;
+        }
+        .send-panel.active { display: flex; }
+        .send-box {
+            position: relative; background: #fff; width: 90%; max-width: 500px;
+            border-radius: 16px; padding: 32px 36px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.18);
+            animation: panelIn .3s ease-out;
+        }
+        @keyframes panelIn {
+            from { opacity: 0; transform: translateY(-30px) scale(.95); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .send-box .close-btn {
+            position: absolute; top: 14px; right: 16px; background: none; border: none;
+            font-size: 1.4rem; color: #94a3b8; cursor: pointer; padding: 0;
+            width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+            border-radius: 8px; transition: background .2s;
+        }
+        .send-box .close-btn:hover { background: #f1f5f9; color: #0f172a; }
+        .send-box h2 { margin: 0 0 4px; font-size: 1.25rem; font-weight: 600; color: #0f172a; }
+        .send-box .sub { margin: 0 0 20px; font-size: .85rem; color: #64748b; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: .85rem; font-weight: 500; color: #334155; margin-bottom: 6px; }
+        .form-group input[type="email"] {
+            width: 100%; padding: 11px 14px; font-size: .9rem; border: 2px solid #e2e8f0;
+            border-radius: 8px; outline: none; font-family: 'DM Sans', sans-serif;
+            transition: border-color .2s, box-shadow .2s;
+        }
+        .form-group input[type="email"]:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,.1); }
+        .select-all-btn {
+            background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 6px 12px;
+            border-radius: 6px; font-size: .78rem; cursor: pointer; margin-bottom: 10px;
+            font-family: 'DM Sans', sans-serif; transition: background .2s;
+        }
+        .select-all-btn:hover { background: #e2e8f0; }
+        .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+        .checkbox-group label {
+            display: flex; align-items: center; gap: 8px; font-size: .88rem; color: #334155;
+            cursor: pointer; padding: 8px 12px; border-radius: 8px; transition: background .15s;
+        }
+        .checkbox-group label:hover { background: #f8fafc; }
+        .checkbox-group input[type="checkbox"] { width: 17px; height: 17px; accent-color: #0f172a; cursor: pointer; }
+        .send-actions { display: flex; gap: 12px; margin-top: 22px; justify-content: flex-end; }
+        .send-actions .btn-send-now {
+            background: #0f172a; color: #fff; border: none; padding: 10px 22px;
+            border-radius: 8px; font-size: .875rem; font-weight: 600; cursor: pointer;
+            font-family: 'DM Sans', sans-serif; transition: background .2s;
+        }
+        .send-actions .btn-send-now:hover { background: #1e293b; }
+        .send-actions .btn-cancel {
+            background: #fff; color: #475569; border: 1px solid #cbd5e1; padding: 10px 20px;
+            border-radius: 8px; font-size: .875rem; font-weight: 600; cursor: pointer;
+            font-family: 'DM Sans', sans-serif; transition: background .2s;
+        }
+        .send-actions .btn-cancel:hover { background: #f1f5f9; }
     </style>
 </head>
 <body>
-
 <div class="page-header">
-    <h1>📊 Rapport Par Société</h1>
-    <p>Totaux calculés automatiquement depuis les fichiers Excel · <?= date('d/m/Y H:i') ?></p>
-</div>
-
-<div class="actions">
-    <a href="tableau.php" class="btn">← Retour Flotte Transport</a>
-    <a href="BOUTCHERAFIN.php" class="btn">📋 Voir le détail BOUTCHERAFIN</a>
-    <a href="index.php" class="btn">📊 Accéder au Dashboard</a>
-</div>
-
-<!-- Barre de Recherche Avancée ✨ NOUVEAU -->
-<div class="search-container">
-    <div class="search-box">
-        <form id="filterForm" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 16px;">
-            
-            <div style="display: flex; flex-direction: column;">
-                <label style="font-size: 0.75rem; font-weight: 600; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Transporteur</label>
-                <select id="transporteur" class="search-select">
-                    <option value="">BOUTCHERAFIN</option>
-                    <option value="tous">Tous</option>
-                </select>
-            </div>
-
-            <div style="display: flex; flex-direction: column;">
-                <label style="font-size: 0.75rem; font-weight: 600; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Chauffeur</label>
-                <select id="chauffeur" class="search-select">
-                    <option value="">Tous</option>
-                    <option value="non">Non</option>
-                    <option value="flot">Flot</option>
-                </select>
-            </div>
-
-            <div style="display: flex; flex-direction: column;">
-                <label style="font-size: 0.75rem; font-weight: 600; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Véhicule</label>
-                <select id="vehicule" class="search-select">
-                    <option value="">Tous</option>
-                    <option value="13429">13429/A/25</option>
-                    <option value="21093">21093/A/17</option>
-                    <option value="MAN">MAN 23930/A/25</option>
-                </select>
-            </div>
-
-            <div style="display: flex; flex-direction: column;">
-                <label style="font-size: 0.75rem; font-weight: 600; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Du</label>
-                <input type="date" id="dateFrom" class="search-select">
-            </div>
-
-            <div style="display: flex; flex-direction: column;">
-                <label style="font-size: 0.75rem; font-weight: 600; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Au</label>
-                <input type="date" id="dateTo" class="search-select">
-            </div>
-        </form>
-
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-            <button class="btn-validate" onclick="applyFilters()">Valider</button>
-            <button class="btn-reset" onclick="resetAllFilters()">Réinitialiser</button>
-            <div id="searchStats" class="search-stats" style="margin-left: auto; display: none;">
-                Résultats: <span id="resultCount">0</span> véhicule(s)
-            </div>
-        </div>
+    <div>
+        <h1>Rapport Par Société</h1>
+    </div>
+    <div class="header-actions">
+        <p>Totaux calculés depuis les fichiers Excel — Généré le <?= date('d/m/Y') ?> à <?= date('H:i') ?></p>
+        <button class="btn-send" onclick="sendReport()">
+            <span>📧</span> Envoyer le rapport
+        </button>
     </div>
 </div>
-
+<div class="legende">
+    <strong style="color:#0f172a;">Barème :</strong>
+    <div class="legende-item"><?= dot('vert') ?> Bon / Faible risque</div>
+    <div class="legende-item"><?= dot('orange') ?> Moyen / Attention</div>
+    <div class="legende-item"><?= dot('rouge') ?> Critique / Élevé</div>
+</div>
 <?php if ($error): ?>
-    <div class="error-box">❌ <strong>Erreur :</strong> <?= $error ?></div>
-
-<?php elseif ($synthese): ?>
-
-<!-- KPI Cards -->
-<div class="kpi-grid">
-    <div class="kpi-card purple">
-        <div class="kpi-label">Nb véhicules</div>
-        <div class="kpi-value"><?= $synthese['nb'] ?></div>
-        <div class="kpi-sub">véhicules actifs</div>
-    </div>
-    <div class="kpi-card blue">
-        <div class="kpi-label">Total Note /100</div>
-        <div class="kpi-value"><?= number_format($synthese['total_note'], 0, ',', ' ') ?></div>
-        <div class="kpi-sub">points cumulés</div>
-    </div>
-    <div class="kpi-card red">
-        <div class="kpi-label">Total Infractions</div>
-        <div class="kpi-value"><?= $synthese['total_infr'] ?></div>
-        <div class="kpi-sub">alertes relevées</div>
-    </div>
-    <div class="kpi-card green">
-        <div class="kpi-label">Total Kilométrage</div>
-        <div class="kpi-value" style="font-size:1.3rem;"><?= $synthese['total_km'] ?></div>
-        <div class="kpi-sub">distance parcourue</div>
-    </div>
-    <div class="kpi-card yellow">
-        <div class="kpi-label">Moy. Infr. /100km</div>
-        <div class="kpi-value"><?= $synthese['moy100'] ?></div>
-        <div class="kpi-sub">infractions / 100 km</div>
-    </div>
-</div>
-
-<!-- Tableau synthèse -->
-<div class="section-title">Synthèse par société</div>
+    <div class="error-box"><?= $error ?></div>
+<?php elseif (empty($vehicules)): ?>
+    <div class="error-box">⚠️ Aucune donnée trouvée</div>
+<?php else: ?>
 <div class="card">
     <table>
         <thead>
             <tr>
-                <th>Société</th>
-                <th>Nb véhicules</th>
-                <th>Total Note /100</th>
-                <th>Total Infractions</th>
-                <th>Total Kilométrage</th>
-                <th>Moy. Infr. /100 km</th>
-                <th colspan="3" style="text-align:center;">Couleur</th>
+                <th rowspan="2">Entreprise</th>
+                <th rowspan="2">Nb véhicules</th>
+                <th rowspan="2">Total Note /100</th>
+                <th rowspan="2">Total Alertes CRIT (Infractions)</th>
+                <th rowspan="2">Total Kilométrage</th>
+                <th rowspan="2">Moy. Infr. /100km</th>
+                <th colspan="3">Total Infractions Sign</th>
             </tr>
             <tr>
-                <th colspan="6"></th>
-                <th>● Rouge</th>
-                <th>● Orange</th>
-                <th>● Vert</th>
+                <th class="sub-header rouge">Rouge</th>
+                <th class="sub-header orange">Orange</th>
+                <th class="sub-header vert">Vert</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="synthese-row">
+            <tr>
                 <td>BOUTCHERAFIN</td>
-                <td><span class="badge badge-purple">🚗 <?= $synthese['nb'] ?> véhicules</span></td>
-                <td><span class="badge badge-blue">📊 <?= number_format($synthese['total_note'], 0, ',', ' ') ?></span></td>
-                <td><span class="badge badge-red">⚠️ <?= $synthese['total_infr'] ?></span></td>
-                <td><span class="badge badge-green">📍 <?= $synthese['total_km'] ?></span></td>
-                <td><span class="badge badge-yellow">📈 <?= $synthese['moy100'] ?></span></td>
-                <td><?= coloredValue('rouge', $synthese['count_rouge']) ?></td>
-                <td><?= coloredValue('orange', $synthese['count_orange']) ?></td>
-                <td><?= coloredValue('vert', $synthese['count_vert']) ?></td>
+                <td><?= $nbVehicules ?></td>
+                <td><?= number_format($totalNote, 0, ',', ' ') ?></td>
+                <td><?= $totalAlertes ?></td>
+                <td><?= number_format($totalKm, 0, ',', ' ') ?> Km</td>
+                <td><?= $totalAl100 ?></td>
+                <td><div class="cell-indicator"><?= dot('rouge') ?><?= $infractionsRouge ?></div></td>
+                <td><div class="cell-indicator"><?= dot('orange') ?><?= $infractionsOrange ?></div></td>
+                <td><div class="cell-indicator"><?= dot('vert') ?><?= $infractionsVert ?></div></td>
             </tr>
         </tbody>
     </table>
 </div>
-
-<!-- Tableau détail -->
-<div class="section-title">Détail par véhicule</div>
-<div style="max-width: 1200px; margin: 0 auto 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-    <div></div>
-    <div style="font-size: 0.9rem; color: #64748b;">
-        Lignes par page: 
-        <select id="pageSize" style="padding: 6px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-family: 'DM Sans', sans-serif;">
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-        </select>
-    </div>
-</div>
-<div class="card">
-    <table>
-        <thead>
-            <tr>
-                <th>Véhicule</th>
-                <th>Note /100</th>
-                <th>Alertes CRIT</th>
-                <th>Durée</th>
-                <th>Kilométrage</th>
-                <th colspan="3" style="text-align:center;">Couleur</th>
-                <th>Infractions</th>
-            </tr>
-            <tr>
-                <th colspan="5"></th>
-                <th colspan="3" style="border-top: 1px solid #cbd5e1; padding: 6px 14px;">
-                    <div style="display: flex; justify-content: space-around; font-size: 0.65rem;">
-                        <span style="color: #ef4444;">● Rouge</span>
-                        <span style="color: #f97316;">● Orange</span>
-                        <span style="color: #22c55e;">● Vert</span>
-                    </div>
-                </th>
-                <th colspan="1" style="border-top: 1px solid #cbd5e1;"></th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-            <?php foreach ($rows as $i => $v): ?>
-            <tr style="background:<?= $i % 2 === 0 ? '#fff' : '#f8fafc' ?>" class="data-row" data-vehicule="<?= strtolower(htmlspecialchars($v['vehicule'])) ?>" data-note="<?= $v['note'] ?>" data-alertes="<?= $v['alertes'] ?>" data-km="<?= $v['km'] ?>">
-                <td><?= htmlspecialchars($v['vehicule']) ?></td>
-                <td><?= $v['note'] ?></td>
-                <td><?= $v['alertes'] ?></td>
-                <td><?= htmlspecialchars($v['duree']) ?></td>
-                <td><?= htmlspecialchars($v['km_raw']) ?></td>
-                <td style="text-align:center;"><?= coloredValue('rouge', $v['alerts_rouge']) ?></td>
-                <td style="text-align:center;"><?= coloredValue('orange', $v['alerts_orange']) ?></td>
-                <td style="text-align:center;"><?= coloredValue('vert', $v['alerts_vert']) ?></td>
-                <td style="font-size:0.8rem;color:#475569;"><?= htmlspecialchars($v['infraction']) ?></td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
-
+<p class="meta">Rapport Par Société · <?= $nbVehicules ?> véhicule(s) · <?= date('d/m/Y H:i') ?></p>
 <?php endif; ?>
 
-<p class="meta"><?= $synthese ? $synthese['nb'] . ' véhicule(s)' : '' ?> — Dernière mise à jour : <?= date('d/m/Y H:i') ?></p>
+<!-- ══ PANNEAU ENVOI ══ -->
+<div class="send-panel" id="send-panel">
+    <div class="send-box">
+        <button class="close-btn" id="close-panel">✕</button>
+        <h2>📧 Envoyer le rapport PDF</h2>
+        <p class="sub">Choisissez le destinataire et les tableaux à envoyer.</p>
+        <form method="GET" action="send_report.php" id="send-form">
+            <div class="form-group">
+                <label>Adresse email destinataire</label>
+                <input type="email" name="email_to" placeholder="exemple@email.com"
+                       value="<?= htmlspecialchars(MAIL_TO) ?>" required>
+            </div>
+            <div class="form-group">
+                <label>Tableaux à envoyer</label>
+                <button type="button" class="select-all-btn" id="select-all-btn">Tout sélectionner</button>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="reports[]" value="flotte" checked> 🚗 Rapport Flotte Transport BOUTCHERAFIN</label>
+                    <label><input type="checkbox" name="reports[]" value="boutcherafin" checked> 🚛 BOUTCHERAFIN — Détail</label>
+                    <label><input type="checkbox" name="reports[]" value="synthese" checked> 📈 Rapport Par Société</label>
+                </div>
+            </div>
+            <div class="send-actions">
+                <button type="submit" class="btn-send-now">✉️ Envoyer maintenant</button>
+                <button type="button" class="btn-cancel" id="cancel-btn">Annuler</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <script>
-    // Appliquer les filtres
-    function applyFilters() {
-        const transporteur = document.getElementById('transporteur').value;
-        const chauffeur = document.getElementById('chauffeur').value;
-        const vehicule = document.getElementById('vehicule').value;
-        const dateFrom = document.getElementById('dateFrom').value;
-        const dateTo = document.getElementById('dateTo').value;
-        
-        const rows = document.querySelectorAll('.data-row');
-        let count = 0;
+function sendReport() {
+    document.getElementById('send-panel').classList.add('active');
+}
 
-        rows.forEach(row => {
-            const vehiculeText = row.dataset.vehicule.toLowerCase();
-            let match = true;
-
-            // Filtrer par véhicule si sélectionné
-            if (vehicule && !vehiculeText.includes(vehicule.toLowerCase())) {
-                match = false;
-            }
-
-            if (match) {
-                row.classList.remove('hidden');
-                count++;
-            } else {
-                row.classList.add('hidden');
-            }
-        });
-
-        // Afficher les stats
-        const statsDiv = document.getElementById('searchStats');
-        if (transporteur || chauffeur || vehicule || dateFrom || dateTo) {
-            statsDiv.style.display = 'block';
-            document.getElementById('resultCount').textContent = count;
-        } else {
-            statsDiv.style.display = 'none';
-        }
-    }
-
-    // Réinitialiser tous les filtres
-    function resetAllFilters() {
-        document.getElementById('transporteur').value = '';
-        document.getElementById('chauffeur').value = '';
-        document.getElementById('vehicule').value = '';
-        document.getElementById('dateFrom').value = '';
-        document.getElementById('dateTo').value = '';
-        document.querySelectorAll('.data-row').forEach(row => row.classList.remove('hidden'));
-        document.getElementById('searchStats').style.display = 'none';
-    }
+document.getElementById('close-panel').addEventListener('click', function() {
+    document.getElementById('send-panel').classList.remove('active');
+});
+document.getElementById('cancel-btn').addEventListener('click', function() {
+    document.getElementById('send-panel').classList.remove('active');
+});
+document.getElementById('send-panel').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('active');
+});
+document.getElementById('select-all-btn').addEventListener('click', function() {
+    const boxes = document.querySelectorAll('#send-form input[type="checkbox"]');
+    const allChecked = [...boxes].every(b => b.checked);
+    boxes.forEach(b => b.checked = !allChecked);
+    this.textContent = allChecked ? 'Tout sélectionner' : 'Tout désélectionner';
+});
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.getElementById('send-panel').classList.remove('active');
+});
 </script>
-
 </body>
 </html>
