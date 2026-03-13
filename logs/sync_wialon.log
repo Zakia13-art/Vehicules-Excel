@@ -1,0 +1,2334 @@
+[12-03-2026 12:57:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 12:57:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 12:57:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 12:57:03] [INFO] ✅ Session créée: 09b6580e86b320c2659a69a663f70991
+[12-03-2026 12:57:03] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 12:57:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 12:57:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 12:57:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 12:57:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 12:57:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 12:57:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 12:57:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 12:57:11] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 12:57:11] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 12:57:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 12:57:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 12:57:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 12:57:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 12:57:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 12:57:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 12:57:18] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 12:57:18] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 12:57:23] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 12:57:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 12:57:23] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 12:57:26] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 12:57:26] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 12:57:27] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 12:57:27] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 12:57:29] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 12:57:29] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 12:57:29] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 12:57:29] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 12:57:29] [INFO] ├─ Temps écoulé: 26s
+[12-03-2026 12:57:29] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 12:57:29] [INFO] └─ Statut: OK
+[12-03-2026 12:57:29] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:02:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:02:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:02:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:02:02] [INFO] ✅ Session créée: 098ed76cca5f9d5b1366b18641027e15
+[12-03-2026 13:02:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:02:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:02:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:02:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:02:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:02:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:02:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:02:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:02:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:02:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:02:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:02:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:02:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:02:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:02:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:02:18] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:02:18] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:02:21] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:02:21] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:02:22] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:02:22] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:02:24] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:02:24] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:02:26] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:02:26] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:02:26] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:02:26] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:02:26] [INFO] ├─ Temps écoulé: 24s
+[12-03-2026 13:02:26] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:02:26] [INFO] └─ Statut: OK
+[12-03-2026 13:02:26] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:07:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:07:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:07:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:07:03] [INFO] ✅ Session créée: 09cc9e05311f849c4adc97756036282b
+[12-03-2026 13:07:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:07:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:07:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:07:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:07:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:07:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:07:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:07:11] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:07:11] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:07:13] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:07:13] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:07:15] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:07:15] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:07:17] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:07:17] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:07:19] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:07:19] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:07:20] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:07:21] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:07:22] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:07:22] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:07:23] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:07:23] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:07:25] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:07:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:07:25] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:07:25] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:07:25] [INFO] ├─ Temps écoulé: 22s
+[12-03-2026 13:07:25] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:07:25] [INFO] └─ Statut: OK
+[12-03-2026 13:07:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:12:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:12:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:12:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:12:02] [INFO] ✅ Session créée: 09bf181232aba8efa4f7c50168a1a6d1
+[12-03-2026 13:12:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:12:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:12:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:12:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:12:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:12:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:12:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:12:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:12:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:12:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:12:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:12:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:12:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:12:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:12:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:12:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:12:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:12:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:12:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:12:20] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:12:20] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:12:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:12:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:12:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:12:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:12:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:12:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:12:23] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 13:12:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:12:23] [INFO] └─ Statut: OK
+[12-03-2026 13:12:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:17:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:17:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:17:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:17:02] [INFO] ✅ Session créée: 09a2b8c876d6cdbd4e9ab2a9034baaef
+[12-03-2026 13:17:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:17:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:17:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:17:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:17:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:17:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:17:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:17:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:17:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:17:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:17:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:17:12] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:17:12] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:17:14] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:17:14] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:17:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:17:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:17:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:17:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:17:19] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:17:19] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:17:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:17:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:17:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:17:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:17:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:17:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:17:23] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 13:17:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:17:23] [INFO] └─ Statut: OK
+[12-03-2026 13:17:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:22:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:22:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:22:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:22:03] [INFO] ✅ Session créée: 09b03d871c79cc2d0fa71bd82b9a9389
+[12-03-2026 13:22:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:22:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:22:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:22:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:22:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:22:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:22:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:22:13] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:22:14] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:22:15] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:22:15] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:22:17] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:22:17] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:22:19] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:22:19] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:22:21] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:22:21] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:22:23] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:22:23] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:22:24] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:22:24] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:22:26] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:22:26] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:22:27] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:22:27] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:22:27] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:22:27] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:22:27] [INFO] ├─ Temps écoulé: 24s
+[12-03-2026 13:22:27] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:22:27] [INFO] └─ Statut: OK
+[12-03-2026 13:22:27] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:27:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:27:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:27:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:27:02] [INFO] ✅ Session créée: 0923be1f6e8ca3336e449a9b0afd7571
+[12-03-2026 13:27:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:27:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:27:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:27:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:27:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:27:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:27:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:27:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:27:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:27:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:27:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:27:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:27:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:27:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:27:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:27:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:27:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:27:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:27:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:27:20] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:27:20] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:27:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:27:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:27:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:27:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:27:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:27:24] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:27:24] [INFO] ├─ Temps écoulé: 22s
+[12-03-2026 13:27:24] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:27:24] [INFO] └─ Statut: OK
+[12-03-2026 13:27:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:32:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:32:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:32:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:32:02] [INFO] ✅ Session créée: 0967987cad0ac27d0bc9d3bc3619ef69
+[12-03-2026 13:32:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:32:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:32:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:32:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:32:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:32:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:32:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:32:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:32:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:32:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:32:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:32:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:32:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:32:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:32:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:32:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:32:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:32:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:32:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:32:20] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:32:20] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:32:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:32:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:32:26] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:32:26] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:32:26] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:32:26] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:32:26] [INFO] ├─ Temps écoulé: 24s
+[12-03-2026 13:32:26] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:32:26] [INFO] └─ Statut: OK
+[12-03-2026 13:32:26] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:37:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:37:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:37:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:37:02] [INFO] ✅ Session créée: 0987a255d38fb33a3256ac264667017f
+[12-03-2026 13:37:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:37:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:37:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:37:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:37:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:37:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:37:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:37:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:37:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:37:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:37:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:37:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:37:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:37:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:37:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:37:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:37:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:37:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:37:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:37:20] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:37:20] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:37:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:37:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:37:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:37:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:37:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:37:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:37:23] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 13:37:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:37:23] [INFO] └─ Statut: OK
+[12-03-2026 13:37:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:42:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:42:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:42:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:42:02] [INFO] ✅ Session créée: 09fe67ae9708ac30da0fcfe7c4e58b7c
+[12-03-2026 13:42:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:42:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:42:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:42:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:42:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:42:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:42:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:42:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:42:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:42:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:42:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:42:15] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:42:15] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:42:17] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:42:17] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:42:18] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:42:18] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:42:20] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:42:20] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:42:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:42:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:42:23] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:42:23] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:42:25] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:42:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:42:25] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:42:25] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:42:25] [INFO] ├─ Temps écoulé: 23s
+[12-03-2026 13:42:25] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:42:25] [INFO] └─ Statut: OK
+[12-03-2026 13:42:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:47:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:47:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:47:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:47:02] [INFO] ✅ Session créée: 090b1612162b2427941d5c0bd913ffe1
+[12-03-2026 13:47:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:47:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:47:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:47:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:47:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:47:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:47:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:47:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:47:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:47:10] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:47:10] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:47:12] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:47:12] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:47:14] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:47:14] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:47:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:47:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:47:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:47:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:47:19] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:47:19] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:47:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:47:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:47:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:47:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:47:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:47:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:47:23] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 13:47:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:47:23] [INFO] └─ Statut: OK
+[12-03-2026 13:47:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:52:00] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:52:00] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:52:00] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:52:01] [INFO] ✅ Session créée: 09818950e965409685c8db9bc2386217
+[12-03-2026 13:52:01] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:52:03] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:52:03] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:52:05] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:52:05] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:52:07] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:52:07] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:52:08] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:52:08] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:52:09] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:52:09] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:52:11] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:52:11] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:52:13] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:52:13] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:52:15] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:52:15] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:52:17] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:52:17] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:52:18] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:52:18] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:52:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:52:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:52:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:52:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:52:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:52:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:52:23] [INFO] ├─ Temps écoulé: 22s
+[12-03-2026 13:52:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:52:23] [INFO] └─ Statut: OK
+[12-03-2026 13:52:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:57:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:57:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 13:57:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:57:01] [INFO] ✅ Session créée: 099e1bbf576014899940fb2daef5b512
+[12-03-2026 13:57:01] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 13:57:03] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 13:57:03] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 13:57:05] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 13:57:05] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 13:57:07] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 13:57:07] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 13:57:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 13:57:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 13:57:10] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 13:57:10] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 13:57:12] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 13:57:12] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 13:57:14] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 13:57:14] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 13:57:15] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 13:57:15] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 13:57:17] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 13:57:17] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 13:57:19] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 13:57:19] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 13:57:20] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 13:57:20] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 13:57:22] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 13:57:22] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 13:57:22] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 13:57:22] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 13:57:22] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 13:57:22] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 13:57:22] [INFO] └─ Statut: OK
+[12-03-2026 13:57:22] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:02:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:02:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:02:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:02:03] [INFO] ✅ Session créée: 091d78f6308ebda1c4105d23792ea1d2
+[12-03-2026 14:02:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:02:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:02:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:02:08] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:02:08] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:02:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:02:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:02:11] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:02:11] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:02:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:02:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:02:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:02:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:02:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:02:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:02:18] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:02:18] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:02:20] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:02:20] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:02:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:02:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:02:23] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:02:23] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:02:27] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:02:27] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:02:27] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:02:27] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:02:27] [INFO] ├─ Temps écoulé: 24s
+[12-03-2026 14:02:27] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:02:27] [INFO] └─ Statut: OK
+[12-03-2026 14:02:27] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:07:03] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:07:03] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:07:03] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:07:04] [INFO] ✅ Session créée: 09a7d54122525c073abcc350a4f06e15
+[12-03-2026 14:07:04] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:07:06] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:07:06] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:07:08] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:07:08] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:07:10] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:07:10] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:07:11] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:07:11] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:07:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:07:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:07:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:07:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:07:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:07:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:07:18] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:07:18] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:07:20] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:07:20] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:07:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:07:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:07:23] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:07:23] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:07:25] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:07:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:07:25] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:07:25] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:07:25] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 14:07:25] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:07:25] [INFO] └─ Statut: OK
+[12-03-2026 14:07:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:12:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:12:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:12:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:12:05] [INFO] ✅ Session créée: 093c1b91804e58270c62e7e34fc3ddf8
+[12-03-2026 14:12:05] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:12:07] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:12:07] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:12:09] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:12:09] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:12:11] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:12:11] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:12:13] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:12:13] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:12:14] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:12:14] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:12:16] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:12:16] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:12:18] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:12:18] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:12:19] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:12:19] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:12:21] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:12:21] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:12:23] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:12:23] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:12:24] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:12:24] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:12:26] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:12:26] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:12:26] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:12:26] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:12:26] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 14:12:26] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:12:26] [INFO] └─ Statut: OK
+[12-03-2026 14:12:26] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:17:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:17:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:17:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:17:01] [INFO] ✅ Session créée: 09f06279b84acd4f1a6a72c754755c71
+[12-03-2026 14:17:01] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:17:03] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:17:03] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:17:05] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:17:05] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:17:07] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:17:07] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:17:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:17:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:17:10] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:17:10] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:17:12] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:17:12] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:17:14] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:17:14] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:17:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:17:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:17:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:17:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:17:19] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:17:19] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:17:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:17:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:17:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:17:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:17:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:17:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:17:23] [INFO] ├─ Temps écoulé: 22s
+[12-03-2026 14:17:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:17:23] [INFO] └─ Statut: OK
+[12-03-2026 14:17:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:22:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:22:03] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:22:03] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:22:04] [INFO] ✅ Session créée: 09d0aad5515b8989bb3f5c442936cdc1
+[12-03-2026 14:22:04] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:22:27] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:22:27] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:22:29] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:22:29] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:22:32] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:22:32] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:22:34] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:22:34] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:22:36] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:22:36] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:22:38] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:22:38] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:22:40] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:22:40] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:22:41] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:22:41] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:22:43] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:22:43] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:22:45] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:22:45] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:22:46] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:22:46] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:22:48] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:22:48] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:22:48] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:22:48] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:22:48] [INFO] ├─ Temps écoulé: 44s
+[12-03-2026 14:22:48] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:22:48] [INFO] └─ Statut: OK
+[12-03-2026 14:22:48] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:27:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:27:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:27:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:27:03] [INFO] ✅ Session créée: 091118194ef2caa767dd59e41433ccc0
+[12-03-2026 14:27:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:27:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:27:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:27:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:27:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:27:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:27:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:27:12] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:27:12] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:27:15] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:27:15] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:27:17] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:27:17] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:27:18] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:27:18] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:27:20] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:27:20] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:27:22] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:27:22] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:27:24] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:27:24] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:27:25] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:27:25] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:27:27] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:27:27] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:27:27] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:27:27] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:27:27] [INFO] ├─ Temps écoulé: 24s
+[12-03-2026 14:27:27] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:27:27] [INFO] └─ Statut: OK
+[12-03-2026 14:27:27] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:32:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:32:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:32:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:32:02] [INFO] ✅ Session créée: 09dcf27ea9ce33f2057fc8aabd45dc52
+[12-03-2026 14:32:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:32:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:32:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:32:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:32:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:32:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:32:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:32:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:32:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:32:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:32:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:32:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:32:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:32:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:32:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:32:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:32:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:32:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:32:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:32:20] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:32:20] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:32:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:32:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:32:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:32:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:32:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:32:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:32:23] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 14:32:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:32:23] [INFO] └─ Statut: OK
+[12-03-2026 14:32:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:37:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:37:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:37:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:37:02] [INFO] ✅ Session créée: 09cd1beec866aab88bdc817c8efacf00
+[12-03-2026 14:37:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:37:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:37:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:37:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:37:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:37:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:37:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:37:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:37:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:37:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:37:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:37:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:37:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:37:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:37:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:37:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:37:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:37:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:37:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:37:20] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:37:20] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:37:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:37:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:37:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:37:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:37:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:37:24] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:37:24] [INFO] ├─ Temps écoulé: 22s
+[12-03-2026 14:37:24] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:37:24] [INFO] └─ Statut: OK
+[12-03-2026 14:37:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:42:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:42:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:42:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:42:02] [INFO] ✅ Session créée: 09f3e7596b299b3075e7523095a0a5ec
+[12-03-2026 14:42:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:42:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:42:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:42:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:42:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:42:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:42:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:42:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:42:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:42:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:42:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:42:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:42:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:42:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:42:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:42:18] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:42:18] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:42:20] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:42:20] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:42:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:42:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:42:23] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:42:23] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:42:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:42:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:42:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:42:24] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:42:24] [INFO] ├─ Temps écoulé: 22s
+[12-03-2026 14:42:24] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:42:24] [INFO] └─ Statut: OK
+[12-03-2026 14:42:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:47:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:47:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:47:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:47:02] [INFO] ✅ Session créée: 0936ee75d1ad848aec091e76d7533918
+[12-03-2026 14:47:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:47:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:47:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:47:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:47:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:47:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:47:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:47:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:47:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:47:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:47:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:47:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:47:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:47:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:47:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:47:18] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:47:18] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:47:20] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:47:20] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:47:22] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:47:22] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:47:23] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:47:23] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:47:25] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:47:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:47:25] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:47:25] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:47:25] [INFO] ├─ Temps écoulé: 23s
+[12-03-2026 14:47:25] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:47:25] [INFO] └─ Statut: OK
+[12-03-2026 14:47:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:47:38] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:52:08] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:52:08] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:52:09] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:52:10] [INFO] ✅ Session créée: 094a328d17b4e4b10e4e4893aa8cb1cb
+[12-03-2026 14:52:10] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:52:12] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:52:13] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:52:21] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:52:22] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:52:26] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:52:26] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:52:27] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:52:27] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:52:29] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:52:29] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:52:31] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:52:31] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:52:33] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:52:33] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:52:35] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:52:35] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:52:42] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:52:42] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:52:45] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:52:45] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:52:46] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:52:46] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:52:48] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:52:48] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:52:48] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:52:48] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:52:48] [INFO] ├─ Temps écoulé: 38s
+[12-03-2026 14:52:48] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:52:48] [INFO] └─ Statut: OK
+[12-03-2026 14:52:48] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:57:05] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:57:05] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 14:57:05] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:57:07] [INFO] ✅ Session créée: 0941b50b2aaf701be263f1feae2944e7
+[12-03-2026 14:57:07] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 14:57:09] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 14:57:09] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 14:57:11] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 14:57:11] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 14:57:13] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 14:57:13] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 14:57:15] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 14:57:15] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 14:57:16] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 14:57:16] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 14:57:18] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 14:57:18] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 14:57:20] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 14:57:20] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 14:57:23] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 14:57:23] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 14:57:25] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 14:57:25] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 14:57:26] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 14:57:26] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 14:57:28] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 14:57:28] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 14:57:30] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 14:57:30] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:57:30] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 14:57:30] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 14:57:30] [INFO] ├─ Temps écoulé: 23s
+[12-03-2026 14:57:30] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 14:57:30] [INFO] └─ Statut: OK
+[12-03-2026 14:57:30] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 14:58:54] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:02:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:02:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:02:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:02:03] [INFO] ✅ Session créée: 09d534713eb6db3442910fb4a2c34222
+[12-03-2026 15:02:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:02:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:02:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:02:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:02:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:02:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:02:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:02:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:02:11] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:02:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:02:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:02:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:02:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:02:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:02:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:02:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:02:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:02:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:02:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:02:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:02:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:02:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:02:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:02:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:02:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:02:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:02:24] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:02:24] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 15:02:24] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:02:24] [INFO] └─ Statut: OK
+[12-03-2026 15:02:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:07:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:07:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:07:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:07:02] [INFO] ✅ Session créée: 0938e96071879444767bb416d1d02af0
+[12-03-2026 15:07:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:07:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:07:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:07:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:07:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:07:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:07:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:07:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:07:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:07:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:07:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:07:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:07:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:07:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:07:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:07:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:07:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:07:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:07:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:07:19] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:07:19] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:07:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:07:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:07:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:07:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:07:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:07:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:07:23] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 15:07:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:07:23] [INFO] └─ Statut: OK
+[12-03-2026 15:07:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:12:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:12:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:12:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:12:02] [INFO] ✅ Session créée: 095704054e5efaa53181f8b3ce0bfb92
+[12-03-2026 15:12:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:12:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:12:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:12:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:12:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:12:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:12:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:12:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:12:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:12:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:12:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:12:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:12:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:12:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:12:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:12:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:12:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:12:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:12:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:12:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:12:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:12:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:12:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:12:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:12:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:12:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:12:24] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:12:24] [INFO] ├─ Temps écoulé: 22s
+[12-03-2026 15:12:24] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:12:24] [INFO] └─ Statut: OK
+[12-03-2026 15:12:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:17:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:17:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:17:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:17:02] [INFO] ✅ Session créée: 09b37635530b5c55fa970fab90b85107
+[12-03-2026 15:17:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:17:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:17:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:17:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:17:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:17:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:17:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:17:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:17:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:17:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:17:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:17:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:17:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:17:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:17:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:17:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:17:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:17:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:17:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:17:19] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:17:19] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:17:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:17:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:17:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:17:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:17:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:17:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:17:23] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 15:17:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:17:23] [INFO] └─ Statut: OK
+[12-03-2026 15:17:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:22:10] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:22:11] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:22:11] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:22:13] [INFO] ✅ Session créée: 09b7e3826283e2db20ba0391e40cf8c1
+[12-03-2026 15:22:13] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:22:15] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:22:15] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:22:17] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:22:17] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:22:19] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:22:19] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:22:20] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:22:20] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:22:22] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:22:22] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:22:24] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:22:24] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:22:26] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:22:26] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:22:27] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:22:27] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:22:29] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:22:29] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:22:31] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:22:31] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:22:32] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:22:32] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:22:34] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:22:34] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:22:34] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:22:34] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:22:34] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 15:22:34] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:22:34] [INFO] └─ Statut: OK
+[12-03-2026 15:22:34] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:27:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:27:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:27:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:27:02] [INFO] ✅ Session créée: 09416e6e5bdc5578acc41a6efabcb831
+[12-03-2026 15:27:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:27:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:27:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:27:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:27:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:27:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:27:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:27:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:27:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:27:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:27:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:27:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:27:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:27:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:27:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:27:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:27:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:27:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:27:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:27:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:27:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:27:23] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:27:23] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:27:25] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:27:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:27:25] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:27:25] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:27:25] [INFO] ├─ Temps écoulé: 23s
+[12-03-2026 15:27:25] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:27:25] [INFO] └─ Statut: OK
+[12-03-2026 15:27:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:32:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:32:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:32:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:32:03] [INFO] ✅ Session créée: 09589778b0e6b47765d41ef76b43fb55
+[12-03-2026 15:32:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:32:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:32:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:32:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:32:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:32:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:32:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:32:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:32:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:32:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:32:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:32:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:32:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:32:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:32:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:32:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:32:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:32:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:32:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:32:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:32:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:32:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:32:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:32:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:32:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:32:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:32:24] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:32:24] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 15:32:24] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:32:24] [INFO] └─ Statut: OK
+[12-03-2026 15:32:24] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:37:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:37:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:37:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:37:02] [INFO] ✅ Session créée: 0940b3b569f5856b8710c9fa4eb949c8
+[12-03-2026 15:37:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:37:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:37:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:37:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:37:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:37:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:37:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:37:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:37:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:37:10] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:37:10] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:37:12] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:37:12] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:37:14] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:37:14] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:37:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:37:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:37:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:37:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:37:20] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:37:20] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:37:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:37:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:37:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:37:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:37:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:37:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:37:23] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 15:37:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:37:23] [INFO] └─ Statut: OK
+[12-03-2026 15:37:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:42:04] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:42:04] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:42:04] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:42:05] [INFO] ✅ Session créée: 092d27f393e94b68cde49c3809bd6469
+[12-03-2026 15:42:05] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:42:07] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:42:07] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:42:09] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:42:09] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:42:20] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:42:20] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:42:21] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:42:22] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:42:24] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:42:24] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:42:26] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:42:26] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:42:28] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:42:28] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:42:29] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:42:29] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:42:31] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:42:31] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:42:33] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:42:33] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:42:34] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:42:34] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:42:36] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:42:36] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:42:36] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:42:36] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:42:36] [INFO] ├─ Temps écoulé: 31s
+[12-03-2026 15:42:36] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:42:36] [INFO] └─ Statut: OK
+[12-03-2026 15:42:36] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:47:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:47:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:47:02] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:47:03] [INFO] ✅ Session créée: 09878e3d7a90802e2e36fd2ed6909c08
+[12-03-2026 15:47:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:47:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:47:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:47:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:47:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:47:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:47:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:47:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:47:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:47:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:47:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:47:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:47:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:47:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:47:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:47:18] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:47:18] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:47:20] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:47:20] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:47:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:47:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:47:23] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:47:23] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:47:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:47:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:47:25] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:47:25] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:47:25] [INFO] ├─ Temps écoulé: 22s
+[12-03-2026 15:47:25] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:47:25] [INFO] └─ Statut: OK
+[12-03-2026 15:47:25] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:52:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:52:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:52:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:52:02] [INFO] ✅ Session créée: 09d78ab31629eeb40923729ce5fe222b
+[12-03-2026 15:52:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:52:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:52:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:52:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:52:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:52:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:52:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:52:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:52:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:52:10] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:52:10] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:52:12] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:52:12] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:52:14] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:52:14] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:52:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:52:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:52:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:52:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:52:19] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:52:19] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:52:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:52:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:52:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:52:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:52:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:52:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:52:23] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 15:52:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:52:23] [INFO] └─ Statut: OK
+[12-03-2026 15:52:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:57:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:57:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[12-03-2026 15:57:01] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:57:02] [INFO] ✅ Session créée: 09cfc3de37c97d125457fcda7540c5a6
+[12-03-2026 15:57:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[12-03-2026 15:57:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[12-03-2026 15:57:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[12-03-2026 15:57:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[12-03-2026 15:57:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[12-03-2026 15:57:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[12-03-2026 15:57:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[12-03-2026 15:57:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[12-03-2026 15:57:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[12-03-2026 15:57:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[12-03-2026 15:57:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[12-03-2026 15:57:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[12-03-2026 15:57:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[12-03-2026 15:57:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[12-03-2026 15:57:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[12-03-2026 15:57:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[12-03-2026 15:57:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[12-03-2026 15:57:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[12-03-2026 15:57:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[12-03-2026 15:57:19] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[12-03-2026 15:57:19] [INFO] ├─ Processing: STB (ID: 19585942)
+[12-03-2026 15:57:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[12-03-2026 15:57:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[12-03-2026 15:57:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[12-03-2026 15:57:23] [INFO] ═══════════════════════════════════════════════════════════
+[12-03-2026 15:57:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[12-03-2026 15:57:23] [INFO] ├─ Total trajets traités: 0
+[12-03-2026 15:57:23] [INFO] ├─ Temps écoulé: 21s
+[12-03-2026 15:57:23] [INFO] ├─ Prochaine sync: +5 minutes
+[12-03-2026 15:57:23] [INFO] └─ Statut: OK
+[12-03-2026 15:57:23] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:06:23] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:06:23] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:06:23] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:06:29] [INFO] ✅ Session créée: 09d119bc90d67fe3b59181eaf1a449a9
+[13-03-2026 10:06:29] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 10:06:32] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 10:06:32] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 10:06:34] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 10:06:34] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 10:06:35] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 10:06:35] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 10:06:37] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 10:06:37] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 10:06:38] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 10:06:38] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 10:06:40] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 10:06:40] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 10:06:42] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 10:06:42] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 10:06:44] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 10:06:44] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 10:06:46] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 10:06:46] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 10:06:48] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 10:06:48] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 10:06:49] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 10:06:49] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 10:06:51] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 10:06:51] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:06:51] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 10:06:51] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 10:06:51] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 10:06:51] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 10:06:52] [INFO] └─ Statut: OK
+[13-03-2026 10:06:52] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:07:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:07:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:07:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:07:02] [INFO] ✅ Session créée: 0970b5492d8dc8b1a66c8254458a677f
+[13-03-2026 10:07:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 10:07:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 10:07:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 10:07:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 10:07:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 10:07:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 10:07:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 10:07:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 10:07:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 10:07:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 10:07:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 10:07:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 10:07:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 10:07:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 10:07:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 10:07:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 10:07:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 10:07:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 10:07:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 10:07:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 10:07:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 10:07:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 10:07:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 10:07:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 10:07:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:07:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 10:07:24] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 10:07:24] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 10:07:24] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 10:07:24] [INFO] └─ Statut: OK
+[13-03-2026 10:07:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:12:14] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:12:14] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:12:14] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:12:16] [INFO] ✅ Session créée: 096a74413efddd688b24a186c7d58f02
+[13-03-2026 10:12:16] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 10:12:19] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 10:12:19] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 10:12:21] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 10:12:21] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 10:12:23] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 10:12:23] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 10:12:24] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 10:12:24] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 10:12:26] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 10:12:26] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 10:12:28] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 10:12:28] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 10:12:30] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 10:12:30] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 10:12:31] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 10:12:31] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 10:12:33] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 10:12:33] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 10:12:35] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 10:12:35] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 10:12:36] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 10:12:36] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 10:12:39] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 10:12:39] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:12:39] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 10:12:39] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 10:12:39] [INFO] ├─ Temps écoulé: 23s
+[13-03-2026 10:12:39] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 10:12:39] [INFO] └─ Statut: OK
+[13-03-2026 10:12:39] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:17:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:17:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:17:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:17:02] [INFO] ✅ Session créée: 09d683b739b5d4207663bb793536ef25
+[13-03-2026 10:17:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 10:17:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 10:17:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 10:17:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 10:17:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 10:17:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 10:17:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 10:17:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 10:17:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 10:17:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 10:17:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 10:17:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 10:17:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 10:17:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 10:17:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 10:17:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 10:17:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 10:17:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 10:17:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 10:17:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 10:17:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 10:17:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 10:17:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 10:17:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 10:17:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:17:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 10:17:24] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 10:17:24] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 10:17:24] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 10:17:24] [INFO] └─ Statut: OK
+[13-03-2026 10:17:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:22:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:22:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:22:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:22:02] [INFO] ✅ Session créée: 0977c0946b5e2f497b5ea242c553a286
+[13-03-2026 10:22:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 10:22:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 10:22:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 10:22:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 10:22:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 10:22:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 10:22:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 10:22:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 10:22:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 10:22:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 10:22:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 10:22:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 10:22:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 10:22:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 10:22:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 10:22:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 10:22:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 10:22:18] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 10:22:18] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 10:22:19] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 10:22:19] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 10:22:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 10:22:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 10:22:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 10:22:23] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:22:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 10:22:23] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 10:22:23] [INFO] ├─ Temps écoulé: 21s
+[13-03-2026 10:22:23] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 10:22:23] [INFO] └─ Statut: OK
+[13-03-2026 10:22:23] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:27:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:27:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:27:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:27:02] [INFO] ✅ Session créée: 090fd9bb161b6011ac1fbdfff2153adc
+[13-03-2026 10:32:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:32:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:32:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:32:02] [INFO] ✅ Session créée: 09eca6c55f47ecf8531bb438621621d4
+[13-03-2026 10:37:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:37:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:37:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:37:02] [INFO] ✅ Session créée: 09bce060038d161f5d99b6138abaa059
+[13-03-2026 10:42:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:42:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:42:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:42:02] [INFO] ✅ Session créée: 09e3d78c27bfbb570fec010082b5715d
+[13-03-2026 10:47:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:47:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:47:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:47:02] [INFO] ✅ Session créée: 09d3b9c7d8437dc897828b8fb0da0f40
+[13-03-2026 10:52:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:52:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:52:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:52:03] [INFO] ✅ Session créée: 0912e0b0b2a58b798e520cec448dccc6
+[13-03-2026 10:52:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 10:52:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 10:52:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 10:52:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 10:52:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 10:52:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 10:52:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 10:52:11] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 10:52:11] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 10:52:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 10:52:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 10:52:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 10:52:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 10:52:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 10:52:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 10:52:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 10:52:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 10:52:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 10:52:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 10:52:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 10:52:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 10:52:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 10:52:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 10:52:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 10:52:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:52:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 10:52:24] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 10:52:24] [INFO] ├─ Temps écoulé: 21s
+[13-03-2026 10:52:24] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 10:52:24] [INFO] └─ Statut: OK
+[13-03-2026 10:52:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:57:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:57:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 10:57:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:57:02] [INFO] ✅ Session créée: 0982ae0c2671e93a65b89ec043a97986
+[13-03-2026 10:57:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 10:57:03] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 10:57:03] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 10:57:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 10:57:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 10:57:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 10:57:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 10:57:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 10:57:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 10:57:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 10:57:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 10:57:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 10:57:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 10:57:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 10:57:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 10:57:18] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 10:57:18] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 10:57:20] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 10:57:20] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 10:57:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 10:57:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 10:57:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 10:57:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 10:57:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 10:57:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 10:57:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 10:57:24] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 10:57:24] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 10:57:24] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 10:57:24] [INFO] └─ Statut: OK
+[13-03-2026 10:57:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:02:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:02:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:02:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:02:03] [INFO] ✅ Session créée: 099285388b6e78fcbf8f0c4995b4048a
+[13-03-2026 11:02:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:02:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:02:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:02:08] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:02:08] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:02:10] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:02:10] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:02:11] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:02:11] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:02:13] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:02:13] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:02:15] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:02:15] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:02:17] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:02:17] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:02:18] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:02:18] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:02:20] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:02:20] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:02:22] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:02:22] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:02:23] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:02:23] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:02:25] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:02:25] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:02:25] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:02:25] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:02:25] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 11:02:25] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:02:25] [INFO] └─ Statut: OK
+[13-03-2026 11:02:25] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:07:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:07:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:07:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:07:03] [INFO] ✅ Session créée: 099698471a71f9dc525273f2afc2afa7
+[13-03-2026 11:07:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:07:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:07:06] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:07:08] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:07:08] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:07:10] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:07:10] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:07:11] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:07:11] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:07:13] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:07:13] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:07:15] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:07:15] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:07:17] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:07:17] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:07:19] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:07:19] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:07:21] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:07:21] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:07:22] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:07:22] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:07:24] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:07:24] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:07:26] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:07:26] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:07:26] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:07:26] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:07:26] [INFO] ├─ Temps écoulé: 23s
+[13-03-2026 11:07:26] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:07:26] [INFO] └─ Statut: OK
+[13-03-2026 11:07:26] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:12:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:12:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:12:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:12:02] [INFO] ✅ Session créée: 09b24b380661b9e13339db2ab1e11ade
+[13-03-2026 11:12:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:12:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:12:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:12:10] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:12:10] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:12:12] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:12:13] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:12:16] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:12:17] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:12:19] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:12:19] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:12:20] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:12:20] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:12:22] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:12:22] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:12:24] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:12:24] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:12:26] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:12:26] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:12:27] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:12:27] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:12:29] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:12:29] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:12:31] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:12:31] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:12:31] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:12:31] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:12:31] [INFO] ├─ Temps écoulé: 29s
+[13-03-2026 11:12:31] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:12:31] [INFO] └─ Statut: OK
+[13-03-2026 11:12:31] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:17:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:17:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:17:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:17:02] [INFO] ✅ Session créée: 090c358c84d21457b9837042362e337d
+[13-03-2026 11:17:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:17:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:17:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:17:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:17:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:17:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:17:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:17:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:17:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:17:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:17:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:17:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:17:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:17:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:17:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:17:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:17:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:17:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:17:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:17:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:17:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:17:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:17:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:17:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:17:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:17:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:17:24] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:17:24] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 11:17:24] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:17:24] [INFO] └─ Statut: OK
+[13-03-2026 11:17:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:22:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:22:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:22:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:22:03] [INFO] ✅ Session créée: 0996e2afa7fbe6dccd9828ae89e7fefd
+[13-03-2026 11:22:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:22:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:22:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:22:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:22:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:22:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:22:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:22:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:22:11] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:22:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:22:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:22:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:22:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:22:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:22:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:22:19] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:22:19] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:22:21] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:22:21] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:22:22] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:22:22] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:22:24] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:22:24] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:22:26] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:22:26] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:22:26] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:22:26] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:22:26] [INFO] ├─ Temps écoulé: 23s
+[13-03-2026 11:22:26] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:22:26] [INFO] └─ Statut: OK
+[13-03-2026 11:22:26] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:27:03] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:27:04] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:27:04] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:27:05] [INFO] ✅ Session créée: 09d37a659dc34e82263f6f6e0c4d4d40
+[13-03-2026 11:27:05] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:27:07] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:27:07] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:27:09] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:27:09] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:27:11] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:27:11] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:27:13] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:27:13] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:27:15] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:27:15] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:27:17] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:27:17] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:27:19] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:27:19] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:27:20] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:27:20] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:27:22] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:27:22] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:27:24] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:27:24] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:27:25] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:27:25] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:27:27] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:27:27] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:27:27] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:27:27] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:27:27] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 11:27:27] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:27:27] [INFO] └─ Statut: OK
+[13-03-2026 11:27:27] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:32:03] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:32:03] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:32:03] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:32:04] [INFO] ✅ Session créée: 0915330bbd9e61530259b1db94e63cdf
+[13-03-2026 11:32:04] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:32:06] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:32:06] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:32:08] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:32:08] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:32:10] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:32:10] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:32:11] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:32:11] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:32:13] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:32:13] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:32:15] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:32:15] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:32:17] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:32:17] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:32:18] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:32:18] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:32:20] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:32:20] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:32:22] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:32:22] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:32:23] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:32:23] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:32:25] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:32:25] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:32:25] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:32:25] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:32:25] [INFO] ├─ Temps écoulé: 21s
+[13-03-2026 11:32:25] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:32:25] [INFO] └─ Statut: OK
+[13-03-2026 11:32:25] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:37:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:37:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:37:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:37:03] [INFO] ✅ Session créée: 094a606236fdcbf1975d5efda147e07f
+[13-03-2026 11:37:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:37:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:37:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:37:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:37:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:37:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:37:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:37:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:37:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:37:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:37:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:37:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:37:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:37:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:37:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:37:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:37:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:37:20] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:37:20] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:37:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:37:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:37:23] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:37:23] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:37:25] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:37:25] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:37:25] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:37:25] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:37:25] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 11:37:25] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:37:25] [INFO] └─ Statut: OK
+[13-03-2026 11:37:25] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:42:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:42:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:42:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:42:02] [INFO] ✅ Session créée: 090085ec520914bab207a39a58fa97af
+[13-03-2026 11:42:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:42:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:42:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:42:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:42:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:42:07] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:42:07] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:42:09] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:42:09] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:42:10] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:42:10] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:42:12] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:42:12] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:42:14] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:42:14] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:42:16] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:42:16] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:42:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:42:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:42:20] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:42:20] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:42:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:42:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:42:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:42:23] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:42:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:42:23] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:42:23] [INFO] ├─ Temps écoulé: 21s
+[13-03-2026 11:42:23] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:42:23] [INFO] └─ Statut: OK
+[13-03-2026 11:42:23] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:47:04] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:47:05] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:47:05] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:47:05] [INFO] ✅ Session créée: 09e1354793a8e0c2f14df1b15950006a
+[13-03-2026 11:47:05] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:47:08] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:47:08] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:47:10] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:47:10] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:47:12] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:47:12] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:47:14] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:47:14] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:47:16] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:47:16] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:47:18] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:47:18] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:47:20] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:47:20] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:47:21] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:47:21] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:47:23] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:47:23] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:47:25] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:47:25] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:47:26] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:47:26] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:47:28] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:47:28] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:47:28] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:47:29] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:47:29] [INFO] ├─ Temps écoulé: 23s
+[13-03-2026 11:47:29] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:47:29] [INFO] └─ Statut: OK
+[13-03-2026 11:47:29] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:52:07] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:52:08] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:52:10] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:52:11] [INFO] ✅ Session créée: 0932e6a2fa560a18de39f01bc66a213b
+[13-03-2026 11:52:11] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:52:13] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:52:13] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:52:15] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:52:15] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:52:17] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:52:17] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:52:18] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:52:19] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:52:21] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:52:21] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:52:23] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:52:23] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:52:25] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:52:25] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:52:26] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:52:26] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:52:28] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:52:28] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:52:30] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:52:30] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:52:31] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:52:31] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:52:33] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:52:33] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:52:33] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:52:33] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:52:33] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 11:52:33] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:52:33] [INFO] └─ Statut: OK
+[13-03-2026 11:52:33] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:57:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:57:01] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 11:57:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:57:02] [INFO] ✅ Session créée: 09f284f33832b7ed80c2b5003b8b67b7
+[13-03-2026 11:57:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 11:57:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 11:57:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 11:57:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 11:57:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 11:57:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 11:57:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 11:57:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 11:57:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 11:57:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 11:57:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 11:57:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 11:57:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 11:57:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 11:57:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 11:57:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 11:57:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 11:57:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 11:57:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 11:57:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 11:57:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 11:57:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 11:57:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 11:57:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 11:57:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 11:57:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 11:57:24] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 11:57:24] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 11:57:24] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 11:57:24] [INFO] └─ Statut: OK
+[13-03-2026 11:57:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:02:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:02:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 12:02:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:02:03] [INFO] ✅ Session créée: 0949db844c5d9568d10baf96a17068ad
+[13-03-2026 12:02:04] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 12:02:06] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 12:02:07] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 12:02:09] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 12:02:09] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 12:02:11] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 12:02:11] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 12:02:13] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 12:02:13] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 12:02:14] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 12:02:14] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 12:02:16] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 12:02:16] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 12:02:18] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 12:02:18] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 12:02:19] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 12:02:19] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 12:02:21] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 12:02:21] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 12:02:23] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 12:02:23] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 12:02:24] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 12:02:24] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 12:02:26] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 12:02:26] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:02:26] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 12:02:26] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 12:02:26] [INFO] ├─ Temps écoulé: 23s
+[13-03-2026 12:02:26] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 12:02:26] [INFO] └─ Statut: OK
+[13-03-2026 12:02:26] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:07:03] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:07:03] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 12:07:03] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:07:05] [INFO] ✅ Session créée: 097255f199843038e26c5ce63811fbc7
+[13-03-2026 12:07:05] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 12:07:08] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 12:07:08] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 12:07:10] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 12:07:10] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 12:07:12] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 12:07:12] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 12:07:13] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 12:07:14] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 12:07:15] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 12:07:15] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 12:07:17] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 12:07:17] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 12:07:19] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 12:07:19] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 12:07:21] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 12:07:21] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 12:07:23] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 12:07:23] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 12:07:25] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 12:07:25] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 12:07:26] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 12:07:26] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 12:07:29] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 12:07:29] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:07:29] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 12:07:29] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 12:07:29] [INFO] ├─ Temps écoulé: 24s
+[13-03-2026 12:07:29] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 12:07:29] [INFO] └─ Statut: OK
+[13-03-2026 12:07:29] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:12:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:12:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 12:12:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:12:02] [INFO] ✅ Session créée: 090312024a726dfcdf9d4ce202589262
+[13-03-2026 12:12:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 12:12:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 12:12:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 12:12:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 12:12:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 12:12:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 12:12:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 12:12:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 12:12:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 12:12:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 12:12:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 12:12:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 12:12:13] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 12:12:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 12:12:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 12:12:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 12:12:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 12:12:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 12:12:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 12:12:20] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 12:12:20] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 12:12:21] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 12:12:21] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 12:12:23] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 12:12:23] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:12:23] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 12:12:23] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 12:12:23] [INFO] ├─ Temps écoulé: 21s
+[13-03-2026 12:12:23] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 12:12:23] [INFO] └─ Statut: OK
+[13-03-2026 12:12:23] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:17:03] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:17:03] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 12:17:03] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:17:04] [INFO] ✅ Session créée: 09648e53d513dc3328eff7d4da31dd2f
+[13-03-2026 12:17:04] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 12:17:06] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 12:17:06] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 12:17:08] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 12:17:08] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 12:17:10] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 12:17:10] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 12:17:13] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 12:17:13] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 12:17:14] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 12:17:14] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 12:17:16] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 12:17:16] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 12:17:19] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 12:17:19] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 12:17:20] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 12:17:20] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 12:17:22] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 12:17:23] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 12:17:25] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 12:17:25] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 12:17:27] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 12:17:27] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 12:17:29] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 12:17:29] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:17:29] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 12:17:29] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 12:17:29] [INFO] ├─ Temps écoulé: 25s
+[13-03-2026 12:17:29] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 12:17:29] [INFO] └─ Statut: OK
+[13-03-2026 12:17:29] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:22:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:22:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 12:22:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:22:06] [INFO] ✅ Session créée: 09244396893aaefa4dfb219c0ab6e21f
+[13-03-2026 12:22:06] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 12:22:08] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 12:22:08] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 12:22:11] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 12:22:11] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 12:22:13] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 12:22:13] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 12:22:15] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 12:22:15] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 12:22:17] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 12:22:17] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 12:22:19] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 12:22:19] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 12:22:21] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 12:22:21] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 12:22:22] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 12:22:23] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 12:22:25] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 12:22:25] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 12:22:26] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 12:22:26] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 12:22:28] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 12:22:28] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 12:23:21] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 12:23:22] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:23:22] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 12:23:22] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 12:23:22] [INFO] ├─ Temps écoulé: 76s
+[13-03-2026 12:23:22] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 12:23:22] [INFO] └─ Statut: OK
+[13-03-2026 12:23:22] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:27:04] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:27:04] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 12:27:04] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:27:06] [INFO] ✅ Session créée: 0945326b07680638ce7b1147487d4f72
+[13-03-2026 12:27:06] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 12:27:08] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 12:27:08] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 12:27:09] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 12:27:09] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 12:27:11] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 12:27:11] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 12:27:13] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 12:27:13] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 12:27:14] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 12:27:14] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 12:27:17] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 12:27:17] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 12:27:19] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 12:27:19] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 12:27:21] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 12:27:21] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 12:27:23] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 12:27:23] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 12:27:24] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 12:27:24] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 12:27:26] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 12:27:26] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 12:27:28] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 12:27:28] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:27:28] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 12:27:28] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 12:27:28] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 12:27:28] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 12:27:28] [INFO] └─ Statut: OK
+[13-03-2026 12:27:28] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:32:03] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:32:03] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 12:32:03] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:32:04] [INFO] ✅ Session créée: 0929540f237484b35ab3029986fd80e4
+[13-03-2026 12:32:04] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 12:32:06] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 12:32:06] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 12:32:08] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 12:32:08] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 12:32:10] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 12:32:10] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 12:32:11] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 12:32:11] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 12:32:13] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 12:32:13] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 12:32:15] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 12:32:15] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 12:32:17] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 12:32:17] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 12:32:19] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 12:32:19] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 12:32:21] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 12:32:21] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 12:32:22] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 12:32:22] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 12:32:24] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 12:32:24] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 12:32:26] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 12:32:26] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:32:26] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 12:32:26] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 12:32:26] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 12:32:26] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 12:32:26] [INFO] └─ Statut: OK
+[13-03-2026 12:32:26] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:37:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:37:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 12:37:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:37:03] [INFO] ✅ Session créée: 09618a4eb3444ee04e5d7f4e5084bfa9
+[13-03-2026 12:37:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 12:37:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 12:37:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 12:37:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 12:37:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 12:37:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 12:37:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 12:37:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 12:37:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 12:37:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 12:37:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 12:37:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 12:37:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 12:37:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 12:37:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 12:37:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 12:37:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 12:37:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 12:37:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 12:37:20] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 12:37:20] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 12:37:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 12:37:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 12:37:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 12:37:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:37:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 12:37:24] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 12:37:24] [INFO] ├─ Temps écoulé: 21s
+[13-03-2026 12:37:24] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 12:37:24] [INFO] └─ Statut: OK
+[13-03-2026 12:37:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:42:01] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:42:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 12:42:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:42:02] [INFO] ✅ Session créée: 09b49987bb00b7f454bb7fe7d42e8418
+[13-03-2026 12:42:02] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 12:42:04] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 12:42:04] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 12:42:06] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 12:42:06] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 12:42:08] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 12:42:08] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 12:42:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 12:42:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 12:42:11] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 12:42:11] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 12:42:13] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 12:42:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 12:42:15] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 12:42:15] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 12:42:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 12:42:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 12:42:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 12:42:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 12:42:20] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 12:42:20] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 12:42:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 12:42:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 12:42:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 12:42:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:42:24] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 12:42:24] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 12:42:24] [INFO] ├─ Temps écoulé: 22s
+[13-03-2026 12:42:24] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 12:42:24] [INFO] └─ Statut: OK
+[13-03-2026 12:42:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:47:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:47:02] [INFO] 🔄 SYNCHRONISATION WIALON STARTED (Fréquence: 5 minutes)
+[13-03-2026 12:47:02] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:47:03] [INFO] ✅ Session créée: 09eb8238dcee57a8601efa8fe49ca8ec
+[13-03-2026 12:47:03] [INFO] ├─ Processing: BOUTCHRAFINE (ID: 19022033)
+[13-03-2026 12:47:05] [INFO] ├─ ✅ BOUTCHRAFINE: 0 table(s) importée(s)
+[13-03-2026 12:47:05] [INFO] ├─ Processing: SOMATRIN (ID: 19596491)
+[13-03-2026 12:47:07] [INFO] ├─ ✅ SOMATRIN: 0 table(s) importée(s)
+[13-03-2026 12:47:07] [INFO] ├─ Processing: MARATRANS (ID: 19631505)
+[13-03-2026 12:47:09] [INFO] ├─ ✅ MARATRANS: 0 table(s) importée(s)
+[13-03-2026 12:47:09] [INFO] ├─ Processing: G.T.C (ID: 19590737)
+[13-03-2026 12:47:10] [WARNING] ├─ ⚠️ Aucune donnée pour G.T.C
+[13-03-2026 12:47:10] [INFO] ├─ Processing: DOUKALI (ID: 19585587)
+[13-03-2026 12:47:12] [WARNING] ├─ ⚠️ Aucune donnée pour DOUKALI
+[13-03-2026 12:47:12] [INFO] ├─ Processing: COTRAMAB (ID: 19585601)
+[13-03-2026 12:47:14] [INFO] ├─ ✅ COTRAMAB: 0 table(s) importée(s)
+[13-03-2026 12:47:14] [INFO] ├─ Processing: CORYAD (ID: 19585581)
+[13-03-2026 12:47:16] [INFO] ├─ ✅ CORYAD: 0 table(s) importée(s)
+[13-03-2026 12:47:16] [INFO] ├─ Processing: CONSMETA (ID: 19629962)
+[13-03-2026 12:47:17] [WARNING] ├─ ⚠️ Aucune donnée pour CONSMETA
+[13-03-2026 12:47:17] [INFO] ├─ Processing: CHOUROUK (ID: 19630023)
+[13-03-2026 12:47:19] [INFO] ├─ ✅ CHOUROUK: 0 table(s) importée(s)
+[13-03-2026 12:47:19] [INFO] ├─ Processing: CARRE (ID: 19643391)
+[13-03-2026 12:47:21] [WARNING] ├─ ⚠️ Aucune donnée pour CARRE
+[13-03-2026 12:47:21] [INFO] ├─ Processing: STB (ID: 19585942)
+[13-03-2026 12:47:22] [WARNING] ├─ ⚠️ Aucune donnée pour STB
+[13-03-2026 12:47:22] [INFO] ├─ Processing: FASTTRANS (ID: 19635796)
+[13-03-2026 12:47:24] [INFO] ├─ ✅ FASTTRANS: 0 table(s) importée(s)
+[13-03-2026 12:47:24] [INFO] ═══════════════════════════════════════════════════════════
+[13-03-2026 12:47:25] [INFO] ✅ SYNCHRONISATION TERMINÉE
+[13-03-2026 12:47:25] [INFO] ├─ Total trajets traités: 0
+[13-03-2026 12:47:25] [INFO] ├─ Temps écoulé: 21s
+[13-03-2026 12:47:25] [INFO] ├─ Prochaine sync: +5 minutes
+[13-03-2026 12:47:25] [INFO] └─ Statut: OK
+[13-03-2026 12:47:25] [INFO] ═══════════════════════════════════════════════════════════

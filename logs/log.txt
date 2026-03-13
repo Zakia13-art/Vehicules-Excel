@@ -1,0 +1,405 @@
+12-03-2026 11:57: erreur execRep 
+12-03-2026 11:57: erreur execRep 
+12-03-2026 11:57: erreur execRep 
+12-03-2026 11:57: erreur execRep 
+12-03-2026 11:57: erreur execRep 
+12-03-2026 12:18: erreur execRep 
+12-03-2026 12:18: erreur execRep 
+12-03-2026 12:18: erreur execRep 
+12-03-2026 12:18: erreur execRep 
+12-03-2026 12:18: erreur execRep 
+12-03-2026 12:57: erreur execRep 
+12-03-2026 12:57: erreur execRep 
+12-03-2026 12:57: erreur execRep 
+12-03-2026 12:57: erreur execRep 
+12-03-2026 12:57: erreur execRep 
+12-03-2026 13:01: erreur execRep 
+12-03-2026 13:02: erreur execRep 
+12-03-2026 13:02: erreur execRep 
+12-03-2026 13:02: erreur execRep 
+12-03-2026 13:02: erreur execRep 
+12-03-2026 13:02: erreur execRep 
+12-03-2026 13:07: erreur execRep 
+12-03-2026 13:07: erreur execRep 
+12-03-2026 13:07: erreur execRep 
+12-03-2026 13:07: erreur execRep 
+12-03-2026 13:07: erreur execRep 
+12-03-2026 13:12: erreur execRep 
+12-03-2026 13:12: erreur execRep 
+12-03-2026 13:12: erreur execRep 
+12-03-2026 13:12: erreur execRep 
+12-03-2026 13:12: erreur execRep 
+12-03-2026 13:17: erreur execRep 
+12-03-2026 13:17: erreur execRep 
+12-03-2026 13:17: erreur execRep 
+12-03-2026 13:17: erreur execRep 
+12-03-2026 13:17: erreur execRep 
+12-03-2026 13:22: erreur execRep 
+12-03-2026 13:22: erreur execRep 
+12-03-2026 13:22: erreur execRep 
+12-03-2026 13:22: erreur execRep 
+12-03-2026 13:22: erreur execRep 
+12-03-2026 13:27: erreur execRep 
+12-03-2026 13:27: erreur execRep 
+12-03-2026 13:27: erreur execRep 
+12-03-2026 13:27: erreur execRep 
+12-03-2026 13:27: erreur execRep 
+12-03-2026 13:32: erreur execRep 
+12-03-2026 13:32: erreur execRep 
+12-03-2026 13:32: erreur execRep 
+12-03-2026 13:32: erreur execRep 
+12-03-2026 13:32: erreur execRep 
+12-03-2026 13:37: erreur execRep 
+12-03-2026 13:37: erreur execRep 
+12-03-2026 13:37: erreur execRep 
+12-03-2026 13:37: erreur execRep 
+12-03-2026 13:37: erreur execRep 
+12-03-2026 13:42: erreur execRep 
+12-03-2026 13:42: erreur execRep 
+12-03-2026 13:42: erreur execRep 
+12-03-2026 13:42: erreur execRep 
+12-03-2026 13:42: erreur execRep 
+12-03-2026 13:47: erreur execRep 
+12-03-2026 13:47: erreur execRep 
+12-03-2026 13:47: erreur execRep 
+12-03-2026 13:47: erreur execRep 
+12-03-2026 13:47: erreur execRep 
+12-03-2026 13:52: erreur execRep 
+12-03-2026 13:52: erreur execRep 
+12-03-2026 13:52: erreur execRep 
+12-03-2026 13:52: erreur execRep 
+12-03-2026 13:52: erreur execRep 
+12-03-2026 13:57: erreur execRep 
+12-03-2026 13:57: erreur execRep 
+12-03-2026 13:57: erreur execRep 
+12-03-2026 13:57: erreur execRep 
+12-03-2026 13:57: erreur execRep 
+12-03-2026 14:02: erreur execRep 
+12-03-2026 14:02: erreur execRep 
+12-03-2026 14:02: erreur execRep 
+12-03-2026 14:02: erreur execRep 
+12-03-2026 14:02: erreur execRep 
+12-03-2026 14:07: erreur execRep 
+12-03-2026 14:07: erreur execRep 
+12-03-2026 14:07: erreur execRep 
+12-03-2026 14:07: erreur execRep 
+12-03-2026 14:07: erreur execRep 
+12-03-2026 14:12: erreur execRep 
+12-03-2026 14:12: erreur execRep 
+12-03-2026 14:12: erreur execRep 
+12-03-2026 14:12: erreur execRep 
+12-03-2026 14:12: erreur execRep 
+12-03-2026 14:17: erreur execRep 
+12-03-2026 14:17: erreur execRep 
+12-03-2026 14:17: erreur execRep 
+12-03-2026 14:17: erreur execRep 
+12-03-2026 14:17: erreur execRep 
+12-03-2026 14:22: erreur execRep 
+12-03-2026 14:22: erreur execRep 
+12-03-2026 14:22: erreur execRep 
+12-03-2026 14:22: erreur execRep 
+12-03-2026 14:22: erreur execRep 
+12-03-2026 14:27: erreur execRep 
+12-03-2026 14:27: erreur execRep 
+12-03-2026 14:27: erreur execRep 
+12-03-2026 14:27: erreur execRep 
+12-03-2026 14:27: erreur execRep 
+12-03-2026 14:32: erreur execRep 
+12-03-2026 14:32: erreur execRep 
+12-03-2026 14:32: erreur execRep 
+12-03-2026 14:32: erreur execRep 
+12-03-2026 14:32: erreur execRep 
+12-03-2026 14:37: erreur execRep 
+12-03-2026 14:37: erreur execRep 
+12-03-2026 14:37: erreur execRep 
+12-03-2026 14:37: erreur execRep 
+12-03-2026 14:37: erreur execRep 
+12-03-2026 14:42: erreur execRep 
+12-03-2026 14:42: erreur execRep 
+12-03-2026 14:42: erreur execRep 
+12-03-2026 14:42: erreur execRep 
+12-03-2026 14:42: erreur execRep 
+12-03-2026 14:47: erreur execRep 
+12-03-2026 14:47: erreur execRep 
+12-03-2026 14:47: erreur execRep 
+12-03-2026 14:47: erreur execRep 
+12-03-2026 14:47: erreur execRep 
+12-03-2026 14:52: erreur execRep 
+12-03-2026 14:52: erreur execRep 
+12-03-2026 14:52: erreur execRep 
+12-03-2026 14:52: erreur execRep 
+12-03-2026 14:52: erreur execRep 
+12-03-2026 14:57: erreur execRep 
+12-03-2026 14:57: erreur execRep 
+12-03-2026 14:57: erreur execRep 
+12-03-2026 14:57: erreur execRep 
+12-03-2026 14:57: erreur execRep 
+12-03-2026 15:02: erreur execRep 
+12-03-2026 15:02: erreur execRep 
+12-03-2026 15:02: erreur execRep 
+12-03-2026 15:02: erreur execRep 
+12-03-2026 15:02: erreur execRep 
+12-03-2026 15:07: erreur execRep 
+12-03-2026 15:07: erreur execRep 
+12-03-2026 15:07: erreur execRep 
+12-03-2026 15:07: erreur execRep 
+12-03-2026 15:07: erreur execRep 
+12-03-2026 15:12: erreur execRep 
+12-03-2026 15:12: erreur execRep 
+12-03-2026 15:12: erreur execRep 
+12-03-2026 15:12: erreur execRep 
+12-03-2026 15:12: erreur execRep 
+12-03-2026 15:17: erreur execRep 
+12-03-2026 15:17: erreur execRep 
+12-03-2026 15:17: erreur execRep 
+12-03-2026 15:17: erreur execRep 
+12-03-2026 15:17: erreur execRep 
+12-03-2026 15:22: erreur execRep 
+12-03-2026 15:22: erreur execRep 
+12-03-2026 15:22: erreur execRep 
+12-03-2026 15:22: erreur execRep 
+12-03-2026 15:22: erreur execRep 
+12-03-2026 15:27: erreur execRep 
+12-03-2026 15:27: erreur execRep 
+12-03-2026 15:27: erreur execRep 
+12-03-2026 15:27: erreur execRep 
+12-03-2026 15:27: erreur execRep 
+12-03-2026 15:32: erreur execRep 
+12-03-2026 15:32: erreur execRep 
+12-03-2026 15:32: erreur execRep 
+12-03-2026 15:32: erreur execRep 
+12-03-2026 15:32: erreur execRep 
+12-03-2026 15:37: erreur execRep 
+12-03-2026 15:37: erreur execRep 
+12-03-2026 15:37: erreur execRep 
+12-03-2026 15:37: erreur execRep 
+12-03-2026 15:37: erreur execRep 
+12-03-2026 15:42: erreur execRep 
+12-03-2026 15:42: erreur execRep 
+12-03-2026 15:42: erreur execRep 
+12-03-2026 15:42: erreur execRep 
+12-03-2026 15:42: erreur execRep 
+12-03-2026 15:47: erreur execRep 
+12-03-2026 15:47: erreur execRep 
+12-03-2026 15:47: erreur execRep 
+12-03-2026 15:47: erreur execRep 
+12-03-2026 15:47: erreur execRep 
+12-03-2026 15:52: erreur execRep 
+12-03-2026 15:52: erreur execRep 
+12-03-2026 15:52: erreur execRep 
+12-03-2026 15:52: erreur execRep 
+12-03-2026 15:52: erreur execRep 
+12-03-2026 15:57: erreur execRep 
+12-03-2026 15:57: erreur execRep 
+12-03-2026 15:57: erreur execRep 
+12-03-2026 15:57: erreur execRep 
+12-03-2026 15:57: erreur execRep 
+13-03-2026 10:06: erreur execRep 
+13-03-2026 10:06: erreur execRep 
+13-03-2026 10:06: erreur execRep 
+13-03-2026 10:06: erreur execRep 
+13-03-2026 10:06: erreur execRep 
+13-03-2026 10:07: erreur execRep 
+13-03-2026 10:07: erreur execRep 
+13-03-2026 10:07: erreur execRep 
+13-03-2026 10:07: erreur execRep 
+13-03-2026 10:07: erreur execRep 
+13-03-2026 10:12: erreur execRep 
+13-03-2026 10:12: erreur execRep 
+13-03-2026 10:12: erreur execRep 
+13-03-2026 10:12: erreur execRep 
+13-03-2026 10:12: erreur execRep 
+13-03-2026 10:17: erreur execRep 
+13-03-2026 10:17: erreur execRep 
+13-03-2026 10:17: erreur execRep 
+13-03-2026 10:17: erreur execRep 
+13-03-2026 10:17: erreur execRep 
+13-03-2026 10:22: erreur execRep 
+13-03-2026 10:22: erreur execRep 
+13-03-2026 10:22: erreur execRep 
+13-03-2026 10:22: erreur execRep 
+13-03-2026 10:22: erreur execRep 
+13-03-2026 10:52: erreur execRep 
+13-03-2026 10:52: erreur execRep 
+13-03-2026 10:52: erreur execRep 
+13-03-2026 10:52: erreur execRep 
+13-03-2026 10:52: erreur execRep 
+13-03-2026 10:57: erreur execRep 
+13-03-2026 10:57: erreur execRep 
+13-03-2026 10:57: erreur execRep 
+13-03-2026 10:57: erreur execRep 
+13-03-2026 10:57: erreur execRep 
+13-03-2026 11:02: erreur execRep 
+13-03-2026 11:02: erreur execRep 
+13-03-2026 11:02: erreur execRep 
+13-03-2026 11:02: erreur execRep 
+13-03-2026 11:02: erreur execRep 
+13-03-2026 11:07: erreur execRep 
+13-03-2026 11:07: erreur execRep 
+13-03-2026 11:07: erreur execRep 
+13-03-2026 11:07: erreur execRep 
+13-03-2026 11:07: erreur execRep 
+13-03-2026 11:12: erreur execRep 
+13-03-2026 11:12: erreur execRep 
+13-03-2026 11:12: erreur execRep 
+13-03-2026 11:12: erreur execRep 
+13-03-2026 11:12: erreur execRep 
+13-03-2026 11:17: erreur execRep 
+13-03-2026 11:17: erreur execRep 
+13-03-2026 11:17: erreur execRep 
+13-03-2026 11:17: erreur execRep 
+13-03-2026 11:17: erreur execRep 
+13-03-2026 11:22: erreur execRep 
+13-03-2026 11:22: erreur execRep 
+13-03-2026 11:22: erreur execRep 
+13-03-2026 11:22: erreur execRep 
+13-03-2026 11:22: erreur execRep 
+13-03-2026 11:27: erreur execRep 
+13-03-2026 11:27: erreur execRep 
+13-03-2026 11:27: erreur execRep 
+13-03-2026 11:27: erreur execRep 
+13-03-2026 11:27: erreur execRep 
+13-03-2026 11:32: erreur execRep 
+13-03-2026 11:32: erreur execRep 
+13-03-2026 11:32: erreur execRep 
+13-03-2026 11:32: erreur execRep 
+13-03-2026 11:32: erreur execRep 
+13-03-2026 11:37: erreur execRep 
+13-03-2026 11:37: erreur execRep 
+13-03-2026 11:37: erreur execRep 
+13-03-2026 11:37: erreur execRep 
+13-03-2026 11:37: erreur execRep 
+13-03-2026 11:42: erreur execRep 
+13-03-2026 11:42: erreur execRep 
+13-03-2026 11:42: erreur execRep 
+13-03-2026 11:42: erreur execRep 
+13-03-2026 11:42: erreur execRep 
+13-03-2026 11:47: erreur execRep 
+13-03-2026 11:47: erreur execRep 
+13-03-2026 11:47: erreur execRep 
+13-03-2026 11:47: erreur execRep 
+13-03-2026 11:47: erreur execRep 
+13-03-2026 11:52: erreur execRep 
+13-03-2026 11:52: erreur execRep 
+13-03-2026 11:52: erreur execRep 
+13-03-2026 11:52: erreur execRep 
+13-03-2026 11:52: erreur execRep 
+13-03-2026 11:57: erreur execRep 
+13-03-2026 11:57: erreur execRep 
+13-03-2026 11:57: erreur execRep 
+13-03-2026 11:57: erreur execRep 
+13-03-2026 11:57: erreur execRep 
+13-03-2026 12:02: erreur execRep 
+13-03-2026 12:02: erreur execRep 
+13-03-2026 12:02: erreur execRep 
+13-03-2026 12:02: erreur execRep 
+13-03-2026 12:02: erreur execRep 
+13-03-2026 12:07: erreur execRep 
+13-03-2026 12:07: erreur execRep 
+13-03-2026 12:07: erreur execRep 
+13-03-2026 12:07: erreur execRep 
+13-03-2026 12:07: erreur execRep 
+13-03-2026 12:12: erreur execRep 
+13-03-2026 12:12: erreur execRep 
+13-03-2026 12:12: erreur execRep 
+13-03-2026 12:12: erreur execRep 
+13-03-2026 12:12: erreur execRep 
+13-03-2026 12:17: erreur execRep 
+13-03-2026 12:17: erreur execRep 
+13-03-2026 12:17: erreur execRep 
+13-03-2026 12:17: erreur execRep 
+13-03-2026 12:17: erreur execRep 
+13-03-2026 12:22: erreur execRep 
+13-03-2026 12:22: erreur execRep 
+13-03-2026 12:22: erreur execRep 
+13-03-2026 12:22: erreur execRep 
+13-03-2026 12:22: erreur execRep 
+13-03-2026 12:27: erreur execRep 
+13-03-2026 12:27: erreur execRep 
+13-03-2026 12:27: erreur execRep 
+13-03-2026 12:27: erreur execRep 
+13-03-2026 12:27: erreur execRep 
+13-03-2026 12:32: erreur execRep 
+13-03-2026 12:32: erreur execRep 
+13-03-2026 12:32: erreur execRep 
+13-03-2026 12:32: erreur execRep 
+13-03-2026 12:32: erreur execRep 
+13-03-2026 12:37: erreur execRep 
+13-03-2026 12:37: erreur execRep 
+13-03-2026 12:37: erreur execRep 
+13-03-2026 12:37: erreur execRep 
+13-03-2026 12:37: erreur execRep 
+13-03-2026 12:42: erreur execRep 
+13-03-2026 12:42: erreur execRep 
+13-03-2026 12:42: erreur execRep 
+13-03-2026 12:42: erreur execRep 
+13-03-2026 12:42: erreur execRep 
+13-03-2026 12:47: erreur execRep 
+13-03-2026 12:47: erreur execRep 
+13-03-2026 12:47: erreur execRep 
+13-03-2026 12:47: erreur execRep 
+13-03-2026 12:47: erreur execRep 
+13-03-2026 14:26: erreur selectRes 
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: 21376A17, Penalite: 0, KM: 116
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: 21376A17, Penalite: 0, KM: 112
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41056B15, Penalite: 0, KM: 111
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41058B15, Penalite: 0, KM: 114
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41059B15, Penalite: 0, KM: 111
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41059B15, Penalite: 0, KM: 115
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41059B15, Penalite: 0, KM: 116
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22754A25, Penalite: 0, KM: 112
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22757A25, Penalite: 0, KM: 112
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22758A25, Penalite: 0, KM: 106
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22758A25, Penalite: 0, KM: 108
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 108
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 113
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 119
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 113
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN84404B15, Penalite: 0, KM: 117
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: 21376A17, Penalite: 0, KM: 172
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41058B15, Penalite: 0, KM: 171
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41059B15, Penalite: 0, KM: 173
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22754A25, Penalite: 0, KM: 172
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22754A25, Penalite: 0, KM: 172
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22757A25, Penalite: 0, KM: 172
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22757A25, Penalite: 0, KM: 172
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26626A25, Penalite: 0, KM: 171
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 171
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 172
+13-03-2026 15:19: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN84404B15, Penalite: 0, KM: 171
+13-03-2026 15:19: erreur execRep 
+13-03-2026 15:19: erreur execRep 
+13-03-2026 15:19: erreur execRep 
+13-03-2026 15:19: erreur execRep 
+13-03-2026 15:19: erreur execRep 
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: 21376A17, Penalite: 0, KM: 116
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: 21376A17, Penalite: 0, KM: 112
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41056B15, Penalite: 0, KM: 111
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41058B15, Penalite: 0, KM: 114
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41059B15, Penalite: 0, KM: 111
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41059B15, Penalite: 0, KM: 115
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41059B15, Penalite: 0, KM: 116
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22754A25, Penalite: 0, KM: 112
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22757A25, Penalite: 0, KM: 112
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22758A25, Penalite: 0, KM: 106
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22758A25, Penalite: 0, KM: 108
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 108
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 113
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 119
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 113
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN84404B15, Penalite: 0, KM: 117
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: 21376A17, Penalite: 0, KM: 172
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41058B15, Penalite: 0, KM: 171
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: MAN41059B15, Penalite: 0, KM: 173
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22754A25, Penalite: 0, KM: 172
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22754A25, Penalite: 0, KM: 172
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22757A25, Penalite: 0, KM: 172
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SCANIA22757A25, Penalite: 0, KM: 172
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26626A25, Penalite: 0, KM: 171
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 171
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN26854a25, Penalite: 0, KM: 172
+13-03-2026 15:36: Erreur insert trajet - SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`)) - Véhicule: SHACMAN84404B15, Penalite: 0, KM: 171
+13-03-2026 15:37: erreur execRep 
+13-03-2026 15:37: erreur execRep 
+13-03-2026 15:37: erreur execRep 
+13-03-2026 15:37: erreur execRep 

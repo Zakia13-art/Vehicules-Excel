@@ -1,158 +1,200 @@
 <?php
-/**
- * tableau.php — Rapport Flotte Transport BOUTCHERAFIN
- * Source : fichiers Excel dans C:\xampp\htdocs\vehicules\data\entreprises
- * Calculs automatiques par véhicule avec barèmes couleurs
- * 
- * FIX: sNote() maintenant applique la condition directement sur /100
- *      ≥ 80 → vert, 60-79 → orange, < 60 → rouge
- */
-
 require_once 'config.php';
 require_once 'vendor/autoload.php';
-
 use PhpOffice\PhpSpreadsheet\IOFactory;
+$dataDir = 'C:/xampp/htdocs/vehicules/data/entreprises/';
 
-// ══════════════════════════════════════════════════════════
-// ── CONFIG EXCEL ──────────────────────────────────────────
-// ══════════════════════════════════════════════════════════
-$dataDir    = 'C:/xampp/htdocs/vehicules/data/entreprises/';
-$SHEET_ECO  = 'Éco-conduite';
-$SHEET_KILO = 'Kilométrage+Heures moteur';
-
-function findLatestFile(string $dir, string $pattern): ?string {
-    $files = glob($dir . '*' . $pattern . '*.xlsx');
-    if (empty($files)) return null;
-    usort($files, fn($a, $b) => filemtime($b) - filemtime($a));
-    return $files[0];
+$filesEco = glob($dataDir . '*co-conduite*.xlsx');
+$filesEco = array_filter($filesEco, fn($f) => strpos(basename($f), '~$') === false);
+$filesKilo = glob($dataDir . '*Kilom*.xlsx');
+$fileKilo = !empty($filesKilo) ? $filesKilo[0] : null;
+$error = '';
+if (empty($filesEco) || !$fileKilo) {
+    $error = '❌ Fichiers manquants';
 }
 
-function readExcelSheet(string $filePath, string $sheetName): array {
+function readExcelBySheetName(string $filePath, string $searchName): array {
     try {
         $spreadsheet = IOFactory::load($filePath);
-        $sheet = $spreadsheet->getSheetByName($sheetName) ?? $spreadsheet->getActiveSheet();
-        $rows  = $sheet->toArray(null, true, true, false);
+        $sheet = null;
+        foreach ($spreadsheet->getSheetNames() as $name) {
+            if (stripos($name, $searchName) !== false) {
+                $sheet = $spreadsheet->getSheetByName($name);
+                break;
+            }
+        }
+        if ($sheet === null) $sheet = $spreadsheet->getActiveSheet();
+        $rows = $sheet->toArray(null, true, true, false);
         if (empty($rows)) return [];
         $headers = array_map(fn($h) => trim((string)($h ?? '')), array_shift($rows));
         $data = [];
         foreach ($rows as $row) {
             if (empty(array_filter($row, fn($v) => $v !== null && $v !== ''))) continue;
             $assoc = [];
-            foreach ($headers as $i => $h) { $assoc[$h] = trim((string)($row[$i] ?? '')); }
+            foreach ($headers as $i => $h) {
+                $assoc[$h] = trim((string)($row[$i] ?? ''));
+            }
             $data[] = $assoc;
         }
         return $data;
-    } catch (\Exception $e) { return []; }
+    } catch (\Exception $e) {
+        return [];
+    }
 }
 
-// Convertit "1 jours 2:26:21" ou "20:17:05" en heures décimales
 function parseDureeToHours(string $duree): float {
     $h = 0.0;
     if (preg_match('/(\d+)\s*jours?\s*/i', $duree, $m)) {
         $h += (float)$m[1] * 24;
         $duree = preg_replace('/\d+\s*jours?\s*/i', '', $duree);
     }
-    if (preg_match('/(\d+):(\d+):(\d+)/', $duree, $m))
+    if (preg_match('/(\d+):(\d+):(\d+)/', $duree, $m)) {
         $h += (float)$m[1] + (float)$m[2]/60 + (float)$m[3]/3600;
-    elseif (preg_match('/(\d+):(\d+)/', $duree, $m))
+    } elseif (preg_match('/(\d+):(\d+)/', $duree, $m)) {
         $h += (float)$m[1] + (float)$m[2]/60;
+    }
     return round($h, 1);
 }
 
-// ══════════════════════════════════════════════════════════
-// ── BARÈMES COULEURS ──────────────────────────────────────
-// ══════════════════════════════════════════════════════════
-// ✅ FIX: sNote() applique directement la condition sur /100
-function sNote(float $v): string    { return $v >= 80 ? 'vert' : ($v >= 60 ? 'orange' : 'rouge'); }
-function sAlertes(int $v): string   { return $v <= 2  ? 'vert' : ($v <= 10 ? 'orange' : 'rouge'); }
-function sAl100(float $v): string   { return $v < 0.5 ? 'vert' : ($v <= 1  ? 'orange' : 'rouge'); }
-function sHeures(float $v): string  { return $v < 54  ? 'vert' : ($v <= 65 ? 'orange' : 'rouge'); }
-function sCharge(float $h, float $km): string {
-    $sh = sHeures($h);
-    $sk = $km >= 5000 ? 'rouge' : ($km >= 4000 ? 'orange' : 'vert');
-    if ($sh === 'rouge' || $sk === 'rouge') return 'rouge';
-    if ($sh === 'orange' || $sk === 'orange') return 'orange';
-    return 'vert';
+function scoreNoteConduite(float $alertes, float $alertesParKm, int $charge): array {
+    // Formule: 100 - (B * 2) - (C * 10) - (F * 5)
+    $note = 100 - ($alertes * 2) - ($alertesParKm * 10) - ($charge * 5);
+    $note = max(0, $note); // Ensure non-negative
+    // Barèmes: Vert ≥80, Orange 60-79, Rouge <60
+    if ($note >= 80) $status = 'vert';
+    elseif ($note >= 60) $status = 'orange';
+    else $status = 'rouge';
+    return ['value' => round($note, 0), 'status' => $status];
 }
-function chargeLabel(string $s): string { return ['vert'=>'Faible','orange'=>'Moyenne','rouge'=>'Élevée'][$s] ?? '—'; }
-function sRisque(string $sN, string $sA, string $sA1, string $sC): string {
-    $scores = array_map(fn($x) => ['vert'=>0,'orange'=>1,'rouge'=>2][$x] ?? 0, [$sN,$sA,$sA1,$sC]);
-    $avg = array_sum($scores)/count($scores);
-    return max($scores)===2 || $avg>=1.5 ? 'rouge' : ($avg>=0.5 ? 'orange' : 'vert');
+
+function scoreAlertesCritiques(int $alertes): array {
+    if ($alertes <= 2) $status = 'vert';
+    elseif ($alertes <= 10) $status = 'orange';
+    else $status = 'rouge';
+    return ['value' => $alertes, 'status' => $status];
 }
-function risqueLabel(string $s): string { return ['vert'=>'Faible','orange'=>'Modéré','rouge'=>'Élevé'][$s] ?? '—'; }
 
-// ══════════════════════════════════════════════════════════
-// ── LECTURE FICHIERS EXCEL ────────────────────────────────
-// ══════════════════════════════════════════════════════════
-$error     = '';
-$vehicules = [];
+function scoreAlertesParKm(int $alertes, float $km): array {
+    // Formule: B * 100 / kilométrage
+    $ratio = $km > 0 ? round(($alertes * 100) / $km, 2) : 0;
+    if ($ratio < 0.5) $status = 'vert';
+    elseif ($ratio <= 1) $status = 'orange';
+    else $status = 'rouge';
+    return ['value' => $ratio, 'status' => $status];
+}
 
-$fileEco  = findLatestFile($dataDir, 'co-conduite');
-$fileKilo = findLatestFile($dataDir, 'om');
+function scoreHeuresConducte(float $heures): array {
+    // Barèmes: <40h=1 (Vert), 40-50h=2 (Orange), >50h=3 (Rouge)
+    if ($heures < 40) { $score = 1; $status = 'vert'; }
+    elseif ($heures <= 50) { $score = 2; $status = 'orange'; }
+    else { $score = 3; $status = 'rouge'; }
+    return ['value' => round($heures, 1), 'score' => $score, 'status' => $status];
+}
 
-if (!$fileEco || !$fileKilo) {
-    $error = 'Fichier(s) Excel introuvable(s) dans <code>' . htmlspecialchars($dataDir) . '</code>';
-} else {
-    $ecoData  = readExcelSheet($fileEco,  $SHEET_ECO);
-    $kiloData = readExcelSheet($fileKilo, $SHEET_KILO);
+function scoreKilometrage(float $km): array {
+    if ($km < 4000) { $score = 1; $status = 'vert'; }
+    elseif ($km <= 5000) { $score = 2; $status = 'orange'; }
+    else { $score = 3; $status = 'rouge'; }
+    return ['value' => $km, 'score' => $score, 'status' => $status, 'formatted' => number_format($km, 0, ',', ' ')];
+}
 
-    // Mapping éco par véhicule
-    $ecoMap = [];
-    foreach ($ecoData as $row) {
-        $reg  = $row['Regroupement'] ?? '';
-        $eval = $row['Évaluation']   ?? '';
-        $infr = $row['Infraction']   ?? '';
-        if ($reg === '') continue;
-        if (!isset($ecoMap[$reg])) $ecoMap[$reg] = ['evaluation' => 0.0, 'infractions' => 0];
-        $evalNum = (float) preg_replace('/[^0-9.]/', '', $eval);
-        if ($evalNum > $ecoMap[$reg]['evaluation']) $ecoMap[$reg]['evaluation'] = $evalNum;
-        if ($infr !== '' && $infr !== '-----') $ecoMap[$reg]['infractions']++;
+function scoreChargeConducte(int $scoreHeures, int $scoreKm): array {
+    // Formule: Score heures + Score km (au lieu du produit)
+    $charge = $scoreHeures + $scoreKm;
+    if ($charge == 2) { $label = 'Faible'; $status = 'vert'; }
+    elseif ($charge >= 3 && $charge <= 4) { $label = 'Moyenne'; $status = 'orange'; }
+    else { $label = 'Élevée'; $status = 'rouge'; }
+    return ['value' => $charge, 'label' => $label, 'status' => $status];
+}
+
+function scoreRisqueGlobal(float $note, int $alertes, float $alertesParKm, string $chargeStatus): array {
+    // Matrice CIMAT officielle
+    if ($note >= 85 && $alertes < 15 && $alertesParKm < 1) {
+        $risque = 'Faible'; $status = 'vert';
+    } elseif ($note >= 70 && $alertes < 15 && $alertesParKm < 1) {
+        $risque = 'Modéré'; $status = 'orange';
+    } elseif ($note >= 55 && $alertes < 15 && $alertesParKm < 1) {
+        $risque = 'Élevé'; $status = 'orange';
+    } else {
+        $risque = 'Critique'; $status = 'rouge';
     }
+    return ['label' => $risque, 'status' => $status];
+}
 
-    // Fusion kilo + éco → calculs par véhicule
+function dot(string $status): string {
+    $colors = ['vert' => '#22c55e', 'orange' => '#f97316', 'rouge' => '#ef4444'];
+    return '<span class="dot" style="background:' . ($colors[$status] ?? '#d1d5db') . '"></span>';
+}
+
+function pill(string $status, string $label): string {
+    $map = ['vert' => ['#dcfce7', '#166534'], 'orange' => ['#ffedd5', '#9a3412'], 'rouge' => ['#fee2e2', '#991b1b']];
+    [$bg, $tc] = $map[$status] ?? ['#f1f5f9', '#475569'];
+    return '<span class="pill" style="background:' . $bg . ';color:' . $tc . ';">' . dot($status) . htmlspecialchars($label) . '</span>';
+}
+
+$vehicules = [];
+if (empty($error)) {
+    $infractionData = [];
+    foreach ($filesEco as $file) {
+        // Lire uniquement le fichier d'infractions (pas besoin du fichier Évaluation)
+        if (stripos($file, 'infraction') !== false) {
+            $infractionData = array_merge($infractionData, readExcelBySheetName($file, 'rapport'));
+        }
+    }
+    $kiloData = readExcelBySheetName($fileKilo, 'Kilométrage');
+    $normalize = function($str) {
+        return trim(preg_replace('/\s+/', ' ', $str));
+    };
+    $ecoMap = [];
+    foreach ($infractionData as $row) {
+        $reg = $row['Regroupement'] ?? '';
+        if ($reg === '') continue;
+        $regNorm = $normalize($reg);
+        if (!isset($ecoMap[$regNorm])) {
+            $ecoMap[$regNorm] = ['infractions' => 0];
+        }
+        $infr = $row['Infraction'] ?? '';
+        if ($infr !== '' && $infr !== '-----' && strtolower(trim($infr)) !== '----------') {
+            $ecoMap[$regNorm]['infractions']++;
+        }
+    }
     foreach ($kiloData as $row) {
-        $reg  = $row['Regroupement'] ?? '';
-        $info = $ecoMap[$reg] ?? null;
-        if ($reg === '' || $info === null) continue;
+        $reg = $row['Regroupement'] ?? '';
+        if ($reg === '') continue;
+        $regNorm = $normalize($reg);
+        $infractions = $ecoMap[$regNorm]['infractions'] ?? 0;
+        $dureeVal = $row['Durée'] ?? '';
+        $kmVal = $row['Kilométrage'] ?? '';
+        $heures = parseDureeToHours($dureeVal);
+        $km = (float) preg_replace('/[^0-9.]/', '', $kmVal);
 
-        $heures  = parseDureeToHours($row['Durée'] ?? '0');
-        $km      = (float) preg_replace('/[^0-9.]/', '', $row['Kilométrage'] ?? '0');
-        $note    = $info['evaluation'] / 10;
-        $alertes = $info['infractions'];
-        $al100   = $km > 0 ? round(($alertes / $km) * 100, 2) : 0;
+        // Calculer B, C, D, E en premier (indépendants)
+        $scoreB = scoreAlertesCritiques($infractions);
+        $scoreC = scoreAlertesParKm($infractions, $km);
+        $scoreD = scoreHeuresConducte($heures);
+        $scoreE = scoreKilometrage($km);
 
-        // ✅ FIX: Appliquer sNote() directement sur la note /100 (pas divisée par 10)
-        $sN = sNote($note * 100);
-        $sA = sAlertes($alertes);
-        $sA1 = sAl100($al100);
-        $sH = sHeures($heures);
-        $sC = sCharge($heures, $km);
-        $sR = sRisque($sN, $sA, $sA1, $sC);
+        // Calculer F (dépend de D et E)
+        $scoreF = scoreChargeConducte($scoreD['score'], $scoreE['score']);
+
+        // Calculer A (dépend de B, C, F)
+        $scoreA = scoreNoteConduite((float)$scoreB['value'], (float)$scoreC['value'], (int)$scoreF['value']);
+
+        // Calculer G (dépend de A, B, C, F)
+        $scoreG = scoreRisqueGlobal((float)$scoreA['value'], (int)$scoreB['value'], (float)$scoreC['value'], $scoreF['status']);
 
         $vehicules[] = [
-            'nom'       => $reg,
-            'note'      => $note * 100,     'note_s'    => $sN,
-            'alertes'   => $alertes,  'alertes_s' => $sA,
-            'heures'    => $heures,   'heures_s'  => $sH,
-            'km'        => number_format($km, 0, ',', ' ') . ' km', 'km_s' => ($km >= 5000 ? 'rouge' : ($km >= 4000 ? 'orange' : 'vert')),
-            'al100'     => $al100,    'al100_s'   => $sA1,
-            'charge'    => chargeLabel($sC), 'charge_s' => $sC,
-            'risque'    => risqueLabel($sR), 'risque_s' => $sR,
+            'nom' => $reg,
+            'note' => $scoreA['value'], 'note_s' => $scoreA['status'],
+            'alertes' => $scoreB['value'], 'alertes_s' => $scoreB['status'],
+            'al100' => $scoreC['value'], 'al100_s' => $scoreC['status'],
+            'heures' => $scoreD['value'], 'heures_s' => $scoreD['status'],
+            'km' => $scoreE['formatted'] . ' km', 'km_s' => $scoreE['status'],
+            'charge' => $scoreF['label'], 'charge_s' => $scoreF['status'],
+            'risque' => $scoreG['label'], 'risque_s' => $scoreG['status'],
         ];
     }
-}
-
-// ── Fonctions badge ───────────────────────────────────────
-function dot(string $status): string {
-    $c = ['vert'=>'#22c55e','orange'=>'#f97316','rouge'=>'#ef4444'][$status] ?? '#d1d5db';
-    return '<span class="dot" style="background:' . $c . '"></span>';
-}
-function pill(string $status, string $label): string {
-    $map = ['vert'=>['#dcfce7','#166534'],'orange'=>['#ffedd5','#9a3412'],'rouge'=>['#fee2e2','#991b1b']];
-    [$bg, $tc] = $map[$status] ?? ['#f1f5f9','#475569'];
-    return '<span class="pill" style="background:' . $bg . ';color:' . $tc . ';">'
-         . dot($status) . htmlspecialchars($label) . '</span>';
+    usort($vehicules, fn($a, $b) => strcmp($a['nom'], $b['nom']));
 }
 ?>
 <!DOCTYPE html>
@@ -165,92 +207,167 @@ function pill(string $status, string $label): string {
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'DM Sans', sans-serif; background: #f0f4f8; color: #1e293b; min-height: 100vh; padding: 40px 24px; }
-
         .page-header { max-width: 1300px; margin: 0 auto 28px; }
         .page-header h1 { font-size: 1.5rem; font-weight: 600; color: #0f172a; }
-        .page-header p  { font-size: 0.875rem; color: #64748b; margin-top: 4px; }
-
-        .actions { max-width: 1300px; margin: 0 auto 16px; display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
-        .btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: #0f172a; color: #fff; border: none;
-            padding: 9px 18px; border-radius: 8px; font-size: 0.85rem;
-            font-family: inherit; font-weight: 500; cursor: pointer;
-            text-decoration: none; transition: background .15s;
-        }
-        .btn:hover { background: #1e293b; }
-        .btn.accent { background: #1e3a5f; }
-        .btn.accent:hover { background: #162d4a; }
-
-        /* ── Panneau envoi ── */
-        .send-panel { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.45); z-index: 100; align-items: center; justify-content: center; }
-        .send-panel.open { display: flex; }
-        .send-box { background: #fff; border-radius: 16px; padding: 32px 36px; max-width: 480px; width: 100%; box-shadow: 0 16px 48px rgba(0,0,0,0.15); position: relative; }
-        .send-box h2 { font-size: 1.1rem; font-weight: 600; color: #0f172a; margin-bottom: 6px; }
-        .send-box p.sub { font-size: 0.82rem; color: #64748b; margin-bottom: 20px; }
-        .form-group { margin-bottom: 16px; }
-        .form-group > label { display: block; font-size: 0.8rem; font-weight: 600; color: #475569; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.4px; }
-        .form-group input[type="email"] { width: 100%; padding: 9px 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color: #1e293b; }
-        .form-group input[type="email"]:focus { outline: none; border-color: #0f172a; box-shadow: 0 0 0 3px rgba(15,23,42,0.08); }
-        .checkbox-group { display: flex; flex-direction: column; gap: 8px; }
-        .checkbox-group label { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: #334155; cursor: pointer; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 8px; transition: all .15s; font-weight: 400; text-transform: none; letter-spacing: 0; }
-        .checkbox-group label:hover { background: #f8fafc; border-color: #cbd5e1; }
-        .checkbox-group input[type="checkbox"] { accent-color: #0f172a; width: 16px; height: 16px; }
-        .checkbox-group label:has(input:checked) { border-color: #0f172a; background: #f0f4f8; }
-        .select-all-btn { font-size: 0.75rem; color: #6366f1; background: none; border: none; cursor: pointer; padding: 0; margin-bottom: 6px; font-family: inherit; }
-        .select-all-btn:hover { text-decoration: underline; }
-        .send-actions { display: flex; gap: 10px; margin-top: 24px; }
-        .btn-send { flex: 1; padding: 10px; background: #0f172a; color: #fff; border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 600; cursor: pointer; }
-        .btn-send:hover { background: #1e293b; }
-        .btn-cancel { padding: 10px 18px; background: #f1f5f9; color: #475569; border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; cursor: pointer; }
-        .btn-cancel:hover { background: #e2e8f0; }
-        .close-btn { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.2rem; color: #94a3b8; cursor: pointer; }
-        .close-btn:hover { color: #475569; }
-
-        /* ── Tableau ── */
+        .page-header p { font-size: 0.875rem; color: #64748b; margin-top: 4px; }
         .card { max-width: 1300px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.07), 0 8px 32px rgba(0,0,0,.06); overflow-x: auto; }
-        table { width: 100%; min-width: 1000px; border-collapse: collapse; }
+        table { width: 100%; border-collapse: collapse; }
         thead tr { background: #f8fafc; border-bottom: 2px solid #e2e8f0; }
         thead th { padding: 12px 14px; text-align: left; font-size: 0.7rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
         thead th:first-child { border-right: 1px solid #e2e8f0; }
-        tbody tr { border-bottom: 1px solid #f1f5f9; transition: background .15s; }
-        tbody tr:last-child { border-bottom: none; }
+        tbody tr { border-bottom: 1px solid #f1f5f9; }
         tbody tr:hover { background: #f8fafc; }
         tbody td { padding: 11px 14px; font-size: 0.84rem; color: #334155; vertical-align: middle; }
-        tbody td:first-child { font-weight: 600; color: #0f172a; border-right: 1px solid #e2e8f0; white-space: nowrap; }
-
+        tbody td:first-child { font-weight: 600; color: #0f172a; border-right: 1px solid #e2e8f0; }
         .cell-indicator { display: flex; align-items: center; gap: 7px; }
         .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
         .pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 7px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
-
-        /* ── Légende ── */
-        .legende { max-width: 1300px; margin: 0 auto 16px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; font-size: 0.78rem; color: #64748b; }
-        .legende-item { display: flex; align-items: center; gap: 5px; }
-
         .error-box { max-width: 1300px; margin: 0 auto; background: #fef2f2; border-left: 4px solid #ef4444; border-radius: 8px; padding: 16px 20px; color: #dc2626; }
         .meta { max-width: 1300px; margin: 12px auto 0; font-size: 0.78rem; color: #94a3b8; }
+        .legende { max-width: 1300px; margin: 0 auto 16px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; font-size: 0.78rem; color: #64748b; }
+        .legende-item { display: flex; align-items: center; gap: 5px; }
+        .header-actions { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .btn-send, .btn-synthese {
+            background: #0f172a;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        .btn-send:hover, .btn-synthese:hover { background: #1e293b; }
+        .btn-send span, .btn-synthese span { font-size: 1rem; }
+        .buttons-group { display: flex; gap: 12px; }
+        /* ── Send Panel ── */
+        .send-panel {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,.45); backdrop-filter: blur(4px);
+            z-index: 1000; display: none; align-items: center; justify-content: center;
+        }
+        .send-panel.active { display: flex; }
+        .send-box {
+            position: relative; background: #fff; width: 90%; max-width: 500px;
+            border-radius: 16px; padding: 32px 36px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.18);
+            animation: panelIn .3s ease-out;
+        }
+        @keyframes panelIn {
+            from { opacity: 0; transform: translateY(-30px) scale(.95); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .send-box .close-btn {
+            position: absolute; top: 14px; right: 16px; background: none; border: none;
+            font-size: 1.4rem; color: #94a3b8; cursor: pointer; padding: 0;
+            width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+            border-radius: 8px; transition: background .2s;
+        }
+        .send-box .close-btn:hover { background: #f1f5f9; color: #0f172a; }
+        .send-box h2 { margin: 0 0 4px; font-size: 1.25rem; font-weight: 600; color: #0f172a; }
+        .send-box .sub { margin: 0 0 20px; font-size: .85rem; color: #64748b; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: .85rem; font-weight: 500; color: #334155; margin-bottom: 6px; }
+        .form-group input[type="email"] {
+            width: 100%; padding: 11px 14px; font-size: .9rem; border: 2px solid #e2e8f0;
+            border-radius: 8px; outline: none; font-family: 'DM Sans', sans-serif;
+            transition: border-color .2s, box-shadow .2s;
+        }
+        .form-group input[type="email"]:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,.1); }
+        .select-all-btn {
+            background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 6px 12px;
+            border-radius: 6px; font-size: .78rem; cursor: pointer; margin-bottom: 10px;
+            font-family: 'DM Sans', sans-serif; transition: background .2s;
+        }
+        .select-all-btn:hover { background: #e2e8f0; }
+        .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+        .checkbox-group label {
+            display: flex; align-items: center; gap: 8px; font-size: .88rem; color: #334155;
+            cursor: pointer; padding: 8px 12px; border-radius: 8px; transition: background .15s;
+        }
+        .checkbox-group label:hover { background: #f8fafc; }
+        .checkbox-group input[type="checkbox"] { width: 17px; height: 17px; accent-color: #0f172a; cursor: pointer; }
+        .send-actions { display: flex; gap: 12px; margin-top: 22px; justify-content: flex-end; }
+        .send-actions .btn-send-now {
+            background: #0f172a; color: #fff; border: none; padding: 10px 22px;
+            border-radius: 8px; font-size: .875rem; font-weight: 600; cursor: pointer;
+            font-family: 'DM Sans', sans-serif; transition: background .2s;
+        }
+        .send-actions .btn-send-now:hover { background: #1e293b; }
+        .send-actions .btn-cancel {
+            background: #fff; color: #475569; border: 1px solid #cbd5e1; padding: 10px 20px;
+            border-radius: 8px; font-size: .875rem; font-weight: 600; cursor: pointer;
+            font-family: 'DM Sans', sans-serif; transition: background .2s;
+        }
+        .send-actions .btn-cancel:hover { background: #f1f5f9; }
     </style>
 </head>
 <body>
-
 <div class="page-header">
-    <h1>Rapport Flotte Transport BOUTCHERAFIN</h1>
-    <p>Données calculées depuis les fichiers Excel · <?= date('d/m/Y H:i') ?></p>
+    <div>
+        <h1>Rapport Flotte Transport BOUTCHERAFIN</h1>
+    </div>
+    <div class="header-actions">
+        <p>Indicateurs selon matrice CIMAT officielle · <?= date('d/m/Y H:i') ?></p>
+        <div class="buttons-group">
+            <button class="btn-send" onclick="sendReport()">
+                <span>📧</span> Envoyer le rapport
+            </button>
+            <a href="synthese.php" class="btn-synthese">
+                <span>📈</span> Voir Rapport Par Société
+            </a>
+        </div>
+    </div>
 </div>
-
-<div class="actions">
-    <button class="btn" id="open-send-panel">📧 Envoyer le rapport PDF par email</button>
-    <a href="BOUTCHERAFIN.php" class="btn">📊 Voir le tableau BOUTCHERAFIN</a>
-    <a href="synthese.php" class="btn accent">📈 Rapport Par Société</a>
-</div>
-
-<!-- Légende barèmes -->
 <div class="legende">
     <strong style="color:#0f172a;">Barème :</strong>
     <div class="legende-item"><?= dot('vert') ?> Bon / Faible risque</div>
     <div class="legende-item"><?= dot('orange') ?> Moyen / Attention</div>
     <div class="legende-item"><?= dot('rouge') ?> Critique / Élevé</div>
 </div>
+<?php if ($error): ?>
+    <div class="error-box"><?= $error ?></div>
+<?php elseif (empty($vehicules)): ?>
+    <div class="error-box">⚠️ Aucune donnée trouvée</div>
+<?php else: ?>
+<div class="card">
+    <table>
+        <thead>
+            <tr>
+                <th>Véhicule</th>
+                <th>Note /100<br></th>
+                <th>Alertes CRIT<br></th>
+                <th>Alertes / 100 km<br></th>
+                <th>Heures<br></th>
+                <th>Km<br></th>
+                <th>Charge<br></th>
+                <th>Risque<br></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($vehicules as $v): ?>
+            <tr>
+                <td><?= htmlspecialchars($v['nom']) ?></td>
+                <td><div class="cell-indicator"><?= dot($v['note_s']) ?><?= htmlspecialchars((string)$v['note']) ?></div></td>
+                <td><div class="cell-indicator"><?= dot($v['alertes_s']) ?><?= htmlspecialchars((string)$v['alertes']) ?></div></td>
+                <td><div class="cell-indicator"><?= dot($v['al100_s']) ?><?= htmlspecialchars((string)$v['al100']) ?></div></td>
+                <td><div class="cell-indicator"><?= dot($v['heures_s']) ?><?= htmlspecialchars((string)$v['heures']) ?> h</div></td>
+                <td><div class="cell-indicator"><?= dot($v['km_s']) ?><?= htmlspecialchars($v['km']) ?></div></td>
+                <td><?= pill($v['charge_s'], $v['charge']) ?></td>
+                <td><?= pill($v['risque_s'], $v['risque']) ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<p class="meta"><?= count($vehicules) ?> véhicule(s) traité(s) — Dernière mise à jour : <?= date('d/m/Y H:i') ?></p>
+<?php endif; ?>
 
 <!-- ══ PANNEAU ENVOI ══ -->
 <div class="send-panel" id="send-panel">
@@ -274,79 +391,36 @@ function pill(string $status, string $label): string {
                 </div>
             </div>
             <div class="send-actions">
-                <button type="submit" class="btn-send">✉️ Envoyer maintenant</button>
+                <button type="submit" class="btn-send-now">✉️ Envoyer maintenant</button>
                 <button type="button" class="btn-cancel" id="cancel-btn">Annuler</button>
             </div>
         </form>
     </div>
 </div>
 
-<!-- ══ TABLEAU ══ -->
-<?php if ($error): ?>
-    <div class="error-box">❌ <strong>Erreur :</strong> <?= $error ?></div>
-<?php elseif (empty($vehicules)): ?>
-    <div class="error-box">⚠️ Aucune donnée trouvée dans <code><?= htmlspecialchars($dataDir) ?></code></div>
-<?php else: ?>
-<div class="card">
-    <table>
-        <thead>
-            <tr>
-                <th>Véhicule</th>
-                <th>Note /100</th>
-                <th>Alertes CRIT</th>
-                <th>Heures de conduite (h)</th>
-                <th>Kilométrage (km)</th>
-                <th>Alertes / 100 km</th>
-                <th>Charge conduite</th>
-                <th>Niveau de risque global</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($vehicules as $v): ?>
-            <tr>
-                <td><?= htmlspecialchars($v['nom']) ?></td>
-                <td><div class="cell-indicator"><?= dot($v['note_s']) ?><?= htmlspecialchars((string)$v['note']) ?></div></td>
-                <td><div class="cell-indicator"><?= dot($v['alertes_s']) ?><?= htmlspecialchars((string)$v['alertes']) ?></div></td>
-                <td><div class="cell-indicator"><?= dot($v['heures_s']) ?><?= htmlspecialchars((string)$v['heures']) ?> h</div></td>
-                <td><div class="cell-indicator"><?= dot($v['km_s']) ?><?= htmlspecialchars($v['km']) ?></div></td>
-                <td><div class="cell-indicator"><?= dot($v['al100_s']) ?><?= htmlspecialchars((string)$v['al100']) ?></div></td>
-                <td><?= pill($v['charge_s'], $v['charge']) ?></td>
-                <td><?= pill($v['risque_s'], $v['risque']) ?></td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
-<p class="meta"><?= count($vehicules) ?> véhicule(s) — Dernière mise à jour : <?= date('d/m/Y H:i') ?></p>
-<?php endif; ?>
-
 <script>
-    const panel      = document.getElementById('send-panel');
-    const openBtn    = document.getElementById('open-send-panel');
-    const closeBtn   = document.getElementById('close-panel');
-    const cancelBtn  = document.getElementById('cancel-btn');
-    const checkboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
-    const selectAll  = document.getElementById('select-all-btn');
+function sendReport() {
+    document.getElementById('send-panel').classList.add('active');
+}
 
-    openBtn.addEventListener('click',  () => panel.classList.add('open'));
-    closeBtn.addEventListener('click', () => panel.classList.remove('open'));
-    cancelBtn.addEventListener('click',() => panel.classList.remove('open'));
-    panel.addEventListener('click', e => { if (e.target === panel) panel.classList.remove('open'); });
-
-    let allSelected = true;
-    selectAll.addEventListener('click', () => {
-        allSelected = !allSelected;
-        checkboxes.forEach(cb => cb.checked = allSelected);
-        selectAll.textContent = allSelected ? 'Tout désélectionner' : 'Tout sélectionner';
-    });
-
-    document.getElementById('send-form').addEventListener('submit', e => {
-        if (![...checkboxes].some(cb => cb.checked)) {
-            e.preventDefault();
-            alert('Veuillez sélectionner au moins un tableau.');
-        }
-    });
+document.getElementById('close-panel').addEventListener('click', function() {
+    document.getElementById('send-panel').classList.remove('active');
+});
+document.getElementById('cancel-btn').addEventListener('click', function() {
+    document.getElementById('send-panel').classList.remove('active');
+});
+document.getElementById('send-panel').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('active');
+});
+document.getElementById('select-all-btn').addEventListener('click', function() {
+    const boxes = document.querySelectorAll('#send-form input[type="checkbox"]');
+    const allChecked = [...boxes].every(b => b.checked);
+    boxes.forEach(b => b.checked = !allChecked);
+    this.textContent = allChecked ? 'Tout sélectionner' : 'Tout désélectionner';
+});
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.getElementById('send-panel').classList.remove('active');
+});
 </script>
-
 </body>
 </html>

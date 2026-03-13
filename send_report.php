@@ -1,13 +1,12 @@
 <?php
 /**
- * send_report.php — 100% depuis fichiers Excel
+ * send_report.php — Génération PDF + envoi email
  * reports[] = ['flotte', 'boutcherafin', 'synthese']
  * 
- * ✨ AMÉLIORATIONS:
- * - Colonne Couleur avec sous-colonnes Rouge/Orange/Vert
- * - Cercles colorés simples et pleins
- * - Mise en page équilibrée avec espacement augmenté
- * - Cercles colorés dans les en-têtes des sous-colonnes
+ * Calculs alignés sur tableau.php / synthese.php (matrice CIMAT)
+ * A = 100 - (B×2) - (C×10) - (F×5)
+ * F = scoreD + scoreE
+ * G = matrice CIMAT
  */
 
 require_once 'config.php';
@@ -34,65 +33,121 @@ $email_to = filter_var(trim($_GET['email_to'] ?? ''), FILTER_VALIDATE_EMAIL)
 // ══════════════════════════════════════════════════════════
 // ── HELPERS EXCEL ─────────────────────────────────────────
 // ══════════════════════════════════════════════════════════
-$dataDir    = 'C:/xampp/htdocs/vehicules/data/entreprises/';
-$SHEET_ECO  = 'Éco-conduite';
-$SHEET_KILO = 'Kilométrage+Heures moteur';
 
-function findLatestFile(string $dir, string $pattern): ?string {
-    $files = glob($dir . '*' . $pattern . '*.xlsx');
-    if (empty($files)) return null;
-    usort($files, fn($a, $b) => filemtime($b) - filemtime($a));
-    return $files[0];
-}
+$dataDir = 'C:/xampp/htdocs/vehicules/data/entreprises/';
 
-function readExcelSheet(string $filePath, string $sheetName): array {
+function readExcelBySheetName(string $filePath, string $searchName): array {
     try {
         $spreadsheet = IOFactory::load($filePath);
-        $sheet = $spreadsheet->getSheetByName($sheetName) ?? $spreadsheet->getActiveSheet();
-        $rows  = $sheet->toArray(null, true, true, false);
+        $sheet = null;
+        foreach ($spreadsheet->getSheetNames() as $name) {
+            if (stripos($name, $searchName) !== false) {
+                $sheet = $spreadsheet->getSheetByName($name);
+                break;
+            }
+        }
+        if ($sheet === null) $sheet = $spreadsheet->getActiveSheet();
+        $rows = $sheet->toArray(null, true, true, false);
         if (empty($rows)) return [];
         $headers = array_map(fn($h) => trim((string)($h ?? '')), array_shift($rows));
         $data = [];
         foreach ($rows as $row) {
             if (empty(array_filter($row, fn($v) => $v !== null && $v !== ''))) continue;
             $assoc = [];
-            foreach ($headers as $i => $h) { $assoc[$h] = trim((string)($row[$i] ?? '')); }
+            foreach ($headers as $i => $h) {
+                $assoc[$h] = trim((string)($row[$i] ?? ''));
+            }
             $data[] = $assoc;
         }
         return $data;
-    } catch (\Exception $e) { return []; }
+    } catch (\Exception $e) {
+        return [];
+    }
 }
 
 // ══════════════════════════════════════════════════════════
-// ── CALCULS & BARÈMES ──────────────────────────────────────
+// ── CALCULS & BARÈMES (identiques à tableau.php) ─────────
 // ══════════════════════════════════════════════════════════
 
-function parseDureeToHours(string $d): float {
+function parseDureeToHours(string $duree): float {
     $h = 0.0;
-    if (preg_match('/(\d+)\s*jours?\s*/i', $d, $m)) { $h += (float)$m[1] * 24; $d = preg_replace('/\d+\s*jours?\s*/i', '', $d); }
-    if (preg_match('/(\d+):(\d+):(\d+)/', $d, $m))  { $h += (float)$m[1] + (float)$m[2]/60 + (float)$m[3]/3600; }
-    elseif (preg_match('/(\d+):(\d+)/', $d, $m))     { $h += (float)$m[1] + (float)$m[2]/60; }
+    if (preg_match('/(\d+)\s*jours?\s*/i', $duree, $m)) {
+        $h += (float)$m[1] * 24;
+        $duree = preg_replace('/\d+\s*jours?\s*/i', '', $duree);
+    }
+    if (preg_match('/(\d+):(\d+):(\d+)/', $duree, $m)) {
+        $h += (float)$m[1] + (float)$m[2]/60 + (float)$m[3]/3600;
+    } elseif (preg_match('/(\d+):(\d+)/', $duree, $m)) {
+        $h += (float)$m[1] + (float)$m[2]/60;
+    }
     return round($h, 1);
 }
 
-function sNote(float $v): string    { return $v >= 80 ? 'vert' : ($v >= 60 ? 'orange' : 'rouge'); }
-function sAlertes(int $v): string   { return $v <= 2  ? 'vert' : ($v <= 10 ? 'orange' : 'rouge'); }
-function sAl100(float $v): string   { return $v < 0.5 ? 'vert' : ($v <= 1  ? 'orange' : 'rouge'); }
-function sHeures(float $v): string  { return $v < 54  ? 'vert' : ($v <= 65 ? 'orange' : 'rouge'); }
-function sCharge(float $h, float $km): string {
-    $sh = sHeures($h);
-    $sk = $km >= 5000 ? 'rouge' : ($km >= 4000 ? 'orange' : 'vert');
-    if ($sh === 'rouge' || $sk === 'rouge') return 'rouge';
-    if ($sh === 'orange' || $sk === 'orange') return 'orange';
-    return 'vert';
+// A — Note /100 : 100 - (B×2) - (C×10) - (F×5)
+function scoreNoteConduite(float $alertes, float $alertesParKm, int $charge): array {
+    $note = 100 - ($alertes * 2) - ($alertesParKm * 10) - ($charge * 5);
+    $note = max(0, $note);
+    if ($note >= 80) $status = 'vert';
+    elseif ($note >= 60) $status = 'orange';
+    else $status = 'rouge';
+    return ['value' => round($note, 0), 'status' => $status];
 }
-function chargeLabel(string $s): string { return ['vert'=>'Faible','orange'=>'Moyenne','rouge'=>'Élevée'][$s] ?? '—'; }
-function sRisque(string $sN, string $sA, string $sA1, string $sC): string {
-    $scores = array_map(fn($x) => ['vert'=>0,'orange'=>1,'rouge'=>2][$x] ?? 0, [$sN,$sA,$sA1,$sC]);
-    $avg = array_sum($scores)/count($scores);
-    return max($scores)===2 || $avg>=1.5 ? 'rouge' : ($avg>=0.5 ? 'orange' : 'vert');
+
+// B — Alertes critiques
+function scoreAlertesCritiques(int $alertes): array {
+    if ($alertes <= 2) $status = 'vert';
+    elseif ($alertes <= 10) $status = 'orange';
+    else $status = 'rouge';
+    return ['value' => $alertes, 'status' => $status];
 }
-function risqueLabel(string $s): string { return ['vert'=>'Faible','orange'=>'Modéré','rouge'=>'Élevé'][$s] ?? '—'; }
+
+// C — Alertes /100km : B × 100 / km
+function scoreAlertesParKm(int $alertes, float $km): array {
+    $ratio = $km > 0 ? round(($alertes * 100) / $km, 2) : 0;
+    if ($ratio < 0.5) $status = 'vert';
+    elseif ($ratio <= 1) $status = 'orange';
+    else $status = 'rouge';
+    return ['value' => $ratio, 'status' => $status];
+}
+
+// D — Heures conduite : <40h=1(vert), 40-50h=2(orange), >50h=3(rouge)
+function scoreHeuresConducte(float $heures): array {
+    if ($heures < 40) { $score = 1; $status = 'vert'; }
+    elseif ($heures <= 50) { $score = 2; $status = 'orange'; }
+    else { $score = 3; $status = 'rouge'; }
+    return ['value' => round($heures, 1), 'score' => $score, 'status' => $status];
+}
+
+// E — Kilométrage : <4000=1(vert), 4000-5000=2(orange), >5000=3(rouge)
+function scoreKilometrage(float $km): array {
+    if ($km < 4000) { $score = 1; $status = 'vert'; }
+    elseif ($km <= 5000) { $score = 2; $status = 'orange'; }
+    else { $score = 3; $status = 'rouge'; }
+    return ['value' => $km, 'score' => $score, 'status' => $status, 'formatted' => number_format($km, 0, ',', ' ')];
+}
+
+// F — Charge conduite : scoreD + scoreE
+function scoreChargeConducte(int $scoreHeures, int $scoreKm): array {
+    $charge = $scoreHeures + $scoreKm;
+    if ($charge == 2) { $label = 'Faible'; $status = 'vert'; }
+    elseif ($charge >= 3 && $charge <= 4) { $label = 'Moyenne'; $status = 'orange'; }
+    else { $label = 'Élevée'; $status = 'rouge'; }
+    return ['value' => $charge, 'label' => $label, 'status' => $status];
+}
+
+// G — Risque global : matrice CIMAT
+function scoreRisqueGlobal(float $note, int $alertes, float $alertesParKm, string $chargeStatus): array {
+    if ($note >= 85 && $alertes < 15 && $alertesParKm < 1) {
+        $risque = 'Faible'; $status = 'vert';
+    } elseif ($note >= 70 && $alertes < 15 && $alertesParKm < 1) {
+        $risque = 'Modéré'; $status = 'orange';
+    } elseif ($note >= 55 && $alertes < 15 && $alertesParKm < 1) {
+        $risque = 'Élevé'; $status = 'orange';
+    } else {
+        $risque = 'Critique'; $status = 'rouge';
+    }
+    return ['label' => $risque, 'status' => $status];
+}
 
 // ── Helpers HTML pour PDF ─────────────────────────────────
 function dotPdf(string $status, string $value): string {
@@ -110,7 +165,6 @@ function pillPdf(string $status, string $label): string {
          . '<span style="vertical-align:middle;">' . htmlspecialchars($label) . '</span></span>';
 }
 
-// ✨ Cercles colorés à côté des valeurs numériques (compatible mPDF)
 function colorCircleValue(string $color, int $value): string {
     $colors = ['rouge' => '#ef4444', 'orange' => '#f97316', 'vert' => '#22c55e'];
     $c = $colors[$color] ?? '#d1d5db';
@@ -118,139 +172,134 @@ function colorCircleValue(string $color, int $value): string {
          . '<span style="font-weight:700;color:#1e293b;font-size:12px;">' . $value . '</span>';
 }
 
-// ── Cercle coloré pour les en-têtes (seulement le cercle, pas de texte)
-function colorCircleHeader(string $color): string {
-    $colors = ['rouge' => '#ef4444', 'orange' => '#f97316', 'vert' => '#22c55e'];
-    $c = $colors[$color] ?? '#d1d5db';
-    return '<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' . $c . ';vertical-align:middle;"></span>';
-}
-
 // ══════════════════════════════════════════════════════════
 // ── LECTURE FICHIERS EXCEL ────────────────────────────────
 // ══════════════════════════════════════════════════════════
-$fileEco  = findLatestFile($dataDir, 'co-conduite');
-$fileKilo = findLatestFile($dataDir, 'om');
+$filesEco = glob($dataDir . '*co-conduite*.xlsx');
+$filesEco = array_filter($filesEco, fn($f) => strpos(basename($f), '~$') === false);
+$filesKilo = glob($dataDir . '*Kilom*.xlsx');
+$fileKilo = !empty($filesKilo) ? $filesKilo[0] : null;
 
-if (!$fileEco || !$fileKilo) {
+if (empty($filesEco) || !$fileKilo) {
     die('<div style="font-family:Arial;padding:30px;color:#dc2626;">
          ❌ Fichier(s) Excel introuvable(s) dans <code>' . htmlspecialchars($dataDir) . '</code><br>
          <a href="tableau.php" style="color:#2563eb;">← Retour</a></div>');
 }
 
-$ecoData  = readExcelSheet($fileEco,  $SHEET_ECO);
-$kiloData = readExcelSheet($fileKilo, $SHEET_KILO);
+// Lire les infractions
+$infractionData = [];
+foreach ($filesEco as $file) {
+    if (stripos($file, 'infraction') !== false) {
+        $infractionData = array_merge($infractionData, readExcelBySheetName($file, 'rapport'));
+    }
+}
+$kiloData = readExcelBySheetName($fileKilo, 'Kilométrage');
 
-// Mapping éco par véhicule
+$normalize = function($str) {
+    return trim(preg_replace('/\s+/', ' ', $str));
+};
+
+// Mapping infractions par véhicule
 $ecoMap = [];
-foreach ($ecoData as $row) {
-    $reg  = $row['Regroupement'] ?? '';
-    $eval = $row['Évaluation']   ?? '';
-    $infr = $row['Infraction']   ?? '';
+foreach ($infractionData as $row) {
+    $reg = $row['Regroupement'] ?? '';
     if ($reg === '') continue;
-    if (!isset($ecoMap[$reg])) $ecoMap[$reg] = ['evaluation' => 0.0, 'infractions' => 0, 'infr_list' => []];
-    $evalNum = (float) preg_replace('/[^0-9.]/', '', $eval);
-    if ($evalNum > $ecoMap[$reg]['evaluation']) $ecoMap[$reg]['evaluation'] = $evalNum;
-    if ($infr !== '' && $infr !== '-----') {
-        $ecoMap[$reg]['infractions']++;
-        $ecoMap[$reg]['infr_list'][] = $infr;
+    $regNorm = $normalize($reg);
+    if (!isset($ecoMap[$regNorm])) {
+        $ecoMap[$regNorm] = ['infractions' => 0, 'infr_list' => []];
+    }
+    $infr = $row['Infraction'] ?? '';
+    if ($infr !== '' && $infr !== '-----' && strtolower(trim($infr)) !== '----------') {
+        $ecoMap[$regNorm]['infractions']++;
+        $ecoMap[$regNorm]['infr_list'][] = $infr;
     }
 }
 
-// Construction des données véhicules (pour flotte + synthèse)
+// Construction des données véhicules
 $vehicules  = [];
 $rowsBoutch = [];
 
 foreach ($kiloData as $row) {
-    $reg  = $row['Regroupement'] ?? '';
-    $info = $ecoMap[$reg] ?? null;
-    if ($reg === '' || $info === null) continue;
+    $reg = $row['Regroupement'] ?? '';
+    if ($reg === '') continue;
+    $regNorm = $normalize($reg);
+    $infractions = $ecoMap[$regNorm]['infractions'] ?? 0;
+    $infrList = $ecoMap[$regNorm]['infr_list'] ?? [];
 
-    $dureeRaw = $row['Durée']        ?? '0';
-    $kmRaw    = $row['Kilométrage']  ?? '0';
+    $dureeRaw = $row['Durée']       ?? '0';
+    $kmRaw    = $row['Kilométrage'] ?? '0';
     $heures   = parseDureeToHours($dureeRaw);
     $km       = (float) preg_replace('/[^0-9.]/', '', $kmRaw);
-    $note     = $info['evaluation'] / 10;
-    $alertes  = $info['infractions'];
-    $al100    = $km > 0 ? round(($alertes / $km) * 100, 2) : 0;
 
-    $sN  = sNote($note * 100);
-    $sA  = sAlertes($alertes);
-    $sA1 = sAl100($al100);
-    $sH  = sHeures($heures);
-    $sC  = sCharge($heures, $km);
-    $sR  = sRisque($sN, $sA, $sA1, $sC);
+    // Calcul dans le bon ordre : B,C,D,E → F → A → G
+    $scoreB = scoreAlertesCritiques($infractions);
+    $scoreC = scoreAlertesParKm($infractions, $km);
+    $scoreD = scoreHeuresConducte($heures);
+    $scoreE = scoreKilometrage($km);
+    $scoreF = scoreChargeConducte($scoreD['score'], $scoreE['score']);
+    $scoreA = scoreNoteConduite((float)$scoreB['value'], (float)$scoreC['value'], (int)$scoreF['value']);
+    $scoreG = scoreRisqueGlobal((float)$scoreA['value'], (int)$scoreB['value'], (float)$scoreC['value'], $scoreF['status']);
 
-    // ✨ NOUVEAU: Déterminer la couleur des alertes
-    $color_alertes = sAlertes($alertes);
-    $alerts_vert = 0;
-    $alerts_orange = 0;
-    $alerts_rouge = 0;
-    
-    if ($color_alertes === 'vert') {
-        $alerts_vert = $alertes;
-    } elseif ($color_alertes === 'orange') {
-        $alerts_orange = $alertes;
-    } else { // rouge
-        $alerts_rouge = $alertes;
-    }
+    // Couleur des alertes pour colonnes Rouge/Orange/Vert
+    $alerts_vert = 0; $alerts_orange = 0; $alerts_rouge = 0;
+    if ($scoreB['status'] === 'vert') { $alerts_vert = $infractions; }
+    elseif ($scoreB['status'] === 'orange') { $alerts_orange = $infractions; }
+    else { $alerts_rouge = $infractions; }
 
-    // Pour rapport Flotte
     $vehicules[] = [
         'nom'      => $reg,
-        'note'     => $note * 100,     'note_s'    => $sN,
-        'alertes'  => $alertes,  'alertes_s' => $sA,
-        'heures'   => $heures,   'heures_s'  => $sH,
-        'km'       => number_format($km, 0, ',', ' ') . ' km', 'km_s' => ($km >= 5000 ? 'rouge' : ($km >= 4000 ? 'orange' : 'vert')),
-        'al100'    => $al100,    'al100_s'   => $sA1,
-        'charge'   => chargeLabel($sC), 'charge_s' => $sC,
-        'risque'   => risqueLabel($sR), 'risque_s' => $sR,
+        'note'     => $scoreA['value'],    'note_s'    => $scoreA['status'],
+        'alertes'  => $scoreB['value'],    'alertes_s' => $scoreB['status'],
+        'al100'    => $scoreC['value'],    'al100_s'   => $scoreC['status'],
+        'heures'   => $scoreD['value'],    'heures_s'  => $scoreD['status'],
+        'km'       => $scoreE['formatted'] . ' km', 'km_s' => $scoreE['status'],
+        'charge'   => $scoreF['label'],    'charge_s'  => $scoreF['status'],
+        'risque'   => $scoreG['label'],    'risque_s'  => $scoreG['status'],
         'km_raw'   => $km,
-        'alerts_vert' => $alerts_vert,
+        'alerts_vert'   => $alerts_vert,
         'alerts_orange' => $alerts_orange,
-        'alerts_rouge' => $alerts_rouge,
+        'alerts_rouge'  => $alerts_rouge,
     ];
 
-    // Pour rapport BOUTCHERAFIN détail
-    $infractions = array_unique($info['infr_list']);
+    $uniqInfr = array_unique($infrList);
     $rowsBoutch[] = [
         'vehicule'    => $reg,
-        'infraction'  => !empty($infractions) ? implode(' / ', $infractions) : '—',
+        'infraction'  => !empty($uniqInfr) ? implode(' / ', $uniqInfr) : '—',
         'duree'       => $dureeRaw,
         'kilometrage' => $kmRaw,
-        'alerts_vert' => $alerts_vert,
+        'alerts_vert'   => $alerts_vert,
         'alerts_orange' => $alerts_orange,
-        'alerts_rouge' => $alerts_rouge,
+        'alerts_rouge'  => $alerts_rouge,
     ];
 }
+
+usort($vehicules, fn($a, $b) => strcmp($a['nom'], $b['nom']));
+usort($rowsBoutch, fn($a, $b) => strcmp($a['vehicule'], $b['vehicule']));
 
 // Calculs synthèse
 $nbV = count($vehicules);
-$totalEval = $totalKm = $totalInfr = 0;
+$totalNote = $totalKm = $totalInfr = 0;
 foreach ($vehicules as $v) {
-    $totalEval += $v['note'];
+    $totalNote += $v['note'];
     $totalKm   += $v['km_raw'];
     $totalInfr += $v['alertes'];
 }
-$moy100   = $totalKm > 0 ? round(($totalInfr / $totalKm) * 100, 2) : 0;
+$totalAl100 = $totalKm > 0 ? round(($totalInfr * 100) / $totalKm, 2) : 0;
 
-// Comptage par couleur pour synthèse
-$countRouge = $countOrange = $countVert = 0;
-foreach ($vehicules as $v) {
-    $couleur = sAlertes($v['alertes']);
-    if ($couleur === 'rouge') $countRouge++;
-    elseif ($couleur === 'orange') $countOrange++;
-    else $countVert++;
-}
+// Comptage véhicules par couleur d'alertes
+$countRouge = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'rouge'));
+$countOrange = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'orange'));
+$countVert = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'vert'));
 
 $synthese = [
-    'nb'         => $nbV,
-    'total_eval' => number_format($totalEval, 0, ',', ' '),
-    'total_infr' => $totalInfr,
-    'total_km'   => number_format($totalKm, 0, ',', ' ') . ' Km',
-    'moy100'     => $moy100,
-    'count_rouge' => $countRouge,
-    'count_orange' => $countOrange,
-    'count_vert' => $countVert,
+    'nb'            => $nbV,
+    'total_note'    => number_format($totalNote, 0, ',', ' '),
+    'total_infr'    => $totalInfr,
+    'total_km'      => number_format($totalKm, 0, ',', ' ') . ' Km',
+    'moy100'        => $totalAl100,
+    'count_rouge'   => $countRouge,
+    'count_orange'  => $countOrange,
+    'count_vert'    => $countVert,
 ];
 
 // ══════════════════════════════════════════════════════════
@@ -267,13 +316,9 @@ $css = '
                         text-transform:uppercase;letter-spacing:0.5px;font-weight:700;border-bottom:2px solid #cbd5e1;}
     table.data thead tr:last-child th{color:#334155;padding:8px 18px;text-align:center;font-size:8px;
                         text-transform:uppercase;letter-spacing:0.5px;font-weight:700;border-bottom:2px solid #cbd5e1;}
-    table.data thead tr:last-child th:nth-child(7){color:#ef4444;}
-    table.data thead tr:last-child th:nth-child(8){color:#f97316;}
-    table.data thead tr:last-child th:nth-child(9){color:#22c55e;}
     table.data tbody tr:nth-child(even){background:#f8fafc;}
     table.data tbody tr:nth-child(odd){background:#ffffff;}
     table.data tbody td{border-bottom:1px solid #e2e8f0;vertical-align:middle;padding:10px 16px;color:#334155;}
-    table.data tbody td:nth-child(7),table.data tbody td:nth-child(8),table.data tbody td:nth-child(9){text-align:center;padding:10px 20px;}
     .footer{margin-top:16px;font-size:9px;color:#94a3b8;text-align:center;border-top:1px solid #e2e8f0;padding-top:10px;}
 ';
 
@@ -286,40 +331,39 @@ function buildHtmlFlotte(array $rows, string $date, string $css): string {
     $lignes = '';
     foreach ($rows as $v) {
         $lignes .= '<tr>
-            <td style="font-weight:700;color:#0f172a;white-space:nowrap;">' . htmlspecialchars($v['nom']) . '</td>
-            <td>' . dotPdf($v['note_s'],    (string)$v['note'])    . '</td>
-            <td>' . dotPdf($v['alertes_s'], (string)$v['alertes']) . '</td>
-            <td>' . dotPdf($v['heures_s'],  $v['heures'] . ' h')   . '</td>
-            <td>' . dotPdf($v['km_s'],      $v['km'])               . '</td>
-            <td>' . dotPdf($v['al100_s'],   (string)$v['al100'])   . '</td>
-            <td>' . pillPdf($v['charge_s'], $v['charge'])           . '</td>
-            <td>' . pillPdf($v['risque_s'], $v['risque'])           . '</td>
+            <td style="font-weight:700;color:#0f172a;white-space:nowrap;text-align:center;">' . htmlspecialchars($v['nom']) . '</td>
+            <td style="text-align:center;">' . dotPdf($v['note_s'],    (string)$v['note'])    . '</td>
+            <td style="text-align:center;">' . dotPdf($v['alertes_s'], (string)$v['alertes']) . '</td>
+            <td style="text-align:center;">' . dotPdf($v['al100_s'],   (string)$v['al100'])  . '</td>
+            <td style="text-align:center;">' . dotPdf($v['heures_s'],  $v['heures'] . ' h')  . '</td>
+            <td style="text-align:center;">' . dotPdf($v['km_s'],      $v['km'])             . '</td>
+            <td style="text-align:center;">' . pillPdf($v['charge_s'], $v['charge'])          . '</td>
+            <td style="text-align:center;">' . pillPdf($v['risque_s'], $v['risque'])          . '</td>
         </tr>';
     }
     return '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><style>' . $css . '</style></head><body>
-    <div class="header"><h1>Rapport Flotte Transport BOUTCHERAFIN</h1><p>Source : fichiers Excel &mdash; Généré le ' . $date . '</p></div>
+    <div class="header"><h1>Rapport Flotte Transport BOUTCHERAFIN</h1><p>Indicateurs selon matrice CIMAT officielle &mdash; Généré le ' . $date . '</p></div>
     <table class="data"><thead><tr>
-        <th>Véhicule</th><th>Note /100</th><th>Alertes CRIT</th><th>Heures conduite (h)</th>
-        <th>Kilométrage (km)</th><th>Alertes /100km</th><th>Charge conduite</th><th>Risque global</th>
+        <th style="text-align:center;">Véhicule</th><th style="text-align:center;">Note /100 </th><th style="text-align:center;">Alertes CRIT </th><th style="text-align:center;">Alertes /100km </th>
+        <th style="text-align:center;">Heures </th><th style="text-align:center;">Km </th><th style="text-align:center;">Charge </th><th style="text-align:center;">Risque </th>
     </tr></thead><tbody>' . $lignes . '</tbody></table>
     <div class="footer">Rapport Flotte Transport BOUTCHERAFIN &middot; ' . count($rows) . ' véhicule(s) &middot; ' . $date . '</div>
     </body></html>';
 }
 
 // ── 2. BOUTCHERAFIN Détail ────────────────────────────────
-// ✨ AMÉLIORÉ: Avec colonne Couleur et cercles dans les en-têtes
 function buildHtmlBoutch(array $rows, string $date, string $css): string {
     $lignes = '';
-    foreach ($rows as $i => $v) {
+    foreach ($rows as $v) {
         $lignes .= '<tr>
             <td style="font-weight:700;color:#0f172a;">BOUTCHERAFIN</td>
-            <td>' . htmlspecialchars($v['vehicule'])   . '</td>
+            <td>' . htmlspecialchars($v['vehicule'])    . '</td>
             <td style="font-size:10px;">' . htmlspecialchars($v['infraction']) . '</td>
-            <td>' . htmlspecialchars($v['duree'])      . '</td>
-            <td>' . htmlspecialchars($v['kilometrage']). '</td>
-            <td>' . colorCircleValue('rouge', $v['alerts_rouge']) . '</td>
+            <td>' . htmlspecialchars($v['duree'])       . '</td>
+            <td>' . htmlspecialchars($v['kilometrage']) . '</td>
+            <td>' . colorCircleValue('rouge',  $v['alerts_rouge'])  . '</td>
             <td>' . colorCircleValue('orange', $v['alerts_orange']) . '</td>
-            <td>' . colorCircleValue('vert', $v['alerts_vert']) . '</td>
+            <td>' . colorCircleValue('vert',   $v['alerts_vert'])   . '</td>
         </tr>';
     }
     return '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><style>' . $css . '</style></head><body>
@@ -330,9 +374,9 @@ function buildHtmlBoutch(array $rows, string $date, string $css): string {
         </tr>
         <tr>
             <th colspan="5"></th>
-            <th>Rouge</th>
-            <th>Orange</th>
-            <th>Vert</th>
+            <th style="color:#ef4444;">Rouge</th>
+            <th style="color:#f97316;">Orange</th>
+            <th style="color:#22c55e;">Vert</th>
         </tr>
     </thead><tbody>' . $lignes . '</tbody></table>
     <div class="footer">BOUTCHERAFIN &middot; ' . count($rows) . ' véhicule(s) &middot; ' . $date . '</div>
@@ -340,32 +384,35 @@ function buildHtmlBoutch(array $rows, string $date, string $css): string {
 }
 
 // ── 3. Rapport Par Société ────────────────────────────────
-// ✨ AMÉLIORÉ: Avec colonne Couleur et cercles dans les en-têtes
 function buildHtmlSynthese(array $s, string $date, string $css): string {
     $ligne = '<tr>
-        <td style="font-weight:700;color:#0f172a;">BOUTCHERAFIN</td>
+        <td style="font-weight:700;color:#0f172a;text-align:center;">BOUTCHERAFIN</td>
         <td style="text-align:center;color:#1d4ed8;font-weight:600;">' . $s['nb']         . ' véhicules</td>
-        <td style="text-align:center;color:#166534;font-weight:600;">' . $s['total_eval'] . '</td>
-        <td style="text-align:center;color:#991b1b;font-weight:600;">' . $s['total_infr'] . '</td>
-        <td style="text-align:center;color:#1d4ed8;font-weight:600;">' . $s['total_km']   . '</td>
-        <td style="text-align:center;color:#854d0e;font-weight:600;">' . $s['moy100']     . '</td>
-        <td>' . colorCircleValue('rouge', $s['count_rouge']) . '</td>
-        <td>' . colorCircleValue('orange', $s['count_orange']) . '</td>
-        <td>' . colorCircleValue('vert', $s['count_vert']) . '</td>
+        <td style="text-align:center;color:#166534;font-weight:600;">' . $s['total_note']  . '</td>
+        <td style="text-align:center;color:#991b1b;font-weight:600;">' . $s['total_infr']  . '</td>
+        <td style="text-align:center;color:#1d4ed8;font-weight:600;">' . $s['total_km']    . '</td>
+        <td style="text-align:center;color:#854d0e;font-weight:600;">' . $s['moy100']      . '</td>
+        <td style="text-align:center;">' . colorCircleValue('rouge',  $s['count_rouge'])  . '</td>
+        <td style="text-align:center;">' . colorCircleValue('orange', $s['count_orange']) . '</td>
+        <td style="text-align:center;">' . colorCircleValue('vert',   $s['count_vert'])   . '</td>
     </tr>';
-    return '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><style>' . $css . '</style></head><body>
+    return '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><style>' . $css . '
+    table.data { table-layout: fixed; }
+    table.data th { padding: 10px 8px; }
+    table.data td { padding: 10px 8px; }
+    </style></head><body>
     <div class="header"><h1>Rapport Par Société</h1><p>Totaux calculés depuis les fichiers Excel &mdash; Généré le ' . $date . '</p></div>
     <table class="data"><thead>
         <tr>
-            <th>Entreprise</th><th style="text-align:center;">Nb véhicules</th><th style="text-align:center;">Total Évaluation</th>
-            <th style="text-align:center;">Total Infractions</th><th style="text-align:center;">Total Kilométrage</th><th style="text-align:center;">Moy. Infr. /100km</th>
-            <th colspan="3" style="text-align:center;">Couleur</th>
+            <th style="text-align:center;">Entreprise</th><th style="text-align:center;">Nb véhicules</th><th style="text-align:center;">Total Note /100</th>
+            <th style="text-align:center;">Total Alertes CRIT</th><th style="text-align:center;">Total Kilométrage</th><th style="text-align:center;">Moy. Alertes. /100km</th>
+            <th colspan="3" style="text-align:center;">Total Alertes Sign</th>
         </tr>
         <tr>
             <th colspan="6"></th>
-            <th>Rouge</th>
-            <th>Orange</th>
-            <th>Vert</th>
+            <th style="text-align:center;color:#ef4444;">Rouge</th>
+            <th style="text-align:center;color:#f97316;">Orange</th>
+            <th style="text-align:center;color:#22c55e;">Vert</th>
         </tr>
     </thead><tbody>' . $ligne . '</tbody></table>
     <div class="footer">Rapport Par Société &middot; ' . $s['nb'] . ' véhicule(s) &middot; ' . $date . '</div>

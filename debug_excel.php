@@ -1,123 +1,156 @@
 <?php
 /**
- * debug_excel.php — Diagnostic des fichiers Excel
- * Place ce fichier dans C:/xampp/htdocs/vehicules/
- * Accède via : http://localhost/vehicules/debug_excel.php
+ * debug_complet.php — Diagnostic ULTRA-détaillé
  */
 
-require_once 'vendor/autoload.php';
-use PhpOffice\PhpSpreadsheet\IOFactory;
+echo '<h1>🔍 Diagnostic Ultra-Détaillé</h1>';
+echo '<style>
+body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+.box { background: white; padding: 15px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #3498db; }
+code { background: #ecf0f1; padding: 5px 10px; border-radius: 3px; font-family: monospace; }
+pre { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+table th, table td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+table th { background: #ecf0f1; }
+.success { border-left-color: #27ae60; }
+.error { border-left-color: #e74c3c; }
+</style>';
 
 $dataDir = 'C:/xampp/htdocs/vehicules/data/entreprises/';
 
-function findAllXlsx(string $dir): array {
-    return glob($dir . '*.xlsx') ?: [];
+echo '<div class="box success">';
+echo '<h2>1️⃣ Vérification du dossier</h2>';
+
+if (!is_dir($dataDir)) {
+    echo '<p style="color: red;"><strong>❌ ERREUR : Le dossier N\'EXISTE PAS !</strong></p>';
+    echo '<p>Chemin cherché : <code>' . htmlspecialchars($dataDir) . '</code></p>';
+    die();
 }
 
-function inspectFile(string $filePath): void {
-    echo '<div style="background:#fff;border-radius:12px;padding:20px;margin-bottom:20px;
-          box-shadow:0 2px 8px rgba(0,0,0,0.08);">';
-    echo '<h3 style="color:#0f172a;margin:0 0 6px;">' . htmlspecialchars(basename($filePath)) . '</h3>';
-    echo '<p style="color:#64748b;font-size:0.8rem;margin:0 0 14px;">📁 ' . htmlspecialchars($filePath) . '</p>';
+echo '<p style="color: green;"><strong>✅ Le dossier EXISTE</strong></p>';
+echo '</div>';
 
-    try {
-        $spreadsheet = IOFactory::load($filePath);
-        $sheetNames  = $spreadsheet->getSheetNames();
+echo '<div class="box">';
+echo '<h2>2️⃣ Liste de TOUS les fichiers du dossier</h2>';
 
-        echo '<p style="margin:0 0 10px;font-weight:600;color:#334155;">Feuilles trouvées (' . count($sheetNames) . ') :</p>';
+$allFiles = scandir($dataDir);
+$allFiles = array_diff($allFiles, ['.', '..']);
 
-        foreach ($sheetNames as $sheetName) {
-            $sheet = $spreadsheet->getSheetByName($sheetName);
-            $rows  = $sheet->toArray(null, true, true, false);
+if (empty($allFiles)) {
+    echo '<p style="color: red;"><strong>❌ Le dossier est VIDE !</strong></p>';
+    die();
+}
 
-            echo '<div style="background:#f8fafc;border-radius:8px;padding:14px;margin-bottom:10px;
-                  border-left:3px solid #6366f1;">';
-            echo '<p style="margin:0 0 8px;font-weight:700;color:#6366f1;">📄 Feuille : "' . htmlspecialchars($sheetName) . '"</p>';
+echo '<table>';
+echo '<tr><th>Nom du fichier</th><th>Extension</th><th>Contient "Éco"?</th><th>Contient "Kilomé"?</th></tr>';
 
-            if (empty($rows)) {
-                echo '<p style="color:#dc2626;">⚠️ Feuille vide</p>';
-            } else {
-                // En-têtes (ligne 1)
-                $headers = array_shift($rows);
-                echo '<p style="margin:0 0 6px;font-weight:600;color:#475569;">Colonnes détectées :</p>';
-                echo '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">';
-                foreach ($headers as $i => $h) {
-                    $display = $h !== null && $h !== '' ? $h : '(vide col ' . $i . ')';
-                    echo '<span style="background:#e0e7ff;color:#3730a3;padding:3px 10px;border-radius:20px;
-                          font-size:0.8rem;font-family:monospace;">'
-                         . htmlspecialchars($display) . '</span>';
-                }
-                echo '</div>';
+foreach ($allFiles as $file) {
+    $fullPath = $dataDir . $file;
+    if (!is_file($fullPath)) continue;
+    
+    $ext = pathinfo($file, PATHINFO_EXTENSION);
+    $contienEco = (strpos(strtolower($file), 'éco') !== false || strpos(strtolower($file), 'eco') !== false) ? '✅ OUI' : '❌ NON';
+    $contienKilo = (strpos(strtolower($file), 'kilomé') !== false || strpos(strtolower($file), 'om') !== false) ? '✅ OUI' : '❌ NON';
+    
+    echo '<tr>';
+    echo '<td><code style="font-size:11px;">' . htmlspecialchars($file) . '</code></td>';
+    echo '<td>' . htmlspecialchars($ext) . '</td>';
+    echo '<td>' . $contienEco . '</td>';
+    echo '<td>' . $contienKilo . '</td>';
+    echo '</tr>';
+}
+echo '</table>';
+echo '</div>';
 
-                // Aperçu des 3 premières lignes de données
-                $preview = array_slice($rows, 0, 3);
-                if (!empty($preview)) {
-                    echo '<p style="margin:0 0 6px;font-weight:600;color:#475569;">Aperçu (3 premières lignes) :</p>';
-                    echo '<table style="width:100%;border-collapse:collapse;font-size:0.78rem;">';
-                    echo '<thead><tr style="background:#e0e7ff;">';
-                    foreach ($headers as $h) {
-                        echo '<th style="padding:5px 8px;text-align:left;color:#3730a3;">'
-                             . htmlspecialchars($h ?? '') . '</th>';
-                    }
-                    echo '</tr></thead><tbody>';
-                    foreach ($preview as $row) {
-                        echo '<tr style="border-bottom:1px solid #e2e8f0;">';
-                        foreach ($row as $cell) {
-                            echo '<td style="padding:5px 8px;color:#334155;">'
-                                 . htmlspecialchars((string)($cell ?? '')) . '</td>';
-                        }
-                        echo '</tr>';
-                    }
-                    echo '</tbody></table>';
-                }
+echo '<div class="box">';
+echo '<h2>3️⃣ Test des patterns glob()</h2>';
 
-                echo '<p style="margin:8px 0 0;font-size:0.78rem;color:#94a3b8;">'
-                     . count($rows) . ' ligne(s) de données</p>';
-            }
-            echo '</div>';
+$patterns = [
+    '*Éco-conduite*.xlsx' => 'Cherche fichiers avec "Éco-conduite"',
+    '*eco-conduite*.xlsx' => 'Cherche fichiers avec "eco-conduite"',
+    '*éco-conduite*.xlsx' => 'Cherche fichiers avec "éco-conduite"',
+    '*Éco*.xlsx' => 'Cherche fichiers avec "Éco"',
+    '*eco*.xlsx' => 'Cherche fichiers avec "eco"',
+    '*Kilomé*.xlsx' => 'Cherche fichiers avec "Kilomé"',
+    '*om*.xlsx' => 'Cherche fichiers avec "om"',
+    '*.xlsx' => 'Cherche TOUS les fichiers .xlsx',
+];
+
+echo '<table>';
+echo '<tr><th>Pattern</th><th>Résultat</th><th>Nombre</th></tr>';
+
+foreach ($patterns as $pattern => $desc) {
+    $files = glob($dataDir . $pattern);
+    $nb = count($files);
+    $couleur = $nb > 0 ? '#d5f4e6' : '#fadbd8';
+    
+    echo '<tr style="background: ' . $couleur . ';">';
+    echo '<td><code>' . htmlspecialchars($pattern) . '</code><br><small>' . $desc . '</small></td>';
+    echo '<td>';
+    if ($nb > 0) {
+        echo '<strong style="color: green;">✅ TROUVÉ</strong>';
+        foreach ($files as $f) {
+            echo '<br><small>' . htmlspecialchars(basename($f)) . '</small>';
         }
-    } catch (\Exception $e) {
-        echo '<p style="color:#dc2626;">❌ Erreur lecture : ' . htmlspecialchars($e->getMessage()) . '</p>';
+    } else {
+        echo '<strong style="color: red;">❌ AUCUN</strong>';
     }
-    echo '</div>';
+    echo '</td>';
+    echo '<td>' . $nb . '</td>';
+    echo '</tr>';
+}
+echo '</table>';
+echo '</div>';
+
+echo '<div class="box">';
+echo '<h2>4️⃣ Code PHP à utiliser</h2>';
+
+// Trouver le bon pattern
+$bestPattern = '';
+$bestFiles = [];
+
+foreach (['*Éco-conduite*.xlsx', '*eco-conduite*.xlsx', '*Éco*.xlsx', '*eco*.xlsx'] as $p) {
+    $f = glob($dataDir . $p);
+    if (!empty($f)) {
+        $bestPattern = $p;
+        $bestFiles = $f;
+        break;
+    }
 }
 
-?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Debug Excel — Diagnostic</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'DM Sans', sans-serif; background: #f0f4f8; padding: 30px 24px; color: #1e293b; }
-        h1 { font-size: 1.3rem; color: #0f172a; margin-bottom: 4px; }
-        .sub { color: #64748b; font-size: 0.85rem; margin-bottom: 24px; }
-        .alert { background: #fef2f2; border-left: 3px solid #dc2626; border-radius: 8px;
-                 padding: 14px; color: #dc2626; margin-bottom: 20px; }
-        .ok    { background: #dcfce7; border-left: 3px solid #22c55e; border-radius: 8px;
-                 padding: 14px; color: #166534; margin-bottom: 20px; }
-        a { color: #6366f1; }
-    </style>
-</head>
-<body>
-<h1>🔍 Diagnostic — Fichiers Excel</h1>
-<p class="sub">Dossier analysé : <code><?= htmlspecialchars($dataDir) ?></code></p>
-
-<?php
-$files = findAllXlsx($dataDir);
-
-if (empty($files)) {
-    echo '<div class="alert">❌ <strong>Aucun fichier .xlsx trouvé</strong> dans ce dossier.<br>
-          Vérifiez que le chemin est correct et que les fichiers sont bien présents.</div>';
+if (!empty($bestFiles)) {
+    echo '<p><strong>✅ Pattern qui fonctionne :</strong></p>';
+    echo '<pre>$filesEco = glob($dataDir . \'' . htmlspecialchars($bestPattern) . '\');</pre>';
+    
+    echo '<p><strong>Fichiers trouvés :</strong></p>';
+    echo '<ul>';
+    foreach ($bestFiles as $f) {
+        echo '<li><code>' . htmlspecialchars(basename($f)) . '</code></li>';
+    }
+    echo '</ul>';
 } else {
-    echo '<div class="ok">✅ <strong>' . count($files) . ' fichier(s) Excel trouvé(s)</strong></div>';
-    foreach ($files as $file) {
-        inspectFile($file);
-    }
+    echo '<p style="color: red;"><strong>❌ Aucun pattern ne fonctionne !</strong></p>';
 }
-?>
 
-<p style="margin-top:20px;"><a href="tableau.php">← Retour au tableau</a></p>
-</body>
-</html>
+echo '</div>';
+
+echo '<div class="box error">';
+echo '<h2>5️⃣ Solution</h2>';
+echo '<p>Utilise ce code dans ton fichier PHP :</p>';
+echo '<pre>';
+echo '$dataDir = \'C:/xampp/htdocs/vehicules/data/entreprises/\';' . "\n\n";
+echo '// Chercher les fichiers Éco-conduite' . "\n";
+echo '$filesEco = glob($dataDir . \'*Éco*.xlsx\');' . "\n";
+echo 'if (empty($filesEco)) {' . "\n";
+echo '    $filesEco = glob($dataDir . \'*eco*.xlsx\');' . "\n";
+echo '}' . "\n\n";
+echo '// Chercher le fichier Kilométrage' . "\n";
+echo '$fileKilo = glob($dataDir . \'*Kilométrage*.xlsx\');' . "\n";
+echo 'if (empty($fileKilo)) {' . "\n";
+echo '    $fileKilo = glob($dataDir . \'*om*.xlsx\');' . "\n";
+echo '}' . "\n";
+echo '$fileKilo = !empty($fileKilo) ? $fileKilo[0] : null;' . "\n";
+echo '</pre>';
+echo '</div>';
+
+?>

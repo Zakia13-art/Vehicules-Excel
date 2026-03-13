@@ -1,281 +1,267 @@
 <?php
+require_once("db.php");
+
+// 🔐 TOKEN VALIDE - MIS À JOUR
+define('WIALON_TOKEN', 'b6db68331b4b6ed14b61dbfeeaad9a0631CC23ABEEBB9CE43FB28DC0D4A13766308C1CFB');
+
+// Compteur global pour les trajets insérés
+$trajectcount = 0;
+
+// Variables pour correspondance Wialon ↔ Base de données
+// À adapter selon vos besoins:
+// - Nom du transporteur/groupe dans Wialon
+// - Correspondance avec les IDs de votre table transporteurs
+$groupe_to_transporteur = array(
+	'BOUTCHRAFINE' => 1,     // À adapter avec l'ID réel
+	'SOMATRIN' => 2,
+	'MARATRANS' => 3,
+	'G.T.C' => 4,
+	'DOUKALI' => 5,
+	'COTRAMAB' => 6,
+	'CORYAD' => 7,
+	'CONSMETA' => 8,
+	'CHOUROUK' => 9,
+	'CARRE' => 10,
+	'STB' => 11,
+	'FASTTRANS' => 12
+);
+
+// Chauffeur par défaut (si pas de correspondance)
+global $chauffeur_defaut;
+$chauffeur_defaut = 'CD000';
+
+function getResID($name,$sid){
+ $curl = curl_init();
+ $Url='https://hst-api.wialon.com/wialon/ajax.html?svc=core/search_items&params={"spec":{"itemsType":"avl_resource","propName":"sys_name","propValueMask":"*'.$name.'*","sortType":"sys_name","propType":"property"},"force":1,"flags":1,"from":0,"to":0}&sid='.$sid;
+ curl_setopt_array($curl, array(
+            CURLOPT_URL => $Url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 60,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: application/x-www-form-urlencoded"
+            ),
+            CURLOPT_SSL_VERIFYPEER => false,
+        ));
+ $response = curl_exec($curl);
+ $err = curl_error($curl);
+ curl_close($curl);
+
+if (!$err && isset(json_decode($response,true)['items'][0]['id']))
+ {
+      $v_det = json_decode($response,true);
+	  $resid=$v_det['items'][0]['id'];
+	  return $resid;
+ } else
+ {
+	@mkdir('logs', 0755, true);
+	$file="logs/log.txt";
+	$fp = fopen ($file, "a+");
+	fputs($fp, date("d-m-Y H:i").": erreur getResID \n");
+	fclose($fp);
+	return null;
+ }
+}
+
+function gettempID($name,$sid){
+ $curl = curl_init();
+ $Url='https://hst-api.wialon.com/wialon/ajax.html?svc=core/search_items&params={"spec":{"itemsType":"avl_resource","propName":"reporttemplates","propValueMask":"*'.$name.'*","sortType":"reporttemplates","propType":"propitemname"},"force":1,"flags":8192,"from":0,"to":0}&sid='.$sid;
+ curl_setopt_array($curl, array(
+            CURLOPT_URL => $Url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 60,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: application/x-www-form-urlencoded"
+            ),
+            CURLOPT_SSL_VERIFYPEER => false,
+        ));
+ $response = curl_exec($curl);
+ $err = curl_error($curl);
+ curl_close($curl);
+
+if (!$err && isset(json_decode($response,true)['items'][0]['rep'][1]['id']))
+ {
+      $v_det = json_decode($response,true);
+	  $repid=$v_det['items'][0]['rep'][1]['id'];
+	  return $repid;
+ } else
+ {
+	@mkdir('logs', 0755, true);
+	$file="logs/log.txt";
+	$fp = fopen ($file, "a+");
+	fputs($fp, date("d-m-Y H:i").": erreur gettempID \n");
+	fclose($fp);
+	return null;
+ }
+}
+
+function getgroupID($name,$sid){
+ $curl = curl_init();
+ $Url='https://hst-api.wialon.com/wialon/ajax.html?svc=core/search_items&params={"spec":{"itemsType":"avl_unit_group","propName":"sys_name","propValueMask":"*'.$name.'*","sortType":"sys_name","propType":"property"},"force":1,"flags":1,"from":0,"to":0}&sid='.$sid;
+ curl_setopt_array($curl, array(
+            CURLOPT_URL => $Url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 60,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: application/x-www-form-urlencoded"
+            ),
+            CURLOPT_SSL_VERIFYPEER => false,
+        ));
+ $response = curl_exec($curl);
+ $err = curl_error($curl);
+ curl_close($curl);
+
+if (!$err && isset(json_decode($response,true)['items'][0]['id']))
+ {
+      $v_det = json_decode($response,true);
+	  $groupid=$v_det['items'][0]['id'];
+	  return $groupid;
+ } else
+ {
+	@mkdir('logs', 0755, true);
+	$file="logs/log.txt";
+	$fp = fopen ($file, "a+");
+	fputs($fp, date("d-m-Y H:i").": erreur getgroupID \n");
+	fclose($fp);
+	return null;
+ }
+}
+
+function execRep($group,$sid,$from1=0,$to1=0){
+	$base_time = 1575503999;
+	
+	if ($from1 > 0 || $to1 > 0) {
+		$from = ($base_time - ($from1 * 86400));
+		$to = ($base_time - ($to1 * 86400));
+	} else {
+		$to = time();
+		$from = $to - (7 * 86400);
+	}
+
+ $curl = curl_init();
+ $Url='https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":1,"reportObjectId":'.$group.',"reportObjectSecId":0,"interval":{"from":'.$from.',"to":'.$to.',"flags":0}}&sid='.$sid;
+ 
+ curl_setopt_array($curl, array(
+            CURLOPT_URL => $Url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 60,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: application/x-www-form-urlencoded"
+            ),
+            CURLOPT_SSL_VERIFYPEER => false,
+        ));
+ $response = curl_exec($curl);
+ $err = curl_error($curl);
+ curl_close($curl);
+
+if (!$err)
+ {
+      $v_det = json_decode($response,true);
+	  if (isset($v_det['reportResult']['tables'])) {
+	  	$nbrtab=sizeof($v_det['reportResult']['tables']);
+	  	$tabline=array();
+	  	$i=0;
+	  	while($i<$nbrtab){
+	  	$tabline[$i]=$v_det['reportResult']['tables'][$i]['rows'];
+	  	$i++;
+	  	}
+	  	return $tabline;
+	  }
+ } 
+ 
+ @mkdir('logs', 0755, true);
+ $file="logs/log.txt";
+ $fp = fopen ($file, "a+");
+ fputs($fp, date("d-m-Y H:i").": erreur execRep \n");
+ fclose($fp);
+ return null;
+}
+
+
 /**
- * getitemid.php — Multi-Sociétés
- * Récupère les données de TOUTES les sociétés dans le dossier
+ * ✅ FONCTION CORRIGÉE - selectRes()
+ * Récupère et sauvegarde les résultats de rapport
  */
+function selectRes($groupe,$tabindex,$to,$sid){
+	global $trajectcount, $groupe_to_transporteur, $chauffeur_defaut;
+	
+ $curl = curl_init();
+ $Url='https://hst-api.wialon.com/wialon/ajax.html?svc=report/select_result_rows&params={"tableIndex":'.$tabindex.',"config":{"type":"range","data":{"from":0,"to":'.$to.',"level":2}}}&sid='.$sid;
+ curl_setopt_array($curl, array(
+            CURLOPT_URL => $Url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 60,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: application/x-www-form-urlencoded"
+            ),
+            CURLOPT_SSL_VERIFYPEER => false,
+        ));
+ $response = curl_exec($curl);
+ $err = curl_error($curl);
+ curl_close($curl);
 
-require_once 'config.php';
-require_once 'vendor/autoload.php';
-
-use PhpOffice\PhpSpreadsheet\IOFactory;
-
-class ItemGetter {
-    private $dataDir = 'C:/xampp/htdocs/vehicules/data/entreprises/';
-    private $SHEET_ECO = 'Éco-conduite';
-    private $SHEET_KILO = 'Kilométrage+Heures moteur';
-
-    /**
-     * Lire une feuille Excel
-     */
-    public function readExcelSheet($filePath, $sheetName) {
-        try {
-            $spreadsheet = IOFactory::load($filePath);
-            $sheet = $spreadsheet->getSheetByName($sheetName) ?? $spreadsheet->getActiveSheet();
-            $rows = $sheet->toArray(null, true, true, false);
-            if (empty($rows)) return [];
-            $headers = array_map(fn($h) => trim((string)($h ?? '')), array_shift($rows));
-            $data = [];
-            foreach ($rows as $row) {
-                if (empty(array_filter($row, fn($v) => $v !== null && $v !== ''))) continue;
-                $assoc = [];
-                foreach ($headers as $i => $h) {
-                    $assoc[$h] = trim((string)($row[$i] ?? ''));
-                }
-                $data[] = $assoc;
-            }
-            return $data;
-        } catch (\Exception $e) {
-            return [];
-        }
-    }
-
-    /**
-     * Obtenir TOUS les véhicules de TOUTES les sociétés
-     */
-    public function getAllVehicles($societyFilter = null) {
-        $allVehicles = [];
-        
-        if (!is_dir($this->dataDir)) return [];
-        
-        $items = @scandir($this->dataDir);
-        if ($items === false) return [];
-        
-        // Grouper par société
-        $societyFiles = [];
-        foreach ($items as $item) {
-            if ($item === '.' || $item === '..') continue;
-            $filepath = $this->dataDir . $item;
-            if (!is_file($filepath)) continue;
-            
-            $societyName = $this->extractSocietyName($item);
-            if (!isset($societyFiles[$societyName])) {
-                $societyFiles[$societyName] = [];
-            }
-            
-            if (strpos(strtolower($item), 'conduite') !== false) {
-                $societyFiles[$societyName]['eco'] = $filepath;
-            } elseif (strpos(strtolower($item), 'kilo') !== false || strpos(strtolower($item), 'om') !== false) {
-                $societyFiles[$societyName]['kilo'] = $filepath;
-            }
-        }
-        
-        // Traiter chaque société
-        foreach ($societyFiles as $society => $files) {
-            if (!isset($files['eco']) || !isset($files['kilo'])) continue;
-            
-            // Appliquer le filtre société si demandé
-            if ($societyFilter && $societyFilter !== $society) continue;
-            
-            $ecoData = $this->readExcelSheet($files['eco'], $this->SHEET_ECO);
-            $kiloData = $this->readExcelSheet($files['kilo'], $this->SHEET_KILO);
-
-            $ecoMap = [];
-            foreach ($ecoData as $row) {
-                $reg = $row['Regroupement'] ?? '';
-                if ($reg === '') continue;
-                if (!isset($ecoMap[$reg])) {
-                    $ecoMap[$reg] = ['evaluation' => 0.0, 'infractions' => 0];
-                }
-                $evalNum = (float) preg_replace('/[^0-9.]/', '', $row['Évaluation'] ?? '0');
-                if ($evalNum > $ecoMap[$reg]['evaluation']) {
-                    $ecoMap[$reg]['evaluation'] = $evalNum;
-                }
-                if (($row['Infraction'] ?? '') !== '' && ($row['Infraction'] ?? '') !== '-----') {
-                    $ecoMap[$reg]['infractions']++;
-                }
-            }
-
-            foreach ($kiloData as $row) {
-                $reg = $row['Regroupement'] ?? '';
-                $info = $ecoMap[$reg] ?? null;
-                if ($reg === '' || $info === null) continue;
-                $km = (float) preg_replace('/[^0-9.]/', '', $row['Kilométrage'] ?? '0');
-                $note = $info['evaluation'] / 10;
-                $allVehicles[] = [
-                    'id' => md5($society . '_' . $reg),
-                    'name' => $reg,
-                    'society' => $society,
-                    'note' => round($note * 100),
-                    'alertes' => $info['infractions'],
-                    'km' => $km,
-                    'km_text' => $row['Kilométrage'] ?? '0 km',
-                    'duree' => $row['Durée'] ?? '—',
-                ];
-            }
-        }
-        
-        return $allVehicles;
-    }
-
-    /**
-     * Obtenir les sociétés disponibles
-     */
-    public function getSocieties() {
-        $societies = [];
-        
-        if (!is_dir($this->dataDir)) return [];
-        
-        $items = @scandir($this->dataDir);
-        if ($items === false) return [];
-        
-        foreach ($items as $item) {
-            if ($item === '.' || $item === '..') continue;
-            $filepath = $this->dataDir . $item;
-            if (!is_file($filepath)) continue;
-            
-            $society = $this->extractSocietyName($item);
-            if (!in_array($society, $societies)) {
-                $societies[] = $society;
-            }
-        }
-        
-        sort($societies);
-        return $societies;
-    }
-
-    /**
-     * Extraire le nom de la société
-     */
-    private function extractSocietyName($filename) {
-        $name = pathinfo($filename, PATHINFO_FILENAME);
-        $name = preg_replace('/[\s\-_]+(co-conduite|conduite|kilo|kilometer|kilométrage|heures|moteur|om).*/i', '', $name);
-        return trim($name) ?: 'Non identifiée';
-    }
-
-    /**
-     * Obtenir les informations de TOUS les fichiers
-     */
-    public function getFileInfo($societyFilter = null) {
-        $files = [];
-        if (!is_dir($this->dataDir)) return $files;
-        
-        $items = @scandir($this->dataDir);
-        if ($items === false) return $files;
-        
-        foreach ($items as $item) {
-            if ($item === '.' || $item === '..') continue;
-            $filepath = $this->dataDir . $item;
-            if (is_file($filepath) && strpos(strtolower($item), '.xlsx') !== false) {
-                $societyName = $this->extractSocietyName($item);
-                
-                if ($societyFilter && $societyFilter !== $societyName) continue;
-                
-                $type = 'Source';
-                $icon = '📄';
-                if (strpos(strtolower($item), 'conduite') !== false) {
-                    $type = 'Éco-conduite';
-                    $icon = '📊';
-                } elseif (strpos(strtolower($item), 'kilo') !== false || strpos(strtolower($item), 'om') !== false) {
-                    $type = 'Kilométrage';
-                    $icon = '📍';
-                }
-                
-                $files[] = [
-                    'name' => $item,
-                    'size' => filesize($filepath),
-                    'modified' => date('d/m/Y H:i', filemtime($filepath)),
-                    'path' => $filepath,
-                    'type' => $type,
-                    'icon' => $icon,
-                    'society' => $societyName,
-                ];
-            }
-        }
-        return $files;
-    }
-
-    /**
-     * Obtenir un véhicule par ID
-     */
-    public function getItemById($itemId) {
-        $vehicles = $this->getAllVehicles();
-        foreach ($vehicles as $v) {
-            if ($v['id'] === $itemId) return $v;
-        }
-        return null;
-    }
-
-    /**
-     * Obtenir les détails d'un véhicule
-     */
-    public function getVehicleDetails($vehicleName, $society) {
-        $fileInfo = $this->getFileInfo($society);
-        
-        $ecoFile = null;
-        $kiloFile = null;
-        
-        foreach ($fileInfo as $f) {
-            if (strpos(strtolower($f['type']), 'éco') !== false) {
-                $ecoFile = $f['path'];
-            } elseif (strpos(strtolower($f['type']), 'kiló') !== false || strpos(strtolower($f['type']), 'kilo') !== false) {
-                $kiloFile = $f['path'];
-            }
-        }
-        
-        if (!$ecoFile || !$kiloFile) return null;
-        
-        $ecoData = $this->readExcelSheet($ecoFile, $this->SHEET_ECO);
-        $kiloData = $this->readExcelSheet($kiloFile, $this->SHEET_KILO);
-        
-        $ecoInfo = null;
-        foreach ($ecoData as $row) {
-            if (($row['Regroupement'] ?? '') === $vehicleName) {
-                $ecoInfo = $row;
-                break;
-            }
-        }
-        
-        $kiloInfo = null;
-        foreach ($kiloData as $row) {
-            if (($row['Regroupement'] ?? '') === $vehicleName) {
-                $kiloInfo = $row;
-                break;
-            }
-        }
-        
-        return ['name' => $vehicleName, 'society' => $society, 'eco' => $ecoInfo, 'kilo' => $kiloInfo];
-    }
+if (!$err)
+ {
+      $v_det = json_decode($response,true);
+	  if (is_array($v_det) && isset($v_det[0]['r'])) {
+	  	$i=0;
+	  	// ✅ CORRECTION: Utiliser count() au lieu de $to qui n'est pas fiable
+	  	while($i<count($v_det)){
+	  		if (isset($v_det[$i]['r'])) {
+	  			foreach($v_det[$i]['r'] as $tabline){
+	  				// Extraire les données Wialon
+	  				$vehicule=str_replace(" ","",str_replace("-","",str_replace("/","",$tabline['c']['1'] ?? '')));
+	  				$parcour=$tabline['c']['2'] ?? '';
+	  				$depart=$tabline['c']['3'] ?? '';
+	  				$vers=$tabline['c']['4'] ?? '';
+	  				$debut=$tabline['t1'] ?? 0;
+	  				$fin=$tabline['t2'] ?? 0;
+	  				$penalit=$tabline['c']['8'] ?? 0;
+	  				$km=(float)str_replace("km","",$tabline['c']['9'] ?? 0);
+	  				
+	  				// ✅ Récupérer l'ID du transporteur depuis le groupe
+	  				$transporteur_id = $groupe_to_transporteur[$groupe] ?? 1;  // Défaut: 1
+	  				
+	  				// ✅ VÉRIFIER le résultat de l'insertion
+	  				// Paramètres: ($transporteur,$veh,$parc,$dep,$vers,$debut,$fin,$penalite,$km,$chauff)
+	  				if (set_trajet($transporteur_id, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur_defaut)) {
+	  					$trajectcount++;
+	  				} else {
+	  					// Log les trajets qui n'ont pas pu être insérés
+	  					error_log("WARN: Trajet non inséré - Groupe: $groupe, Véhicule: $vehicule");
+	  				}
+	  			}
+	  		}
+	  		$i++;
+	  	}
+	  }
+ } else
+ {
+	@mkdir('logs', 0755, true);
+	$file="logs/log.txt";
+	$fp = fopen ($file, "a+");
+	fputs($fp, date("d-m-Y H:i").": erreur selectRes - $err \n");
+	fclose($fp);
+ }
 }
 
-// API REST
-if (isset($_GET['action'])) {
-    $getter = new ItemGetter();
-    header('Content-Type: application/json; charset=utf-8');
-    switch ($_GET['action']) {
-        case 'all_vehicles':
-            $society = $_GET['society'] ?? null;
-            echo json_encode($getter->getAllVehicles($society));
-            break;
-        case 'societies':
-            echo json_encode($getter->getSocieties());
-            break;
-        case 'get_by_id':
-            $id = $_GET['id'] ?? '';
-            echo json_encode($getter->getItemById($id) ?? ['error' => 'Non trouvé']);
-            break;
-        case 'get_details':
-            $name = $_GET['name'] ?? '';
-            $society = $_GET['society'] ?? '';
-            echo json_encode($getter->getVehicleDetails($name, $society) ?? ['error' => 'Non trouvé']);
-            break;
-        case 'file_info':
-            $society = $_GET['society'] ?? null;
-            echo json_encode($getter->getFileInfo($society));
-            break;
-        default:
-            echo json_encode(['error' => 'Action inconnue']);
-    }
-    exit;
-}
-
-$getter = new ItemGetter();
+?>
