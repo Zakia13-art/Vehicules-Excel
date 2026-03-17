@@ -1,0 +1,65 @@
+═══════════════════════════════════
+2026-03-16 13:29:18 - DEBUG INSERT
+Vehicle: 21376A17 | Parcour: Usine BA - Port CASABLANCA | Depart: Usine BA | Vers: Port CASABLANCA
+Debut: 2026-03-09 16:08:43 | Fin: 2026-03-10 06:41:11 | Penalite: 0 | KM: 116
+Duplicate check: 0 found
+SQL: INSERT INTO trajets (transporteur, vehicule, parcour, depart, vers, debut, fin, penalite, kilometrage, chauffeur) 
+		             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Values: [1, '21376A17', 'Usine BA - Port CASABLANCA', 'Usine BA', 'Port CASABLANCA', '2026-03-09 16:08:43', '2026-03-10 06:41:11', 0, 116, 'CD000']
+Prepared: OK
+PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`))
+Code: 23000
+Result: FAILED
+
+═══════════════════════════════════
+2026-03-16 13:29:18 - DEBUG INSERT
+Vehicle: 21376A17 | Parcour: Usine BA - Port CASABLANCA | Depart: Usine BA | Vers: Port CASABLANCA
+Debut: 2026-03-10 12:48:56 | Fin: 2026-03-10 15:02:08 | Penalite: 0 | KM: 112
+Duplicate check: 0 found
+SQL: INSERT INTO trajets (transporteur, vehicule, parcour, depart, vers, debut, fin, penalite, kilometrage, chauffeur) 
+		             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Values: [1, '21376A17', 'Usine BA - Port CASABLANCA', 'Usine BA', 'Port CASABLANCA', '2026-03-10 12:48:56', '2026-03-10 15:02:08', 0, 112, 'CD000']
+Prepared: OK
+PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`))
+Code: 23000
+Result: FAILED
+
+═══════════════════════════════════
+2026-03-16 13:29:18 - DEBUG INSERT
+Vehicle: MAN41056B15 | Parcour: Usine BA - Port CASABLANCA | Depart: Usine BA | Vers: Port CASABLANCA
+Debut: 2026-03-10 13:46:04 | Fin: 2026-03-11 11:19:23 | Penalite: 0 | KM: 111
+Duplicate check: 0 found
+SQL: INSERT INTO trajets (transporteur, vehicule, parcour, depart, vers, debut, fin, penalite, kilometrage, chauffeur) 
+		             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Values: [1, 'MAN41056B15', 'Usine BA - Port CASABLANCA', 'Usine BA', 'Port CASABLANCA', '2026-03-10 13:46:04', '2026-03-11 11:19:23', 0, 111, 'CD000']
+Prepared: OK
+PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`))
+Code: 23000
+Result: FAILED
+
+═══════════════════════════════════
+2026-03-16 13:29:18 - DEBUG INSERT
+Vehicle: MAN41058B15 | Parcour: Usine BA - Port CASABLANCA | Depart: Usine BA | Vers: Port CASABLANCA
+Debut: 2026-03-09 16:03:26 | Fin: 2026-03-10 06:48:59 | Penalite: 0 | KM: 114
+Duplicate check: 0 found
+SQL: INSERT INTO trajets (transporteur, vehicule, parcour, depart, vers, debut, fin, penalite, kilometrage, chauffeur) 
+		             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Values: [1, 'MAN41058B15', 'Usine BA - Port CASABLANCA', 'Usine BA', 'Port CASABLANCA', '2026-03-09 16:03:26', '2026-03-10 06:48:59', 0, 114, 'CD000']
+Prepared: OK
+PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`))
+Code: 23000
+Result: FAILED
+
+═══════════════════════════════════
+2026-03-16 13:29:18 - DEBUG INSERT
+Vehicle: MAN41059B15 | Parcour: Usine BA - Port CASABLANCA | Depart: Usine BA | Vers: Port CASABLANCA
+Debut: 2026-03-09 22:06:26 | Fin: 2026-03-10 13:31:17 | Penalite: 0 | KM: 116
+Duplicate check: 0 found
+SQL: INSERT INTO trajets (transporteur, vehicule, parcour, depart, vers, debut, fin, penalite, kilometrage, chauffeur) 
+		             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Values: [1, 'MAN41059B15', 'Usine BA - Port CASABLANCA', 'Usine BA', 'Port CASABLANCA', '2026-03-09 22:06:26', '2026-03-10 13:31:17', 0, 116, 'CD000']
+Prepared: OK
+PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`rapport`.`trajets`, CONSTRAINT `fk_transporteur` FOREIGN KEY (`transporteur`) REFERENCES `transporteurs` (`id`))
+Code: 23000
+Result: FAILED
+
