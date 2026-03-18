@@ -197,7 +197,7 @@ function selectRes($groupe, $tabindex, $to, $sid){
 						// Récupérer l'ID du transporteur
 						$transporteur_id = $groupe_to_transporteur[$groupe] ?? 1;
 						
-						// Insérer le trajet
+						// Insérer le trajet (auto-backup happens in set_trajet)
 						$result = set_trajet($transporteur_id, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur_defaut);
 						
 						if ($result) {

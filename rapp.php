@@ -50,6 +50,9 @@ $tab_group = array(
 	'BOUTCHRAFINE' => 19022033
 );
 
+// ✅ CREATE BACKUP DIRECTORY
+@mkdir('backups', 0755, true);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,6 +73,7 @@ $tab_group = array(
 		table { width: 100%; border-collapse: collapse; margin: 15px 0; }
 		th, td { border: 1px solid #bdc3c7; padding: 10px; text-align: left; }
 		th { background: #3498db; color: white; }
+		.backup-info { background: #fff3cd; border-left: 4px solid #ff9800; padding: 10px; margin: 10px 0; }
 	</style>
 </head>
 <body>
@@ -78,6 +82,7 @@ $tab_group = array(
 	<h1>📡 Import Wialon - Historique par plages</h1>
 	<p><strong>Note:</strong> Import des 160 derniers jours par plages de 4 jours (BOUTCHRAFINE uniquement)</p>
 	<p><strong>Démarrage:</strong> <span style="color: #3498db;"><?php echo date('d/m/Y H:i:s'); ?></span></p>
+	<div class="backup-info">💾 <strong>Auto-backup activée:</strong> Tous les trajets seront sauvegardés dans <code>backups/trajets_backup_<?php echo date('Y-m-d'); ?>.json</code></div>
 
 <?php
 
@@ -148,6 +153,9 @@ echo '<p>✅ <strong>Importation terminée!</strong></p>';
 echo '<p>📋 Plages traitées: <strong>' . $total_plages . '</strong></p>';
 echo '<p>📋 Tables traitées: <strong>' . $total_tables . '</strong></p>';
 echo '<p>🚗 Trajets insérés: <strong style="font-size: 1.3em;">' . $total_trajets . '</strong></p>';
+if ($total_trajets > 0) {
+	echo '<p>💾 <strong>Backup sauvegardé:</strong> backups/trajets_backup_' . date('Y-m-d') . '.json</p>';
+}
 echo '</div>';
 
 echo '<p><strong>Fin:</strong> <span style="color: #e74c3c;">' . date('d/m/Y H:i:s') . '</span></p>';

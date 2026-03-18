@@ -1,0 +1,220 @@
+2026-03-18 10:34:50 | === AUTOMATIC SYNC STARTED ===
+2026-03-18 10:34:51 | Session created: 093581fca6d28aa1669b...
+2026-03-18 10:34:51 | Processing: BOUTCHRAFINE
+2026-03-18 10:35:16 | ✅ BOUTCHRAFINE: 0 trajets inserted (3 tables)
+2026-03-18 10:35:16 | Processing: SOMATRIN
+2026-03-18 10:35:17 | No data for: SOMATRIN
+2026-03-18 10:35:17 | Processing: MARATRANS
+2026-03-18 10:35:20 | ✅ MARATRANS: 0 trajets inserted (0 tables)
+2026-03-18 10:35:20 | Processing: G.T.C
+2026-03-18 10:35:22 | No data for: G.T.C
+2026-03-18 10:35:22 | Processing: DOUKALI
+2026-03-18 10:35:23 | No data for: DOUKALI
+2026-03-18 10:35:23 | Processing: COTRAMAB
+2026-03-18 10:35:25 | ✅ COTRAMAB: 0 trajets inserted (0 tables)
+2026-03-18 10:35:25 | Processing: CORYAD
+2026-03-18 10:35:27 | ✅ CORYAD: 0 trajets inserted (0 tables)
+2026-03-18 10:35:27 | Processing: CONSMETA
+2026-03-18 10:35:29 | No data for: CONSMETA
+2026-03-18 10:35:29 | Processing: CHOUROUK
+2026-03-18 10:35:30 | ✅ CHOUROUK: 0 trajets inserted (0 tables)
+2026-03-18 10:35:30 | Processing: CARRE
+2026-03-18 10:35:32 | No data for: CARRE
+2026-03-18 10:35:32 | Processing: STB
+2026-03-18 10:35:33 | No data for: STB
+2026-03-18 10:35:33 | Processing: FASTTRANS
+2026-03-18 10:35:35 | ✅ FASTTRANS: 0 trajets inserted (0 tables)
+2026-03-18 10:35:35 | === SYNC COMPLETED ===
+2026-03-18 10:35:35 | Total trajets inserted: 0
+2026-03-18 10:35:35 | Stats: {"BOUTCHRAFINE":0,"SOMATRIN":0,"MARATRANS":0,"G.T.C":0,"DOUKALI":0,"COTRAMAB":0,"CORYAD":0,"CONSMETA":0,"CHOUROUK":0,"CARRE":0,"STB":0,"FASTTRANS":0}
+2026-03-18 10:37:25 | === AUTOMATIC SYNC STARTED ===
+2026-03-18 10:37:26 | Session created: 0945cd9b6677e915bef0...
+2026-03-18 10:37:26 | Processing: BOUTCHRAFINE
+2026-03-18 10:37:52 | ✅ BOUTCHRAFINE: 0 trajets inserted (3 tables)
+2026-03-18 10:37:52 | Processing: SOMATRIN
+2026-03-18 10:37:53 | No data for: SOMATRIN
+2026-03-18 10:37:53 | Processing: MARATRANS
+2026-03-18 10:37:55 | ✅ MARATRANS: 0 trajets inserted (0 tables)
+2026-03-18 10:37:55 | Processing: G.T.C
+2026-03-18 10:37:57 | No data for: G.T.C
+2026-03-18 10:37:57 | Processing: DOUKALI
+2026-03-18 10:37:58 | No data for: DOUKALI
+2026-03-18 10:37:58 | Processing: COTRAMAB
+2026-03-18 10:38:00 | ✅ COTRAMAB: 0 trajets inserted (0 tables)
+2026-03-18 10:38:00 | Processing: CORYAD
+2026-03-18 10:38:02 | ✅ CORYAD: 0 trajets inserted (0 tables)
+2026-03-18 10:38:02 | Processing: CONSMETA
+2026-03-18 10:38:04 | No data for: CONSMETA
+2026-03-18 10:38:04 | Processing: CHOUROUK
+2026-03-18 10:38:06 | ✅ CHOUROUK: 0 trajets inserted (0 tables)
+2026-03-18 10:38:06 | Processing: CARRE
+2026-03-18 10:38:07 | No data for: CARRE
+2026-03-18 10:38:07 | Processing: STB
+2026-03-18 10:38:08 | No data for: STB
+2026-03-18 10:38:08 | Processing: FASTTRANS
+2026-03-18 10:38:10 | ✅ FASTTRANS: 0 trajets inserted (0 tables)
+2026-03-18 10:38:10 | === SYNC COMPLETED ===
+2026-03-18 10:38:10 | Total trajets inserted: 0
+2026-03-18 10:38:10 | Stats: {"BOUTCHRAFINE":0,"SOMATRIN":0,"MARATRANS":0,"G.T.C":0,"DOUKALI":0,"COTRAMAB":0,"CORYAD":0,"CONSMETA":0,"CHOUROUK":0,"CARRE":0,"STB":0,"FASTTRANS":0}
+2026-03-18 11:01:29 | Connexion à Wialon...
+2026-03-18 11:01:30 | ✅ Session créée: 09af995abb6314c2c375...
+2026-03-18 11:01:30 | Traitement: <strong>BOUTCHRAFINE</strong>
+2026-03-18 11:01:57 | ✅ BOUTCHRAFINE: 0 trajets (3 tables)
+2026-03-18 11:01:57 | Traitement: <strong>SOMATRIN</strong>
+2026-03-18 11:01:58 | ⚠️ Pas de données pour SOMATRIN
+2026-03-18 11:01:58 | Traitement: <strong>MARATRANS</strong>
+2026-03-18 11:02:00 | Connexion à Wialon...
+2026-03-18 11:02:00 | ✅ MARATRANS: 0 trajets (0 tables)
+2026-03-18 11:02:00 | Traitement: <strong>G.T.C</strong>
+2026-03-18 11:02:00 | ✅ Session créée: 099dcb24ad7caf3598be...
+2026-03-18 11:02:00 | Traitement: <strong>BOUTCHRAFINE</strong>
+2026-03-18 11:02:01 | ⚠️ Pas de données pour G.T.C
+2026-03-18 11:02:01 | Traitement: <strong>DOUKALI</strong>
+2026-03-18 11:02:03 | ⚠️ Pas de données pour DOUKALI
+2026-03-18 11:02:03 | Traitement: <strong>COTRAMAB</strong>
+2026-03-18 11:02:05 | ✅ COTRAMAB: 0 trajets (0 tables)
+2026-03-18 11:02:05 | Traitement: <strong>CORYAD</strong>
+2026-03-18 11:02:07 | ✅ CORYAD: 0 trajets (0 tables)
+2026-03-18 11:02:07 | Traitement: <strong>CONSMETA</strong>
+2026-03-18 11:02:08 | ⚠️ Pas de données pour CONSMETA
+2026-03-18 11:02:08 | Traitement: <strong>CHOUROUK</strong>
+2026-03-18 11:02:10 | ✅ CHOUROUK: 0 trajets (0 tables)
+2026-03-18 11:02:10 | Traitement: <strong>CARRE</strong>
+2026-03-18 11:02:12 | ⚠️ Pas de données pour CARRE
+2026-03-18 11:02:12 | Traitement: <strong>STB</strong>
+2026-03-18 11:02:13 | ⚠️ Pas de données pour STB
+2026-03-18 11:02:13 | Traitement: <strong>FASTTRANS</strong>
+2026-03-18 11:02:15 | ✅ FASTTRANS: 0 trajets (0 tables)
+2026-03-18 11:02:15 | === SYNC COMPLETED ===
+2026-03-18 11:02:26 | ✅ BOUTCHRAFINE: 0 trajets (3 tables)
+2026-03-18 11:02:26 | Traitement: <strong>SOMATRIN</strong>
+2026-03-18 11:02:28 | ⚠️ Pas de données pour SOMATRIN
+2026-03-18 11:02:28 | Traitement: <strong>MARATRANS</strong>
+2026-03-18 11:02:30 | ✅ MARATRANS: 0 trajets (0 tables)
+2026-03-18 11:02:30 | Traitement: <strong>G.T.C</strong>
+2026-03-18 11:02:31 | ⚠️ Pas de données pour G.T.C
+2026-03-18 11:02:31 | Traitement: <strong>DOUKALI</strong>
+2026-03-18 11:02:32 | ⚠️ Pas de données pour DOUKALI
+2026-03-18 11:02:32 | Traitement: <strong>COTRAMAB</strong>
+2026-03-18 11:02:34 | ✅ COTRAMAB: 0 trajets (0 tables)
+2026-03-18 11:02:34 | Traitement: <strong>CORYAD</strong>
+2026-03-18 11:02:36 | ✅ CORYAD: 0 trajets (0 tables)
+2026-03-18 11:02:36 | Traitement: <strong>CONSMETA</strong>
+2026-03-18 11:02:38 | ⚠️ Pas de données pour CONSMETA
+2026-03-18 11:02:38 | Traitement: <strong>CHOUROUK</strong>
+2026-03-18 11:02:40 | ✅ CHOUROUK: 0 trajets (0 tables)
+2026-03-18 11:02:40 | Traitement: <strong>CARRE</strong>
+2026-03-18 11:02:41 | ⚠️ Pas de données pour CARRE
+2026-03-18 11:02:41 | Traitement: <strong>STB</strong>
+2026-03-18 11:02:43 | ⚠️ Pas de données pour STB
+2026-03-18 11:02:43 | Traitement: <strong>FASTTRANS</strong>
+2026-03-18 11:02:45 | ✅ FASTTRANS: 0 trajets (0 tables)
+2026-03-18 11:02:45 | === SYNC COMPLETED ===
+2026-03-18 11:18:54 | Connexion à Wialon...
+2026-03-18 11:18:54 | ✅ Session créée: 09ddeb91031533437eeb...
+2026-03-18 11:18:54 | Traitement: <strong>BOUTCHRAFINE</strong>
+2026-03-18 11:19:20 | ✅ BOUTCHRAFINE: 0 trajets (3 tables)
+2026-03-18 11:19:20 | Traitement: <strong>SOMATRIN</strong>
+2026-03-18 11:19:21 | ⚠️ Pas de données pour SOMATRIN
+2026-03-18 11:19:21 | Traitement: <strong>MARATRANS</strong>
+2026-03-18 11:19:23 | ✅ MARATRANS: 0 trajets (0 tables)
+2026-03-18 11:19:23 | Traitement: <strong>G.T.C</strong>
+2026-03-18 11:19:25 | ⚠️ Pas de données pour G.T.C
+2026-03-18 11:19:25 | Traitement: <strong>DOUKALI</strong>
+2026-03-18 11:19:26 | ⚠️ Pas de données pour DOUKALI
+2026-03-18 11:19:26 | Traitement: <strong>COTRAMAB</strong>
+2026-03-18 11:19:28 | ✅ COTRAMAB: 0 trajets (0 tables)
+2026-03-18 11:19:28 | Traitement: <strong>CORYAD</strong>
+2026-03-18 11:19:30 | ✅ CORYAD: 0 trajets (0 tables)
+2026-03-18 11:19:30 | Traitement: <strong>CONSMETA</strong>
+2026-03-18 11:19:31 | ⚠️ Pas de données pour CONSMETA
+2026-03-18 11:19:31 | Traitement: <strong>CHOUROUK</strong>
+2026-03-18 11:19:33 | ✅ CHOUROUK: 0 trajets (0 tables)
+2026-03-18 11:19:33 | Traitement: <strong>CARRE</strong>
+2026-03-18 11:19:35 | ⚠️ Pas de données pour CARRE
+2026-03-18 11:19:35 | Traitement: <strong>STB</strong>
+2026-03-18 11:19:36 | ⚠️ Pas de données pour STB
+2026-03-18 11:19:36 | Traitement: <strong>FASTTRANS</strong>
+2026-03-18 11:19:38 | ✅ FASTTRANS: 0 trajets (0 tables)
+2026-03-18 11:19:38 | === SYNC COMPLETED ===
+2026-03-18 11:38:29 | Connexion à Wialon...
+2026-03-18 11:38:30 | ✅ Session créée: 09afb510c783dc40aab8...
+2026-03-18 11:38:30 | Traitement: <strong>BOUTCHRAFINE</strong>
+2026-03-18 11:38:55 | ✅ BOUTCHRAFINE: 0 trajets (3 tables)
+2026-03-18 11:38:55 | Traitement: <strong>SOMATRIN</strong>
+2026-03-18 11:38:57 | ⚠️ Pas de données pour SOMATRIN
+2026-03-18 11:38:57 | Traitement: <strong>MARATRANS</strong>
+2026-03-18 11:38:59 | ✅ MARATRANS: 0 trajets (0 tables)
+2026-03-18 11:38:59 | Traitement: <strong>G.T.C</strong>
+2026-03-18 11:39:00 | ⚠️ Pas de données pour G.T.C
+2026-03-18 11:39:00 | Traitement: <strong>DOUKALI</strong>
+2026-03-18 11:39:02 | ⚠️ Pas de données pour DOUKALI
+2026-03-18 11:39:02 | Traitement: <strong>COTRAMAB</strong>
+2026-03-18 11:39:03 | ✅ COTRAMAB: 0 trajets (0 tables)
+2026-03-18 11:39:03 | Traitement: <strong>CORYAD</strong>
+2026-03-18 11:39:05 | ✅ CORYAD: 0 trajets (0 tables)
+2026-03-18 11:39:05 | Traitement: <strong>CONSMETA</strong>
+2026-03-18 11:39:08 | ⚠️ Pas de données pour CONSMETA
+2026-03-18 11:39:08 | Traitement: <strong>CHOUROUK</strong>
+2026-03-18 11:39:10 | ✅ CHOUROUK: 0 trajets (0 tables)
+2026-03-18 11:39:10 | Traitement: <strong>CARRE</strong>
+2026-03-18 11:39:11 | ⚠️ Pas de données pour CARRE
+2026-03-18 11:39:11 | Traitement: <strong>STB</strong>
+2026-03-18 11:39:13 | ⚠️ Pas de données pour STB
+2026-03-18 11:39:13 | Traitement: <strong>FASTTRANS</strong>
+2026-03-18 11:39:15 | ✅ FASTTRANS: 0 trajets (0 tables)
+2026-03-18 11:39:15 | === SYNC COMPLETED ===
+2026-03-18 11:44:26 | Connexion à Wialon...
+2026-03-18 11:44:26 | ✅ Session créée: 091abb02f19521c9f64f...
+2026-03-18 11:44:26 | Traitement: <strong>BOUTCHRAFINE</strong>
+2026-03-18 11:44:51 | ✅ BOUTCHRAFINE: 0 trajets (3 tables)
+2026-03-18 11:44:51 | Traitement: <strong>SOMATRIN</strong>
+2026-03-18 11:44:53 | ⚠️ Pas de données pour SOMATRIN
+2026-03-18 11:44:53 | Traitement: <strong>MARATRANS</strong>
+2026-03-18 11:44:55 | ✅ MARATRANS: 0 trajets (0 tables)
+2026-03-18 11:44:55 | Traitement: <strong>G.T.C</strong>
+2026-03-18 11:44:56 | ⚠️ Pas de données pour G.T.C
+2026-03-18 11:44:56 | Traitement: <strong>DOUKALI</strong>
+2026-03-18 11:44:57 | ⚠️ Pas de données pour DOUKALI
+2026-03-18 11:44:58 | Traitement: <strong>COTRAMAB</strong>
+2026-03-18 11:44:59 | ✅ COTRAMAB: 0 trajets (0 tables)
+2026-03-18 11:44:59 | Traitement: <strong>CORYAD</strong>
+2026-03-18 11:45:01 | ✅ CORYAD: 0 trajets (0 tables)
+2026-03-18 11:45:01 | Traitement: <strong>CONSMETA</strong>
+2026-03-18 11:45:03 | ⚠️ Pas de données pour CONSMETA
+2026-03-18 11:45:03 | Traitement: <strong>CHOUROUK</strong>
+2026-03-18 11:45:05 | ✅ CHOUROUK: 0 trajets (0 tables)
+2026-03-18 11:45:05 | Traitement: <strong>CARRE</strong>
+2026-03-18 11:45:06 | ⚠️ Pas de données pour CARRE
+2026-03-18 11:45:06 | Traitement: <strong>STB</strong>
+2026-03-18 11:45:08 | ⚠️ Pas de données pour STB
+2026-03-18 11:45:08 | Traitement: <strong>FASTTRANS</strong>
+2026-03-18 11:45:10 | ✅ FASTTRANS: 0 trajets (0 tables)
+2026-03-18 11:45:10 | === SYNC COMPLETED ===
+2026-03-18 12:21:24 | Connexion à Wialon...
+2026-03-18 12:21:25 | ✅ Session créée: 0916eadc2def06187156...
+2026-03-18 12:21:25 | Traitement: <strong>BOUTCHRAFINE</strong>
+2026-03-18 12:21:53 | ✅ BOUTCHRAFINE: 0 trajets (3 tables)
+2026-03-18 12:21:53 | Traitement: <strong>SOMATRIN</strong>
+2026-03-18 12:21:54 | ⚠️ Pas de données pour SOMATRIN
+2026-03-18 12:21:54 | Traitement: <strong>MARATRANS</strong>
+2026-03-18 12:21:56 | ✅ MARATRANS: 0 trajets (0 tables)
+2026-03-18 12:21:56 | Traitement: <strong>G.T.C</strong>
+2026-03-18 12:21:58 | ⚠️ Pas de données pour G.T.C
+2026-03-18 12:21:58 | Traitement: <strong>DOUKALI</strong>
+2026-03-18 12:21:59 | ⚠️ Pas de données pour DOUKALI
+2026-03-18 12:21:59 | Traitement: <strong>COTRAMAB</strong>
+2026-03-18 12:22:01 | ✅ COTRAMAB: 0 trajets (0 tables)
+2026-03-18 12:22:01 | Traitement: <strong>CORYAD</strong>
+2026-03-18 12:22:03 | ✅ CORYAD: 0 trajets (0 tables)
+2026-03-18 12:22:03 | Traitement: <strong>CONSMETA</strong>
+2026-03-18 12:22:04 | ⚠️ Pas de données pour CONSMETA
+2026-03-18 12:22:04 | Traitement: <strong>CHOUROUK</strong>
+2026-03-18 12:22:06 | ✅ CHOUROUK: 0 trajets (0 tables)
+2026-03-18 12:22:06 | Traitement: <strong>CARRE</strong>
+2026-03-18 12:22:08 | ⚠️ Pas de données pour CARRE
+2026-03-18 12:22:08 | Traitement: <strong>STB</strong>
+2026-03-18 12:22:09 | ⚠️ Pas de données pour STB
+2026-03-18 12:22:09 | Traitement: <strong>FASTTRANS</strong>
+2026-03-18 12:22:11 | ✅ FASTTRANS: 0 trajets (0 tables)
+2026-03-18 12:22:11 | === SYNC COMPLETED ===

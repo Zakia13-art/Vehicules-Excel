@@ -13,8 +13,73 @@ function Cnx(){
 	}
 }
 
+// ========================================
+// 💾 AUTO-BACKUP FUNCTION (JSON)
+// ========================================
+
+function save_backup($transporteur_id, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur) {
+	@mkdir('backups', 0755, true);
+	
+	$backup_file = 'backups/trajets_backup_' . date('Y-m-d') . '.json';
+	
+	$data = array(
+		'timestamp' => date('Y-m-d H:i:s'),
+		'transporteur_id' => $transporteur_id,
+		'vehicule' => $vehicule,
+		'parcour' => $parcour,
+		'depart' => $depart,
+		'vers' => $vers,
+		'debut' => $debut,
+		'fin' => $fin,
+		'penalite' => $penalit,
+		'km' => $km,
+		'chauffeur' => $chauffeur
+	);
+	
+	$json_data = json_encode($data) . "\n";
+	file_put_contents($backup_file, $json_data, FILE_APPEND);
+	
+	return true;
+}
+
+// ========================================
+// 💾 SAVE TO CSV FILE (NEW)
+// ========================================
+
+function save_to_csv($transporteur_id, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur) {
+	@mkdir('backups', 0755, true);
+	
+	$csv_file = 'backups/trajets_backup_' . date('Y-m-d') . '.csv';
+	
+	// Create header if file doesn't exist
+	if (!file_exists($csv_file)) {
+		$header = "Timestamp,Transporteur ID,Vehicule,Parcour,Depart,Vers,Debut,Fin,Penalite,KM,Chauffeur\n";
+		file_put_contents($csv_file, $header);
+	}
+	
+	// Add data row
+	$data = array(
+		date('Y-m-d H:i:s'),
+		$transporteur_id,
+		$vehicule,
+		$parcour,
+		$depart,
+		$vers,
+		$debut,
+		$fin,
+		$penalit,
+		$km,
+		$chauffeur
+	);
+	
+	$csv_line = implode(',', $data) . "\n";
+	file_put_contents($csv_file, $csv_line, FILE_APPEND);
+	
+	return true;
+}
+
 /**
- * ✅ FIXED: set_trajet() - Dates correctement converties
+ * ✅ FIXED: set_trajet() - With AUTO-BACKUP (JSON + CSV)
  */
 function set_trajet($transporteur,$veh,$parc,$dep,$vers,$debut,$fin,$penalite,$km,$chauff){
 	$db=Cnx();
@@ -77,6 +142,12 @@ function set_trajet($transporteur,$veh,$parc,$dep,$vers,$debut,$fin,$penalite,$k
 			$km,
 			$chauff
 		]);
+		
+		// ✅ AUTO-BACKUP: Save to both JSON and CSV after successful insert
+		if ($result) {
+			save_backup($transporteur, $veh, $parc, $dep, $vers, $debut, $fin, $penalite, $km, $chauff);
+			save_to_csv($transporteur, $veh, $parc, $dep, $vers, $debut, $fin, $penalite, $km, $chauff);
+		}
 		
 		return $result;
 		
