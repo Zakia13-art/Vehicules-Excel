@@ -3603,3 +3603,33 @@
 </html>[18/03/2026 14:14:01,25] === SUCCESS === 
 [18/03/2026 14:14:01,29] === IMPORT END === 
  
+[19/03/2026 14:51:36,85] === IMPORT START === 
+C:\Users\HP>type C:\xampp\htdocs\vehicules\db.php
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Import Wialon - 7 derniers jours</title>
+	<style>
+		body { font-family: Arial; background: #f5f5f5; margin: 20px; padding: 20px; }
+		.container { max-width: 1000px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+		h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+		.log { background: #f8f9fa; border-left: 4px solid #3498db; padding: 10px; margin: 8px 0; font-family: monospace; font-size: 13px; }
+		.success { border-left-color: #27ae60; color: #27ae60; }
+		.error { border-left-color: #e74c3c; color: #e74c3c; background: #fadbd8; }
+		.info { border-left-color: #3498db; color: #3498db; }
+		.summary { background: #d5f4e6; border: 2px solid #27ae60; padding: 15px; margin: 20px 0; border-radius: 5px; }
+		table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+		th, td { border: 1px solid #bdc3c7; padding: 10px; text-align: left; }
+		th { background: #3498db; color: white; }
+		.backup-info { background: #fff3cd; border-left: 4px solid #ff9800; padding: 10px; margin: 10px 0; }
+	</style>
+</head>
+<body>
+
+<div class="container">
+	<h1>🔄 Import Wialon - 7 derniers jours</h1>
+	<p><strong>Démarrage:</strong> <span style="color: #3498db;">19/03/2026 15:51:37</span></p>
+	<div class="backup-info">💾 <strong>Auto-backup activée:</strong> Tous les trajets seront sauvegardés dans <code>backups/trajets_backup_2026-03-19.json</code></div>
+
+<div class="log info">Connexion à Wialon...</div><div class="log success">✅ Session créée: 094997c706416ef66161...</div><div class="log info">Traitement: <strong>BOUTCHRAFINE</strong></div>

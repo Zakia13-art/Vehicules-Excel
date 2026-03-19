@@ -1,6 +1,6 @@
 <?php
 /**
- * getitemid.php - WIALON API FUNCTIONS
+ * getitemid.php - WIALON API FUNCTIONS (FINAL - Fixed Counter)
  * Consolidé: getResID, gettempID, getgroupID, execRep, selectRes
  */
 
@@ -159,6 +159,7 @@ function execRep($group, $sid, $from1=0, $to1=0){
 
 /**
  * selectRes - Récupère et sauvegarde les résultats de rapport
+ * ✅ FIXED: Proper counter increment
  */
 function selectRes($groupe, $tabindex, $to, $sid){
 	global $trajectcount, $groupe_to_transporteur, $chauffeur_defaut;
@@ -200,6 +201,7 @@ function selectRes($groupe, $tabindex, $to, $sid){
 						// Insérer le trajet (auto-backup happens in set_trajet)
 						$result = set_trajet($transporteur_id, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur_defaut);
 						
+						// ✅ FIXED: Increment counter when insert succeeds
 						if ($result) {
 							$trajectcount++;
 						}
