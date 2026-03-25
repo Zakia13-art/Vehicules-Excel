@@ -1,4 +1,3 @@
-C:\Users\HP>type C:\xampp\htdocs\vehicules\db.php
 <?php
 function Cnx(){
         try
