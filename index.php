@@ -284,6 +284,10 @@ $data = [
         <li><a href="export.php"><span>📥</span> Export</a></li>
         <li><a href="historique.php"><span>⏱️</span> Historique</a></li>
         <li><a href="alertes.php"><span>🔔</span> Alertes</a></li>
+        <li><a href="send_global_reports.php"><span>📧</span> Envoyer Rapports</a></li>
+        <li><a href="view_global_km.php"><span>📊</span> Kilométrage</a></li>
+        <li><a href="view_global_infractions.php"><span>⚠️</span> Infractions</a></li>
+        <li><a href="view_global_evaluation.php"><span>📈</span> Évaluation</a></li>
     </ul>
 </div>
 
@@ -295,7 +299,8 @@ $data = [
             <p style="color: #64748b; margin-top: 4px;">Bienvenue dans le système de gestion de flotte</p>
         </div>
         <div class="header-actions">
-            <a href="synthese.php" class="btn">📄 Générer rapport</a>
+            <a href="send_global_reports.php" class="btn">📧 Envoyer Rapports</a>
+            <a href="synthese.php" class="btn btn-secondary">📄 Générer rapport</a>
             <a href="export.php" class="btn btn-secondary">📥 Exporter</a>
         </div>
     </div>
@@ -327,6 +332,10 @@ $data = [
     <!-- Modules -->
     <div style="margin-bottom: 40px;">
         <h2 style="font-size: 1.2rem; font-weight: 600; color: #0f172a; margin-bottom: 20px;">Modules disponibles</h2>
+    </div>
+
+    <div style="margin-bottom: 50px;">
+        <h2 style="font-size: 1.2rem; font-weight: 600; color: #0f172a; margin-bottom: 20px; border-left: 4px solid #667eea; padding-left: 12px;">🌍 Rapports GLOBAL (Tous Transporteurs)</h2>
     </div>
 
     <div class="modules-grid">
@@ -384,6 +393,34 @@ $data = [
             <div class="module-title">Taux de Conformité</div>
             <div class="module-desc">Scores et indicateurs par critère</div>
             <span class="module-badge">Nouveau</span>
+        </a>
+
+        <a href="send_global_reports.php" class="module-card" style="border: 2px solid #667eea;">
+            <span class="module-icon">📧</span>
+            <div class="module-title">Envoyer Rapports</div>
+            <div class="module-desc">Sélectionnez et envoyez par email (KM, Infractions, Évaluation)</div>
+            <span class="module-badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">NOUVEAU</span>
+        </a>
+
+        <a href="view_global_km.php" class="module-card" style="border: 2px solid #22c55e;">
+            <span class="module-icon">📊</span>
+            <div class="module-title">Kilométrage Global</div>
+            <div class="module-desc">Tous les transporteurs - 7 derniers jours</div>
+            <span class="module-badge" style="background: #22c55e;">GLOBAL</span>
+        </a>
+
+        <a href="view_global_infractions.php" class="module-card" style="border: 2px solid #ef4444;">
+            <span class="module-icon">⚠️</span>
+            <div class="module-title">Infractions Global</div>
+            <div class="module-desc">Tous les transporteurs - 7 derniers jours</div>
+            <span class="module-badge" style="background: #ef4444;">GLOBAL</span>
+        </a>
+
+        <a href="view_global_evaluation.php" class="module-card" style="border: 2px solid #9b59b6;">
+            <span class="module-icon">📈</span>
+            <div class="module-title">Évaluation Global</div>
+            <div class="module-desc">Éco-conduite - Tous les transporteurs</div>
+            <span class="module-badge" style="background: #9b59b6;">GLOBAL</span>
         </a>
     </div>
 

@@ -14,152 +14,205 @@ function Cnx(){
 }
 
 // ========================================
-// ­ƒÆ¥ AUTO-BACKUP FUNCTION (JSON)
+// BACKUP FUNCTIONS - BACKWARDS COMPATIBLE
 // ========================================
 
+// Ancien function (gardée pour compatibilité)
 function save_backup($transporteur_id, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur) {
-        @mkdir('backups', 0755, true);
+    return save_backup_compat($transporteur_id, '', $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur);
+}
 
-        $backup_file = 'backups/trajets_backup_' . date('Y-m-d') . '.json';
+// Nouveau function avec transporteur_nom
+function save_backup_new($transporteur_id, $transporteur_nom, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur) {
+    return save_backup_compat($transporteur_id, $transporteur_nom, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur);
+}
 
-        $data = array(
-                'timestamp' => date('Y-m-d H:i:s'),
-                'transporteur_id' => $transporteur_id,
-                'vehicule' => $vehicule,
-                'parcour' => $parcour,
-                'depart' => $depart,
-                'vers' => $vers,
-                'debut' => $debut,
-                'fin' => $fin,
-                'penalite' => $penalit,
-                'km' => $km,
-                'chauffeur' => $chauffeur
-        );
+// Function compatible (interne)
+function save_backup_compat($transporteur_id, $transporteur_nom, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur) {
+    @mkdir('backups', 0755, true);
+    $backup_file = 'backups/trajets_backup_' . date('Y-m-d') . '.json';
 
-        $json_data = json_encode($data) . "\n";
-        file_put_contents($backup_file, $json_data, FILE_APPEND);
+    $data = array(
+        'timestamp' => date('Y-m-d H:i:s'),
+        'transporteur_id' => $transporteur_id,
+        'transporteur_nom' => $transporteur_nom,
+        'vehicule' => $vehicule,
+        'parcour' => $parcour,
+        'depart' => $depart,
+        'vers' => $vers,
+        'debut' => $debut,
+        'fin' => $fin,
+        'penalite' => $penalit,
+        'km' => $km,
+        'chauffeur' => $chauffeur
+    );
 
-        return true;
+    $json_data = json_encode($data) . "\n";
+    file_put_contents($backup_file, $json_data, FILE_APPEND);
+    return true;
 }
 
 // ========================================
-// ­ƒÆ¥ SAVE TO CSV FILE (NEW)
+// SAVE TO CSV - BACKWARDS COMPATIBLE
 // ========================================
 
+// Ancien function
 function save_to_csv($transporteur_id, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur) {
-        @mkdir('backups', 0755, true);
+    return save_to_csv_compat($transporteur_id, '', $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur);
+}
 
-        $csv_file = 'backups/trajets_backup_' . date('Y-m-d') . '.csv';
+// Nouveau function
+function save_to_csv_new($transporteur_id, $transporteur_nom, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur) {
+    return save_to_csv_compat($transporteur_id, $transporteur_nom, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur);
+}
 
-        // Create header if file doesn't exist
-        if (!file_exists($csv_file)) {
-                $header = "Timestamp,Transporteur ID,Vehicule,Parcour,Depart,Vers,Debut,Fin,Penalite,KM,Chauffeur\n";
-                file_put_contents($csv_file, $header);
-        }
+// Function compatible (interne)
+function save_to_csv_compat($transporteur_id, $transporteur_nom, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur) {
+    @mkdir('backups', 0755, true);
+    $csv_file = 'backups/trajets_backup_' . date('Y-m-d') . '.csv';
 
-        // Add data row
-        $data = array(
-                date('Y-m-d H:i:s'),
-                $transporteur_id,
-                $vehicule,
-                $parcour,
-                $depart,
-                $vers,
-                $debut,
-                $fin,
-                $penalit,
-                $km,
-                $chauffeur
-        );
+    // Create header if file doesn't exist
+    if (!file_exists($csv_file)) {
+        $header = "Timestamp,Transporteur ID,Transporteur Nom,Vehicule,Parcour,Depart,Vers,Debut,Fin,Penalite,KM,Chauffeur\n";
+        file_put_contents($csv_file, $header);
+    }
 
-        $csv_line = implode(',', $data) . "\n";
-        file_put_contents($csv_file, $csv_line, FILE_APPEND);
+    // Add data row
+    $data = array(
+        date('Y-m-d H:i:s'),
+        $transporteur_id,
+        $transporteur_nom,
+        $vehicule,
+        $parcour,
+        $depart,
+        $vers,
+        $debut,
+        $fin,
+        $penalit,
+        $km,
+        $chauffeur
+    );
 
-        return true;
+    $csv_line = implode(',', $data) . "\n";
+    file_put_contents($csv_file, $csv_line, FILE_APPEND);
+    return true;
 }
 
 /**
- * Ô£à FIXED: set_trajet() - With AUTO-BACKUP (JSON + CSV)
+ * ✅ set_trajet() - BACKWARDS COMPATIBLE + TRANSPORTEUR_NOM
+ * Supporte ancien ET nouveau signature
  */
-function set_trajet($transporteur,$veh,$parc,$dep,$vers,$debut,$fin,$penalite,$km,$chauff){
-        $db=Cnx();
+function set_trajet($transporteur, $param2 = null, $veh = null, $parc = null, $dep = null, $vers = null, $debut = null, $fin = null, $penalite = null, $km = null, $chauff = null){
+    $db=Cnx();
 
-        // Nettoyer les donn├®es
-        $veh = trim($veh);
-        $parc = trim($parc);
-        $dep = trim($dep);
-        $vers = trim($vers);
-        $chauff = trim($chauff);
+    // Détection: ancien vs nouveau signature
+    // Si $veh est null, alors c'est NOUVEAU signature: ($transporteur, $transporteur_nom, $veh, ...)
+    // Si $veh n'est pas null, alors c'est ANCIEN signature: ($transporteur, $veh, $parc, ...)
 
-        // Ô£à CONVERSION DES TIMESTAMPS CORRECTE
-        // Les timestamps Wialon doivent ├¬tre > 0 et raisonnables
-        if (is_numeric($debut) && $debut > 1000000000) { // Timestamp > 2001
-                $debut_dt = date('Y-m-d H:i:s', (int)$debut);
+    $transporteur_nom = '';
+
+    if ($veh === null) {
+        // NOUVEAU signature: ($transporteur, $transporteur_nom, $veh, ...)
+        $transporteur_nom = $param2;
+        $veh = func_get_arg(2);
+        $parc = func_get_arg(3);
+        $dep = func_get_arg(4);
+        $vers = func_get_arg(5);
+        $debut = func_get_arg(6);
+        $fin = func_get_arg(7);
+        $penalite = func_get_arg(8);
+        $km = func_get_arg(9);
+        $chauff = func_get_arg(10);
+    } else {
+        // ANCIEN signature: ($transporteur, $veh, $parc, ...)
+        // $param2 est en fait $veh
+        $veh = $param2;
+        $parc = func_get_arg(2);
+        $dep = func_get_arg(3);
+        $vers = func_get_arg(4);
+        $debut = func_get_arg(5);
+        $fin = func_get_arg(6);
+        $penalite = func_get_arg(7);
+        $km = func_get_arg(8);
+        $chauff = func_get_arg(9);
+
+        // Pour ancien code, essayer de trouver transporteur_nom depuis ID
+        $noms = [1=>'BOUTCHRAFINE', 2=>'SOMATRIN', 3=>'MARATRANS', 4=>'G.T.C', 5=>'DOUKALI',
+                 6=>'COTRAMAB', 7=>'CORYAD', 8=>'CONSMETA', 9=>'CHOUROUK', 10=>'CARRE', 11=>'STB', 12=>'FASTTRANS'];
+        $transporteur_nom = $noms[$transporteur] ?? '';
+    }
+
+    // Nettoyer les données
+    $veh = trim($veh);
+    $parc = trim($parc);
+    $dep = trim($dep);
+    $vers = trim($vers);
+    $chauff = trim($chauff);
+    $transporteur_nom = trim($transporteur_nom);
+
+    // CONVERSION DES TIMESTAMPS CORRECTE
+    if (is_numeric($debut) && $debut > 1000000000) {
+        $debut_dt = date('Y-m-d H:i:s', (int)$debut);
+    } else {
+        $debut_dt = date('Y-m-d H:i:s');
+    }
+
+    if (is_numeric($fin) && $fin > 1000000000) {
+        $fin_dt = date('Y-m-d H:i:s', (int)$fin);
+    } else {
+        $fin_dt = date('Y-m-d H:i:s');
+    }
+
+    // Nettoyer la pénalité
+    if (is_string($penalite) && ($penalite === '-----' || trim($penalite) === '')) {
+        $penalite = 0;
+    } else {
+        $penalite = (int) preg_replace('/[^0-9]/', '', (string) $penalite);
+    }
+
+    // Nettoyer le kilométrage
+    $km = (float) preg_replace('/[^0-9.]/', '', (string) $km);
+
+    try {
+        // Vérifier les doublons
+        $checkQuery = "SELECT COUNT(*) FROM trajets WHERE transporteur = ? AND vehicule = ? AND debut = ? AND fin = ?";
+        $checkStmt = $db->prepare($checkQuery);
+        $checkStmt->execute([$transporteur, $veh, $debut_dt, $fin_dt]);
+
+        if ($checkStmt->fetchColumn() > 0) {
+            return false; // Doublon détecté
+        }
+
+        // Insérer le trajet avec transporteur_nom (si dispo)
+        if ($transporteur_nom) {
+            $requete7 = "INSERT INTO trajets (transporteur, transporteur_nom, vehicule, parcour, depart, vers, debut, fin, penalite, kilometrage, chauffeur)
+                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $req = $db->prepare($requete7);
+            $result = $req->execute([$transporteur, $transporteur_nom, $veh, $parc, $dep, $vers, $debut_dt, $fin_dt, $penalite, $km, $chauff]);
         } else {
-                $debut_dt = date('Y-m-d H:i:s');
+            // Ancienne structure (sans transporteur_nom)
+            $requete7 = "INSERT INTO trajets (transporteur, vehicule, parcour, depart, vers, debut, fin, penalite, kilometrage, chauffeur)
+                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $req = $db->prepare($requete7);
+            $result = $req->execute([$transporteur, $veh, $parc, $dep, $vers, $debut_dt, $fin_dt, $penalite, $km, $chauff]);
         }
 
-        if (is_numeric($fin) && $fin > 1000000000) { // Timestamp > 2001
-                $fin_dt = date('Y-m-d H:i:s', (int)$fin);
-        } else {
-                $fin_dt = date('Y-m-d H:i:s');
+        // AUTO-BACKUP
+        if ($result) {
+            save_backup_compat($transporteur, $transporteur_nom, $veh, $parc, $dep, $vers, $debut, $fin, $penalite, $km, $chauff);
+            save_to_csv_compat($transporteur, $transporteur_nom, $veh, $parc, $dep, $vers, $debut, $fin, $penalite, $km, $chauff);
         }
 
-        // Nettoyer la p├®nalit├®
-        if (is_string($penalite) && ($penalite === '-----' || trim($penalite) === '')) {
-                $penalite = 0;
-        } else {
-                $penalite = (int) preg_replace('/[^0-9]/', '', (string) $penalite);
-        }
+        return $result;
 
-        // Nettoyer le kilom├®trage
-        $km = (float) preg_replace('/[^0-9.]/', '', (string) $km);
-
-        try {
-                // V├®rifier les doublons
-                $checkQuery = "SELECT COUNT(*) FROM trajets WHERE transporteur = ? AND vehicule = ? AND debut = ? AND fin = ?";
-                $checkStmt = $db->prepare($checkQuery);
-                $checkStmt->execute([$transporteur, $veh, $debut_dt, $fin_dt]);
-
-                if ($checkStmt->fetchColumn() > 0) {
-                        return false; // Doublon d├®tect├®
-                }
-
-                // Ins├®rer le trajet
-                $requete7 = "INSERT INTO trajets (transporteur, vehicule, parcour, depart, vers, debut, fin, penalite, kilometrage, chauffeur)
-                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-                $req = $db->prepare($requete7);
-                $result = $req->execute([
-                        $transporteur,
-                        $veh,
-                        $parc,
-                        $dep,
-                        $vers,
-                        $debut_dt,
-                        $fin_dt,
-                        $penalite,
-                        $km,
-                        $chauff
-                ]);
-
-                // Ô£à AUTO-BACKUP: Save to both JSON and CSV after successful insert
-                if ($result) {
-                        save_backup($transporteur, $veh, $parc, $dep, $vers, $debut, $fin, $penalite, $km, $chauff);
-                        save_to_csv($transporteur, $veh, $parc, $dep, $vers, $debut, $fin, $penalite, $km, $chauff);
-                }
-
-                return $result;
-
-        } catch (Exception $e) {
-                // Log l'erreur
-                @mkdir('logs', 0755, true);
-                $file = "logs/log.txt";
-                $fp = fopen($file, "a+");
-                fputs($fp, date("d-m-Y H:i").": Erreur insert trajet - " . $e->getMessage() . " - V├®hicule: $veh\n");
-                fclose($fp);
-                return false;
-        }
+    } catch (Exception $e) {
+        @mkdir('logs', 0755, true);
+        $file = "logs/log.txt";
+        $fp = fopen($file, "a+");
+        fputs($fp, date("d-m-Y H:i").": Erreur insert trajet - " . $e->getMessage() . " - Véhicule: $veh\n");
+        fclose($fp);
+        return false;
+    }
 }
 
 function listetrans(){

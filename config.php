@@ -5,7 +5,7 @@
 // ⚠️  Modifie ces valeurs selon ton environnement
 
 define('DB_HOST',    'localhost');
-define('DB_NAME',    'flotte_transport');
+define('DB_NAME',    'rapport');
 define('DB_USER',    'root');       // ton utilisateur MySQL
 define('DB_PASS',    '');           // ton mot de passe MySQL
 define('DB_CHARSET', 'utf8mb4');

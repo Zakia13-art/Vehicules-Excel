@@ -159,11 +159,11 @@ function execRep($group, $sid, $from1=0, $to1=0){
 
 /**
  * selectRes - Récupère et sauvegarde les résultats de rapport
- * ✅ FIXED: Proper counter increment
+ * ✅ FIXED: Proper counter increment + TRANSPORTEUR_NOM
  */
 function selectRes($groupe, $tabindex, $to, $sid){
 	global $trajectcount, $groupe_to_transporteur, $chauffeur_defaut;
-	
+
 	$curl = curl_init();
 	$Url='https://hst-api.wialon.com/wialon/ajax.html?svc=report/select_result_rows&params={"tableIndex":'.$tabindex.',"config":{"type":"range","data":{"from":0,"to":'.$to.',"level":2}}}&sid='.$sid;
 	curl_setopt_array($curl, array(
@@ -173,7 +173,7 @@ function selectRes($groupe, $tabindex, $to, $sid){
 		CURLOPT_SSL_VERIFYPEER => false,
 		CURLOPT_HTTPHEADER => array("cache-control: no-cache", "content-type: application/x-www-form-urlencoded"),
 	));
-	
+
 	$response = curl_exec($curl);
 	$err = curl_error($curl);
 	curl_close($curl);
@@ -194,14 +194,15 @@ function selectRes($groupe, $tabindex, $to, $sid){
 						$fin = $tabline['t2'] ?? 0;
 						$penalit = $tabline['c']['8'] ?? 0;
 						$km = (float)str_replace("km", "", $tabline['c']['9'] ?? 0);
-						
-						// Récupérer l'ID du transporteur
+
+						// Récupérer l'ID et le NOM du transporteur
 						$transporteur_id = $groupe_to_transporteur[$groupe] ?? 1;
-						
-						// Insérer le trajet (auto-backup happens in set_trajet)
-						$result = set_trajet($transporteur_id, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur_defaut);
-						
-						// ✅ FIXED: Increment counter when insert succeeds
+						$transporteur_nom = $groupe; // Le nom du groupe est passé en paramètre
+
+						// Insérer le trajet avec transporteur_nom
+						$result = set_trajet($transporteur_id, $transporteur_nom, $vehicule, $parcour, $depart, $vers, $debut, $fin, $penalit, $km, $chauffeur_defaut);
+
+						// Increment counter when insert succeeds
 						if ($result) {
 							$trajectcount++;
 						}

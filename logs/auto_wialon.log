@@ -1,0 +1,132 @@
+ 
+========================================= 
+[26/03/2026 16:40:16,18] DEBUT IMPORT AUTOMATIQUE 
+========================================= 
+[26-03-2026 16:40:17] [INFO] ========================================
+[26-03-2026 16:40:17] [INFO] DEBUT IMPORT AUTOMATIQUE - 2026-03-26 16:40:17
+[26-03-2026 16:40:17] [INFO] ========================================
+[26-03-2026 16:40:19] [INFO] Session cree: 09d78fd349b25a4d450a...
+[26-03-2026 16:40:19] [INFO] Processing: BOUTCHRAFINE (ID: 19022033)
+[26-03-2026 16:40:21] [ERROR] Erreur execRep
+[26-03-2026 16:40:21] [WARNING] Pas de donnees pour BOUTCHRAFINE
+[26-03-2026 16:40:21] [INFO] Processing: SOMATRIN (ID: 19596491)
+[26-03-2026 16:40:23] [ERROR] Erreur execRep
+[26-03-2026 16:40:23] [WARNING] Pas de donnees pour SOMATRIN
+[26-03-2026 16:40:23] [INFO] Processing: MARATRANS (ID: 19631505)
+[26-03-2026 16:40:24] [ERROR] Erreur execRep
+[26-03-2026 16:40:24] [WARNING] Pas de donnees pour MARATRANS
+[26-03-2026 16:40:24] [INFO] Processing: G.T.C (ID: 19590737)
+[26-03-2026 16:40:26] [ERROR] Erreur execRep
+[26-03-2026 16:40:26] [WARNING] Pas de donnees pour G.T.C
+[26-03-2026 16:40:26] [INFO] Processing: DOUKALI (ID: 19585587)
+[26-03-2026 16:40:28] [ERROR] Erreur execRep
+[26-03-2026 16:40:28] [WARNING] Pas de donnees pour DOUKALI
+[26-03-2026 16:40:28] [INFO] Processing: COTRAMAB (ID: 19585601)
+[26-03-2026 16:40:29] [ERROR] Erreur execRep
+[26-03-2026 16:40:29] [WARNING] Pas de donnees pour COTRAMAB
+[26-03-2026 16:40:29] [INFO] Processing: CORYAD (ID: 19585581)
+[26-03-2026 16:40:31] [ERROR] Erreur execRep
+[26-03-2026 16:40:31] [WARNING] Pas de donnees pour CORYAD
+[26-03-2026 16:40:31] [INFO] Processing: CONSMETA (ID: 19629962)
+[26-03-2026 16:40:32] [ERROR] Erreur execRep
+[26-03-2026 16:40:33] [WARNING] Pas de donnees pour CONSMETA
+[26-03-2026 16:40:33] [INFO] Processing: CHOUROUK (ID: 19630023)
+[26-03-2026 16:40:34] [ERROR] Erreur execRep
+[26-03-2026 16:40:34] [WARNING] Pas de donnees pour CHOUROUK
+[26-03-2026 16:40:34] [INFO] Processing: CARRE (ID: 19643391)
+[26-03-2026 16:40:36] [ERROR] Erreur execRep
+[26-03-2026 16:40:36] [WARNING] Pas de donnees pour CARRE
+[26-03-2026 16:40:36] [INFO] Processing: STB (ID: 19585942)
+[26-03-2026 16:40:37] [ERROR] Erreur execRep
+[26-03-2026 16:40:37] [WARNING] Pas de donnees pour STB
+[26-03-2026 16:40:37] [INFO] Processing: FASTTRANS (ID: 19635796)
+[26-03-2026 16:40:39] [ERROR] Erreur execRep
+[26-03-2026 16:40:39] [WARNING] Pas de donnees pour FASTTRANS
+[26-03-2026 16:40:39] [INFO] ========================================
+[26-03-2026 16:40:39] [INFO] FIN IMPORT - Total: 0 trajets
+[26-03-2026 16:40:39] [INFO] Debut: 2026-03-26 16:40:17
+[26-03-2026 16:40:39] [INFO] Fin: 2026-03-26 16:40:39
+[26-03-2026 16:40:39] [INFO] ========================================
+
+=== RESUME ===
+BOUTCHRAFINE: 0 trajets
+SOMATRIN: 0 trajets
+MARATRANS: 0 trajets
+G.T.C: 0 trajets
+DOUKALI: 0 trajets
+COTRAMAB: 0 trajets
+CORYAD: 0 trajets
+CONSMETA: 0 trajets
+CHOUROUK: 0 trajets
+CARRE: 0 trajets
+STB: 0 trajets
+FASTTRANS: 0 trajets
+
+TOTAL: 0 trajets
+Execution: 2026-03-26 16:40:17 -> 2026-03-26 16:40:39
+[26/03/2026 16:40:39,97] SUCCES 
+[26/03/2026 16:40:40,32] FIN IMPORT 
+========================================= 
+ 
+========================================= 
+[26/03/2026 16:46:51,42] DEBUT IMPORT AUTOMATIQUE 
+========================================= 
+[26-03-2026 16:46:52] [INFO] ========================================
+[26-03-2026 16:46:52] [INFO] DEBUT IMPORT AUTOMATIQUE - 2026-03-26 16:46:52
+[26-03-2026 16:46:52] [INFO] ========================================
+[26-03-2026 16:46:52] [INFO] Session cree: 09fa0ca338725789c5fc...
+[26-03-2026 16:46:52] [INFO] Processing: BOUTCHRAFINE (ID: 19022033)
+[26-03-2026 16:46:54] [INFO] BOUTCHRAFINE: 0 trajets importes
+[26-03-2026 16:46:54] [INFO] Processing: SOMATRIN (ID: 19596491)
+[26-03-2026 16:46:56] [ERROR] Erreur execRep
+[26-03-2026 16:46:56] [WARNING] Pas de donnees pour SOMATRIN
+[26-03-2026 16:46:56] [INFO] Processing: MARATRANS (ID: 19631505)
+[26-03-2026 16:46:58] [INFO] MARATRANS: 0 trajets importes
+[26-03-2026 16:46:58] [INFO] Processing: G.T.C (ID: 19590737)
+[26-03-2026 16:46:59] [ERROR] Erreur execRep
+[26-03-2026 16:46:59] [WARNING] Pas de donnees pour G.T.C
+[26-03-2026 16:46:59] [INFO] Processing: DOUKALI (ID: 19585587)
+[26-03-2026 16:47:01] [ERROR] Erreur execRep
+[26-03-2026 16:47:01] [WARNING] Pas de donnees pour DOUKALI
+[26-03-2026 16:47:01] [INFO] Processing: COTRAMAB (ID: 19585601)
+[26-03-2026 16:47:03] [INFO] COTRAMAB: 0 trajets importes
+[26-03-2026 16:47:03] [INFO] Processing: CORYAD (ID: 19585581)
+[26-03-2026 16:47:06] [INFO] CORYAD: 0 trajets importes
+[26-03-2026 16:47:06] [INFO] Processing: CONSMETA (ID: 19629962)
+[26-03-2026 16:47:07] [ERROR] Erreur execRep
+[26-03-2026 16:47:07] [WARNING] Pas de donnees pour CONSMETA
+[26-03-2026 16:47:07] [INFO] Processing: CHOUROUK (ID: 19630023)
+[26-03-2026 16:47:09] [INFO] CHOUROUK: 0 trajets importes
+[26-03-2026 16:47:09] [INFO] Processing: CARRE (ID: 19643391)
+[26-03-2026 16:47:11] [ERROR] Erreur execRep
+[26-03-2026 16:47:11] [WARNING] Pas de donnees pour CARRE
+[26-03-2026 16:47:11] [INFO] Processing: STB (ID: 19585942)
+[26-03-2026 16:47:12] [ERROR] Erreur execRep
+[26-03-2026 16:47:12] [WARNING] Pas de donnees pour STB
+[26-03-2026 16:47:12] [INFO] Processing: FASTTRANS (ID: 19635796)
+[26-03-2026 16:47:15] [INFO] FASTTRANS: 0 trajets importes
+[26-03-2026 16:47:15] [INFO] ========================================
+[26-03-2026 16:47:15] [INFO] FIN IMPORT - Total: 0 trajets
+[26-03-2026 16:47:15] [INFO] Debut: 2026-03-26 16:46:52
+[26-03-2026 16:47:15] [INFO] Fin: 2026-03-26 16:47:15
+[26-03-2026 16:47:15] [INFO] ========================================
+
+=== RESUME ===
+BOUTCHRAFINE: 0 trajets
+SOMATRIN: 0 trajets
+MARATRANS: 0 trajets
+G.T.C: 0 trajets
+DOUKALI: 0 trajets
+COTRAMAB: 0 trajets
+CORYAD: 0 trajets
+CONSMETA: 0 trajets
+CHOUROUK: 0 trajets
+CARRE: 0 trajets
+STB: 0 trajets
+FASTTRANS: 0 trajets
+
+TOTAL: 0 trajets
+Execution: 2026-03-26 16:46:52 -> 2026-03-26 16:47:15
+[26/03/2026 16:47:15,96] SUCCES 
+[26/03/2026 16:47:16,40] FIN IMPORT 
+========================================= 
