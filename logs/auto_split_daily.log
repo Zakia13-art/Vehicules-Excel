@@ -1,0 +1,60 @@
+ 
+========================================= 
+[27/03/2026 14:12:49,45] DEBUT AUTO SPLIT QUOTIDIEN 
+========================================= 
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:12:50] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:12:50] [INFO] AUTO SPLIT QUOTIDIEN
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:12:50] [INFO] Import des donnees d'HIER: 2026-03-26
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:12:50] [INFO] Execution: 2026-03-27 14:12:50
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:12:50] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:12:51] [INFO] Session cree: 09d9096a17c1ad83f623...
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:12:51] [INFO] Periode: 2026-03-26
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:13:19] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:13:19] [INFO] FIN SPLIT - HIER: 2026-03-26
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:13:19] [INFO] KM: 0 | Infra: 0 | Eval: 0
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:13:19] [INFO] Execution: 2026-03-27 14:12:50 -> 2026-03-27 14:13:19
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split_daily.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_daily.php on line 15
+[27-03-2026 14:13:19] [INFO] ========================================
+
+=== RESUME - HIER 2026-03-26 ===
+
+TOTAL: KM=0, Infra=0, Eval=0
+Execution: 2026-03-27 14:12:50 -> 2026-03-27 14:13:19
+[27/03/2026 14:13:20,29] SUCCES 
+[27/03/2026 14:13:20,62] FIN 
+========================================= 

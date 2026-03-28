@@ -6,11 +6,11 @@
  */
 
 set_time_limit(600);
-require_once "db.php";
+require_once __DIR__ . "/db.php";
 
 function logAuto($message, $type = 'INFO') {
-    @mkdir('logs', 0755, true);
-    $file = "logs/auto_import.log";
+    @mkdir(__DIR__ . '/logs', 0755, true);
+    $file = __DIR__ . "/logs/auto_import.log";
     $timestamp = date('d-m-Y H:i:s');
     $msg = "[$timestamp] [$type] $message\n";
     file_put_contents($file, $msg, FILE_APPEND);
@@ -48,17 +48,17 @@ function cleanRepport($sid) {
     curl_close($curl);
 }
 
-function execRep($group, $sid, $from1 = 0, $to1 = 0) {
-    $base_time = 1575503999;
-    if ($from1 > 0 || $to1 > 0) {
-        $from = ($base_time - ($from1 * 86400));
-        $to = ($base_time - ($to1 * 86400));
-    } else {
-        $to = time();
-        $from = $to - (7 * 86400);
+function execRep($group, $sid, $from_ts = 0, $to_ts = 0) {
+    // Si pas de timestamps fournis, utiliser 7 DERNIERS JOURS
+    if ($from_ts == 0 || $to_ts == 0) {
+        // Il y a 7 jours 00:00:00
+        $from_ts = strtotime('-7 days 00:00:00');
+        // Hier 23:59:59
+        $to_ts = strtotime('yesterday 23:59:59');
     }
+
     $curl = curl_init();
-    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":1,"reportObjectId":' . $group . ',"reportObjectSecId":0,"interval":{"from":' . $from . ',"to":' . $to . ',"flags":0}}&sid=' . $sid;
+    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":1,"reportObjectId":' . $group . ',"reportObjectSecId":0,"interval":{"from":' . $from_ts . ',"to":' . $to_ts . ',"flags":0}}&sid=' . $sid;
     curl_setopt_array($curl, array(
         CURLOPT_URL => $Url,
         CURLOPT_RETURNTRANSFER => true,
@@ -138,8 +138,16 @@ $tab_group = array(
 );
 
 $execution_start = date('Y-m-d H:i:s');
+$periode_debut = date('Y-m-d H:i:s', strtotime('-7 days 00:00:00'));
+$periode_fin = date('Y-m-d H:i:s', strtotime('yesterday 23:59:59'));
+$periode_text = date('d/m/Y', strtotime('-7 days')) . ' -> ' . date('d/m/Y', strtotime('yesterday'));
+
 logAuto("========================================");
-logAuto("DEBUT IMPORT AUTOMATIQUE - $execution_start");
+logAuto("IMPORT AUTOMATIQUE - 7 DERNIERS JOURS");
+logAuto("Periode: $periode_text");
+logAuto("Du: $periode_debut");
+logAuto("Au: $periode_fin");
+logAuto("Execution: $execution_start");
 logAuto("========================================");
 
 $sid = sid();
@@ -158,9 +166,9 @@ foreach ($tab_group as $nom => $id) {
     logAuto("Processing: $nom (ID: $id)");
     cleanRepport($sid);
     sleep(1);
-    $report_index = execRep($id, $sid, 7, 0);
+    $report_index = execRep($id, $sid); // Utilise 7 derniers jours par defaut
     if ($report_index === null) {
-        logAuto("Pas de donnees pour $nom", 'WARNING');
+        logAuto("Pas de donnees pour $nom (7 derniers jours)", 'WARNING');
         $stats[$nom] = 0;
         continue;
     }
@@ -177,14 +185,16 @@ foreach ($tab_group as $nom => $id) {
 $execution_end = date('Y-m-d H:i:s');
 logAuto("========================================");
 logAuto("FIN IMPORT - Total: $total_imported trajets");
-logAuto("Debut: $execution_start");
-logAuto("Fin: $execution_end");
+logAuto("Periode: $periode_text (7 derniers jours)");
+logAuto("Execution: $execution_start -> $execution_end");
 logAuto("========================================");
 
-echo "\n=== RESUME ===\n";
+echo "\n=== RESUME - IMPORT 7 DERNIERS JOURS ===\n";
+echo "Periode: $periode_text\n\n";
 foreach ($stats as $nom => $count) {
     echo "$nom: $count trajets\n";
 }
-echo "\nTOTAL: $total_imported trajets\n";
+echo "\nTOTAL: $total_imported trajets";
+echo "\nPeriode: $periode_text\n";
 echo "Execution: $execution_start -> $execution_end\n";
 ?>

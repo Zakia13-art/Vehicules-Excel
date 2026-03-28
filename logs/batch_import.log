@@ -2,3 +2,4 @@
 [26-Mar-2026 13:02:23 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\vehicules\batch_import.php:29) in C:\xampp\htdocs\vehicules\lesgets.php on line 3
 [26-Mar-2026 14:40:09 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\vehicules\batch_import.php:29) in C:\xampp\htdocs\vehicules\lesgets.php on line 3
 [26-Mar-2026 15:25:46 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\vehicules\batch_import.php:29) in C:\xampp\htdocs\vehicules\lesgets.php on line 3
+[28-Mar-2026 10:22:47 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\vehicules\batch_import.php:29) in C:\xampp\htdocs\vehicules\lesgets.php on line 3

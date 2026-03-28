@@ -1,7 +1,8 @@
 @echo off
 REM ========================================
 REM AUTO IMPORT WIALON - Quotidien
-REM Execute tous les jours a 23h00
+REM Execute tous les jours a 01:00 du matin
+REM Importe les donnees d'HIER
 REM ========================================
 
 setlocal enabledelayedexpansion
@@ -15,6 +16,7 @@ if not exist "C:\xampp\htdocs\vehicules\logs" mkdir "C:\xampp\htdocs\vehicules\l
 echo. >> "%LOG%"
 echo ========================================= >> "%LOG%"
 echo [%date% %time%] DEBUT IMPORT AUTOMATIQUE >> "%LOG%"
+echo Importe les donnees d'HIER >> "%LOG%"
 echo ========================================= >> "%LOG%"
 
 "%PHP%" "%SCRIPT%" >> "%LOG%" 2>&1

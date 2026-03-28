@@ -1,0 +1,137 @@
+ 
+========================================= 
+[27/03/2026 12:42:11,85] DEBUT AUTO SPLIT 
+========================================= 
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:42:12] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:42:12] [INFO] AUTO SPLIT TEMPLATE 1 -> 3 TABLES
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:42:12] [INFO] Execution: 2026-03-27 12:42:12
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:42:12] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:42:13] [INFO] Session cree: 0925e108c8d1be498101...
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:42:13] [INFO] Periode: 2026-03-27
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:42:40] [INFO] Periode: 2026-03-26
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:43:09] [INFO] Periode: 2026-03-25
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:43:37] [INFO] Periode: 2026-03-24
+^C[27-03-2026 12:44:04] [INFO] ========================================
+[27-03-2026 12:44:04] [INFO] AUTO SPLIT TEMPLATE 1 -> 3 TABLES
+[27-03-2026 12:44:04] [INFO] Execution: 2026-03-27 12:44:04
+[27-03-2026 12:44:04] [INFO] ========================================
+[27-03-2026 12:44:04] [INFO] Session cree: 0905cbdf6e230f835585...
+[27-03-2026 12:44:04] [INFO] Periode: 2026-03-27
+[27-03-2026 12:44:32] [INFO] Periode: 2026-03-26
+[27-03-2026 12:45:03] [INFO] Periode: 2026-03-25
+[27-03-2026 12:45:34] [INFO] Periode: 2026-03-24
+[27-03-2026 12:46:00] [INFO] Periode: 2026-03-23
+[27-03-2026 12:47:45] [INFO] Periode: 2026-03-22
+[27-03-2026 12:48:08] [INFO] Periode: 2026-03-21
+[27-03-2026 12:48:30] [INFO] Periode: 2026-03-20
+[27-03-2026 12:48:53] [INFO] ========================================
+[27-03-2026 12:48:53] [INFO] FIN SPLIT - KM: 1 | Infra: 0 | Eval: 1
+[27-03-2026 12:48:53] [INFO] Execution: 2026-03-27 12:44:04 -> 2026-03-27 12:48:53
+[27-03-2026 12:48:53] [INFO] ========================================
+ 
+========================================= 
+[27/03/2026 12:56:55,04] DEBUT AUTO SPLIT 
+========================================= 
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:56:55] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:56:55] [INFO] AUTO SPLIT TEMPLATE 1 -> 3 TABLES
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:56:55] [INFO] Execution: 2026-03-27 12:56:55
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:56:55] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:56:56] [INFO] Session cree: 0993bf02263b336bf1c6...
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:56:56] [INFO] Periode: 2026-03-27
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:57:23] [INFO] Periode: 2026-03-26
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:57:52] [INFO] Periode: 2026-03-25
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:58:21] [INFO] Periode: 2026-03-24
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:58:49] [INFO] Periode: 2026-03-23
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:59:17] [INFO] Periode: 2026-03-22
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 12:59:40] [INFO] Periode: 2026-03-21
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 13:00:06] [INFO] Periode: 2026-03-20
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 13:00:30] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 13:00:30] [INFO] FIN SPLIT - KM: 0 | Infra: 0 | Eval: 0
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 13:00:30] [INFO] Execution: 2026-03-27 12:56:55 -> 2026-03-27 13:00:30
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_split.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_split_to_3tables.php on line 21
+[27-03-2026 13:00:30] [INFO] ========================================
+
+=== RESUME ===
+
+TOTAL: KM=0, Infra=0, Eval=0
+Execution: 2026-03-27 12:56:55 -> 2026-03-27 13:00:30
+[27/03/2026 13:00:30,81] SUCCES 
+[27/03/2026 13:00:31,15] FIN 
+========================================= 

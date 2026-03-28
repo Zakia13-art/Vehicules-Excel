@@ -130,3 +130,70 @@ Execution: 2026-03-26 16:46:52 -> 2026-03-26 16:47:15
 [26/03/2026 16:47:15,96] SUCCES 
 [26/03/2026 16:47:16,40] FIN IMPORT 
 ========================================= 
+ 
+========================================= 
+[26/03/2026 16:52:14,39] DEBUT IMPORT AUTOMATIQUE 
+Importe les donnees d'HIER 
+========================================= 
+[26-03-2026 16:52:15] [INFO] ========================================
+[26-03-2026 16:52:15] [INFO] IMPORT AUTOMATIQUE - HIER (25/03/2026)
+[26-03-2026 16:52:15] [INFO] Periode: 2026-03-25 00:00:00 -> 2026-03-25 23:59:59
+[26-03-2026 16:52:15] [INFO] Execution: 2026-03-26 16:52:15
+[26-03-2026 16:52:15] [INFO] ========================================
+[26-03-2026 16:52:15] [INFO] Session cree: 09f89e54b394d2e4e4b4...
+[26-03-2026 16:52:15] [INFO] Processing: BOUTCHRAFINE (ID: 19022033)
+[26-03-2026 16:52:24] [INFO] BOUTCHRAFINE: 0 trajets importes (hier)
+[26-03-2026 16:52:24] [INFO] Processing: SOMATRIN (ID: 19596491)
+[26-03-2026 16:52:26] [ERROR] Erreur execRep
+[26-03-2026 16:52:26] [WARNING] Pas de donnees pour SOMATRIN (hier)
+[26-03-2026 16:52:26] [INFO] Processing: MARATRANS (ID: 19631505)
+[26-03-2026 16:52:28] [INFO] MARATRANS: 0 trajets importes (hier)
+[26-03-2026 16:52:28] [INFO] Processing: G.T.C (ID: 19590737)
+[26-03-2026 16:52:29] [ERROR] Erreur execRep
+[26-03-2026 16:52:29] [WARNING] Pas de donnees pour G.T.C (hier)
+[26-03-2026 16:52:29] [INFO] Processing: DOUKALI (ID: 19585587)
+[26-03-2026 16:52:31] [ERROR] Erreur execRep
+[26-03-2026 16:52:31] [WARNING] Pas de donnees pour DOUKALI (hier)
+[26-03-2026 16:52:31] [INFO] Processing: COTRAMAB (ID: 19585601)
+[26-03-2026 16:52:33] [INFO] COTRAMAB: 0 trajets importes (hier)
+[26-03-2026 16:52:33] [INFO] Processing: CORYAD (ID: 19585581)
+[26-03-2026 16:52:35] [INFO] CORYAD: 0 trajets importes (hier)
+[26-03-2026 16:52:35] [INFO] Processing: CONSMETA (ID: 19629962)
+[26-03-2026 16:52:37] [ERROR] Erreur execRep
+[26-03-2026 16:52:37] [WARNING] Pas de donnees pour CONSMETA (hier)
+[26-03-2026 16:52:37] [INFO] Processing: CHOUROUK (ID: 19630023)
+[26-03-2026 16:52:39] [INFO] CHOUROUK: 0 trajets importes (hier)
+[26-03-2026 16:52:39] [INFO] Processing: CARRE (ID: 19643391)
+[26-03-2026 16:52:42] [ERROR] Erreur execRep
+[26-03-2026 16:52:42] [WARNING] Pas de donnees pour CARRE (hier)
+[26-03-2026 16:52:42] [INFO] Processing: STB (ID: 19585942)
+[26-03-2026 16:52:44] [ERROR] Erreur execRep
+[26-03-2026 16:52:44] [WARNING] Pas de donnees pour STB (hier)
+[26-03-2026 16:52:44] [INFO] Processing: FASTTRANS (ID: 19635796)
+[26-03-2026 16:52:47] [INFO] FASTTRANS: 0 trajets importes (hier)
+[26-03-2026 16:52:47] [INFO] ========================================
+[26-03-2026 16:52:47] [INFO] FIN IMPORT - Total: 0 trajets
+[26-03-2026 16:52:47] [INFO] Donnees importees: 25/03/2026 (hier)
+[26-03-2026 16:52:47] [INFO] Execution: 2026-03-26 16:52:15 -> 2026-03-26 16:52:47
+[26-03-2026 16:52:47] [INFO] ========================================
+
+=== RESUME - IMPORT HIER (25/03/2026) ===
+BOUTCHRAFINE: 0 trajets
+SOMATRIN: 0 trajets
+MARATRANS: 0 trajets
+G.T.C: 0 trajets
+DOUKALI: 0 trajets
+COTRAMAB: 0 trajets
+CORYAD: 0 trajets
+CONSMETA: 0 trajets
+CHOUROUK: 0 trajets
+CARRE: 0 trajets
+STB: 0 trajets
+FASTTRANS: 0 trajets
+
+TOTAL: 0 trajets
+Donnees du: 25/03/2026
+Execution: 2026-03-26 16:52:15 -> 2026-03-26 16:52:47
+[26/03/2026 16:52:47,63] SUCCES 
+[26/03/2026 16:52:47,99] FIN IMPORT 
+========================================= 

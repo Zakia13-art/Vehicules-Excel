@@ -1,0 +1,235 @@
+[27-03-2026 10:28:08] [INFO] ========================================
+[27-03-2026 10:28:08] [INFO] AUTO SAVE 3 TABLES - 7 DERNIERS JOURS
+[27-03-2026 10:28:08] [INFO] Execution: 2026-03-27 10:28:08
+[27-03-2026 10:28:08] [INFO] ========================================
+[27-03-2026 10:28:09] [ERROR] ERREUR: Impossible de creer session
+[27-03-2026 10:30:40] [INFO] ========================================
+[27-03-2026 10:30:40] [INFO] AUTO SAVE 3 TABLES - 7 DERNIERS JOURS
+[27-03-2026 10:30:40] [INFO] Execution: 2026-03-27 10:30:40
+[27-03-2026 10:30:40] [INFO] ========================================
+[27-03-2026 10:30:41] [INFO] Session cree: 090790f10e091486a235...
+[27-03-2026 10:30:41] [INFO] Periode: Jours -8 a -7
+[27-03-2026 10:32:24] [INFO] Periode: Jours -7 a -6
+[27-03-2026 10:33:59] [INFO] Periode: Jours -6 a -5
+[27-03-2026 10:35:15] [INFO] Periode: Jours -5 a -4
+[27-03-2026 10:36:15] [INFO] Periode: Jours -4 a -3
+ 
+========================================= 
+[27/03/2026 10:36:32,22] DEBUT AUTO SAVE 3 TABLES 
+========================================= 
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:36:33] [INFO] ========================================
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:36:33] [INFO] AUTO SAVE 3 TABLES - 7 DERNIERS JOURS
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:36:33] [INFO] Execution: 2026-03-27 10:36:33
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:36:33] [INFO] ========================================
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:36:33] [INFO] Session cree: 095a3368ea3534d60f0b...
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:36:33] [INFO] Periode: Jours -8 a -7
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:37:32] [INFO] Periode: Jours -7 a -6
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:38:34] [INFO] Periode: Jours -6 a -5
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:40:00] [INFO] Periode: Jours -5 a -4
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:41:32] [INFO] Periode: Jours -4 a -3
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:42:32] [INFO] Periode: Jours -3 a -2
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:43:31] [INFO] Periode: Jours -2 a -1
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:44:34] [INFO] Periode: Jours -1 a -0
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:45:33] [INFO] ========================================
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:45:33] [INFO] FIN SAVE - KM: 0 | Infra: 0 | Eval: 0
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:45:33] [INFO] Execution: 2026-03-27 10:36:33 -> 2026-03-27 10:45:33
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 10:45:33] [INFO] ========================================
+
+=== RESUME ===
+BOUTCHRAFINE: KM=0, Infra=0, Eval=0
+SOMATRIN: KM=0, Infra=0, Eval=0
+MARATRANS: KM=0, Infra=0, Eval=0
+G.T.C: KM=0, Infra=0, Eval=0
+DOUKALI: KM=0, Infra=0, Eval=0
+COTRAMAB: KM=0, Infra=0, Eval=0
+CORYAD: KM=0, Infra=0, Eval=0
+CONSMETA: KM=0, Infra=0, Eval=0
+CHOUROUK: KM=0, Infra=0, Eval=0
+CARRE: KM=0, Infra=0, Eval=0
+STB: KM=0, Infra=0, Eval=0
+FASTTRANS: KM=0, Infra=0, Eval=0
+
+TOTAL: KM=0, Infra=0, Eval=0
+Execution: 2026-03-27 10:36:33 -> 2026-03-27 10:45:33
+[27/03/2026 10:45:33,83] SUCCES 
+[27/03/2026 10:45:34,23] FIN SAVE 
+========================================= 
+ 
+========================================= 
+[27/03/2026 12:17:16,06] DEBUT AUTO SAVE 3 TABLES 
+========================================= 
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:17:16] [INFO] ========================================
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:17:16] [INFO] AUTO SAVE 3 TABLES - 7 DERNIERS JOURS
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:17:16] [INFO] Execution: 2026-03-27 12:17:16
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:17:16] [INFO] ========================================
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:17:17] [INFO] Session cree: 09994dd5b215e08605d5...
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:17:17] [INFO] Periode: Jours -8 a -7
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:18:29] [INFO] Periode: Jours -7 a -6
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:19:27] [INFO] Periode: Jours -6 a -5
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:20:25] [INFO] Periode: Jours -5 a -4
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:21:25] [INFO] Periode: Jours -4 a -3
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:22:25] [INFO] Periode: Jours -3 a -2
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:23:22] [INFO] Periode: Jours -2 a -1
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:24:20] [INFO] Periode: Jours -1 a -0
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:25:18] [INFO] ========================================
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:25:18] [INFO] FIN SAVE - KM: 0 | Infra: 0 | Eval: 0
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:25:18] [INFO] Execution: 2026-03-27 12:17:16 -> 2026-03-27 12:25:18
+PHP Warning:  file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[27-03-2026 12:25:18] [INFO] ========================================
+
+=== RESUME ===
+BOUTCHRAFINE: KM=0, Infra=0, Eval=0
+SOMATRIN: KM=0, Infra=0, Eval=0
+MARATRANS: KM=0, Infra=0, Eval=0
+G.T.C: KM=0, Infra=0, Eval=0
+DOUKALI: KM=0, Infra=0, Eval=0
+COTRAMAB: KM=0, Infra=0, Eval=0
+CORYAD: KM=0, Infra=0, Eval=0
+CONSMETA: KM=0, Infra=0, Eval=0
+CHOUROUK: KM=0, Infra=0, Eval=0
+CARRE: KM=0, Infra=0, Eval=0
+STB: KM=0, Infra=0, Eval=0
+FASTTRANS: KM=0, Infra=0, Eval=0
+
+TOTAL: KM=0, Infra=0, Eval=0
+Execution: 2026-03-27 12:17:16 -> 2026-03-27 12:25:18
+[27/03/2026 12:25:19,87] ERREUR - Code: 9009 
+[27/03/2026 12:25:20,21] FIN SAVE 
+========================================= 
+[27-03-2026 12:29:22] [INFO] ========================================
+[27-03-2026 12:29:22] [INFO] AUTO SAVE 3 TABLES - 7 DERNIERS JOURS
+[27-03-2026 12:29:22] [INFO] Execution: 2026-03-27 12:29:22
+[27-03-2026 12:29:22] [INFO] ========================================
+[27-03-2026 12:29:22] [INFO] Session cree: 099e07ffbbaecd1d022d...
+[27-03-2026 12:29:22] [INFO] Periode: Jours -8 a -7
+[27-03-2026 12:30:37] [INFO] Periode: Jours -7 a -6
+[27-03-2026 12:32:18] [INFO] Periode: Jours -6 a -5
+ 
+========================================= 
+[28/03/2026 11:34:18,60] DEBUT AUTO SAVE 3 TABLES 
+========================================= 
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[28-03-2026 11:34:18] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[28-03-2026 11:34:18] [INFO] AUTO SAVE 3 TABLES - 7 DERNIERS JOURS
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[28-03-2026 11:34:18] [INFO] Execution: 2026-03-28 11:34:18
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[28-03-2026 11:34:18] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[28-03-2026 11:34:19] [INFO] Session cree: 096513b9428b5e6963fb...
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_3tables.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_3tables.php on line 24
+[28-03-2026 11:34:19] [INFO] Periode: Jours -8 a -7

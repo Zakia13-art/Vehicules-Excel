@@ -3,13 +3,16 @@ REM ========================================
 REM WIALON AUTO IMPORT - Every 5 seconds
 REM ========================================
 
+REM Changer vers le dossier du projet
+cd /d "C:\xampp\htdocs\vehicules"
+
 setlocal enabledelayedexpansion
 
 set "PHP=C:\xampp\php\php.exe"
-set "SCRIPT=C:\xampp\htdocs\vehicules\sync_wialon_cron.php"
-set "LOG=C:\xampp\htdocs\vehicules\logs\import_wialon.log"
+set "SCRIPT=sync_wialon_cron.php"
+set "LOG=logs\import_wialon.log"
 
-if not exist "C:\xampp\htdocs\vehicules\logs" mkdir "C:\xampp\htdocs\vehicules\logs"
+if not exist "logs" mkdir "logs"
 
 REM Infinite loop - run every 5 seconds
 :loop
