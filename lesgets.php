@@ -47,17 +47,17 @@ function cleanRepport($sid){
 // ========================================
 
 $tab_group = array(
-	'BOUTCHRAFINE' => 19022033,
-	'SOMATRIN' => 19596491,
+	'BOUTCHRAFINE' => 12173650,  // NOUVEAU ID (17 trajets)
+	'SOMATRIN' => 30071668,      // NOUVEAU ID
 	'MARATRANS' => 19631505,
-	'G.T.C' => 19590737,
+	'G.T.C' => 30085013,
 	'DOUKALI' => 19585587,
 	'COTRAMAB' => 19585601,
 	'CORYAD' => 19585581,
 	'CONSMETA' => 19629962,
 	'CHOUROUK' => 19630023,
-	'CARRE' => 19643391,
-	'STB' => 19585942,
+	'CARRE' => 29440837,        // NOUVEAU ID
+	'STB' => 26577266,          // NOUVEAU ID
 	'FASTTRANS' => 19635796
 );
 
@@ -121,7 +121,7 @@ foreach($tab_group as $nom => $groupe){
 	
 	$report_index = execRep($groupe, $sid);
 	
-	if ($report_index === null) {
+	if ($report_index === null || empty($report_index)) {
 		echo '<div class="log">⚠️ Pas de données pour ' . $nom . '</div>';
 		$stats[$nom] = 0;
 		continue;

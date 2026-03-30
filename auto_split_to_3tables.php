@@ -117,8 +117,8 @@ function insertGlobalEvaluation($transporteur_id, $transporteur_nom, $vehicule, 
 // ========================================
 
 $tab_group = array(
-    'BOUTCHRAFINE' => array('id' => 19022033, 'transporteur_id' => 1),
-    'SOMATRIN' => array('id' => 19596491, 'transporteur_id' => 2),
+    'BOUTCHRAFINE' => array('id' => 12173650, 'transporteur_id' => 1),
+    'SOMATRIN' => array('id' => 30071668, 'transporteur_id' => 2),
     'MARATRANS' => array('id' => 19631505, 'transporteur_id' => 3),
     'G.T.C' => array('id' => 19590737, 'transporteur_id' => 4),
     'DOUKALI' => array('id' => 19585587, 'transporteur_id' => 5),
@@ -126,8 +126,8 @@ $tab_group = array(
     'CORYAD' => array('id' => 19585581, 'transporteur_id' => 7),
     'CONSMETA' => array('id' => 19629962, 'transporteur_id' => 8),
     'CHOUROUK' => array('id' => 19630023, 'transporteur_id' => 9),
-    'CARRE' => array('id' => 19643391, 'transporteur_id' => 10),
-    'STB' => array('id' => 19585942, 'transporteur_id' => 11),
+    'CARRE' => array('id' => 29440837, 'transporteur_id' => 10),
+    'STB' => array('id' => 26577266, 'transporteur_id' => 11),
     'FASTTRANS' => array('id' => 19635796, 'transporteur_id' => 12)
 );
 

@@ -128,6 +128,25 @@ use PHPMailer\PHPMailer\Exception;
                        value="<?= MAIL_TO ?>" placeholder="Entrez l'email destinataire" required>
             </div>
 
+            <!-- Period Section -->
+            <div class="choice-section">
+                <div class="choice-title">📅 PÉRIODE</div>
+                <div class="choices-grid">
+                    <label class="choice-card selected" onclick="toggleCard(this)">
+                        <input type="radio" name="period" value="7" checked>
+                        <div class="choice-icon">📆</div>
+                        <div class="choice-label">7 derniers jours</div>
+                        <div class="choice-desc">Données récentes</div>
+                    </label>
+                    <label class="choice-card" onclick="toggleCard(this)">
+                        <input type="radio" name="period" value="30">
+                        <div class="choice-icon">📅</div>
+                        <div class="choice-label">30 derniers jours</div>
+                        <div class="choice-desc">Données complètes</div>
+                    </label>
+                </div>
+            </div>
+
             <!-- Summary -->
             <div class="summary" id="summary">
                 <p><strong>Résumé:</strong> Aucun rapport sélectionné (email sans pièce jointe)</p>
@@ -154,6 +173,13 @@ function toggleCard(card) {
     const input = card.querySelector('input');
     if (input.type === 'checkbox') {
         input.checked = !input.checked;
+    } else if (input.type === 'radio') {
+        input.checked = true;
+        // Deselect other radio cards
+        const name = input.name;
+        document.querySelectorAll('.choice-card input[type="radio"][name="' + name + '"]').forEach(radio => {
+            radio.closest('.choice-card').classList.remove('selected');
+        });
     }
     card.classList.toggle('selected', input.checked);
     updateSummary();
@@ -207,6 +233,7 @@ document.getElementById('reportForm').addEventListener('submit', function(e) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $reports = $_POST['reports'] ?? [];
+    $period = intval($_POST['period'] ?? 7);  // 7 ou 30 jours
     $email_to = filter_var(trim($_POST['email_to'] ?? ''), FILTER_VALIDATE_EMAIL)
         ? trim($_POST['email_to']) : MAIL_TO;
 
@@ -226,15 +253,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (in_array('km', $reports)) {
         $sql = "SELECT transporteur_nom, vehicule, debut, fin, duree, kilometrage
                 FROM global_kilometrage
-                WHERE debut >= DATE_SUB(NOW(), INTERVAL 7 DAY)
-                ORDER BY transporteur_nom, vehicule, debut DESC";
+                WHERE DATE(debut) >= DATE_SUB(CURDATE(), INTERVAL $period DAY)
+                ORDER BY transporteur_nom, debut DESC, vehicule";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $kmData = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // TOUJOURS générer PDF, même si vide
-        $html = buildPdfKilometrage($kmData);
+        $html = buildPdfKilometrage($kmData, $period);
         $name = 'rapport_kilometrage_' . date('Ymd_Hi') . '.pdf';
         $path = generatePdf($html, $name);
         $pdfFiles[] = ['path' => $path, 'name' => $name, 'label' => '📊 Kilométrage'];
@@ -246,15 +273,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (in_array('infractions', $reports)) {
         $sql = "SELECT transporteur_nom, vehicule, debut, fin, emplacement, infraction
                 FROM global_infractions
-                WHERE debut >= DATE_SUB(NOW(), INTERVAL 7 DAY)
-                ORDER BY transporteur_nom, vehicule, debut DESC";
+                WHERE DATE(debut) >= DATE_SUB(CURDATE(), INTERVAL $period DAY)
+                ORDER BY transporteur_nom, debut DESC, vehicule";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $infraData = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // TOUJOURS générer PDF, même si vide
-        $html = buildPdfInfractions($infraData);
+        $html = buildPdfInfractions($infraData, $period);
         $name = 'rapport_infractions_' . date('Ymd_Hi') . '.pdf';
         $path = generatePdf($html, $name);
         $pdfFiles[] = ['path' => $path, 'name' => $name, 'label' => '⚠️ Infractions'];
@@ -266,15 +293,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (in_array('evaluation', $reports)) {
         $sql = "SELECT transporteur_nom, vehicule, debut, fin, emplacement, penalites, evaluation
                 FROM global_evaluation
-                WHERE debut >= DATE_SUB(NOW(), INTERVAL 7 DAY)
-                ORDER BY transporteur_nom, vehicule, debut DESC";
+                WHERE DATE(debut) >= DATE_SUB(CURDATE(), INTERVAL $period DAY)
+                ORDER BY transporteur_nom, debut DESC, vehicule";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $evalData = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // TOUJOURS générer PDF, même si vide
-        $html = buildPdfEvaluation($evalData);
+        $html = buildPdfEvaluation($evalData, $period);
         $name = 'rapport_evaluation_' . date('Ymd_Hi') . '.pdf';
         $path = generatePdf($html, $name);
         $pdfFiles[] = ['path' => $path, 'name' => $name, 'label' => '📈 Évaluation'];
@@ -327,7 +354,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <ul style="font-size:13px;color:#475569;margin:10px 0 16px 20px">
                     <li>' . implode('</li><li>', $labels) . '</li>
                 </ul>
-                <p style="font-size:12px;color:#94a3b8">Données des 7 derniers jours – Tous les transporteurs</p>
+                <p style="font-size:12px;color:#94a3b8">Données des ' . $period . ' derniers jours – Tous les transporteurs</p>
                 <hr style="border:none;border-top:1px solid #e2e8f0;margin:16px 0">
                 <p style="font-size:12px;color:#94a3b8">Ce message est généré automatiquement – ne pas répondre.</p>
             </div>';
@@ -338,7 +365,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p style="color:#64748b;">Généré le ' . date('d/m/Y à H:i') . '</p>
                 <hr style="border:none;border-top:1px solid #e2e8f0;margin:16px 0">
                 <p style="font-size:14px;color:#334155">Aucun rapport sélectionné. Cet email a été envoyé sans pièce jointe.</p>
-                <p style="font-size:12px;color:#94a3b8">Données des 7 derniers jours – Tous les transporteurs</p>
+                <p style="font-size:12px;color:#94a3b8">Données des ' . $period . ' derniers jours – Tous les transporteurs</p>
                 <hr style="border:none;border-top:1px solid #e2e8f0;margin:16px 0">
                 <p style="font-size:12px;color:#94a3b8">Ce message est généré automatiquement – ne pas répondre.</p>
             </div>';
@@ -394,7 +421,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // FONCTIONS PDF BUILDERS
 // ========================================
 
-function buildPdfKilometrage($data) {
+function buildPdfKilometrage($data, $period = 7) {
     $html = '<!DOCTYPE html><html><head><meta charset="UTF-8">
         <style>
             body{font-family:Arial,sans-serif;font-size:11px;color:#1e293b;margin:20px}
@@ -405,10 +432,11 @@ function buildPdfKilometrage($data) {
             tr:nth-child(even){background:#f8fafc}
             .total{background:#d5f4e6;padding:15px;margin-top:20px;font-weight:bold}
             .empty{background:#fff3cd;padding:20px;text-align:center;border-left:4px solid #f59e0b;margin-top:20px}
+            .date-range{background:#e0f2fe;padding:10px;margin-bottom:20px;border-left:4px solid #0ea5e9}
         </style>
     </head><body>
         <h1>📊 Rapport Kilométrage - Tous Transporteurs</h1>
-        <p>Période: 7 derniers jours | Généré: ' . date('d/m/Y H:i') . '</p>';
+        <p>Période: ' . $period . ' derniers jours (jusqu\'au ' . date('d/m/Y') . ') | Généré: ' . date('d/m/Y H:i') . '</p>';
 
     if (empty($data)) {
         $html .= '<div class="empty">
@@ -416,6 +444,13 @@ function buildPdfKilometrage($data) {
             Aucun enregistrement de kilométrage pour la période sélectionnée.
         </div>';
     } else {
+        // Afficher la plage de dates
+        $first_date = date('d/m/Y', strtotime($data[0]['debut']));
+        $last_date = date('d/m/Y', strtotime($data[count($data)-1]['debut']));
+        $html .= '<div class="date-range">
+            📅 Plage de données: <strong>' . $first_date . ' → ' . $last_date . '</strong>
+        </div>';
+
         $html .= '<table>
             <thead><tr>
                 <th>Transporteur</th>
@@ -447,7 +482,7 @@ function buildPdfKilometrage($data) {
     return $html;
 }
 
-function buildPdfInfractions($data) {
+function buildPdfInfractions($data, $period = 7) {
     $html = '<!DOCTYPE html><html><head><meta charset="UTF-8">
         <style>
             body{font-family:Arial,sans-serif;font-size:11px;color:#1e293b;margin:20px}
@@ -458,10 +493,11 @@ function buildPdfInfractions($data) {
             tr:nth-child(even){background:#fef2f2}
             .total{background:#fee2e2;padding:15px;margin-top:20px;font-weight:bold}
             .empty{background:#d5f4e6;padding:20px;text-align:center;border-left:4px solid #22c55e;margin-top:20px}
+            .date-range{background:#e0f2fe;padding:10px;margin-bottom:20px;border-left:4px solid #0ea5e9}
         </style>
     </head><body>
         <h1>⚠️ Rapport Infractions - Tous Transporteurs</h1>
-        <p>Période: 7 derniers jours | Généré: ' . date('d/m/Y H:i') . '</p>';
+        <p>Période: ' . $period . ' derniers jours (jusqu\'au ' . date('d/m/Y') . ') | Généré: ' . date('d/m/Y H:i') . '</p>';
 
     if (empty($data)) {
         $html .= '<div class="empty">
@@ -469,6 +505,13 @@ function buildPdfInfractions($data) {
             Tous les véhicules respectent les règles pour la période sélectionnée.
         </div>';
     } else {
+        // Afficher la plage de dates
+        $first_date = date('d/m/Y', strtotime($data[0]['debut']));
+        $last_date = date('d/m/Y', strtotime($data[count($data)-1]['debut']));
+        $html .= '<div class="date-range">
+            📅 Plage de données: <strong>' . $first_date . ' → ' . $last_date . '</strong>
+        </div>';
+
         $html .= '<table>
             <thead><tr>
                 <th>Transporteur</th>
@@ -498,7 +541,7 @@ function buildPdfInfractions($data) {
     return $html;
 }
 
-function buildPdfEvaluation($data) {
+function buildPdfEvaluation($data, $period = 7) {
     $html = '<!DOCTYPE html><html><head><meta charset="UTF-8">
         <style>
             body{font-family:Arial,sans-serif;font-size:11px;color:#1e293b;margin:20px}
@@ -512,10 +555,11 @@ function buildPdfEvaluation($data) {
             .eval-C{background:#fadbd8}
             .total{background:#e8daef;padding:15px;margin-top:20px;font-weight:bold}
             .empty{background:#e0f2fe;padding:20px;text-align:center;border-left:4px solid #0ea5e9;margin-top:20px}
+            .date-range{background:#e0f2fe;padding:10px;margin-bottom:20px;border-left:4px solid #0ea5e9}
         </style>
     </head><body>
         <h1>📈 Rapport Évaluation Éco-conduite - Tous Transporteurs</h1>
-        <p>Période: 7 derniers jours | Généré: ' . date('d/m/Y H:i') . '</p>';
+        <p>Période: ' . $period . ' derniers jours (jusqu\'au ' . date('d/m/Y') . ') | Généré: ' . date('d/m/Y H:i') . '</p>';
 
     if (empty($data)) {
         $html .= '<div class="empty">
@@ -523,6 +567,13 @@ function buildPdfEvaluation($data) {
             Aucun enregistrement d\'éco-conduite pour la période sélectionnée.
         </div>';
     } else {
+        // Afficher la plage de dates
+        $first_date = date('d/m/Y', strtotime($data[0]['debut']));
+        $last_date = date('d/m/Y', strtotime($data[count($data)-1]['debut']));
+        $html .= '<div class="date-range">
+            📅 Plage de données: <strong>' . $first_date . ' → ' . $last_date . '</strong>
+        </div>';
+
         $html .= '<table>
             <thead><tr>
                 <th>Transporteur</th>

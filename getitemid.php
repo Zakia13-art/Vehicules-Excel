@@ -113,11 +113,10 @@ function getgroupID($name, $sid){
 // ========================================
 
 function execRep($group, $sid, $from1=0, $to1=0){
-	$base_time = 1575503999;
-	
+	// Utiliser time() actuel au lieu de base_time fixe
 	if ($from1 > 0 || $to1 > 0) {
-		$from = ($base_time - ($from1 * 86400));
-		$to = ($base_time - ($to1 * 86400));
+		$to = time();
+		$from = $to - ($from1 * 86400);
 	} else {
 		$to = time();
 		$from = $to - (7 * 86400);
@@ -142,6 +141,10 @@ function execRep($group, $sid, $from1=0, $to1=0){
 		$v_det = json_decode($response, true);
 		if (isset($v_det['reportResult']['tables'])) {
 			$nbrtab = sizeof($v_det['reportResult']['tables']);
+			// Si tables est vide, retourner null (pas de données)
+			if ($nbrtab == 0) {
+				return null;
+			}
 			$tabline = array();
 			$i = 0;
 			while($i < $nbrtab){

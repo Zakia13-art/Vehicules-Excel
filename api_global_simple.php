@@ -17,7 +17,7 @@ define('TEMPLATE_EVAL', 7);
 
 // Tous les groups (Group IDs confirmés)
 $tab_group = array(
-	'BOUTCHRAFINE' => 19022033,
+	'BOUTCHRAFINE' => 12173650,
 	'MARATRANS' => 19631505,
 	'COTRAMAB' => 19585601,
 	'CORYAD' => 19585581,

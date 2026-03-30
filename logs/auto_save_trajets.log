@@ -389,3 +389,346 @@ Execution: 2026-03-27 12:29:45 -> 2026-03-27 12:34:03
 [27/03/2026 12:34:03,76] SUCCES 
 [27/03/2026 12:34:04,21] FIN 
 ========================================= 
+ 
+========================================= 
+[28/03/2026 11:41:25,17] DEBUT AUTO SAVE 
+========================================= 
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:41:25] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:41:25] [INFO] AUTO SAVE TRAJETS - 7 DERNIERS JOURS
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:41:25] [INFO] Execution: 2026-03-28 11:41:25
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:41:25] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:41:25] [INFO] Session cree: 09655c1a59481d8b5999...
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:41:25] [INFO] Periode: 2026-03-28 (from: 2026-03-28 00:00:00 to: 2026-03-28 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:41:47] [INFO] Periode: 2026-03-27 (from: 2026-03-27 00:00:00 to: 2026-03-27 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:42:14] [INFO] Periode: 2026-03-26 (from: 2026-03-26 00:00:00 to: 2026-03-26 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:42:43] [INFO] Periode: 2026-03-25 (from: 2026-03-25 00:00:00 to: 2026-03-25 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:43:10] [INFO] Periode: 2026-03-24 (from: 2026-03-24 00:00:00 to: 2026-03-24 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:43:37] [INFO] Periode: 2026-03-23 (from: 2026-03-23 00:00:00 to: 2026-03-23 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:44:03] [INFO] Periode: 2026-03-22 (from: 2026-03-22 00:00:00 to: 2026-03-22 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:44:25] [INFO] Periode: 2026-03-21 (from: 2026-03-21 00:00:00 to: 2026-03-21 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:44:46] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:44:46] [INFO] FIN SAVE - Total: 0 trajets
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:44:46] [INFO] Execution: 2026-03-28 11:41:25 -> 2026-03-28 11:44:46
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[28-03-2026 11:44:46] [INFO] ========================================
+
+=== RESUME ===
+BOUTCHRAFINE: 0 trajets
+
+TOTAL: 0 trajets
+Execution: 2026-03-28 11:41:25 -> 2026-03-28 11:44:46
+[28/03/2026 11:44:46,46] SUCCES 
+[28/03/2026 11:44:46,48] FIN 
+========================================= 
+ 
+========================================= 
+[30/03/2026  9:57:10,18] DEBUT AUTO SAVE 
+========================================= 
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:57:10] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:57:10] [INFO] AUTO SAVE TRAJETS - 7 DERNIERS JOURS
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:57:10] [INFO] Execution: 2026-03-30 10:57:10
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:57:10] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:57:10] [INFO] Session cree: 0922c4cccafd0707a426...
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:57:10] [INFO] Periode: 2026-03-30 (from: 2026-03-30 00:00:00 to: 2026-03-30 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:57:33] [INFO] Periode: 2026-03-29 (from: 2026-03-29 00:00:00 to: 2026-03-29 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:57:55] [INFO] Periode: 2026-03-28 (from: 2026-03-28 00:00:00 to: 2026-03-28 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:58:19] [INFO] Periode: 2026-03-27 (from: 2026-03-27 00:00:00 to: 2026-03-27 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:58:42] [INFO] Periode: 2026-03-26 (from: 2026-03-26 00:00:00 to: 2026-03-26 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:59:06] [INFO] Periode: 2026-03-25 (from: 2026-03-25 00:00:00 to: 2026-03-25 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:59:30] [INFO] Periode: 2026-03-24 (from: 2026-03-24 00:00:00 to: 2026-03-24 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 10:59:55] [INFO] Periode: 2026-03-23 (from: 2026-03-23 00:00:00 to: 2026-03-23 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:00:22] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:00:22] [INFO] FIN SAVE - Total: 0 trajets
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:00:22] [INFO] Execution: 2026-03-30 10:57:10 -> 2026-03-30 11:00:22
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:00:22] [INFO] ========================================
+
+=== RESUME ===
+G.T.C: 0 trajets
+BOUTCHRAFINE: 0 trajets
+
+TOTAL: 0 trajets
+Execution: 2026-03-30 10:57:10 -> 2026-03-30 11:00:22
+[30/03/2026 10:00:22,09] SUCCES 
+[30/03/2026 10:00:22,11] FIN 
+========================================= 
+ 
+========================================= 
+[30/03/2026 10:15:05,59] DEBUT AUTO SAVE 
+========================================= 
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:15:05] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:15:05] [INFO] AUTO SAVE TRAJETS - 7 DERNIERS JOURS
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:15:05] [INFO] Execution: 2026-03-30 11:15:05
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:15:05] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:15:06] [INFO] Session cree: 097f53b0ae2f1f64ddfe...
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:15:06] [INFO] Periode: 2026-03-30 (from: 2026-03-30 00:00:00 to: 2026-03-30 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:15:28] [INFO] Periode: 2026-03-29 (from: 2026-03-29 00:00:00 to: 2026-03-29 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:15:51] [INFO] Periode: 2026-03-28 (from: 2026-03-28 00:00:00 to: 2026-03-28 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:16:17] [INFO] Periode: 2026-03-27 (from: 2026-03-27 00:00:00 to: 2026-03-27 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:16:44] [INFO] Periode: 2026-03-26 (from: 2026-03-26 00:00:00 to: 2026-03-26 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:17:08] [INFO] Periode: 2026-03-25 (from: 2026-03-25 00:00:00 to: 2026-03-25 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:17:33] [INFO] Periode: 2026-03-24 (from: 2026-03-24 00:00:00 to: 2026-03-24 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:17:58] [INFO] Periode: 2026-03-23 (from: 2026-03-23 00:00:00 to: 2026-03-23 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:18:21] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:18:21] [INFO] FIN SAVE - Total: 0 trajets
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:18:21] [INFO] Execution: 2026-03-30 11:15:05 -> 2026-03-30 11:18:21
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:18:21] [INFO] ========================================
+
+=== RESUME ===
+G.T.C: 0 trajets
+BOUTCHRAFINE: 0 trajets
+
+TOTAL: 0 trajets
+Execution: 2026-03-30 11:15:05 -> 2026-03-30 11:18:21
+[30/03/2026 10:18:21,03] SUCCES 
+[30/03/2026 10:18:21,05] FIN 
+========================================= 
+ 
+========================================= 
+[30/03/2026 10:41:35,16] DEBUT AUTO SAVE 
+========================================= 
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:41:35] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:41:35] [INFO] AUTO SAVE TRAJETS - 7 DERNIERS JOURS
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:41:35] [INFO] Execution: 2026-03-30 11:41:35
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:41:35] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:41:35] [INFO] Session cree: 0984bb982fd7631ee1c1...
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:41:35] [INFO] Periode: 2026-03-30 (from: 2026-03-30 00:00:00 to: 2026-03-30 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:41:56] [INFO] Periode: 2026-03-29 (from: 2026-03-29 00:00:00 to: 2026-03-29 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:42:18] [INFO] Periode: 2026-03-28 (from: 2026-03-28 00:00:00 to: 2026-03-28 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:42:45] [INFO] Periode: 2026-03-27 (from: 2026-03-27 00:00:00 to: 2026-03-27 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:43:12] [INFO] Periode: 2026-03-26 (from: 2026-03-26 00:00:00 to: 2026-03-26 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:43:39] [INFO] Periode: 2026-03-25 (from: 2026-03-25 00:00:00 to: 2026-03-25 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:44:05] [INFO] Periode: 2026-03-24 (from: 2026-03-24 00:00:00 to: 2026-03-24 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:44:30] [INFO] Periode: 2026-03-23 (from: 2026-03-23 00:00:00 to: 2026-03-23 23:59:59)
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:44:53] [INFO] ========================================
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:44:53] [INFO] FIN SAVE - Total: 0 trajets
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:44:53] [INFO] Execution: 2026-03-30 11:41:35 -> 2026-03-30 11:44:53
+PHP Warning:  file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+
+Warning: file_put_contents(C:\xampp\htdocs\vehicules/logs/auto_save_trajets.log): Failed to open stream: Resource temporarily unavailable in C:\xampp\htdocs\vehicules\auto_save_trajets.php on line 10
+[30-03-2026 11:44:53] [INFO] ========================================
+
+=== RESUME ===
+BOUTCHRAFINE: 0 trajets
+
+TOTAL: 0 trajets
+Execution: 2026-03-30 11:41:35 -> 2026-03-30 11:44:53
+[30/03/2026 10:44:53,83] SUCCES 
+[30/03/2026 10:44:53,85] FIN 
+========================================= 
+[30-03-2026 11:56:20] [INFO] ========================================
+[30-03-2026 11:56:20] [INFO] AUTO SAVE TRAJETS - 7 DERNIERS JOURS
+[30-03-2026 11:56:20] [INFO] Execution: 2026-03-30 11:56:20
+[30-03-2026 11:56:20] [INFO] ========================================
+[30-03-2026 11:56:20] [INFO] Session cree: 091300597b47d9f50f46...
+[30-03-2026 11:56:20] [INFO] Periode: 2026-03-30 (from: 2026-03-30 00:00:00 to: 2026-03-30 23:59:59)
+[30-03-2026 11:56:42] [INFO] Periode: 2026-03-29 (from: 2026-03-29 00:00:00 to: 2026-03-29 23:59:59)
+[30-03-2026 11:57:04] [INFO] Periode: 2026-03-28 (from: 2026-03-28 00:00:00 to: 2026-03-28 23:59:59)
+[30-03-2026 11:57:30] [INFO] Periode: 2026-03-27 (from: 2026-03-27 00:00:00 to: 2026-03-27 23:59:59)
+[30-03-2026 11:57:57] [INFO] Periode: 2026-03-26 (from: 2026-03-26 00:00:00 to: 2026-03-26 23:59:59)
+[30-03-2026 11:58:23] [INFO] Periode: 2026-03-25 (from: 2026-03-25 00:00:00 to: 2026-03-25 23:59:59)
+[30-03-2026 11:58:50] [INFO] Periode: 2026-03-24 (from: 2026-03-24 00:00:00 to: 2026-03-24 23:59:59)
+[30-03-2026 11:59:15] [INFO] Periode: 2026-03-23 (from: 2026-03-23 00:00:00 to: 2026-03-23 23:59:59)
+[30-03-2026 11:59:39] [INFO] ========================================
+[30-03-2026 11:59:39] [INFO] FIN SAVE - Total: 0 trajets
+[30-03-2026 11:59:39] [INFO] Execution: 2026-03-30 11:56:20 -> 2026-03-30 11:59:39
+[30-03-2026 11:59:39] [INFO] ========================================

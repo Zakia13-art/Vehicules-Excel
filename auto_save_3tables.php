@@ -175,17 +175,17 @@ function insertGlobalEvaluation($transporteur_id, $transporteur_nom, $vehicule, 
 // ========================================
 
 $tab_group = array(
-    'BOUTCHRAFINE' => array('id' => 19022033, 'transporteur_id' => 1),
-    'SOMATRIN' => array('id' => 19596491, 'transporteur_id' => 2),
+    'BOUTCHRAFINE' => array('id' => 12173650, 'transporteur_id' => 1),  // NOUVEAU ID
+    'SOMATRIN' => array('id' => 30071668, 'transporteur_id' => 2),      // NOUVEAU ID
     'MARATRANS' => array('id' => 19631505, 'transporteur_id' => 3),
-    'G.T.C' => array('id' => 19590737, 'transporteur_id' => 4),
+    'G.T.C' => array('id' => 30085013, 'transporteur_id' => 4),
     'DOUKALI' => array('id' => 19585587, 'transporteur_id' => 5),
     'COTRAMAB' => array('id' => 19585601, 'transporteur_id' => 6),
     'CORYAD' => array('id' => 19585581, 'transporteur_id' => 7),
     'CONSMETA' => array('id' => 19629962, 'transporteur_id' => 8),
     'CHOUROUK' => array('id' => 19630023, 'transporteur_id' => 9),
-    'CARRE' => array('id' => 19643391, 'transporteur_id' => 10),
-    'STB' => array('id' => 19585942, 'transporteur_id' => 11),
+    'CARRE' => array('id' => 29440837, 'transporteur_id' => 10),        // NOUVEAU ID
+    'STB' => array('id' => 26577266, 'transporteur_id' => 11),          // NOUVEAU ID
     'FASTTRANS' => array('id' => 19635796, 'transporteur_id' => 12)
 );
 
@@ -197,7 +197,7 @@ function processKilometrage($nom, $group, $sid, $from1, $to1) {
     $transporteur_id = $group['transporteur_id'];
     $group_id = $group['id'];
 
-    $tables = execRep($group_id, $sid, $from1, $to1, 4); // Template ID 4 pour KM
+    $tables = execRep($group_id, $sid, $from1, $to1, 1); // Template ID 1 (contient KM)
 
     if (!$tables) return 0;
 
@@ -210,11 +210,18 @@ function processKilometrage($nom, $group, $sid, $from1, $to1) {
                 foreach ($result as $row) {
                     if (isset($row['r'])) {
                         foreach ($row['r'] as $data) {
-                            $vehicule = $data['c']['0'] ?? '';
+                            // Template ID 1 format: c[1]=vehicule, c[9]=KM
+                            $vehicule = $data['c']['1'] ?? '';
                             $debut = $data['t1'] ?? 0;
                             $fin = $data['t2'] ?? 0;
-                            $duree = $data['c']['1'] ?? '';
-                            $km = $data['c']['2'] ?? 0;
+                            $km = $data['c']['9'] ?? 0;
+
+                            // Calculer la durée
+                            $diff_seconds = $fin - $debut;
+                            $hours = floor($diff_seconds / 3600);
+                            $minutes = floor(($diff_seconds % 3600) / 60);
+                            $duree = "$hours h $minutes min";
+
                             if (insertGlobalKilometrage($transporteur_id, $nom, $vehicule, $debut, $fin, $duree, $km)) {
                                 $count++;
                             }
@@ -231,7 +238,7 @@ function processInfractions($nom, $group, $sid, $from1, $to1) {
     $transporteur_id = $group['transporteur_id'];
     $group_id = $group['id'];
 
-    $tables = execRep($group_id, $sid, $from1, $to1, 2); // Template ID 2 pour Infractions
+    $tables = execRep($group_id, $sid, $from1, $to1, 1); // Template ID 1 (contient pénalités)
 
     if (!$tables) return 0;
 
@@ -244,13 +251,20 @@ function processInfractions($nom, $group, $sid, $from1, $to1) {
                 foreach ($result as $row) {
                     if (isset($row['r'])) {
                         foreach ($row['r'] as $data) {
-                            $vehicule = $data['c']['0'] ?? '';
+                            // Template ID 1 format: c[1]=vehicule, c[3]=depart, c[8]=pénalités
+                            $vehicule = $data['c']['1'] ?? '';
                             $debut = $data['t1'] ?? 0;
                             $fin = $data['t2'] ?? 0;
-                            $emplacement = $data['c']['1'] ?? '';
-                            $infraction = $data['c']['2'] ?? '';
-                            if (insertGlobalInfraction($transporteur_id, $nom, $vehicule, $debut, $fin, $emplacement, $infraction)) {
-                                $count++;
+                            $depart = $data['c']['3'] ?? '';
+                            $penalites = (int)($data['c']['8'] ?? 0);
+
+                            // Insert seulement si pénalités > 0
+                            if ($penalites > 0) {
+                                $emplacement = $depart ?: 'Inconnu';
+                                $infraction = "$penalites pénalité(s)";
+                                if (insertGlobalInfraction($transporteur_id, $nom, $vehicule, $debut, $fin, $emplacement, $infraction)) {
+                                    $count++;
+                                }
                             }
                         }
                     }
@@ -265,7 +279,7 @@ function processEvaluation($nom, $group, $sid, $from1, $to1) {
     $transporteur_id = $group['transporteur_id'];
     $group_id = $group['id'];
 
-    $tables = execRep($group_id, $sid, $from1, $to1, 7); // Template ID 7 pour Evaluation
+    $tables = execRep($group_id, $sid, $from1, $to1, 1); // Template ID 1 (contient pénalités)
 
     if (!$tables) return 0;
 
@@ -278,12 +292,14 @@ function processEvaluation($nom, $group, $sid, $from1, $to1) {
                 foreach ($result as $row) {
                     if (isset($row['r'])) {
                         foreach ($row['r'] as $data) {
-                            $vehicule = $data['c']['0'] ?? '';
+                            // Template ID 1 format: c[1]=vehicule, c[3]=depart, c[8]=pénalités
+                            $vehicule = $data['c']['1'] ?? '';
                             $debut = $data['t1'] ?? 0;
                             $fin = $data['t2'] ?? 0;
-                            $emplacement = $data['c']['1'] ?? '';
-                            $penalites = $data['c']['2'] ?? 0;
-                            $evaluation = $data['c']['3'] ?? '';
+                            $depart = $data['c']['3'] ?? '';
+                            $penalites = (int)($data['c']['8'] ?? 0);
+                            $emplacement = $depart ?: 'Inconnu';
+                            $evaluation = $penalites > 0 ? 'Non conforme' : 'Conforme';
                             if (insertGlobalEvaluation($transporteur_id, $nom, $vehicule, $debut, $fin, $emplacement, $penalites, $evaluation)) {
                                 $count++;
                             }

@@ -118,10 +118,10 @@ $groupe_to_transporteur = array(
 );
 
 $tab_group = array(
-    'BOUTCHRAFINE' => 19022033, 'SOMATRIN' => 19596491, 'MARATRANS' => 19631505,
+    'BOUTCHRAFINE' => 12173650, 'SOMATRIN' => 30071668, 'MARATRANS' => 19631505,
     'G.T.C' => 19590737, 'DOUKALI' => 19585587, 'COTRAMAB' => 19585601,
     'CORYAD' => 19585581, 'CONSMETA' => 19629962, 'CHOUROUK' => 19630023,
-    'CARRE' => 19643391, 'STB' => 19585942, 'FASTTRANS' => 19635796
+    'CARRE' => 29440837, 'STB' => 26577266, 'FASTTRANS' => 19635796
 );
 
 $execution_start = date('Y-m-d H:i:s');
