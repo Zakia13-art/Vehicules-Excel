@@ -42,12 +42,12 @@ function cleanRepport($sid) {
     curl_close($curl);
 }
 
-function execRep($group, $sid, $from1, $to1) {
+function execRep($group, $sid, $from1, $to1, $templateId = 529) {
     $base_time = 1575503999;
     $from = ($base_time - ($from1 * 86400));
     $to = ($base_time - ($to1 * 86400));
     $curl = curl_init();
-    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":1,"reportObjectId":' . $group . ',"reportObjectSecId":0,"interval":{"from":' . $from . ',"to":' . $to . ',"flags":0}}&sid=' . $sid;
+    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":' . $templateId . ',"reportObjectId":' . $group . ',"reportObjectSecId":0,"interval":{"from":' . $from . ',"to":' . $to . ',"flags":0}}&sid=' . $sid;
     curl_setopt_array($curl, array(
         CURLOPT_URL => $Url,
         CURLOPT_RETURNTRANSFER => true,
@@ -118,10 +118,11 @@ $groupe_to_transporteur = array(
 );
 
 $tab_group = array(
-    'BOUTCHRAFINE' => 12173650, 'SOMATRIN' => 30071668, 'MARATRANS' => 19631505,
-    'G.T.C' => 19590737, 'DOUKALI' => 19585587, 'COTRAMAB' => 19585601,
-    'CORYAD' => 19585581, 'CONSMETA' => 19629962, 'CHOUROUK' => 19630023,
-    'CARRE' => 29440837, 'STB' => 26577266, 'FASTTRANS' => 19635796
+    'STE STB' => 26577266, 'SOTRAFOREST' => 26623545, 'SOMATRIN' => 30071668,
+    'MARATRANS' => 19631505, 'GTC CIMAT' => 30085013, 'FLEXILOG' => 23607333,
+    'FIRST LOGISTIQUE' => 23297975, 'FAYSSAL METAL' => 30066387, 'FAST TRANS' => 19635796,
+    'COTRAMAB' => 19585601, 'CORYAD' => 19585581, 'CIMATRAK' => 30105885,
+    'CHOUROUK' => 15125142, 'BOUTCHRAFIN_CIMAT' => 19022033, 'ANFAL' => 27720630
 );
 
 $execution_start = date('Y-m-d H:i:s');
@@ -155,9 +156,9 @@ for ($day = 0; $day <= 7; $day++) {
         cleanRepport($sid);
         sleep(1);
 
-        // Appel execRep avec timestamps directs
+        // Appel execRep avec Template ID 529 (Kilometrage)
         $curl = curl_init();
-        $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":1,"reportObjectId":' . $groupe_id . ',"reportObjectSecId":0,"interval":{"from":' . $date_from . ',"to":' . $date_to . ',"flags":0}}&sid=' . $sid;
+        $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":529,"reportObjectId":' . $groupe_id . ',"reportObjectSecId":0,"interval":{"from":' . $date_from . ',"to":' . $date_to . ',"flags":0}}&sid=' . $sid;
         curl_setopt_array($curl, array(
             CURLOPT_URL => $Url,
             CURLOPT_RETURNTRANSFER => true,

@@ -2,6 +2,13 @@
 require_once 'config.php';
 $pdo = getDB();
 
+// TOUS les transporteurs (même ceux sans données)
+$all_transporteurs = array(
+    'BOUTCHRAFINE', 'SOMATRIN', 'MARATRANS', 'G.T.C',
+    'DOUKALI', 'COTRAMAB', 'CORYAD', 'CONSMETA',
+    'CHOUROUK', 'CARRE', 'STB', 'FASTTRANS'
+);
+
 // Filtre par transporteur
 $transporteur_filter = $_GET['transporteur'] ?? '';
 $where = $transporteur_filter ? "WHERE transporteur_nom = '" . addslashes($transporteur_filter) . "'" : "";
@@ -9,8 +16,8 @@ $where = $transporteur_filter ? "WHERE transporteur_nom = '" . addslashes($trans
 $rows = $pdo->query("SELECT * FROM global_kilometrage $where ORDER BY debut DESC LIMIT 500")->fetchAll();
 $total_km = $pdo->query("SELECT SUM(kilometrage) FROM global_kilometrage $where")->fetchColumn();
 
-// Liste des transporteurs
-$transporteurs = $pdo->query("SELECT DISTINCT transporteur_nom FROM global_kilometrage ORDER BY transporteur_nom")->fetchAll(PDO::FETCH_COLUMN);
+// Utiliser tous les transporteurs pour le filtre
+$transporteurs = $all_transporteurs;
 ?>
 <!DOCTYPE html>
 <html lang="fr">

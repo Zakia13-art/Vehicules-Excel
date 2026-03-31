@@ -1,0 +1,75 @@
+======================================
+RAPPORT COMPLET - ETAT DES DONNÉES
+Généré le: 31/03/2026 10:57:17
+======================================
+
+KILOMÉTRAGE:
+----------------------------------------------------------------------
+  BOUTCHRAFINE    |  38 trajets |   6,700.00 km | Dernier: 2026-03-28 14:51:28
+  SOMATRIN        |   0 trajets |       0.00 km | Dernier: N/A
+  MARATRANS       |   0 trajets |       0.00 km | Dernier: N/A
+  G.T.C           |  16 trajets |   3,082.00 km | Dernier: 2026-03-30 17:40:22
+  DOUKALI         |   0 trajets |       0.00 km | Dernier: N/A
+  COTRAMAB        |   0 trajets |       0.00 km | Dernier: N/A
+  CORYAD          |   0 trajets |       0.00 km | Dernier: N/A
+  CONSMETA        |   0 trajets |       0.00 km | Dernier: N/A
+  CHOUROUK        |   0 trajets |       0.00 km | Dernier: N/A
+  CARRE           |   0 trajets |       0.00 km | Dernier: N/A
+  STB             |   0 trajets |       0.00 km | Dernier: N/A
+  FASTTRANS       |   0 trajets |       0.00 km | Dernier: N/A
+
+ÉVALUATION ÉCO-CONDUITE:
+----------------------------------------------------------------------
+  BOUTCHRAFINE    |  38 evals    |     0.00 pénalités | Dernier: 2026-03-28 14:51:28
+  SOMATRIN        |   0 evals    |     0.00 pénalités | Dernier: N/A
+  MARATRANS       |   0 evals    |     0.00 pénalités | Dernier: N/A
+  G.T.C           |  16 evals    |    12.00 pénalités | Dernier: 2026-03-30 17:40:22
+  DOUKALI         |   0 evals    |     0.00 pénalités | Dernier: N/A
+  COTRAMAB        |   0 evals    |     0.00 pénalités | Dernier: N/A
+  CORYAD          |   0 evals    |     0.00 pénalités | Dernier: N/A
+  CONSMETA        |   0 evals    |     0.00 pénalités | Dernier: N/A
+  CHOUROUK        |   0 evals    |     0.00 pénalités | Dernier: N/A
+  CARRE           |   0 evals    |     0.00 pénalités | Dernier: N/A
+  STB             |   0 evals    |     0.00 pénalités | Dernier: N/A
+  FASTTRANS       |   0 evals    |     0.00 pénalités | Dernier: N/A
+
+INFRACTIONS:
+----------------------------------------------------------------------
+  BOUTCHRAFINE    | ✅ Aucune           | Dernier: N/A
+  SOMATRIN        | ✅ Aucune           | Dernier: N/A
+  MARATRANS       | ✅ Aucune           | Dernier: N/A
+  G.T.C           | ⚠️ 1 infraction(s) | Dernier: 2026-03-28 12:24:10
+  DOUKALI         | ✅ Aucune           | Dernier: N/A
+  COTRAMAB        | ✅ Aucune           | Dernier: N/A
+  CORYAD          | ✅ Aucune           | Dernier: N/A
+  CONSMETA        | ✅ Aucune           | Dernier: N/A
+  CHOUROUK        | ✅ Aucune           | Dernier: N/A
+  CARRE           | ✅ Aucune           | Dernier: N/A
+  STB             | ✅ Aucune           | Dernier: N/A
+  FASTTRANS       | ✅ Aucune           | Dernier: N/A
+
+======================================================================
+TOTAL TOUTES TABLES CONFONDUES:
+======================================================================
+• Kilométrage: 54 enregistrements (9,782.00 km)
+• Évaluation: 54 enregistrements
+• Infractions: 1 enregistrements
+
+======================================
+DÉTAIL - DERNIERS TRAJETS PAR TRANSPORTEUR
+======================================
+
+【
+  • SHACMAN84401B15 | 2026-03-28 14:51:28 | 7 h 25 min | 310 km
+  • SHACMAN86695B15 | 2026-03-27 05:24:47 | 6 h 5 min | 106 km
+  • SHACMAN86695B15 | 2026-03-27 00:03:08 | 2 h 21 min | 106 km
+  • SHACMAN86695B15 | 2026-03-26 15:28:16 | 4 h 54 min | 115 km
+  • SHACMAN84401B15 | 2026-03-26 08:54:05 | 3 h 29 min | 115 km
+
+【
+  • 77642 | 2026-03-30 17:40:22 | 2 h 38 min | 126 km
+  • 33925 | 2026-03-30 17:22:06 | 3 h 24 min | 197 km
+  • 48933 | 2026-03-30 10:18:16 | 2 h 30 min | 103 km
+  • 85090 | 2026-03-28 14:00:17 | 2 h 37 min | 187 km
+  • 62221 | 2026-03-28 12:24:10 | 3 h 21 min | 167 km
+

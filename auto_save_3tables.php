@@ -175,18 +175,21 @@ function insertGlobalEvaluation($transporteur_id, $transporteur_nom, $vehicule, 
 // ========================================
 
 $tab_group = array(
-    'BOUTCHRAFINE' => array('id' => 12173650, 'transporteur_id' => 1),  // NOUVEAU ID
-    'SOMATRIN' => array('id' => 30071668, 'transporteur_id' => 2),      // NOUVEAU ID
-    'MARATRANS' => array('id' => 19631505, 'transporteur_id' => 3),
-    'G.T.C' => array('id' => 30085013, 'transporteur_id' => 4),
-    'DOUKALI' => array('id' => 19585587, 'transporteur_id' => 5),
-    'COTRAMAB' => array('id' => 19585601, 'transporteur_id' => 6),
-    'CORYAD' => array('id' => 19585581, 'transporteur_id' => 7),
-    'CONSMETA' => array('id' => 19629962, 'transporteur_id' => 8),
-    'CHOUROUK' => array('id' => 19630023, 'transporteur_id' => 9),
-    'CARRE' => array('id' => 29440837, 'transporteur_id' => 10),        // NOUVEAU ID
-    'STB' => array('id' => 26577266, 'transporteur_id' => 11),          // NOUVEAU ID
-    'FASTTRANS' => array('id' => 19635796, 'transporteur_id' => 12)
+    'STE STB' => array('id' => 26577266, 'transporteur_id' => 1),
+    'SOTRAFOREST' => array('id' => 26623545, 'transporteur_id' => 2),
+    'SOMATRIN' => array('id' => 30071668, 'transporteur_id' => 3),
+    'MARATRANS' => array('id' => 19631505, 'transporteur_id' => 4),
+    'GTC CIMAT' => array('id' => 30085013, 'transporteur_id' => 5),
+    'FLEXILOG' => array('id' => 23607333, 'transporteur_id' => 6),
+    'FIRST LOGISTIQUE' => array('id' => 23297975, 'transporteur_id' => 7),
+    'FAYSSAL METAL' => array('id' => 30066387, 'transporteur_id' => 8),
+    'FAST TRANS' => array('id' => 19635796, 'transporteur_id' => 9),
+    'COTRAMAB' => array('id' => 19585601, 'transporteur_id' => 10),
+    'CORYAD' => array('id' => 19585581, 'transporteur_id' => 11),
+    'CIMATRAK' => array('id' => 30105885, 'transporteur_id' => 12),
+    'CHOUROUK' => array('id' => 15125142, 'transporteur_id' => 13),
+    'BOUTCHRAFIN_CIMAT' => array('id' => 19022033, 'transporteur_id' => 14),
+    'ANFAL' => array('id' => 27720630, 'transporteur_id' => 15)
 );
 
 // ========================================
@@ -197,7 +200,7 @@ function processKilometrage($nom, $group, $sid, $from1, $to1) {
     $transporteur_id = $group['transporteur_id'];
     $group_id = $group['id'];
 
-    $tables = execRep($group_id, $sid, $from1, $to1, 1); // Template ID 1 (contient KM)
+    $tables = execRep($group_id, $sid, $from1, $to1, 529); // Template ID 529 (Kilométrage+Heures moteur cimat)
 
     if (!$tables) return 0;
 
@@ -238,7 +241,7 @@ function processInfractions($nom, $group, $sid, $from1, $to1) {
     $transporteur_id = $group['transporteur_id'];
     $group_id = $group['id'];
 
-    $tables = execRep($group_id, $sid, $from1, $to1, 1); // Template ID 1 (contient pénalités)
+    $tables = execRep($group_id, $sid, $from1, $to1, 36793); // Template ID 36793 (Eco-conduite cimat/infraction)
 
     if (!$tables) return 0;
 
@@ -279,7 +282,7 @@ function processEvaluation($nom, $group, $sid, $from1, $to1) {
     $transporteur_id = $group['transporteur_id'];
     $group_id = $group['id'];
 
-    $tables = execRep($group_id, $sid, $from1, $to1, 1); // Template ID 1 (contient pénalités)
+    $tables = execRep($group_id, $sid, $from1, $to1, 21146); // Template ID 21146 (Eco-conduite cimat/Evaluation)
 
     if (!$tables) return 0;
 

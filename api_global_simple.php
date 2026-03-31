@@ -15,14 +15,23 @@ define('TEMPLATE_KM', 4);
 define('TEMPLATE_INFRA', 2);
 define('TEMPLATE_EVAL', 7);
 
-// Tous les groups (Group IDs confirmés)
+// Tous les groups (Group IDs - CIMAT 2026)
 $tab_group = array(
-	'BOUTCHRAFINE' => 12173650,
+	'STE STB' => 26577266,
+	'SOTRAFOREST' => 26623545,
+	'SOMATRIN' => 30071668,
 	'MARATRANS' => 19631505,
+	'GTC CIMAT' => 30085013,
+	'FLEXILOG' => 23607333,
+	'FIRST LOGISTIQUE' => 23297975,
+	'FAYSSAL METAL' => 30066387,
+	'FAST TRANS' => 19635796,
 	'COTRAMAB' => 19585601,
 	'CORYAD' => 19585581,
-	'CHOUROUK' => 19630023,
-	'FASTTRANS' => 19635796
+	'CIMATRAK' => 30105885,
+	'CHOUROUK' => 15125142,
+	'BOUTCHRAFIN_CIMAT' => 19022033,
+	'ANFAL' => 27720630
 );
 
 // ========================================

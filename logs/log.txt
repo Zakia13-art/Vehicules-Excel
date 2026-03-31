@@ -38782,3 +38782,29 @@
 30-03-2026 17:05: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
 30-03-2026 17:05: erreur execRep 
 30-03-2026 17:05: erreur execRep 
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: BOUTCHRAFINE
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: BOUTCHRAFINE
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: BOUTCHRAFINE
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: BOUTCHRAFINE
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: BOUTCHRAFINE
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: BOUTCHRAFINE
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: BOUTCHRAFINE
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: BOUTCHRAFINE
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: BOUTCHRAFINE
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: BOUTCHRAFINE
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: BOUTCHRAFINE
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: Erreur insert trajet - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'transporteur_nom' in 'field list' - Véhicule: G.T.C
+31-03-2026 10:28: erreur execRep 
+31-03-2026 10:28: erreur execRep 

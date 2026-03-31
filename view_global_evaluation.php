@@ -2,13 +2,21 @@
 require_once 'config.php';
 $pdo = getDB();
 
+// TOUS les transporteurs (même ceux sans données)
+$all_transporteurs = array(
+    'BOUTCHRAFINE', 'SOMATRIN', 'MARATRANS', 'G.T.C',
+    'DOUKALI', 'COTRAMAB', 'CORYAD', 'CONSMETA',
+    'CHOUROUK', 'CARRE', 'STB', 'FASTTRANS'
+);
+
 $transporteur_filter = $_GET['transporteur'] ?? '';
 $where = $transporteur_filter ? "WHERE transporteur_nom = '" . addslashes($transporteur_filter) . "'" : "";
 
 $rows = $pdo->query("SELECT * FROM global_evaluation $where ORDER BY debut DESC LIMIT 500")->fetchAll();
 $total_penalites = $pdo->query("SELECT SUM(penalites) FROM global_evaluation $where")->fetchColumn();
 
-$transporteurs = $pdo->query("SELECT DISTINCT transporteur_nom FROM global_evaluation ORDER BY transporteur_nom")->fetchAll(PDO::FETCH_COLUMN);
+// Utiliser tous les transporteurs pour le filtre
+$transporteurs = $all_transporteurs;
 ?>
 <!DOCTYPE html>
 <html lang="fr">

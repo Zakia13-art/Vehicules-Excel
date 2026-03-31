@@ -9,7 +9,7 @@ echo "======================================\n";
 echo "IMPORT COMPLET - 60 DERNIERS JOURS\n";
 echo "======================================\n\n";
 
-// GROUPES AVEC NOUVEAUX IDS
+// GROUPES AVEC IDS ORIGINAUX (tous corrects)
 $tab_group = array(
 	'BOUTCHRAFINE' => 12173650,
 	'SOMATRIN' => 30071668,

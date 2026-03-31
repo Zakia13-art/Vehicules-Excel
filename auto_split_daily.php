@@ -103,18 +103,21 @@ function insertGlobalEvaluation($transporteur_id, $transporteur_nom, $vehicule, 
 }
 
 $tab_group = array(
-    'BOUTCHRAFINE' => array('id' => 12173650, 'transporteur_id' => 1),
-    'SOMATRIN' => array('id' => 30071668, 'transporteur_id' => 2),
-    'MARATRANS' => array('id' => 19631505, 'transporteur_id' => 3),
-    'G.T.C' => array('id' => 19590737, 'transporteur_id' => 4),
-    'DOUKALI' => array('id' => 19585587, 'transporteur_id' => 5),
-    'COTRAMAB' => array('id' => 19585601, 'transporteur_id' => 6),
-    'CORYAD' => array('id' => 19585581, 'transporteur_id' => 7),
-    'CONSMETA' => array('id' => 19629962, 'transporteur_id' => 8),
-    'CHOUROUK' => array('id' => 19630023, 'transporteur_id' => 9),
-    'CARRE' => array('id' => 29440837, 'transporteur_id' => 10),
-    'STB' => array('id' => 26577266, 'transporteur_id' => 11),
-    'FASTTRANS' => array('id' => 19635796, 'transporteur_id' => 12)
+    'STE STB' => array('id' => 26577266, 'transporteur_id' => 1),
+    'SOTRAFOREST' => array('id' => 26623545, 'transporteur_id' => 2),
+    'SOMATRIN' => array('id' => 30071668, 'transporteur_id' => 3),
+    'MARATRANS' => array('id' => 19631505, 'transporteur_id' => 4),
+    'GTC CIMAT' => array('id' => 30085013, 'transporteur_id' => 5),
+    'FLEXILOG' => array('id' => 23607333, 'transporteur_id' => 6),
+    'FIRST LOGISTIQUE' => array('id' => 23297975, 'transporteur_id' => 7),
+    'FAYSSAL METAL' => array('id' => 30066387, 'transporteur_id' => 8),
+    'FAST TRANS' => array('id' => 19635796, 'transporteur_id' => 9),
+    'COTRAMAB' => array('id' => 19585601, 'transporteur_id' => 10),
+    'CORYAD' => array('id' => 19585581, 'transporteur_id' => 11),
+    'CIMATRAK' => array('id' => 30105885, 'transporteur_id' => 12),
+    'CHOUROUK' => array('id' => 15125142, 'transporteur_id' => 13),
+    'BOUTCHRAFIN_CIMAT' => array('id' => 19022033, 'transporteur_id' => 14),
+    'ANFAL' => array('id' => 27720630, 'transporteur_id' => 15)
 );
 
 $execution_start = date('Y-m-d H:i:s');
@@ -148,11 +151,9 @@ foreach ($tab_group as $nom => $groupe) {
     $transporteur_id = $groupe['transporteur_id'];
     $group_id = $groupe['id'];
 
-    cleanRepport($sid);
-    sleep(1);
-
+    // 1. KILOMETRAGE (Template ID 529)
     $curl = curl_init();
-    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":1,"reportObjectId":' . $group_id . ',"reportObjectSecId":0,"interval":{"from":' . $date_from . ',"to":' . $date_to . ',"flags":0}}&sid=' . $sid;
+    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":529,"reportObjectId":' . $group_id . ',"reportObjectSecId":0,"interval":{"from":' . $date_from . ',"to":' . $date_to . ',"flags":0}}&sid=' . $sid;
     curl_setopt_array($curl, array(
         CURLOPT_URL => $Url,
         CURLOPT_RETURNTRANSFER => true,
@@ -174,11 +175,9 @@ foreach ($tab_group as $nom => $groupe) {
                         if (isset($row['r'])) {
                             foreach ($row['r'] as $data) {
                                 $vehicule = $data['c']['1'] ?? '';
-                                $parcour = $data['c']['2'] ?? '';
-                                $depart = $data['c']['3'] ?? '';
-                                $vers = $data['c']['4'] ?? '';
                                 $debut = $data['t1'] ?? 0;
                                 $fin = $data['t2'] ?? 0;
+                                $km = (float) str_replace("km", "", $data['c']['9'] ?? 0);
 
                                 $duree = '';
                                 if ($debut && $fin) {
@@ -188,11 +187,6 @@ foreach ($tab_group as $nom => $groupe) {
                                     $duree = sprintf('%02d:%02d', $heures, $minutes);
                                 }
 
-                                $penalit = $data['c']['8'] ?? 0;
-                                $km = (float) str_replace("km", "", $data['c']['9'] ?? 0);
-
-                                $emplacement = $depart . ' -> ' . $vers;
-
                                 if ($km > 0) {
                                     if (insertGlobalKilometrage($transporteur_id, $nom, $vehicule, $debut, $fin, $duree, $km)) {
                                         $total_km++;
@@ -200,23 +194,98 @@ foreach ($tab_group as $nom => $groupe) {
                                         $stats[$nom]['km']++;
                                     }
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    cleanRepport($sid);
+
+    // 2. INFRINGEMENTS (Template ID 36793)
+    $curl = curl_init();
+    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":36793,"reportObjectId":' . $group_id . ',"reportObjectSecId":0,"interval":{"from":' . $date_from . ',"to":' . $date_to . ',"flags":0}}&sid=' . $sid;
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => $Url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 60,
+        CURLOPT_SSL_VERIFYPEER => false,
+    ));
+    $response = curl_exec($curl);
+    curl_close($curl);
+
+    $v_det = json_decode($response, true);
+    if (isset($v_det['reportResult']['tables'])) {
+        $nbrtab = sizeof($v_det['reportResult']['tables']);
+        for ($t = 0; $t < $nbrtab; $t++) {
+            $rows = $v_det['reportResult']['tables'][$t]['rows'];
+            if ($rows > 0) {
+                $result = selectResultRows($t, $rows, $sid);
+                if (isset($result[0]['r'])) {
+                    foreach ($result as $row) {
+                        if (isset($row['r'])) {
+                            foreach ($row['r'] as $data) {
+                                $vehicule = $data['c']['1'] ?? '';
+                                $depart = $data['c']['3'] ?? '';
+                                $vers = $data['c']['4'] ?? '';
+                                $debut = $data['t1'] ?? 0;
+                                $fin = $data['t2'] ?? 0;
+                                $penalit = $data['c']['8'] ?? 0;
+                                $emplacement = $depart . ' -> ' . $vers;
 
                                 if ($penalit != 0 && $penalit != '-----' && $penalit != '') {
                                     if (insertGlobalInfraction($transporteur_id, $nom, $vehicule, $debut, $fin, $emplacement, $penalit)) {
                                         $total_infra++;
+                                        if (!isset($stats[$nom])) $stats[$nom] = array('km' => 0, 'infra' => 0, 'eval' => 0);
                                         $stats[$nom]['infra']++;
                                     }
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    cleanRepport($sid);
 
-                                $evaluation = 'BON';
-                                if ($penalit > 0 && $penalit != '-----') {
-                                    $evaluation = 'MAUVAIS';
-                                } elseif ($penalit == 0 || $penalit == '-----') {
-                                    $evaluation = 'BON';
-                                }
+    // 3. EVALUATION (Template ID 21146)
+    $curl = curl_init();
+    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":21146,"reportObjectId":' . $group_id . ',"reportObjectSecId":0,"interval":{"from":' . $date_from . ',"to":' . $date_to . ',"flags":0}}&sid=' . $sid;
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => $Url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 60,
+        CURLOPT_SSL_VERIFYPEER => false,
+    ));
+    $response = curl_exec($curl);
+    curl_close($curl);
+
+    $v_det = json_decode($response, true);
+    if (isset($v_det['reportResult']['tables'])) {
+        $nbrtab = sizeof($v_det['reportResult']['tables']);
+        for ($t = 0; $t < $nbrtab; $t++) {
+            $rows = $v_det['reportResult']['tables'][$t]['rows'];
+            if ($rows > 0) {
+                $result = selectResultRows($t, $rows, $sid);
+                if (isset($result[0]['r'])) {
+                    foreach ($result as $row) {
+                        if (isset($row['r'])) {
+                            foreach ($row['r'] as $data) {
+                                $vehicule = $data['c']['1'] ?? '';
+                                $depart = $data['c']['3'] ?? '';
+                                $vers = $data['c']['4'] ?? '';
+                                $debut = $data['t1'] ?? 0;
+                                $fin = $data['t2'] ?? 0;
+                                $penalit = $data['c']['8'] ?? 0;
+                                $emplacement = $depart . ' -> ' . $vers;
+
+                                $evaluation = ($penalit > 0) ? 'MAUVAIS' : 'BON';
 
                                 if (insertGlobalEvaluation($transporteur_id, $nom, $vehicule, $debut, $fin, $emplacement, $penalit, $evaluation)) {
                                     $total_eval++;
+                                    if (!isset($stats[$nom])) $stats[$nom] = array('km' => 0, 'infra' => 0, 'eval' => 0);
                                     $stats[$nom]['eval']++;
                                 }
                             }
@@ -226,6 +295,7 @@ foreach ($tab_group as $nom => $groupe) {
             }
         }
     }
+    cleanRepport($sid);
 }
 
 $execution_end = date('Y-m-d H:i:s');

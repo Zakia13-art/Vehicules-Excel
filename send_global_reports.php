@@ -245,6 +245,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupérer données depuis global tables
     $pdo = getDB();
 
+    // TOUS les transporteurs (même ceux sans données)
+    $all_transporteurs = array(
+        'BOUTCHRAFINE', 'SOMATRIN', 'MARATRANS', 'G.T.C',
+        'DOUKALI', 'COTRAMAB', 'CORYAD', 'CONSMETA',
+        'CHOUROUK', 'CARRE', 'STB', 'FASTTRANS'
+    );
+
     // ----------------------------------------
     // GÉNÉRER PDF - KILOMÉTRAGE
     // ----------------------------------------
@@ -422,10 +429,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // ========================================
 
 function buildPdfKilometrage($data, $period = 7) {
+    // Tous les transporteurs
+    $all_transporteurs = array(
+        'BOUTCHRAFINE', 'SOMATRIN', 'MARATRANS', 'G.T.C',
+        'DOUKALI', 'COTRAMAB', 'CORYAD', 'CONSMETA',
+        'CHOUROUK', 'CARRE', 'STB', 'FASTTRANS'
+    );
+
     $html = '<!DOCTYPE html><html><head><meta charset="UTF-8">
         <style>
             body{font-family:Arial,sans-serif;font-size:11px;color:#1e293b;margin:20px}
             h1{color:#667eea;border-bottom:3px solid #667eea;padding-bottom:10px;margin-top:0}
+            h2{color:#4f46e5;font-size:14px;margin-top:30px;margin-bottom:10px}
             table{width:100%;border-collapse:collapse;margin-top:20px}
             th,td{border:1px solid #e2e8f0;padding:10px;text-align:left}
             th{background:#667eea;color:#fff;font-weight:600}
@@ -433,14 +448,50 @@ function buildPdfKilometrage($data, $period = 7) {
             .total{background:#d5f4e6;padding:15px;margin-top:20px;font-weight:bold}
             .empty{background:#fff3cd;padding:20px;text-align:center;border-left:4px solid #f59e0b;margin-top:20px}
             .date-range{background:#e0f2fe;padding:10px;margin-bottom:20px;border-left:4px solid #0ea5e9}
+            .summary-table{margin-top:10px;margin-bottom:20px}
+            .summary-table th{background:#4f46e5}
+            .zero-data{color:#9ca3af;font-style:italic}
         </style>
     </head><body>
         <h1>📊 Rapport Kilométrage - Tous Transporteurs</h1>
         <p>Période: ' . $period . ' derniers jours (jusqu\'au ' . date('d/m/Y') . ') | Généré: ' . date('d/m/Y H:i') . '</p>';
 
+    // Grouper les données par transporteur
+    $by_transporteur = array();
+    foreach ($all_transporteurs as $t) {
+        $by_transporteur[$t] = array('count' => 0, 'km' => 0);
+    }
+    foreach ($data as $row) {
+        $trans = $row['transporteur_nom'];
+        if (isset($by_transporteur[$trans])) {
+            $by_transporteur[$trans]['count']++;
+            $by_transporteur[$trans]['km'] += $row['kilometrage'];
+        }
+    }
+
+    // Afficher le résumé par transporteur
+    $html .= '<h2>📋 Résumé par Transporteur</h2>';
+    $html .= '<table class="summary-table">
+        <thead><tr>
+            <th>Transporteur</th>
+            <th>Nombre de trajets</th>
+            <th>Kilométrage total</th>
+        </tr></thead><tbody>';
+    foreach ($all_transporteurs as $t) {
+        $count = $by_transporteur[$t]['count'];
+        $km = $by_transporteur[$t]['km'];
+        $class = $count == 0 ? 'zero-data' : '';
+        $html .= '<tr class="' . $class . '">
+            <td>' . htmlspecialchars($t) . '</td>
+            <td>' . $count . '</td>
+            <td>' . ($km > 0 ? number_format($km, 2) . ' km' : '-') . '</td>
+        </tr>';
+    }
+    $html .= '</tbody></table>';
+
     if (empty($data)) {
         $html .= '<div class="empty">
-            <strong>⚠️ Aucune donnée disponible</strong><br>
+            <strong>⚠️ Aucune donnée détaillée disponible</strong><br>
             Aucun enregistrement de kilométrage pour la période sélectionnée.
         </div>';
     } else {
@@ -451,6 +502,7 @@ function buildPdfKilometrage($data, $period = 7) {
             📅 Plage de données: <strong>' . $first_date . ' → ' . $last_date . '</strong>
         </div>';
 
+        $html .= '<h2>📝 Détail des Trajets</h2>';
         $html .= '<table>
             <thead><tr>
                 <th>Transporteur</th>
@@ -483,10 +535,18 @@ function buildPdfKilometrage($data, $period = 7) {
 }
 
 function buildPdfInfractions($data, $period = 7) {
+    // Tous les transporteurs
+    $all_transporteurs = array(
+        'BOUTCHRAFINE', 'SOMATRIN', 'MARATRANS', 'G.T.C',
+        'DOUKALI', 'COTRAMAB', 'CORYAD', 'CONSMETA',
+        'CHOUROUK', 'CARRE', 'STB', 'FASTTRANS'
+    );
+
     $html = '<!DOCTYPE html><html><head><meta charset="UTF-8">
         <style>
             body{font-family:Arial,sans-serif;font-size:11px;color:#1e293b;margin:20px}
             h1{color:#ef4444;border-bottom:3px solid #ef4444;padding-bottom:10px;margin-top:0}
+            h2{color:#dc2626;font-size:14px;margin-top:30px;margin-bottom:10px}
             table{width:100%;border-collapse:collapse;margin-top:20px}
             th,td{border:1px solid #e2e8f0;padding:10px;text-align:left}
             th{background:#ef4444;color:#fff;font-weight:600}
@@ -494,10 +554,43 @@ function buildPdfInfractions($data, $period = 7) {
             .total{background:#fee2e2;padding:15px;margin-top:20px;font-weight:bold}
             .empty{background:#d5f4e6;padding:20px;text-align:center;border-left:4px solid #22c55e;margin-top:20px}
             .date-range{background:#e0f2fe;padding:10px;margin-bottom:20px;border-left:4px solid #0ea5e9}
+            .summary-table{margin-top:10px;margin-bottom:20px}
+            .summary-table th{background:#dc2626}
+            .zero-data{color:#9ca3af;font-style:italic}
         </style>
     </head><body>
         <h1>⚠️ Rapport Infractions - Tous Transporteurs</h1>
         <p>Période: ' . $period . ' derniers jours (jusqu\'au ' . date('d/m/Y') . ') | Généré: ' . date('d/m/Y H:i') . '</p>';
+
+    // Grouper les données par transporteur
+    $by_transporteur = array();
+    foreach ($all_transporteurs as $t) {
+        $by_transporteur[$t] = 0;
+    }
+    foreach ($data as $row) {
+        $trans = $row['transporteur_nom'];
+        if (isset($by_transporteur[$trans])) {
+            $by_transporteur[$trans]++;
+        }
+    }
+
+    // Afficher le résumé par transporteur
+    $html .= '<h2>📋 Résumé par Transporteur</h2>';
+    $html .= '<table class="summary-table">
+        <thead><tr>
+            <th>Transporteur</th>
+            <th>Nombre d\'infractions</th>
+        </tr></thead><tbody>';
+    foreach ($all_transporteurs as $t) {
+        $count = $by_transporteur[$t];
+        $class = $count == 0 ? 'zero-data' : '';
+        $status = $count == 0 ? '✅ Aucune' : '⚠️ ' . $count;
+        $html .= '<tr class="' . $class . '">
+            <td>' . htmlspecialchars($t) . '</td>
+            <td>' . $status . '</td>
+        </tr>';
+    }
+    $html .= '</tbody></table>';
 
     if (empty($data)) {
         $html .= '<div class="empty">
@@ -512,6 +605,7 @@ function buildPdfInfractions($data, $period = 7) {
             📅 Plage de données: <strong>' . $first_date . ' → ' . $last_date . '</strong>
         </div>';
 
+        $html .= '<h2>📝 Détail des Infractions</h2>';
         $html .= '<table>
             <thead><tr>
                 <th>Transporteur</th>
@@ -542,10 +636,18 @@ function buildPdfInfractions($data, $period = 7) {
 }
 
 function buildPdfEvaluation($data, $period = 7) {
+    // Tous les transporteurs
+    $all_transporteurs = array(
+        'BOUTCHRAFINE', 'SOMATRIN', 'MARATRANS', 'G.T.C',
+        'DOUKALI', 'COTRAMAB', 'CORYAD', 'CONSMETA',
+        'CHOUROUK', 'CARRE', 'STB', 'FASTTRANS'
+    );
+
     $html = '<!DOCTYPE html><html><head><meta charset="UTF-8">
         <style>
             body{font-family:Arial,sans-serif;font-size:11px;color:#1e293b;margin:20px}
             h1{color:#9b59b6;border-bottom:3px solid #9b59b6;padding-bottom:10px;margin-top:0}
+            h2{color:#7c3aed;font-size:14px;margin-top:30px;margin-bottom:10px}
             table{width:100%;border-collapse:collapse;margin-top:20px}
             th,td{border:1px solid #e2e8f0;padding:10px;text-align:left}
             th{background:#9b59b6;color:#fff;font-weight:600}
@@ -556,10 +658,46 @@ function buildPdfEvaluation($data, $period = 7) {
             .total{background:#e8daef;padding:15px;margin-top:20px;font-weight:bold}
             .empty{background:#e0f2fe;padding:20px;text-align:center;border-left:4px solid #0ea5e9;margin-top:20px}
             .date-range{background:#e0f2fe;padding:10px;margin-bottom:20px;border-left:4px solid #0ea5e9}
+            .summary-table{margin-top:10px;margin-bottom:20px}
+            .summary-table th{background:#7c3aed}
+            .zero-data{color:#9ca3af;font-style:italic}
         </style>
     </head><body>
         <h1>📈 Rapport Évaluation Éco-conduite - Tous Transporteurs</h1>
         <p>Période: ' . $period . ' derniers jours (jusqu\'au ' . date('d/m/Y') . ') | Généré: ' . date('d/m/Y H:i') . '</p>';
+
+    // Grouper les données par transporteur
+    $by_transporteur = array();
+    foreach ($all_transporteurs as $t) {
+        $by_transporteur[$t] = array('count' => 0, 'penalites' => 0);
+    }
+    foreach ($data as $row) {
+        $trans = $row['transporteur_nom'];
+        if (isset($by_transporteur[$trans])) {
+            $by_transporteur[$trans]['count']++;
+            $by_transporteur[$trans]['penalites'] += $row['penalites'];
+        }
+    }
+
+    // Afficher le résumé par transporteur
+    $html .= '<h2>📋 Résumé par Transporteur</h2>';
+    $html .= '<table class="summary-table">
+        <thead><tr>
+            <th>Transporteur</th>
+            <th>Nombre d\'évaluations</th>
+            <th>Pénalités totales</th>
+        </tr></thead><tbody>';
+    foreach ($all_transporteurs as $t) {
+        $count = $by_transporteur[$t]['count'];
+        $pen = $by_transporteur[$t]['penalites'];
+        $class = $count == 0 ? 'zero-data' : '';
+        $html .= '<tr class="' . $class . '">
+            <td>' . htmlspecialchars($t) . '</td>
+            <td>' . $count . '</td>
+            <td>' . number_format($pen, 2) . '</td>
+        </tr>';
+    }
+    $html .= '</tbody></table>';
 
     if (empty($data)) {
         $html .= '<div class="empty">
@@ -574,6 +712,7 @@ function buildPdfEvaluation($data, $period = 7) {
             📅 Plage de données: <strong>' . $first_date . ' → ' . $last_date . '</strong>
         </div>';
 
+        $html .= '<h2>📝 Détail des Évaluations</h2>';
         $html .= '<table>
             <thead><tr>
                 <th>Transporteur</th>

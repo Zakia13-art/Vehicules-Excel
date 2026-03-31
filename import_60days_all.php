@@ -1,6 +1,6 @@
 <?php
 /**
- * Import 30 jours pour toutes les données
+ * Import 60 jours - TOUS les transporteurs
  */
 set_time_limit(1200);
 require_once __DIR__ . "/db.php";
@@ -143,7 +143,7 @@ $groups = array(
 );
 
 echo "======================================\n";
-echo "IMPORT 30 JOURS - AVEC EMPLACEMENT\n";
+echo "IMPORT 60 JOURS - TOUS LES TRANSPORTEURS\n";
 echo "======================================\n\n";
 
 $sid = sid();
@@ -153,7 +153,7 @@ if (!$sid) {
 }
 echo "Session OK\n\n";
 
-$from1 = 31; // 30 jours
+$from1 = 61; // 60 jours
 $to1 = 1;
 
 $total_km = 0;
