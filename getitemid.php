@@ -7,7 +7,7 @@
 require_once("db.php");
 
 // 🔐 TOKEN VALIDE
-define('WIALON_TOKEN', 'b6db68331b4b6ed14b61dbfeeaad9a0631CC23ABEEBB9CE43FB28DC0D4A13766308C1CFB');
+define('WIALON_TOKEN', 'b6db68331b4b6ed14b61dbfeeaad9a0605EA995CF621CE53D5C01A0A29C9FCFB6B2902A8');
 
 // Compteur global pour les trajets insérés
 $trajectcount = 0;
@@ -123,7 +123,7 @@ function execRep($group, $sid, $from1=0, $to1=0){
 	}
 
 	$curl = curl_init();
-	$Url='https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":1,"reportObjectId":'.$group.',"reportObjectSecId":0,"interval":{"from":'.$from.',"to":'.$to.',"flags":0}}&sid='.$sid;
+	$Url='https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":22861605,"reportTemplateId":1,"reportObjectId":'.$group.',"reportObjectSecId":0,"interval":{"from":'.$from.',"to":'.$to.',"flags":0}}&sid='.$sid;
 	
 	curl_setopt_array($curl, array(
 		CURLOPT_URL => $Url,

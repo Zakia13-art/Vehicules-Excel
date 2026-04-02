@@ -32,7 +32,7 @@ function log_sync($message, $type = 'INFO') {
 function get_wialon_session() {
     $curl = curl_init();
     curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://hst-api.wialon.com/wialon/ajax.html?svc=token/login&params={\"token\":\"b6db68331b4b6ed14b61dbfeeaad9a0631CC23ABEEBB9CE43FB28DC0D4A13766308C1CFB\"}",
+        CURLOPT_URL => "https://hst-api.wialon.com/wialon/ajax.html?svc=token/login&params={\"token\":\"b6db68331b4b6ed14b61dbfeeaad9a0605EA995CF621CE53D5C01A0A29C9FCFB6B2902A8\"}",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_TIMEOUT => 60,
         CURLOPT_SSL_VERIFYPEER => false,

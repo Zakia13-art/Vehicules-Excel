@@ -134,7 +134,7 @@ $to = time();
 $from = $to - (7 * 86400);
 
 $curl4 = curl_init();
-$url4 = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":1,"reportObjectId":19631505,"reportObjectSecId":0,"interval":{"from":' . $from . ',"to":' . $to . ',"flags":0}}&sid=' . $sid;
+$url4 = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":22861605,"reportTemplateId":1,"reportObjectId":19631505,"reportObjectSecId":0,"interval":{"from":' . $from . ',"to":' . $to . ',"flags":0}}&sid=' . $sid;
 
 curl_setopt_array($curl4, array(
     CURLOPT_URL => $url4,

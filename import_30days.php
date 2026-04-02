@@ -8,7 +8,7 @@ require_once __DIR__ . "/db.php";
 function sid() {
     $curl = curl_init();
     curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://hst-api.wialon.com/wialon/ajax.html?svc=token/login&params={\"token\":\"b6db68331b4b6ed14b61dbfeeaad9a0631CC23ABEEBB9CE43FB28DC0D4A13766308C1CFB\"}",
+        CURLOPT_URL => "https://hst-api.wialon.com/wialon/ajax.html?svc=token/login&params={\"token\":\"b6db68331b4b6ed14b61dbfeeaad9a0605EA995CF621CE53D5C01A0A29C9FCFB6B2902A8\"}",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_TIMEOUT => 60,
         CURLOPT_SSL_VERIFYPEER => false,
@@ -31,12 +31,39 @@ function cleanRepport($sid) {
     curl_close($curl);
 }
 
+function getUnitNameFromId($unitId, $sid) {
+    static $unitCache = array();
+
+    if (isset($unitCache[$unitId])) {
+        return $unitCache[$unitId];
+    }
+
+    $curl = curl_init();
+    $url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=core/search_item&params={"id":' . $unitId . ',"flags":1}&sid=' . $sid;
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_SSL_VERIFYPEER => false,
+    ));
+
+    $response = curl_exec($curl);
+    curl_close($curl);
+
+    $data = json_decode($response, true);
+    $name = isset($data['item']['nm']) ? $data['item']['nm'] : "Unit_$unitId";
+
+    $unitCache[$unitId] = $name;
+    return $name;
+}
+
 function execRep($group, $sid, $from1, $to1, $templateId = 1) {
     $to = time() - ($to1 * 86400);
     $from = time() - ($from1 * 86400);
 
     $curl = curl_init();
-    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":' . $templateId . ',"reportObjectId":' . $group . ',"reportObjectSecId":0,"interval":{"from":' . $from . ',"to":' . $to . ',"flags":0}}&sid=' . $sid;
+    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":22861605,"reportTemplateId":' . $templateId . ',"reportObjectId":' . $group . ',"reportObjectSecId":0,"interval":{"from":' . $from . ',"to":' . $to . ',"flags":0}}&sid=' . $sid;
 
     curl_setopt_array($curl, array(
         CURLOPT_URL => $Url,
@@ -170,29 +197,29 @@ foreach ($groups as $nom => $groupe) {
     $count_eval = 0;
     $count_infra = 0;
 
-    // 1. KILOMETRAGE (Template ID 529)
-    $tables_km = execRep($group_id, $sid, $from1, $to1, 529);
+    // 1. KILOMETRAGE (Template ID 44)
+    $tables_km = execRep($group_id, $sid, $from1, $to1, 44);
     if ($tables_km) {
         foreach ($tables_km as $tableIndex => $rowCount) {
             if ($rowCount > 0) {
                 $result = selectResultRows($tableIndex, $rowCount, $sid);
-                if (isset($result[0]['r'])) {
+                if (isset($result[0])) {
                     foreach ($result as $row) {
-                        if (isset($row['r'])) {
-                            foreach ($row['r'] as $data) {
-                                $vehicule = $data['c']['1'] ?? '';
-                                $debut = $data['t1'] ?? 0;
-                                $fin = $data['t2'] ?? 0;
-                                $km = $data['c']['9'] ?? 0;
+                        if (isset($row['c'])) {
+                            $c = $row['c'];
+                            $unit_code = $c[0] ?? '';
+                            $debut = isset($c[1]['v']) ? (int)$c[1]['v'] : (int)($row['t1'] ?? 0);
+                            $fin = isset($c[2]['v']) ? (int)$c[2]['v'] : (int)($row['t2'] ?? 0);
+                            $duree = $c[3] ?? '';
+                            $km_text = $c[4] ?? '0';
+                            $km = (float) preg_replace('/[^0-9.]/', '', $km_text);
 
-                                $diff_seconds = $fin - $debut;
-                                $hours = floor($diff_seconds / 3600);
-                                $minutes = floor(($diff_seconds % 3600) / 60);
-                                $duree = "$hours h $minutes min";
+                            // Obtenir le nom du véhicule
+                            $real_unit_id = isset($c[1]['u']) ? (int)$c[1]['u'] : 0;
+                            $vehicule = $real_unit_id > 0 ? getUnitNameFromId($real_unit_id, $sid) : "Unit_$unit_code";
 
-                                if (insertGlobalKilometrage($transporteur_id, $nom, $vehicule, $debut, $fin, $duree, $km)) {
-                                    $count_km++;
-                                }
+                            if (insertGlobalKilometrage($transporteur_id, $nom, $vehicule, $debut, $fin, $duree, $km)) {
+                                $count_km++;
                             }
                         }
                     }
@@ -202,27 +229,29 @@ foreach ($groups as $nom => $groupe) {
     }
     cleanRepport($sid);
 
-    // 2. EVALUATION (Template ID 21146)
-    $tables_eval = execRep($group_id, $sid, $from1, $to1, 21146);
+    // 2. EVALUATION (Template ID 45)
+    $tables_eval = execRep($group_id, $sid, $from1, $to1, 45);
     if ($tables_eval) {
         foreach ($tables_eval as $tableIndex => $rowCount) {
             if ($rowCount > 0) {
                 $result = selectResultRows($tableIndex, $rowCount, $sid);
-                if (isset($result[0]['r'])) {
+                if (isset($result[0])) {
                     foreach ($result as $row) {
-                        if (isset($row['r'])) {
-                            foreach ($row['r'] as $data) {
-                                $vehicule = $data['c']['1'] ?? '';
-                                $depart = $data['c']['3'] ?? '';
-                                $debut = $data['t1'] ?? 0;
-                                $fin = $data['t2'] ?? 0;
-                                $penalites = (int)($data['c']['8'] ?? 0);
-                                $emplacement = $depart ?: 'Inconnu';
-                                $evaluation = $penalites > 0 ? 'Non conforme' : 'Conforme';
+                        if (isset($row['c'])) {
+                            $c = $row['c'];
+                            $unit_code = $c[0] ?? '';
+                            $debut = isset($c[1]['v']) ? (int)$c[1]['v'] : (int)($row['t1'] ?? 0);
+                            $fin = isset($c[2]['v']) ? (int)$c[2]['v'] : (int)($row['t2'] ?? 0);
+                            $emplacement = isset($c[3]['t']) ? $c[3]['t'] : 'Inconnu';
+                            $penalites = (int)($c[4] ?? 0);
+                            $evaluation_text = $c[5] ?? '';
+                            $evaluation = !empty($evaluation_text) ? $evaluation_text : ($penalites > 0 ? 'Non conforme' : 'Conforme');
 
-                                if (insertGlobalEvaluation($transporteur_id, $nom, $vehicule, $debut, $fin, $emplacement, $penalites, $evaluation)) {
-                                    $count_eval++;
-                                }
+                            $real_unit_id = isset($c[1]['u']) ? (int)$c[1]['u'] : 0;
+                            $vehicule = $real_unit_id > 0 ? getUnitNameFromId($real_unit_id, $sid) : "Unit_$unit_code";
+
+                            if (insertGlobalEvaluation($transporteur_id, $nom, $vehicule, $debut, $fin, $emplacement, $penalites, $evaluation)) {
+                                $count_eval++;
                             }
                         }
                     }
@@ -232,27 +261,31 @@ foreach ($groups as $nom => $groupe) {
     }
     cleanRepport($sid);
 
-    // 3. INFRINGEMENTS (Template ID 36793)
-    $tables_infra = execRep($group_id, $sid, $from1, $to1, 36793);
+    // 3. INFRINGEMENTS (Template ID 43) - Les infractions sont dans row['r']
+    $tables_infra = execRep($group_id, $sid, $from1, $to1, 43);
     if ($tables_infra) {
         foreach ($tables_infra as $tableIndex => $rowCount) {
             if ($rowCount > 0) {
                 $result = selectResultRows($tableIndex, $rowCount, $sid);
-                if (isset($result[0]['r'])) {
+                if (isset($result[0])) {
                     foreach ($result as $row) {
-                        if (isset($row['r'])) {
-                            foreach ($row['r'] as $data) {
-                                $vehicule = $data['c']['1'] ?? '';
-                                $depart = $data['c']['3'] ?? '';
-                                $debut = $data['t1'] ?? 0;
-                                $fin = $data['t2'] ?? 0;
-                                $penalites = (int)($data['c']['8'] ?? 0);
-                                $emplacement = $depart ?: 'Inconnu';
+                        // Template 43: Les infractions sont dans row['r']
+                        if (isset($row['r']) && is_array($row['r'])) {
+                            foreach ($row['r'] as $infractionRow) {
+                                if (isset($infractionRow['c'])) {
+                                    $c = $infractionRow['c'];
+                                    $unit_code = $c[0] ?? '';
+                                    $real_unit_id = isset($c[1]['u']) ? (int)$c[1]['u'] : 0;
+                                    $debut = isset($c[1]['v']) ? (int)$c[1]['v'] : (int)($infractionRow['t1'] ?? 0);
+                                    $fin = isset($c[2]['v']) ? (int)$c[2]['v'] : (int)($infractionRow['t2'] ?? 0);
+                                    $emplacement = isset($c[3]['t']) ? $c[3]['t'] : 'Inconnu';
+                                    $infraction = $c[4] ?? '';
 
-                                if ($penalites > 0) {
-                                    $infraction = "$penalites pénalité(s)";
-                                    if (insertGlobalInfraction($transporteur_id, $nom, $vehicule, $debut, $fin, $emplacement, $infraction)) {
-                                        $count_infra++;
+                                    if (!empty($infraction) && $infraction !== '-----') {
+                                        $vehicule = $real_unit_id > 0 ? getUnitNameFromId($real_unit_id, $sid) : "Unit_$unit_code";
+                                        if (insertGlobalInfraction($transporteur_id, $nom, $vehicule, $debut, $fin, $emplacement, $infraction)) {
+                                            $count_infra++;
+                                        }
                                     }
                                 }
                             }

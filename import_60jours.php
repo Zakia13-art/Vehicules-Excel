@@ -31,7 +31,7 @@ function execRep60($group, $sid, $from1, $to1, $templateId = 1) {
     $from = time() - ($from1 * 86400);
 
     $curl = curl_init();
-    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":' . $templateId . ',"reportObjectId":' . $group . ',"reportObjectSecId":0,"interval":{"from":' . $from . ',"to":' . $to . ',"flags":0}}&sid=' . $sid;
+    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":22861605,"reportTemplateId":' . $templateId . ',"reportObjectId":' . $group . ',"reportObjectSecId":0,"interval":{"from":' . $from . ',"to":' . $to . ',"flags":0}}&sid=' . $sid;
 
     curl_setopt_array($curl, array(
         CURLOPT_URL => $Url,

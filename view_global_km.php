@@ -2,11 +2,12 @@
 require_once 'config.php';
 $pdo = getDB();
 
-// TOUS les transporteurs (même ceux sans données)
+// TOUS les transporteurs - CIMAT 2026 (15 groupes)
 $all_transporteurs = array(
-    'BOUTCHRAFINE', 'SOMATRIN', 'MARATRANS', 'G.T.C',
-    'DOUKALI', 'COTRAMAB', 'CORYAD', 'CONSMETA',
-    'CHOUROUK', 'CARRE', 'STB', 'FASTTRANS'
+    'STE STB', 'SOTRAFOREST', 'SOMATRIN', 'MARATRANS', 'GTC CIMAT',
+    'FLEXILOG', 'FIRST LOGISTIQUE', 'FAYSSAL METAL', 'FAST TRANS',
+    'COTRAMAB', 'CORYAD', 'CIMATRAK', 'CHOUROUK',
+    'BOUTCHRAFIN_CIMAT', 'ANFAL'
 );
 
 // Filtre par transporteur

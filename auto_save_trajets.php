@@ -14,7 +14,7 @@ function logAuto($message, $type = 'INFO') {
 function sid() {
     $curl = curl_init();
     curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://hst-api.wialon.com/wialon/ajax.html?svc=token/login&params={\"token\":\"b6db68331b4b6ed14b61dbfeeaad9a0631CC23ABEEBB9CE43FB28DC0D4A13766308C1CFB\"}",
+        CURLOPT_URL => "https://hst-api.wialon.com/wialon/ajax.html?svc=token/login&params={\"token\":\"b6db68331b4b6ed14b61dbfeeaad9a0605EA995CF621CE53D5C01A0A29C9FCFB6B2902A8\"}",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_TIMEOUT => 60,
         CURLOPT_SSL_VERIFYPEER => false,
@@ -47,7 +47,7 @@ function execRep($group, $sid, $from1, $to1, $templateId = 529) {
     $from = ($base_time - ($from1 * 86400));
     $to = ($base_time - ($to1 * 86400));
     $curl = curl_init();
-    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":' . $templateId . ',"reportObjectId":' . $group . ',"reportObjectSecId":0,"interval":{"from":' . $from . ',"to":' . $to . ',"flags":0}}&sid=' . $sid;
+    $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":22861605,"reportTemplateId":' . $templateId . ',"reportObjectId":' . $group . ',"reportObjectSecId":0,"interval":{"from":' . $from . ',"to":' . $to . ',"flags":0}}&sid=' . $sid;
     curl_setopt_array($curl, array(
         CURLOPT_URL => $Url,
         CURLOPT_RETURNTRANSFER => true,
@@ -158,7 +158,7 @@ for ($day = 0; $day <= 7; $day++) {
 
         // Appel execRep avec Template ID 529 (Kilometrage)
         $curl = curl_init();
-        $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":19907460,"reportTemplateId":529,"reportObjectId":' . $groupe_id . ',"reportObjectSecId":0,"interval":{"from":' . $date_from . ',"to":' . $date_to . ',"flags":0}}&sid=' . $sid;
+        $Url = 'https://hst-api.wialon.com/wialon/ajax.html?svc=report/exec_report&params={"reportResourceId":22861605,"reportTemplateId":44,"reportObjectId":' . $groupe_id . ',"reportObjectSecId":0,"interval":{"from":' . $date_from . ',"to":' . $date_to . ',"flags":0}}&sid=' . $sid;
         curl_setopt_array($curl, array(
             CURLOPT_URL => $Url,
             CURLOPT_RETURNTRANSFER => true,
