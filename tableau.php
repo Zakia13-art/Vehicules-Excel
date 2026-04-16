@@ -3,14 +3,10 @@ require_once 'config.php';
 require_once 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 $dataDir = 'C:/xampp/htdocs/vehicules/data/entreprises/';
-
-$filesEco = glob($dataDir . '*co-conduite*.xlsx');
-$filesEco = array_filter($filesEco, fn($f) => strpos(basename($f), '~$') === false);
-$filesKilo = glob($dataDir . '*Kilom*.xlsx');
-$fileKilo = !empty($filesKilo) ? $filesKilo[0] : null;
+$societes = array_filter(glob($dataDir . '*'), 'is_dir');
 $error = '';
-if (empty($filesEco) || !$fileKilo) {
-    $error = '❌ Fichiers manquants';
+if (empty($societes)) {
+    $error = '❌ Aucun dossier société trouvé';
 }
 
 function readExcelBySheetName(string $filePath, string $searchName): array {
@@ -134,65 +130,74 @@ function pill(string $status, string $label): string {
 
 $vehicules = [];
 if (empty($error)) {
-    $infractionData = [];
-    foreach ($filesEco as $file) {
-        // Lire uniquement le fichier d'infractions (pas besoin du fichier Évaluation)
-        if (stripos($file, 'infraction') !== false) {
-            $infractionData = array_merge($infractionData, readExcelBySheetName($file, 'rapport'));
-        }
-    }
-    $kiloData = readExcelBySheetName($fileKilo, 'Kilométrage');
     $normalize = function($str) {
         return trim(preg_replace('/\s+/', ' ', $str));
     };
-    $ecoMap = [];
-    foreach ($infractionData as $row) {
-        $reg = $row['Regroupement'] ?? '';
-        if ($reg === '') continue;
-        $regNorm = $normalize($reg);
-        if (!isset($ecoMap[$regNorm])) {
-            $ecoMap[$regNorm] = ['infractions' => 0];
+    foreach ($societes as $societeDir) {
+        $socName = strtoupper(basename($societeDir));
+        $filesEco = glob($societeDir . '/*co-conduite*.xlsx');
+        $filesEco = array_filter($filesEco, fn($f) => strpos(basename($f), '~$') === false);
+        $filesKilo = glob($societeDir . '/*Kilom*.xlsx');
+        $fileKilo = !empty($filesKilo) ? $filesKilo[0] : null;
+        if (empty($filesEco) || !$fileKilo) continue;
+
+        $infractionData = [];
+        foreach ($filesEco as $file) {
+            if (stripos($file, 'infraction') !== false) {
+                $infractionData = array_merge($infractionData, readExcelBySheetName($file, 'rapport'));
+            }
         }
-        $infr = $row['Infraction'] ?? '';
-        if ($infr !== '' && $infr !== '-----' && strtolower(trim($infr)) !== '----------') {
-            $ecoMap[$regNorm]['infractions']++;
+        $kiloData = readExcelBySheetName($fileKilo, 'Kilométrage');
+        $ecoMap = [];
+        foreach ($infractionData as $row) {
+            $reg = $row['Regroupement'] ?? '';
+            if ($reg === '') continue;
+            $regNorm = $normalize($reg);
+            if (!isset($ecoMap[$regNorm])) {
+                $ecoMap[$regNorm] = ['infractions' => 0];
+            }
+            $infr = $row['Infraction'] ?? '';
+            if ($infr !== '' && $infr !== '-----' && strtolower(trim($infr)) !== '----------') {
+                $ecoMap[$regNorm]['infractions']++;
+            }
         }
-    }
-    foreach ($kiloData as $row) {
-        $reg = $row['Regroupement'] ?? '';
-        if ($reg === '') continue;
-        $regNorm = $normalize($reg);
-        $infractions = $ecoMap[$regNorm]['infractions'] ?? 0;
-        $dureeVal = $row['Durée'] ?? '';
-        $kmVal = $row['Kilométrage'] ?? '';
-        $heures = parseDureeToHours($dureeVal);
-        $km = (float) preg_replace('/[^0-9.]/', '', $kmVal);
+        foreach ($kiloData as $row) {
+            $reg = $row['Regroupement'] ?? '';
+            if ($reg === '') continue;
+            $regNorm = $normalize($reg);
+            $infractions = $ecoMap[$regNorm]['infractions'] ?? 0;
+            $dureeVal = $row['Durée'] ?? '';
+            $kmVal = $row['Kilométrage'] ?? '';
+            $heures = parseDureeToHours($dureeVal);
+            $km = (float) preg_replace('/[^0-9.]/', '', $kmVal);
 
-        // Calculer B, C, D, E en premier (indépendants)
-        $scoreB = scoreAlertesCritiques($infractions);
-        $scoreC = scoreAlertesParKm($infractions, $km);
-        $scoreD = scoreHeuresConducte($heures);
-        $scoreE = scoreKilometrage($km);
+            // Calculer B, C, D, E en premier (indépendants)
+            $scoreB = scoreAlertesCritiques($infractions);
+            $scoreC = scoreAlertesParKm($infractions, $km);
+            $scoreD = scoreHeuresConducte($heures);
+            $scoreE = scoreKilometrage($km);
 
-        // Calculer F (dépend de D et E)
-        $scoreF = scoreChargeConducte($scoreD['score'], $scoreE['score']);
+            // Calculer F (dépend de D et E)
+            $scoreF = scoreChargeConducte($scoreD['score'], $scoreE['score']);
 
-        // Calculer A (dépend de B, C, F)
-        $scoreA = scoreNoteConduite((float)$scoreB['value'], (float)$scoreC['value'], (int)$scoreF['value']);
+            // Calculer A (dépend de B, C, F)
+            $scoreA = scoreNoteConduite((float)$scoreB['value'], (float)$scoreC['value'], (int)$scoreF['value']);
 
-        // Calculer G (dépend de A, B, C, F)
-        $scoreG = scoreRisqueGlobal((float)$scoreA['value'], (int)$scoreB['value'], (float)$scoreC['value'], $scoreF['status']);
+            // Calculer G (dépend de A, B, C, F)
+            $scoreG = scoreRisqueGlobal((float)$scoreA['value'], (int)$scoreB['value'], (float)$scoreC['value'], $scoreF['status']);
 
-        $vehicules[] = [
-            'nom' => $reg,
-            'note' => $scoreA['value'], 'note_s' => $scoreA['status'],
-            'alertes' => $scoreB['value'], 'alertes_s' => $scoreB['status'],
-            'al100' => $scoreC['value'], 'al100_s' => $scoreC['status'],
-            'heures' => $scoreD['value'], 'heures_s' => $scoreD['status'],
-            'km' => $scoreE['formatted'] . ' km', 'km_s' => $scoreE['status'],
-            'charge' => $scoreF['label'], 'charge_s' => $scoreF['status'],
-            'risque' => $scoreG['label'], 'risque_s' => $scoreG['status'],
-        ];
+            $vehicules[] = [
+                'societe' => $socName,
+                'nom' => $reg,
+                'note' => $scoreA['value'], 'note_s' => $scoreA['status'],
+                'alertes' => $scoreB['value'], 'alertes_s' => $scoreB['status'],
+                'al100' => $scoreC['value'], 'al100_s' => $scoreC['status'],
+                'heures' => $scoreD['value'], 'heures_s' => $scoreD['status'],
+                'km' => $scoreE['formatted'] . ' km', 'km_s' => $scoreE['status'],
+                'charge' => $scoreF['label'], 'charge_s' => $scoreF['status'],
+                'risque' => $scoreG['label'], 'risque_s' => $scoreG['status'],
+            ];
+        }
     }
     usort($vehicules, fn($a, $b) => strcmp($a['nom'], $b['nom']));
 }
@@ -202,7 +207,7 @@ if (empty($error)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapport Flotte Transport BOUTCHERAFIN</title>
+    <title>Rapport Flotte Transport</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -306,12 +311,27 @@ if (empty($error)) {
             font-family: 'DM Sans', sans-serif; transition: background .2s;
         }
         .send-actions .btn-cancel:hover { background: #f1f5f9; }
+        /* ── Filter Bar ── */
+        .filter-bar {
+            max-width: 1300px; margin: 0 auto 16px;
+            display: flex; align-items: center; gap: 12px;
+            background: #fff; border-radius: 10px; padding: 12px 18px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.06);
+        }
+        .filter-bar label { font-size: .85rem; font-weight: 600; color: #334155; white-space: nowrap; }
+        .filter-bar select {
+            padding: 8px 14px; font-size: .85rem; border: 2px solid #e2e8f0;
+            border-radius: 8px; outline: none; font-family: 'DM Sans', sans-serif;
+            background: #fff; color: #0f172a; cursor: pointer; min-width: 200px;
+            transition: border-color .2s;
+        }
+        .filter-bar select:focus { border-color: #3b82f6; }
     </style>
 </head>
 <body>
 <div class="page-header">
     <div>
-        <h1>Rapport Flotte Transport BOUTCHERAFIN</h1>
+        <h1>Rapport Flotte Transport</h1>
     </div>
     <div class="header-actions">
         <p>Indicateurs selon matrice CIMAT officielle · <?= date('d/m/Y H:i') ?></p>
@@ -319,6 +339,9 @@ if (empty($error)) {
             <button class="btn-send" onclick="sendReport()">
                 <span>📧</span> Envoyer le rapport
             </button>
+            <a href="parcours.php" class="btn-synthese" style="background:#1e293b;">
+                <span>🛣️</span> Parcours
+            </a>
             <a href="synthese.php" class="btn-synthese">
                 <span>📈</span> Voir Rapport Par Société
             </a>
@@ -330,6 +353,15 @@ if (empty($error)) {
     <div class="legende-item"><?= dot('vert') ?> Bon / Faible risque</div>
     <div class="legende-item"><?= dot('orange') ?> Moyen / Attention</div>
     <div class="legende-item"><?= dot('rouge') ?> Critique / Élevé</div>
+</div>
+<div class="filter-bar">
+    <label for="soc-filter">Société :</label>
+    <select id="soc-filter">
+        <option value="">— Toutes les sociétés —</option>
+        <?php foreach ($societes as $sDir): ?>
+            <option value="<?= htmlspecialchars(strtoupper(basename($sDir))) ?>"><?= htmlspecialchars(strtoupper(basename($sDir))) ?></option>
+        <?php endforeach; ?>
+    </select>
 </div>
 <?php if ($error): ?>
     <div class="error-box"><?= $error ?></div>
@@ -352,7 +384,7 @@ if (empty($error)) {
         </thead>
         <tbody>
         <?php foreach ($vehicules as $v): ?>
-            <tr>
+            <tr data-societe="<?= htmlspecialchars($v['societe']) ?>">
                 <td><?= htmlspecialchars($v['nom']) ?></td>
                 <td><div class="cell-indicator"><?= dot($v['note_s']) ?><?= htmlspecialchars((string)$v['note']) ?></div></td>
                 <td><div class="cell-indicator"><?= dot($v['alertes_s']) ?><?= htmlspecialchars((string)$v['alertes']) ?></div></td>
@@ -382,11 +414,18 @@ if (empty($error)) {
                        value="<?= htmlspecialchars(MAIL_TO) ?>" required>
             </div>
             <div class="form-group">
+                <label>Période de traitement</label>
+                <div style="display:flex;gap:10px;">
+                    <input type="date" name="date_from" value="2026-03-01" required style="flex:1;padding:11px 14px;font-size:.9rem;border:2px solid #e2e8f0;border-radius:8px;outline:none;font-family:'DM Sans',sans-serif;">
+                    <input type="date" name="date_to" value="2026-03-31" required style="flex:1;padding:11px 14px;font-size:.9rem;border:2px solid #e2e8f0;border-radius:8px;outline:none;font-family:'DM Sans',sans-serif;">
+                </div>
+            </div>
+            <div class="form-group">
                 <label>Tableaux à envoyer</label>
                 <button type="button" class="select-all-btn" id="select-all-btn">Tout sélectionner</button>
                 <div class="checkbox-group">
-                    <label><input type="checkbox" name="reports[]" value="flotte" checked> 🚗 Rapport Flotte Transport BOUTCHERAFIN</label>
-                    <label><input type="checkbox" name="reports[]" value="boutcherafin" checked> 🚛 BOUTCHERAFIN — Détail</label>
+                    <label><input type="checkbox" name="reports[]" value="flotte" checked> 🚗 Rapport Flotte Transport (toutes sociétés)</label>
+                    <label><input type="checkbox" name="reports[]" value="detail" checked> 🚛 Détail par véhicule (toutes sociétés)</label>
                     <label><input type="checkbox" name="reports[]" value="synthese" checked> 📈 Rapport Par Société</label>
                 </div>
             </div>
@@ -420,6 +459,13 @@ document.getElementById('select-all-btn').addEventListener('click', function() {
 });
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') document.getElementById('send-panel').classList.remove('active');
+});
+document.getElementById('soc-filter').addEventListener('change', function() {
+    var val = this.value;
+    var rows = document.querySelectorAll('table tbody tr[data-societe]');
+    rows.forEach(function(row) {
+        row.style.display = (val === '' || row.dataset.societe === val) ? '' : 'none';
+    });
 });
 </script>
 </body>

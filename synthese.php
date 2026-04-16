@@ -5,13 +5,10 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 
 $dataDir = 'C:/xampp/htdocs/vehicules/data/entreprises/';
-$filesEco = glob($dataDir . '*co-conduite*.xlsx');
-$filesEco = array_filter($filesEco, fn($f) => strpos(basename($f), '~$') === false);
-$filesKilo = glob($dataDir . '*Kilom*.xlsx');
-$fileKilo = !empty($filesKilo) ? $filesKilo[0] : null;
+$societes = array_filter(glob($dataDir . '*'), 'is_dir');
 $error = '';
-if (empty($filesEco) || !$fileKilo) {
-    $error = '❌ Fichiers manquants';
+if (empty($societes)) {
+    $error = '❌ Aucun dossier société trouvé';
 }
 
 function readExcelBySheetName(string $filePath, string $searchName): array {
@@ -113,82 +110,95 @@ function dot(string $status): string {
     return '<span class="dot" style="background:' . ($colors[$status] ?? '#d1d5db') . '"></span>';
 }
 
-$vehicules = [];
+$societesData = [];
 if (empty($error)) {
-    $infractionData = [];
-    foreach ($filesEco as $file) {
-        // Lire uniquement le fichier d'infractions
-        if (stripos($file, 'infraction') !== false) {
-            $infractionData = array_merge($infractionData, readExcelBySheetName($file, 'rapport'));
-        }
-    }
-    $kiloData = readExcelBySheetName($fileKilo, 'Kilométrage');
     $normalize = function($str) {
         return trim(preg_replace('/\s+/', ' ', $str));
     };
-    $ecoMap = [];
-    foreach ($infractionData as $row) {
-        $reg = $row['Regroupement'] ?? '';
-        if ($reg === '') continue;
-        $regNorm = $normalize($reg);
-        if (!isset($ecoMap[$regNorm])) {
-            $ecoMap[$regNorm] = ['infractions' => 0];
+    foreach ($societes as $societeDir) {
+        $socName = strtoupper(basename($societeDir));
+        $filesEco = glob($societeDir . '/*co-conduite*.xlsx');
+        $filesEco = array_filter($filesEco, fn($f) => strpos(basename($f), '~$') === false);
+        $filesKilo = glob($societeDir . '/*Kilom*.xlsx');
+        $fileKilo = !empty($filesKilo) ? $filesKilo[0] : null;
+        if (empty($filesEco) || !$fileKilo) continue;
+
+        $infractionData = [];
+        foreach ($filesEco as $file) {
+            if (stripos($file, 'infraction') !== false) {
+                $infractionData = array_merge($infractionData, readExcelBySheetName($file, 'rapport'));
+            }
         }
-        $infr = $row['Infraction'] ?? '';
-        if ($infr !== '' && $infr !== '-----' && strtolower(trim($infr)) !== '----------') {
-            $ecoMap[$regNorm]['infractions']++;
+        $kiloData = readExcelBySheetName($fileKilo, 'Kilométrage');
+        $ecoMap = [];
+        foreach ($infractionData as $row) {
+            $reg = $row['Regroupement'] ?? '';
+            if ($reg === '') continue;
+            $regNorm = $normalize($reg);
+            if (!isset($ecoMap[$regNorm])) {
+                $ecoMap[$regNorm] = ['infractions' => 0];
+            }
+            $infr = $row['Infraction'] ?? '';
+            if ($infr !== '' && $infr !== '-----' && strtolower(trim($infr)) !== '----------') {
+                $ecoMap[$regNorm]['infractions']++;
+            }
         }
-    }
-    foreach ($kiloData as $row) {
-        $reg = $row['Regroupement'] ?? '';
-        if ($reg === '') continue;
-        $regNorm = $normalize($reg);
-        $infractions = $ecoMap[$regNorm]['infractions'] ?? 0;
-        $dureeVal = $row['Durée'] ?? '';
-        $kmVal = $row['Kilométrage'] ?? '';
-        $heures = parseDureeToHours($dureeVal);
-        $km = (float) preg_replace('/[^0-9.]/', '', $kmVal);
+        $vehicules = [];
+        foreach ($kiloData as $row) {
+            $reg = $row['Regroupement'] ?? '';
+            if ($reg === '') continue;
+            $regNorm = $normalize($reg);
+            $infractions = $ecoMap[$regNorm]['infractions'] ?? 0;
+            $dureeVal = $row['Durée'] ?? '';
+            $kmVal = $row['Kilométrage'] ?? '';
+            $heures = parseDureeToHours($dureeVal);
+            $km = (float) preg_replace('/[^0-9.]/', '', $kmVal);
 
-        // Calculer B, C, D, E en premier (indépendants)
-        $scoreB = scoreAlertesCritiques($infractions);
-        $scoreC = scoreAlertesParKm($infractions, $km);
-        $scoreD = scoreHeuresConducte($heures);
-        $scoreE = scoreKilometrage($km);
+            $scoreB = scoreAlertesCritiques($infractions);
+            $scoreC = scoreAlertesParKm($infractions, $km);
+            $scoreD = scoreHeuresConducte($heures);
+            $scoreE = scoreKilometrage($km);
+            $scoreF = scoreChargeConducte($scoreD['score'], $scoreE['score']);
+            $scoreA = scoreNoteConduite((float)$scoreB['value'], (float)$scoreC['value'], (int)$scoreF['value']);
 
-        // Calculer F (dépend de D et E)
-        $scoreF = scoreChargeConducte($scoreD['score'], $scoreE['score']);
+            $vehicules[] = [
+                'note' => $scoreA['value'],
+                'alertes' => $scoreB['value'],
+                'alertes_s' => $scoreB['status'],
+                'al100' => $scoreC['value'],
+                'km' => $km,
+            ];
+        }
 
-        // Calculer A (dépend de B, C, F)
-        $scoreA = scoreNoteConduite((float)$scoreB['value'], (float)$scoreC['value'], (int)$scoreF['value']);
+        $nbVehicules = count($vehicules);
+        $totalNote = array_sum(array_column($vehicules, 'note'));
+        $totalAlertes = array_sum(array_column($vehicules, 'alertes'));
+        $totalKm = array_sum(array_column($vehicules, 'km'));
+        $totalAl100 = $totalKm > 0 ? round(($totalAlertes * 100) / $totalKm, 2) : 0;
+        $infractionsRouge = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'rouge'));
+        $infractionsOrange = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'orange'));
+        $infractionsVert = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'vert'));
 
-        $vehicules[] = [
-            'note' => $scoreA['value'],
-            'alertes' => $scoreB['value'],
-            'alertes_s' => $scoreB['status'],
-            'al100' => $scoreC['value'],
-            'km' => $km,
+        $societesData[] = [
+            'nom' => $socName,
+            'nbVehicules' => $nbVehicules,
+            'totalNote' => $totalNote,
+            'totalAlertes' => $totalAlertes,
+            'totalKm' => $totalKm,
+            'totalAl100' => $totalAl100,
+            'infractionsRouge' => $infractionsRouge,
+            'infractionsOrange' => $infractionsOrange,
+            'infractionsVert' => $infractionsVert,
         ];
     }
 }
-
-// Calculate company totals
-$nbVehicules = count($vehicules);
-$totalNote = array_sum(array_column($vehicules, 'note'));
-$totalAlertes = array_sum(array_column($vehicules, 'alertes'));
-$totalKm = array_sum(array_column($vehicules, 'km'));
-$totalAl100 = $totalKm > 0 ? round(($totalAlertes * 100) / $totalKm, 2) : 0;
-
-// Count vehicles by infraction status (Rouge/Orange/Vert based on alertes_s)
-$infractionsRouge = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'rouge'));
-$infractionsOrange = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'orange'));
-$infractionsVert = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'vert'));
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Synthèse Globale - BOUTCHERAFIN</title>
+    <title>Synthèse Globale</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -321,7 +331,7 @@ $infractionsVert = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 
 </div>
 <?php if ($error): ?>
     <div class="error-box"><?= $error ?></div>
-<?php elseif (empty($vehicules)): ?>
+<?php elseif (empty($societesData)): ?>
     <div class="error-box">⚠️ Aucune donnée trouvée</div>
 <?php else: ?>
 <div class="card">
@@ -343,21 +353,23 @@ $infractionsVert = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 
             </tr>
         </thead>
         <tbody>
+        <?php foreach ($societesData as $s): ?>
             <tr>
-                <td>BOUTCHERAFIN</td>
-                <td><?= $nbVehicules ?></td>
-                <td><?= number_format($totalNote, 0, ',', ' ') ?></td>
-                <td><?= $totalAlertes ?></td>
-                <td><?= number_format($totalKm, 0, ',', ' ') ?> Km</td>
-                <td><?= $totalAl100 ?></td>
-                <td><div class="cell-indicator"><?= dot('rouge') ?><?= $infractionsRouge ?></div></td>
-                <td><div class="cell-indicator"><?= dot('orange') ?><?= $infractionsOrange ?></div></td>
-                <td><div class="cell-indicator"><?= dot('vert') ?><?= $infractionsVert ?></div></td>
+                <td><?= htmlspecialchars($s['nom']) ?></td>
+                <td><?= $s['nbVehicules'] ?></td>
+                <td><?= number_format($s['totalNote'], 0, ',', ' ') ?></td>
+                <td><?= $s['totalAlertes'] ?></td>
+                <td><?= number_format($s['totalKm'], 0, ',', ' ') ?> Km</td>
+                <td><?= $s['totalAl100'] ?></td>
+                <td><div class="cell-indicator"><?= dot('rouge') ?><?= $s['infractionsRouge'] ?></div></td>
+                <td><div class="cell-indicator"><?= dot('orange') ?><?= $s['infractionsOrange'] ?></div></td>
+                <td><div class="cell-indicator"><?= dot('vert') ?><?= $s['infractionsVert'] ?></div></td>
             </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
 </div>
-<p class="meta">Rapport Par Société · <?= $nbVehicules ?> véhicule(s) · <?= date('d/m/Y H:i') ?></p>
+<p class="meta"><?= count($societesData) ?> société(s) · <?= date('d/m/Y H:i') ?></p>
 <?php endif; ?>
 
 <!-- ══ PANNEAU ENVOI ══ -->
@@ -373,11 +385,18 @@ $infractionsVert = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 
                        value="<?= htmlspecialchars(MAIL_TO) ?>" required>
             </div>
             <div class="form-group">
+                <label>Période de traitement</label>
+                <div style="display:flex;gap:10px;">
+                    <input type="date" name="date_from" value="2026-03-01" required style="flex:1;padding:11px 14px;font-size:.9rem;border:2px solid #e2e8f0;border-radius:8px;outline:none;font-family:'DM Sans',sans-serif;">
+                    <input type="date" name="date_to" value="2026-03-31" required style="flex:1;padding:11px 14px;font-size:.9rem;border:2px solid #e2e8f0;border-radius:8px;outline:none;font-family:'DM Sans',sans-serif;">
+                </div>
+            </div>
+            <div class="form-group">
                 <label>Tableaux à envoyer</label>
                 <button type="button" class="select-all-btn" id="select-all-btn">Tout sélectionner</button>
                 <div class="checkbox-group">
-                    <label><input type="checkbox" name="reports[]" value="flotte" checked> 🚗 Rapport Flotte Transport BOUTCHERAFIN</label>
-                    <label><input type="checkbox" name="reports[]" value="boutcherafin" checked> 🚛 BOUTCHERAFIN — Détail</label>
+                    <label><input type="checkbox" name="reports[]" value="flotte" checked> 🚗 Rapport Flotte Transport (toutes sociétés)</label>
+                    <label><input type="checkbox" name="reports[]" value="detail" checked> 🚛 Détail par véhicule (toutes sociétés)</label>
                     <label><input type="checkbox" name="reports[]" value="synthese" checked> 📈 Rapport Par Société</label>
                 </div>
             </div>

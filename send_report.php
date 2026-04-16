@@ -19,12 +19,17 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 $dateGeneration = date('d/m/Y à H:i');
 
+// ── Période de traitement ──────────────────────────────────
+$dateFrom = $_GET['date_from'] ?? '2026-03-01';
+$dateTo   = $_GET['date_to'] ?? '2026-03-31';
+$periodeLibelle = (new DateTime($dateFrom))->format('d/m/Y') . ' au ' . (new DateTime($dateTo))->format('d/m/Y');
+
 // ── Rapports demandés ─────────────────────────────────────
-$reports = $_GET['reports'] ?? ['flotte', 'boutcherafin', 'synthese'];
+$reports = $_GET['reports'] ?? ['flotte', 'detail', 'synthese'];
 if (!is_array($reports)) $reports = [$reports];
-$doFlotte   = in_array('flotte',       $reports);
-$doBoutch   = in_array('boutcherafin', $reports);
-$doSynthese = in_array('synthese',     $reports);
+$doFlotte   = in_array('flotte',  $reports);
+$doDetail   = in_array('detail',  $reports);
+$doSynthese = in_array('synthese', $reports);
 
 // ── Email destinataire ────────────────────────────────────
 $email_to = filter_var(trim($_GET['email_to'] ?? ''), FILTER_VALIDATE_EMAIL)
@@ -173,134 +178,141 @@ function colorCircleValue(string $color, int $value): string {
 }
 
 // ══════════════════════════════════════════════════════════
-// ── LECTURE FICHIERS EXCEL ────────────────────────────────
+// ── LECTURE FICHIERS EXCEL (par société) ──────────────────
 // ══════════════════════════════════════════════════════════
-$filesEco = glob($dataDir . '*co-conduite*.xlsx');
-$filesEco = array_filter($filesEco, fn($f) => strpos(basename($f), '~$') === false);
-$filesKilo = glob($dataDir . '*Kilom*.xlsx');
-$fileKilo = !empty($filesKilo) ? $filesKilo[0] : null;
+$societes = array_filter(glob($dataDir . '*'), 'is_dir');
 
-if (empty($filesEco) || !$fileKilo) {
+if (empty($societes)) {
     die('<div style="font-family:Arial;padding:30px;color:#dc2626;">
-         ❌ Fichier(s) Excel introuvable(s) dans <code>' . htmlspecialchars($dataDir) . '</code><br>
+         ❌ Aucun dossier société trouvé dans <code>' . htmlspecialchars($dataDir) . '</code><br>
          <a href="tableau.php" style="color:#2563eb;">← Retour</a></div>');
 }
-
-// Lire les infractions
-$infractionData = [];
-foreach ($filesEco as $file) {
-    if (stripos($file, 'infraction') !== false) {
-        $infractionData = array_merge($infractionData, readExcelBySheetName($file, 'rapport'));
-    }
-}
-$kiloData = readExcelBySheetName($fileKilo, 'Kilométrage');
 
 $normalize = function($str) {
     return trim(preg_replace('/\s+/', ' ', $str));
 };
 
-// Mapping infractions par véhicule
-$ecoMap = [];
-foreach ($infractionData as $row) {
-    $reg = $row['Regroupement'] ?? '';
-    if ($reg === '') continue;
-    $regNorm = $normalize($reg);
-    if (!isset($ecoMap[$regNorm])) {
-        $ecoMap[$regNorm] = ['infractions' => 0, 'infr_list' => []];
+// ── Données par société ───────────────────────────────────
+$societesVehicules = [];  // [socName => [vehicules...]]
+$societesDetail    = [];  // [socName => [rows...]]
+$societesSynthese  = [];  // [socName => [stats...]]
+
+foreach ($societes as $societeDir) {
+    $socName = strtoupper(basename($societeDir));
+    $filesEco = glob($societeDir . '/*co-conduite*.xlsx');
+    $filesEco = array_filter($filesEco, fn($f) => strpos(basename($f), '~$') === false);
+    $filesKilo = glob($societeDir . '/*Kilom*.xlsx');
+    $fileKilo = !empty($filesKilo) ? $filesKilo[0] : null;
+    if (empty($filesEco) || !$fileKilo) continue;
+
+    $infractionData = [];
+    foreach ($filesEco as $file) {
+        if (stripos($file, 'infraction') !== false) {
+            $infractionData = array_merge($infractionData, readExcelBySheetName($file, 'rapport'));
+        }
     }
-    $infr = $row['Infraction'] ?? '';
-    if ($infr !== '' && $infr !== '-----' && strtolower(trim($infr)) !== '----------') {
-        $ecoMap[$regNorm]['infractions']++;
-        $ecoMap[$regNorm]['infr_list'][] = $infr;
+    $kiloData = readExcelBySheetName($fileKilo, 'Kilométrage');
+
+    $ecoMap = [];
+    foreach ($infractionData as $row) {
+        $reg = $row['Regroupement'] ?? '';
+        if ($reg === '') continue;
+        $regNorm = $normalize($reg);
+        if (!isset($ecoMap[$regNorm])) {
+            $ecoMap[$regNorm] = ['infractions' => 0, 'infr_list' => []];
+        }
+        $infr = $row['Infraction'] ?? '';
+        if ($infr !== '' && $infr !== '-----' && strtolower(trim($infr)) !== '----------') {
+            $ecoMap[$regNorm]['infractions']++;
+            $ecoMap[$regNorm]['infr_list'][] = $infr;
+        }
     }
-}
 
-// Construction des données véhicules
-$vehicules  = [];
-$rowsBoutch = [];
+    $vehicules = [];
+    $rowsDetail = [];
 
-foreach ($kiloData as $row) {
-    $reg = $row['Regroupement'] ?? '';
-    if ($reg === '') continue;
-    $regNorm = $normalize($reg);
-    $infractions = $ecoMap[$regNorm]['infractions'] ?? 0;
-    $infrList = $ecoMap[$regNorm]['infr_list'] ?? [];
+    foreach ($kiloData as $row) {
+        $reg = $row['Regroupement'] ?? '';
+        if ($reg === '') continue;
+        $regNorm = $normalize($reg);
+        $infractions = $ecoMap[$regNorm]['infractions'] ?? 0;
+        $infrList = $ecoMap[$regNorm]['infr_list'] ?? [];
 
-    $dureeRaw = $row['Durée']       ?? '0';
-    $kmRaw    = $row['Kilométrage'] ?? '0';
-    $heures   = parseDureeToHours($dureeRaw);
-    $km       = (float) preg_replace('/[^0-9.]/', '', $kmRaw);
+        $dureeRaw = $row['Durée']       ?? '0';
+        $kmRaw    = $row['Kilométrage'] ?? '0';
+        $heures   = parseDureeToHours($dureeRaw);
+        $km       = (float) preg_replace('/[^0-9.]/', '', $kmRaw);
 
-    // Calcul dans le bon ordre : B,C,D,E → F → A → G
-    $scoreB = scoreAlertesCritiques($infractions);
-    $scoreC = scoreAlertesParKm($infractions, $km);
-    $scoreD = scoreHeuresConducte($heures);
-    $scoreE = scoreKilometrage($km);
-    $scoreF = scoreChargeConducte($scoreD['score'], $scoreE['score']);
-    $scoreA = scoreNoteConduite((float)$scoreB['value'], (float)$scoreC['value'], (int)$scoreF['value']);
-    $scoreG = scoreRisqueGlobal((float)$scoreA['value'], (int)$scoreB['value'], (float)$scoreC['value'], $scoreF['status']);
+        $scoreB = scoreAlertesCritiques($infractions);
+        $scoreC = scoreAlertesParKm($infractions, $km);
+        $scoreD = scoreHeuresConducte($heures);
+        $scoreE = scoreKilometrage($km);
+        $scoreF = scoreChargeConducte($scoreD['score'], $scoreE['score']);
+        $scoreA = scoreNoteConduite((float)$scoreB['value'], (float)$scoreC['value'], (int)$scoreF['value']);
+        $scoreG = scoreRisqueGlobal((float)$scoreA['value'], (int)$scoreB['value'], (float)$scoreC['value'], $scoreF['status']);
 
-    // Couleur des alertes pour colonnes Rouge/Orange/Vert
-    $alerts_vert = 0; $alerts_orange = 0; $alerts_rouge = 0;
-    if ($scoreB['status'] === 'vert') { $alerts_vert = $infractions; }
-    elseif ($scoreB['status'] === 'orange') { $alerts_orange = $infractions; }
-    else { $alerts_rouge = $infractions; }
+        $alerts_vert = 0; $alerts_orange = 0; $alerts_rouge = 0;
+        if ($scoreB['status'] === 'vert') { $alerts_vert = $infractions; }
+        elseif ($scoreB['status'] === 'orange') { $alerts_orange = $infractions; }
+        else { $alerts_rouge = $infractions; }
 
-    $vehicules[] = [
-        'nom'      => $reg,
-        'note'     => $scoreA['value'],    'note_s'    => $scoreA['status'],
-        'alertes'  => $scoreB['value'],    'alertes_s' => $scoreB['status'],
-        'al100'    => $scoreC['value'],    'al100_s'   => $scoreC['status'],
-        'heures'   => $scoreD['value'],    'heures_s'  => $scoreD['status'],
-        'km'       => $scoreE['formatted'] . ' km', 'km_s' => $scoreE['status'],
-        'charge'   => $scoreF['label'],    'charge_s'  => $scoreF['status'],
-        'risque'   => $scoreG['label'],    'risque_s'  => $scoreG['status'],
-        'km_raw'   => $km,
-        'alerts_vert'   => $alerts_vert,
-        'alerts_orange' => $alerts_orange,
-        'alerts_rouge'  => $alerts_rouge,
+        $vehicules[] = [
+            'nom'      => $reg,
+            'note'     => $scoreA['value'],    'note_s'    => $scoreA['status'],
+            'alertes'  => $scoreB['value'],    'alertes_s' => $scoreB['status'],
+            'al100'    => $scoreC['value'],    'al100_s'   => $scoreC['status'],
+            'heures'   => $scoreD['value'],    'heures_s'  => $scoreD['status'],
+            'km'       => $scoreE['formatted'] . ' km', 'km_s' => $scoreE['status'],
+            'charge'   => $scoreF['label'],    'charge_s'  => $scoreF['status'],
+            'risque'   => $scoreG['label'],    'risque_s'  => $scoreG['status'],
+            'km_raw'   => $km,
+            'alerts_vert'   => $alerts_vert,
+            'alerts_orange' => $alerts_orange,
+            'alerts_rouge'  => $alerts_rouge,
+        ];
+
+        $uniqInfr = array_unique($infrList);
+        $rowsDetail[] = [
+            'vehicule'    => $reg,
+            'infraction'  => !empty($uniqInfr) ? implode(' / ', $uniqInfr) : '—',
+            'duree'       => $dureeRaw,
+            'kilometrage' => $kmRaw,
+            'alerts_vert'   => $alerts_vert,
+            'alerts_orange' => $alerts_orange,
+            'alerts_rouge'  => $alerts_rouge,
+        ];
+    }
+
+    usort($vehicules, fn($a, $b) => strcmp($a['nom'], $b['nom']));
+    usort($rowsDetail, fn($a, $b) => strcmp($a['vehicule'], $b['vehicule']));
+
+    $societesVehicules[$socName] = $vehicules;
+    $societesDetail[$socName] = $rowsDetail;
+
+    // Synthèse par société
+    $nbV = count($vehicules);
+    $totalNote = $totalKm = $totalInfr = 0;
+    foreach ($vehicules as $v) {
+        $totalNote += $v['note'];
+        $totalKm   += $v['km_raw'];
+        $totalInfr += $v['alertes'];
+    }
+    $totalAl100 = $totalKm > 0 ? round(($totalInfr * 100) / $totalKm, 2) : 0;
+    $countRouge  = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'rouge'));
+    $countOrange = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'orange'));
+    $countVert   = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'vert'));
+
+    $societesSynthese[$socName] = [
+        'nb'           => $nbV,
+        'total_note'   => number_format($totalNote, 0, ',', ' '),
+        'total_infr'   => $totalInfr,
+        'total_km'     => number_format($totalKm, 0, ',', ' ') . ' Km',
+        'moy100'       => $totalAl100,
+        'count_rouge'  => $countRouge,
+        'count_orange' => $countOrange,
+        'count_vert'   => $countVert,
     ];
-
-    $uniqInfr = array_unique($infrList);
-    $rowsBoutch[] = [
-        'vehicule'    => $reg,
-        'infraction'  => !empty($uniqInfr) ? implode(' / ', $uniqInfr) : '—',
-        'duree'       => $dureeRaw,
-        'kilometrage' => $kmRaw,
-        'alerts_vert'   => $alerts_vert,
-        'alerts_orange' => $alerts_orange,
-        'alerts_rouge'  => $alerts_rouge,
-    ];
 }
-
-usort($vehicules, fn($a, $b) => strcmp($a['nom'], $b['nom']));
-usort($rowsBoutch, fn($a, $b) => strcmp($a['vehicule'], $b['vehicule']));
-
-// Calculs synthèse
-$nbV = count($vehicules);
-$totalNote = $totalKm = $totalInfr = 0;
-foreach ($vehicules as $v) {
-    $totalNote += $v['note'];
-    $totalKm   += $v['km_raw'];
-    $totalInfr += $v['alertes'];
-}
-$totalAl100 = $totalKm > 0 ? round(($totalInfr * 100) / $totalKm, 2) : 0;
-
-// Comptage véhicules par couleur d'alertes
-$countRouge = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'rouge'));
-$countOrange = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'orange'));
-$countVert = count(array_filter($vehicules, fn($v) => $v['alertes_s'] === 'vert'));
-
-$synthese = [
-    'nb'            => $nbV,
-    'total_note'    => number_format($totalNote, 0, ',', ' '),
-    'total_infr'    => $totalInfr,
-    'total_km'      => number_format($totalKm, 0, ',', ' ') . ' Km',
-    'moy100'        => $totalAl100,
-    'count_rouge'   => $countRouge,
-    'count_orange'  => $countOrange,
-    'count_vert'    => $countVert,
-];
 
 // ══════════════════════════════════════════════════════════
 // ── CSS COMMUN ────────────────────────────────────────────
@@ -326,8 +338,8 @@ $css = '
 // ── BUILDERS PDF ──────────────────────────────────────────
 // ══════════════════════════════════════════════════════════
 
-// ── 1. Rapport Flotte Transport BOUTCHERAFIN ──────────────
-function buildHtmlFlotte(array $rows, string $date, string $css): string {
+// ── 1. Rapport Flotte Transport (par société) ─────────────
+function buildHtmlFlotte(array $rows, string $socName, string $date, string $css, string $periode): string {
     $lignes = '';
     foreach ($rows as $v) {
         $lignes .= '<tr>
@@ -341,22 +353,23 @@ function buildHtmlFlotte(array $rows, string $date, string $css): string {
             <td style="text-align:center;">' . pillPdf($v['risque_s'], $v['risque'])          . '</td>
         </tr>';
     }
+    $titre = 'Rapport Flotte Transport ' . htmlspecialchars($socName);
     return '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><style>' . $css . '</style></head><body>
-    <div class="header"><h1>Rapport Flotte Transport BOUTCHERAFIN</h1><p>Indicateurs selon matrice CIMAT officielle &mdash; Généré le ' . $date . '</p></div>
+    <div class="header"><h1>' . $titre . '</h1><p>Indicateurs selon matrice CIMAT officielle &mdash; Période : ' . $periode . ' &mdash; Généré le ' . $date . '</p></div>
     <table class="data"><thead><tr>
         <th style="text-align:center;">Véhicule</th><th style="text-align:center;">Note /100 </th><th style="text-align:center;">Alertes CRIT </th><th style="text-align:center;">Alertes /100km </th>
         <th style="text-align:center;">Heures </th><th style="text-align:center;">Km </th><th style="text-align:center;">Charge </th><th style="text-align:center;">Risque </th>
     </tr></thead><tbody>' . $lignes . '</tbody></table>
-    <div class="footer">Rapport Flotte Transport BOUTCHERAFIN &middot; ' . count($rows) . ' véhicule(s) &middot; ' . $date . '</div>
+    <div class="footer">' . $titre . ' &middot; ' . count($rows) . ' véhicule(s) &middot; ' . $date . '</div>
     </body></html>';
 }
 
-// ── 2. BOUTCHERAFIN Détail ────────────────────────────────
-function buildHtmlBoutch(array $rows, string $date, string $css): string {
+// ── 2. Détail par société ─────────────────────────────────
+function buildHtmlDetail(array $rows, string $socName, string $date, string $css, string $periode): string {
     $lignes = '';
     foreach ($rows as $v) {
         $lignes .= '<tr>
-            <td style="font-weight:700;color:#0f172a;">BOUTCHERAFIN</td>
+            <td style="font-weight:700;color:#0f172a;">' . htmlspecialchars($socName) . '</td>
             <td>' . htmlspecialchars($v['vehicule'])    . '</td>
             <td style="font-size:10px;">' . htmlspecialchars($v['infraction']) . '</td>
             <td>' . htmlspecialchars($v['duree'])       . '</td>
@@ -366,8 +379,9 @@ function buildHtmlBoutch(array $rows, string $date, string $css): string {
             <td>' . colorCircleValue('vert',   $v['alerts_vert'])   . '</td>
         </tr>';
     }
+    $titre = htmlspecialchars($socName) . ' — Détail par véhicule';
     return '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><style>' . $css . '</style></head><body>
-    <div class="header"><h1>BOUTCHERAFIN — Détail par véhicule</h1><p>Source : fichiers Excel &mdash; Généré le ' . $date . '</p></div>
+    <div class="header"><h1>' . $titre . '</h1><p>Source : fichiers Excel &mdash; Période : ' . $periode . ' &mdash; Généré le ' . $date . '</p></div>
     <table class="data"><thead>
         <tr>
             <th>Entreprise</th><th>Véhicule</th><th>Infractions</th><th>Durée</th><th>Kilométrage</th><th colspan="3" style="text-align:center;">Couleur</th>
@@ -379,29 +393,34 @@ function buildHtmlBoutch(array $rows, string $date, string $css): string {
             <th style="color:#22c55e;">Vert</th>
         </tr>
     </thead><tbody>' . $lignes . '</tbody></table>
-    <div class="footer">BOUTCHERAFIN &middot; ' . count($rows) . ' véhicule(s) &middot; ' . $date . '</div>
+    <div class="footer">' . htmlspecialchars($socName) . ' &middot; ' . count($rows) . ' véhicule(s) &middot; ' . $date . '</div>
     </body></html>';
 }
 
-// ── 3. Rapport Par Société ────────────────────────────────
-function buildHtmlSynthese(array $s, string $date, string $css): string {
-    $ligne = '<tr>
-        <td style="font-weight:700;color:#0f172a;text-align:center;">BOUTCHERAFIN</td>
-        <td style="text-align:center;color:#1d4ed8;font-weight:600;">' . $s['nb']         . ' véhicules</td>
-        <td style="text-align:center;color:#166534;font-weight:600;">' . $s['total_note']  . '</td>
-        <td style="text-align:center;color:#991b1b;font-weight:600;">' . $s['total_infr']  . '</td>
-        <td style="text-align:center;color:#1d4ed8;font-weight:600;">' . $s['total_km']    . '</td>
-        <td style="text-align:center;color:#854d0e;font-weight:600;">' . $s['moy100']      . '</td>
-        <td style="text-align:center;">' . colorCircleValue('rouge',  $s['count_rouge'])  . '</td>
-        <td style="text-align:center;">' . colorCircleValue('orange', $s['count_orange']) . '</td>
-        <td style="text-align:center;">' . colorCircleValue('vert',   $s['count_vert'])   . '</td>
-    </tr>';
+// ── 3. Rapport Par Société (toutes les sociétés) ──────────
+function buildHtmlSynthese(array $societesSynthese, string $date, string $css, string $periode): string {
+    $lignes = '';
+    $totalVehicules = 0;
+    foreach ($societesSynthese as $socName => $s) {
+        $lignes .= '<tr>
+            <td style="font-weight:700;color:#0f172a;text-align:center;">' . htmlspecialchars($socName) . '</td>
+            <td style="text-align:center;color:#1d4ed8;font-weight:600;">' . $s['nb']         . ' véhicules</td>
+            <td style="text-align:center;color:#166534;font-weight:600;">' . $s['total_note']  . '</td>
+            <td style="text-align:center;color:#991b1b;font-weight:600;">' . $s['total_infr']  . '</td>
+            <td style="text-align:center;color:#1d4ed8;font-weight:600;">' . $s['total_km']    . '</td>
+            <td style="text-align:center;color:#854d0e;font-weight:600;">' . $s['moy100']      . '</td>
+            <td style="text-align:center;">' . colorCircleValue('rouge',  $s['count_rouge'])  . '</td>
+            <td style="text-align:center;">' . colorCircleValue('orange', $s['count_orange']) . '</td>
+            <td style="text-align:center;">' . colorCircleValue('vert',   $s['count_vert'])   . '</td>
+        </tr>';
+        $totalVehicules += $s['nb'];
+    }
     return '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><style>' . $css . '
     table.data { table-layout: fixed; }
     table.data th { padding: 10px 8px; }
     table.data td { padding: 10px 8px; }
     </style></head><body>
-    <div class="header"><h1>Rapport Par Société</h1><p>Totaux calculés depuis les fichiers Excel &mdash; Généré le ' . $date . '</p></div>
+    <div class="header"><h1>Rapport Par Société</h1><p>Totaux calculés depuis les fichiers Excel &mdash; Période : ' . $periode . ' &mdash; Généré le ' . $date . '</p></div>
     <table class="data"><thead>
         <tr>
             <th style="text-align:center;">Entreprise</th><th style="text-align:center;">Nb véhicules</th><th style="text-align:center;">Total Note /100</th>
@@ -414,8 +433,8 @@ function buildHtmlSynthese(array $s, string $date, string $css): string {
             <th style="text-align:center;color:#f97316;">Orange</th>
             <th style="text-align:center;color:#22c55e;">Vert</th>
         </tr>
-    </thead><tbody>' . $ligne . '</tbody></table>
-    <div class="footer">Rapport Par Société &middot; ' . $s['nb'] . ' véhicule(s) &middot; ' . $date . '</div>
+    </thead><tbody>' . $lignes . '</tbody></table>
+    <div class="footer">Rapport Par Société &middot; ' . $totalVehicules . ' véhicule(s) &middot; ' . $date . '</div>
     </body></html>';
 }
 
@@ -434,62 +453,80 @@ function generatePdf(string $html, string $filename): string {
 
 $pdfFiles = [];
 try {
-    if ($doFlotte && !empty($vehicules)) {
-        $name = 'rapport_flotte_boutcherafin_' . date('Ymd_Hi') . '.pdf';
-        $pdfFiles[] = ['path' => generatePdf(buildHtmlFlotte($vehicules, $dateGeneration, $css), $name),
-                       'name' => $name, 'label' => '🚗 Rapport Flotte Transport BOUTCHERAFIN'];
+    foreach ($societesVehicules as $socName => $vehicules) {
+        if ($doFlotte && !empty($vehicules)) {
+            $safeName = strtolower(preg_replace('/[^a-zA-Z0-9]/', '_', $socName));
+            $name = 'rapport_flotte_' . $safeName . '_' . date('Ymd_Hi') . '.pdf';
+            $pdfFiles[] = ['path' => generatePdf(buildHtmlFlotte($vehicules, $socName, $dateGeneration, $css, $periodeLibelle), $name),
+                           'name' => $name, 'label' => '🚗 Rapport Flotte Transport ' . $socName];
+        }
     }
-    if ($doBoutch && !empty($rowsBoutch)) {
-        $name = 'rapport_boutcherafin_detail_' . date('Ymd_Hi') . '.pdf';
-        $pdfFiles[] = ['path' => generatePdf(buildHtmlBoutch($rowsBoutch, $dateGeneration, $css), $name),
-                       'name' => $name, 'label' => '🚛 BOUTCHERAFIN — Détail'];
+    foreach ($societesDetail as $socName => $rows) {
+        if ($doDetail && !empty($rows)) {
+            $safeName = strtolower(preg_replace('/[^a-zA-Z0-9]/', '_', $socName));
+            $name = 'rapport_' . $safeName . '_detail_' . date('Ymd_Hi') . '.pdf';
+            $pdfFiles[] = ['path' => generatePdf(buildHtmlDetail($rows, $socName, $dateGeneration, $css, $periodeLibelle), $name),
+                           'name' => $name, 'label' => '🚛 ' . $socName . ' — Détail'];
+        }
     }
-    if ($doSynthese && $synthese) {
+    if ($doSynthese && !empty($societesSynthese)) {
         $name = 'rapport_par_societe_' . date('Ymd_Hi') . '.pdf';
-        $pdfFiles[] = ['path' => generatePdf(buildHtmlSynthese($synthese, $dateGeneration, $css), $name),
+        $pdfFiles[] = ['path' => generatePdf(buildHtmlSynthese($societesSynthese, $dateGeneration, $css, $periodeLibelle), $name),
                        'name' => $name, 'label' => '📈 Rapport Par Société'];
     }
+
 } catch (\Exception $e) {
     die('❌ Erreur génération PDF : ' . htmlspecialchars($e->getMessage()));
 }
 
-if (empty($pdfFiles)) {
+$allPdfs = $pdfFiles;
+if (empty($allPdfs)) {
     die('<div style="font-family:Arial;padding:30px;color:#dc2626;">
          ❌ Aucun rapport sélectionné ou aucune donnée disponible.<br>
          <a href="tableau.php" style="color:#2563eb;">← Retour</a></div>');
 }
 
 // ══════════════════════════════════════════════════════════
-// ── ENVOI EMAIL ───────────────────────────────────────────
+// ── HELPER ENVOI EMAIL ───────────────────────────────────
 // ══════════════════════════════════════════════════════════
-$mail = new PHPMailer(true);
-try {
+function smtpConfig(): array {
+    return [
+        'host'     => 'smtp.gmail.com',
+        'username' => 'zakia.controlflot@gmail.com',
+        'password' => 'vqnslggncuitnavh',
+        'from'     => 'zakia.controlflot@gmail.com',
+        'fromName' => 'Flotte Transport – Rapport Auto',
+    ];
+}
+
+function sendEmailWithPdfs(array $pdfs, string $emailTo, string $sujetLabel, string $periodeLibelle, string $dateGeneration): void {
+    $smtp = smtpConfig();
+    $mail = new PHPMailer(true);
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
+    $mail->Host       = $smtp['host'];
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'zakia.controlflot@gmail.com';
-    $mail->Password   = 'vqnslggncuitnavh';
+    $mail->Username   = $smtp['username'];
+    $mail->Password   = $smtp['password'];
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
-    $mail->setFrom('zakia.controlflot@gmail.com', 'Flotte Transport – Rapport Auto');
-    $mail->addAddress($email_to, 'Destinataire');
+    $mail->setFrom($smtp['from'], $smtp['fromName']);
+    $mail->addAddress($emailTo, 'Destinataire');
     $mail->CharSet = 'UTF-8';
 
-    $labelsJoints = [];
-    foreach ($pdfFiles as $pdf) {
+    foreach ($pdfs as $pdf) {
         $mail->addAttachment($pdf['path'], $pdf['name']);
-        $labelsJoints[] = $pdf['label'];
     }
 
+    $labelsJoints = array_map(fn($p) => $p['label'], $pdfs);
     $listeRapports = implode('', array_map(fn($l) => '<li>' . htmlspecialchars($l) . '</li>', $labelsJoints));
-    $nbRapports    = count($pdfFiles);
-    $sujetLabel    = $nbRapports > 1 ? 'Rapports Flotte BOUTCHERAFIN' : $labelsJoints[0];
+    $nbRapports    = count($pdfs);
 
     $mail->isHTML(true);
-    $mail->Subject = '📋 ' . $sujetLabel . ' – ' . date('d/m/Y');
+    $mail->Subject = '📋 ' . $sujetLabel . ' – Période ' . $periodeLibelle;
     $mail->Body = '
     <div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;">
         <h2 style="color:#0f172a;margin-bottom:4px">' . htmlspecialchars($sujetLabel) . '</h2>
+        <p style="color:#64748b;font-size:14px">Période de traitement : <strong>' . htmlspecialchars($periodeLibelle) . '</strong></p>
         <p style="color:#64748b;font-size:14px">Généré automatiquement le ' . $dateGeneration . '</p>
         <hr style="border:none;border-top:1px solid #e2e8f0;margin:16px 0">
         <p style="font-size:14px;color:#334155">Vous trouverez en pièce jointe <strong>' . $nbRapports . ' rapport(s) PDF</strong> :</p>
@@ -498,34 +535,63 @@ try {
         <p style="font-size:12px;color:#94a3b8">Ce message est généré automatiquement – ne pas répondre.</p>
     </div>';
     $mail->AltBody = $sujetLabel . ' – ' . date('d/m/Y') . ' – Voir les pièces jointes PDF.';
-
     $mail->send();
-    foreach ($pdfFiles as $pdf) { if (file_exists($pdf['path'])) unlink($pdf['path']); }
-
-    echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Email envoyé</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <style>body{font-family:"DM Sans",sans-serif;background:#f0f4f8;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
-    .box{background:#fff;border-radius:16px;padding:40px 48px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.08);max-width:460px}
-    .icon{font-size:3rem;margin-bottom:12px}h2{color:#0f172a;margin:0 0 8px}p{color:#64748b;font-size:.9rem;margin:0 0 8px}
-    .rapports{background:#f0f4f8;border-radius:8px;padding:10px 14px;margin:12px 0 20px;text-align:left;font-size:.85rem;color:#334155}
-    .rapports li{margin:4px 0}a{display:inline-block;background:#0f172a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:.85rem}
-    a:hover{background:#1e293b}</style></head><body>
-    <div class="box">
-        <div class="icon">✅</div>
-        <h2>Email envoyé avec succès !</h2>
-        <p>Rapport(s) envoyé(s) à <strong>' . htmlspecialchars($email_to) . '</strong></p>
-        <ul class="rapports">' . $listeRapports . '</ul>
-        <a href="tableau.php">← Retour au tableau</a>
-    </div></body></html>';
-
-} catch (Exception $e) {
-    foreach ($pdfFiles as $pdf) { if (file_exists($pdf['path'])) unlink($pdf['path']); }
-    echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Erreur</title>
-    <style>body{font-family:Arial,sans-serif;background:#fff0f0;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
-    .box{background:#fff;border-radius:12px;padding:32px;max-width:480px;box-shadow:0 4px 16px rgba(0,0,0,.1)}
-    h2{color:#dc2626}pre{background:#fef2f2;padding:12px;border-radius:8px;font-size:.8rem;overflow-x:auto}a{color:#2563eb}
-    </style></head><body>
-    <div class="box"><h2>❌ Erreur d\'envoi</h2><p>Message PHPMailer :</p>
-    <pre>' . htmlspecialchars($mail->ErrorInfo) . '</pre>
-    <p><a href="tableau.php">← Retour au tableau</a></p></div></body></html>';
 }
+
+// ══════════════════════════════════════════════════════════
+// ── ENVOI EMAIL(S) ───────────────────────────────────────
+// ══════════════════════════════════════════════════════════
+$envoyes = [];
+$erreurs = [];
+
+// ── Email 1 : Rapports Flotte / Détail / Synthèse ───────
+if (!empty($pdfFiles)) {
+    try {
+        $sujetLabel = count($pdfFiles) > 1 ? 'Rapports Flotte Transport' : $pdfFiles[0]['label'];
+        sendEmailWithPdfs($pdfFiles, $email_to, $sujetLabel, $periodeLibelle, $dateGeneration);
+        $envoyes = array_merge($envoyes, array_column($pdfFiles, 'label'));
+        foreach ($pdfFiles as $pdf) { if (file_exists($pdf['path'])) unlink($pdf['path']); }
+    } catch (Exception $e) {
+        $erreurs[] = 'Rapports Flotte : ' . $mail->ErrorInfo ?? $e->getMessage();
+        foreach ($pdfFiles as $pdf) { if (file_exists($pdf['path'])) unlink($pdf['path']); }
+    }
+}
+
+// ══════════════════════════════════════════════════════════
+// ── RÉSULTAT ─────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════
+$flotteLabels    = array_column($pdfFiles, 'label');
+$hadFlotte       = !empty($flotteLabels);
+$hadParcours     = false;
+
+$listeErreurs = empty($erreurs) ? '' : '<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:12px 16px;margin:12px 0;text-align:left;font-size:.85rem;color:#dc2626;"><strong>Erreurs :</strong><ul>' . implode('', array_map(fn($e) => '<li>' . htmlspecialchars($e) . '</li>', $erreurs)) . '</ul></div>';
+
+echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Email envoyé</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>body{font-family:"DM Sans",sans-serif;background:#f0f4f8;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
+.box{background:#fff;border-radius:16px;padding:40px 48px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.08);max-width:520px}
+.icon{font-size:3rem;margin-bottom:12px}h2{color:#0f172a;margin:0 0 8px}p{color:#64748b;font-size:.9rem;margin:0 0 8px}
+.rapports{background:#f0f4f8;border-radius:8px;padding:10px 14px;margin:12px 0 20px;text-align:left;font-size:.85rem;color:#334155}
+.rapports li{margin:4px 0}a{display:inline-block;background:#0f172a;color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:.85rem}
+a:hover{background:#1e293b}
+.sep{margin:16px 0;padding:8px 0;border-top:2px solid #e2e8f0;font-size:.78rem;color:#94a3b8;font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
+</style></head><body>
+<div class="box">
+    <div class="icon">✅</div>
+    <h2>Email(s) envoyé(s) !</h2>
+    <p>Destinataire : <strong>' . htmlspecialchars($email_to) . '</strong></p>
+    <p style="font-size:.8rem;color:#94a3b8;">Période : ' . htmlspecialchars($periodeLibelle) . '</p>';
+
+if ($hadFlotte) {
+    if ($hadParcours) echo '<div class="sep">Email 1 — Rapports Flotte</div>';
+    echo '<ul class="rapports">' . implode('', array_map(fn($l) => '<li>' . htmlspecialchars($l) . '</li>', $flotteLabels)) . '</ul>';
+}
+
+if ($hadParcours) {
+    if ($hadFlotte) echo '<div class="sep">Email 2 — Parcours (envoyé séparément)</div>';
+    echo '<ul class="rapports">' . implode('', array_map(fn($l) => '<li>' . htmlspecialchars($l) . '</li>', $parcoursLabels)) . '</ul>';
+}
+
+echo $listeErreurs . '
+    <a href="tableau.php">← Retour au tableau</a>
+</div></body></html>';
